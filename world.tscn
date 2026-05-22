@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://7b2px7k842e6"]
+
+[ext_resource type="PackedScene" uid="uid://c863v0os4j2pm" path="res://actors/player/player.tscn" id="1_f3sb7"]
+[ext_resource type="Script" uid="uid://sqxm2w3xub73" path="res://actors/player/player_camera.gd" id="2_fj7yv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
+sky_top_color = Color(0.27634427, 0.5678373, 0.72307163, 1)
+sky_horizon_color = Color(0.69408286, 0.75920606, 0.7890147, 1)
+ground_horizon_color = Color(0.69408286, 0.75920606, 0.7890147, 1)
+
+[sub_resource type="Sky" id="Sky_fj7yv"]
+sky_material = SubResource("ProceduralSkyMaterial_f3sb7")
+
+[sub_resource type="Environment" id="Environment_tlwt5"]
+background_mode = 2
+sky = SubResource("Sky_fj7yv")
+tonemap_mode = 2
+ssao_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_aqk2v"]
+offsets = PackedFloat32Array(0, 0.46145833, 1)
+colors = PackedColorArray(0.27212447, 0.1879541, 0.15358445, 1, 0.56, 0.42112002, 0.3864, 1, 0.369576, 0.24734047, 0.22857568, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_036b0"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dwbse"]
+width = 1024
+height = 1204
+noise = SubResource("FastNoiseLite_036b0")
+color_ramp = SubResource("Gradient_aqk2v")
+seamless = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pkg7o"]
+albedo_texture = SubResource("NoiseTexture2D_dwbse")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+
+[node name="Node3D" type="Node3D" unique_id=1664355870]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1570561041]
+environment = SubResource("Environment_tlwt5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1293336529]
+transform = Transform3D(0.3746068, 0.68903184, -0.620407, 0, 0.66913056, 0.74314487, 0.92718375, -0.2783871, 0.25066084, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 500.0
+
+[node name="Player" parent="." unique_id=1603607484 instance=ExtResource("1_f3sb7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.015568, 6.055277, 18.826435)
+max_height = 18.0
+max_height_soft = 10.0
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1020584864 node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.015568, 7.4097605, 22.790798)
+fov = 80.0
+script = ExtResource("2_fj7yv")
+target = NodePath("../Player")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1006093093]
+material_override = SubResource("StandardMaterial3D_pkg7o")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=221822087]
+size = Vector3(255, 1, 255)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="CSGCombiner3D" unique_id=1596596714]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+polygon = PackedVector2Array(-22.045555, 16.96177, -28.533005, 5.579244, -24.286674, -3.9160254, -22.753277, -10.049615, -24.876442, -14.767761, -27.5304, -20.07568, -26.763699, -28.096523, -15.204239, -33.93523, -5.5910225, -33.345463, 2.3708534, -29.040154, 5.2017403, -20.665443, 0.30666733, -15.298553, -2.0524101, -8.752126, 0.66051865, -1.9697925, 9.153187, 3.5150537, 14.166218, 12.302604, 12.691799, 19.851631, 3.019596, 25.100567, -4.8243217, 24.746708, -15.558102, 20.205494)
+depth = 7.0
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="CSGCombiner3D" unique_id=1611099407]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 52.135525, 0, 0)
+polygon = PackedVector2Array(-10.604065, 12.243627, -8.068054, 5.579244, -7.4782867, -4.269887, -9.778381, -9.63678, -11.311783, -16.949905, -8.186012, -21.49112, 2.4887848, -23.968147, 9.742935, -23.37838, 15.640629, -16.537067, 6.794098, -9.990639, 4.6119537, -3.2672827, 6.9710236, 4.399705, 18.884357, -3.1493285, 25.725666, -4.800679, 29.205296, -12.880503, 28.733479, -20.901352, 24.42818, -27.683685, 31.092564, -29.6889, 39.939075, -21.255215, 36.99024, 2.276541, 30.325855, 12.066695, 16.525272, 18.200283, 1.3682327, 21.03117, -8.539879, 18.318237)
+depth = 10.0
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="CSGCombiner3D" unique_id=1802834287]
+transform = Transform3D(0.13265431, 0, 0.9911625, 0.921674, 0.36783248, -0.123354174, -0.36458173, 0.9298922, 0.048794564, 27.764397, 6.4692173, 0)
+inner_radius = 4.274395
+outer_radius = 11.171613
+sides = 20
+ring_sides = 8
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=502869982]
+transform = Transform3D(0.9229014, -0.3838394, -0.0303369, 0, 0.078789696, -0.99689126, 0.38503638, 0.9200323, 0.07271512, 53.948177, 5.4733243, 11.598637)
+operation = 2
+radius = 1.875
+height = 28.094116
+sides = 12

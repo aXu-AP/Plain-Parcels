@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://c863v0os4j2pm"]
+
+[ext_resource type="Script" uid="uid://470wsxu0s7ig" path="res://actors/player/player.gd" id="1_nvxhs"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_6uhly"]
+size = Vector3(3, 3, 0.5)
+
+[sub_resource type="SphereMesh" id="SphereMesh_nvxhs"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ilk7j"]
+points = PackedVector3Array(0, 1.5, 0.25, 1.5, -1.5, 0.25, 0, 1.5, -0.25, -1.5, -1.5, 0.25, 1.5, -1.5, -0.25, -1.5, -1.5, -0.25)
+
+[node name="Player" type="CharacterBody3D" unique_id=1603607484]
+motion_mode = 1
+script = ExtResource("1_nvxhs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1216781747]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("PrismMesh_6uhly")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D" unique_id=1261931622]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.61989814, 0.24776855)
+mesh = SubResource("SphereMesh_nvxhs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1021480671]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_ilk7j")
+
+[node name="Label" type="Label" parent="." unique_id=588177113]
+offset_right = 40.0
+offset_bottom = 23.0
