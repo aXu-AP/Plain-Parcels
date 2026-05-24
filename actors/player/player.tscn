@@ -11,6 +11,7 @@ size = Vector3(3, 3, 0.5)
 points = PackedVector3Array(0, 1.5, 0.25, 1.5, -1.5, 0.25, 0, 1.5, -0.25, -1.5, -1.5, 0.25, 1.5, -1.5, -0.25, -1.5, -1.5, -0.25)
 
 [node name="Player" type="CharacterBody3D" unique_id=1603607484]
+collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_nvxhs")
 

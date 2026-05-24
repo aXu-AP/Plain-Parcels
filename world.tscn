@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://c863v0os4j2pm" path="res://actors/player/player.tscn" id="1_f3sb7"]
 [ext_resource type="Script" uid="uid://sqxm2w3xub73" path="res://actors/player/player_camera.gd" id="2_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://kxjnuco5kcko" path="res://actors/quest_point/quest_point.tscn" id="3_tlwt5"]
+[ext_resource type="Script" uid="uid://b1fj4r4p7fhj5" path="res://misc/quest.gd" id="4_aqk2v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_top_color = Color(0.27634427, 0.5678373, 0.72307163, 1)
@@ -35,6 +37,31 @@ albedo_texture = SubResource("NoiseTexture2D_dwbse")
 uv1_scale = Vector3(0.1, 0.1, 0.1)
 uv1_triplanar = true
 
+[sub_resource type="Resource" id="Resource_036b0"]
+script = ExtResource("4_aqk2v")
+name = "Test Quest"
+time_limit = 5
+metadata/_custom_type_script = "uid://b1fj4r4p7fhj5"
+
+[sub_resource type="Resource" id="Resource_aqk2v"]
+script = ExtResource("4_aqk2v")
+name = "Series Test 2"
+time_limit = 3
+metadata/_custom_type_script = "uid://b1fj4r4p7fhj5"
+
+[sub_resource type="Resource" id="Resource_dwbse"]
+script = ExtResource("4_aqk2v")
+name = "Series Test 1"
+continuation = SubResource("Resource_aqk2v")
+metadata/_custom_type_script = "uid://b1fj4r4p7fhj5"
+
+[sub_resource type="Resource" id="Resource_pkg7o"]
+script = ExtResource("4_aqk2v")
+name = "Multigoal Quest"
+goals = 3
+time_limit = 30
+metadata/_custom_type_script = "uid://b1fj4r4p7fhj5"
+
 [node name="Node3D" type="Node3D" unique_id=1664355870]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1570561041]
@@ -46,12 +73,12 @@ shadow_enabled = true
 directional_shadow_max_distance = 500.0
 
 [node name="Player" parent="." unique_id=1603607484 instance=ExtResource("1_f3sb7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.015568, 6.055277, 18.826435)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 27.015568, 6.055277, -7.8141003)
 max_height = 18.0
 max_height_soft = 10.0
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1020584864 node_paths=PackedStringArray("target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.015568, 7.4097605, 22.790798)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 27.016, 8, -12.140488)
 fov = 80.0
 script = ExtResource("2_fj7yv")
 target = NodePath("../Player")
@@ -86,3 +113,68 @@ operation = 2
 radius = 1.875
 height = 28.094116
 sides = 12
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1351497479]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.795415, 4.203632, 51.812927)
+size = Vector3(12.436462, 8.380737, 14.492676)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=2023924195]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.127653, 4.203632, 51.94762)
+size = Vector3(12.436462, 8.380737, 14.492676)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D" unique_id=415197509]
+transform = Transform3D(0.6247386, 0, -0.780834, 0, 1, 0, 0.780834, 0, 0.6247386, -15.79862, 3.1797976, 88.31375)
+size = Vector3(12.436462, 6.333069, 14.492676)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1768246325]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.547775, 6.328769, 74.24028)
+size = Vector3(6.7934265, 12.631012, 6.369751)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1165358644]
+transform = Transform3D(0.8438694, 0, -0.5365487, 0, 1, 0, 0.5365487, 0, 0.8438694, -0.8871875, 6.328769, 74.24028)
+size = Vector3(6.7934265, 12.631012, 6.369751)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D" unique_id=159856323]
+transform = Transform3D(0.8438694, 0, -0.5365487, 0, 1, 0, 0.5365487, 0, 0.8438694, 20.400116, 1.762733, 71.75538)
+size = Vector3(6.7934265, 3.4989395, 6.369751)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D" unique_id=634240096]
+transform = Transform3D(0.8438694, 0, -0.5365487, 0, 1, 0, 0.5365487, 0, 0.8438694, 18.478863, 1.762733, 77.85161)
+size = Vector3(10.021591, 3.4989395, 6.369751)
+
+[node name="QuestPoint" parent="." unique_id=1895422752 instance=ExtResource("3_tlwt5")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 29.922827, 2.0653539, 76.03464)
+quest_to_start = SubResource("Resource_036b0")
+
+[node name="QuestPoint3" parent="." unique_id=546510407 instance=ExtResource("3_tlwt5")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 51.67518, 2.0653539, 37.94866)
+quest_to_start = SubResource("Resource_dwbse")
+
+[node name="QuestPoint6" parent="." unique_id=994692261 instance=ExtResource("3_tlwt5")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -66.17058, 2.0653577, 54.950066)
+quest_to_start = SubResource("Resource_pkg7o")
+
+[node name="QuestPoint7" parent="." unique_id=42907753 instance=ExtResource("3_tlwt5")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -14.970242, 9.927936, 51.844807)
+quest_to_goal = SubResource("Resource_pkg7o")
+
+[node name="QuestPoint8" parent="." unique_id=1948985364 instance=ExtResource("3_tlwt5")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 7.307045, 9.612321, 51.99424)
+quest_to_goal = SubResource("Resource_pkg7o")
+
+[node name="QuestPoint9" parent="." unique_id=1060353130 instance=ExtResource("3_tlwt5")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -15.803764, 8.530126, 88.43503)
+quest_to_goal = SubResource("Resource_pkg7o")
+
+[node name="QuestPoint4" parent="." unique_id=980856128 instance=ExtResource("3_tlwt5")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 35.37605, 2.0653539, 33.78234)
+quest_to_start = SubResource("Resource_aqk2v")
+quest_to_goal = SubResource("Resource_dwbse")
+
+[node name="QuestPoint5" parent="." unique_id=1420992607 instance=ExtResource("3_tlwt5")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 13.634125, 2.0653539, 36.947426)
+quest_to_goal = SubResource("Resource_aqk2v")
+
+[node name="QuestPoint2" parent="." unique_id=890679865 instance=ExtResource("3_tlwt5")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -11.172083, 8.196376, 2.5635986)
+quest_to_goal = SubResource("Resource_036b0")
