@@ -5,14 +5,18 @@
 [ext_resource type="PackedScene" uid="uid://b50bj3akoxoom" path="res://actors/arrow/arrow.tscn" id="3_dwbse"]
 [ext_resource type="PackedScene" uid="uid://kxjnuco5kcko" path="res://actors/quest_point/quest_point.tscn" id="3_tlwt5"]
 [ext_resource type="Script" uid="uid://b1fj4r4p7fhj5" path="res://misc/quest.gd" id="4_aqk2v"]
+[ext_resource type="Texture2D" uid="uid://xomhfe54vky2" path="res://portraits/granny.png" id="5_hiqwa"]
 [ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="5_pkg7o"]
 [ext_resource type="PackedScene" uid="uid://tidsuj62i3av" path="res://actors/ocean/ocean.tscn" id="6_dwbse"]
-[ext_resource type="Texture2D" uid="uid://bq0dyx8iwoqv4" path="res://icon.svg" id="7_gbfbk"]
+[ext_resource type="Texture2D" uid="uid://cxd2rakh8wilu" path="res://portraits/dude1.png" id="8_70uel"]
 [ext_resource type="PackedScene" uid="uid://d4lgnhbh2acyf" path="res://environment/buildings/corner_col.glb" id="9_ic0uy"]
 [ext_resource type="PackedScene" uid="uid://di3v1ch8fq7j1" path="res://environment/buildings/halfarc_col.glb" id="10_k3n1d"]
 [ext_resource type="PackedScene" uid="uid://do3akernwtx10" path="res://environment/buildings/octacon_col.glb" id="11_2o6r5"]
-[ext_resource type="PackedScene" uid="uid://bh4f6h2smo7qj" path="res://environment/buildings/crane_tower.glb" id="12_k3n1d"]
 [ext_resource type="PackedScene" uid="uid://cabed1rpt4083" path="res://environment/buildings/crane.tscn" id="13_2o6r5"]
+[ext_resource type="PackedScene" uid="uid://c0o43vgw2jfhd" path="res://actors/person/person.tscn" id="15_hiqwa"]
+[ext_resource type="Texture2D" uid="uid://bxpou3hhfy705" path="res://portraits/alien.png" id="16_2u3nc"]
+[ext_resource type="Texture2D" uid="uid://dqek12rw4v47f" path="res://portraits/rich_man.png" id="16_ikiii"]
+[ext_resource type="Texture2D" uid="uid://y6eau7msgfgj" path="res://portraits/boy.png" id="16_udxuc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_top_color = Color(0.27634427, 0.5678373, 0.72307163, 1)
@@ -50,19 +54,19 @@ uv1_triplanar = true
 [sub_resource type="Resource" id="Resource_wse8f"]
 script = ExtResource("5_pkg7o")
 text = "Oh no!"
-portrait = ExtResource("7_gbfbk")
+portrait = ExtResource("5_hiqwa")
 metadata/_custom_type_script = "uid://u31paso7yk1x"
 
 [sub_resource type="Resource" id="Resource_ioo17"]
 script = ExtResource("5_pkg7o")
-text = "Thanks!"
-portrait = ExtResource("7_gbfbk")
+text = "Whoa these are the best!"
+portrait = ExtResource("16_udxuc")
 metadata/_custom_type_script = "uid://u31paso7yk1x"
 
 [sub_resource type="Resource" id="Resource_gbfbk"]
 script = ExtResource("5_pkg7o")
-text = "Take these cookies to my granny."
-portrait = ExtResource("7_gbfbk")
+text = "Take these cookies to my grandson."
+portrait = ExtResource("5_hiqwa")
 metadata/_custom_type_script = "uid://u31paso7yk1x"
 
 [sub_resource type="Resource" id="Resource_036b0"]
@@ -74,10 +78,18 @@ goal_message = SubResource("Resource_ioo17")
 fail_message = SubResource("Resource_wse8f")
 metadata/_custom_type_script = "uid://b1fj4r4p7fhj5"
 
+[sub_resource type="Resource" id="Resource_hiqwa"]
+script = ExtResource("5_pkg7o")
+text = "Thanks for taking my request!"
+portrait = ExtResource("8_70uel")
+duration = 3.0
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
 [sub_resource type="Resource" id="Resource_aqk2v"]
 script = ExtResource("4_aqk2v")
 name = "Series Test 2"
 time_limit = 3
+start_message = SubResource("Resource_hiqwa")
 metadata/_custom_type_script = "uid://b1fj4r4p7fhj5"
 
 [sub_resource type="Resource" id="Resource_dwbse"]
@@ -110,6 +122,7 @@ max_height_soft = 10.0
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1020584864 node_paths=PackedStringArray("target")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 27.016, 8, -12.140488)
+current = true
 fov = 80.0
 script = ExtResource("2_fj7yv")
 target = NodePath("../Player")
@@ -271,8 +284,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.86686, 0.5000038, -58.041
 [node name="octacon_col2" parent="." unique_id=588387575 instance=ExtResource("11_2o6r5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.06456, 0.50001144, -69.009605)
 
-[node name="crane_tower2" parent="." unique_id=935992211 instance=ExtResource("12_k3n1d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.853123, 0.5000076, -79.596664)
-
 [node name="crane" parent="." unique_id=1313281722 instance=ExtResource("13_2o6r5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.3216, 0.75, -70.647964)
+
+[node name="Node3D" parent="." unique_id=320828333 instance=ExtResource("15_hiqwa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.869305, 0.52009416, -38.932915)
+portrait = ExtResource("5_hiqwa")
+
+[node name="Node3D4" parent="." unique_id=1574174071 instance=ExtResource("15_hiqwa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.643147, 0.52009416, 41.62812)
+portrait = ExtResource("16_ikiii")
+
+[node name="Node3D2" parent="." unique_id=17138524 instance=ExtResource("15_hiqwa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.65509, 8.508281, -69.103806)
+portrait = ExtResource("16_udxuc")
+
+[node name="Node3D3" parent="." unique_id=417465891 instance=ExtResource("15_hiqwa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.290596, 7.5295, 103.43141)
+portrait = ExtResource("16_2u3nc")

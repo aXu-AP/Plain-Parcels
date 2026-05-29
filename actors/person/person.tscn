@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c0o43vgw2jfhd"]
+
+[ext_resource type="Script" uid="uid://dna2mgleql45j" path="res://actors/person/person.gd" id="1_6apwp"]
+[ext_resource type="Material" uid="uid://br5vxykep0o1f" path="res://actors/person/head.material" id="2_6apwp"]
+[ext_resource type="PackedScene" uid="uid://csfepaqww6xcq" path="res://actors/person/torso.glb" id="3_bi1tg"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_ry88l"]
+
+[node name="Node3D" type="Node3D" unique_id=320828333]
+script = ExtResource("1_6apwp")
+
+[node name="Head" type="MeshInstance3D" parent="." unique_id=709372128]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.777947, 0)
+mesh = SubResource("QuadMesh_ry88l")
+surface_material_override/0 = ExtResource("2_6apwp")
+
+[node name="Torso" parent="." unique_id=1998308787 instance=ExtResource("3_bi1tg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 0)
