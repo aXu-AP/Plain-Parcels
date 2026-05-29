@@ -14,7 +14,7 @@ func _ready() -> void:
 	if quest_to_goal != null:
 		quest_to_goal.started.connect(on_quest_started)
 		quest_to_goal.ended.connect(on_quest_to_goal_ended)
-		if quest_to_goal not in QuestManager.active_quests:
+		if quest_to_goal.status != Quest.Status.ACTIVE:
 			visible = false
 
 

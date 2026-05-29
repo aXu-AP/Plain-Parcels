@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bn0sh6bm6kifd"]
+
+[ext_resource type="Script" uid="uid://bhpaa1rqeh450" path="res://gui/dialogue_box/dialogue_box.gd" id="1_pi2qo"]
+[ext_resource type="Texture2D" uid="uid://bq0dyx8iwoqv4" path="res://icon.svg" id="2_84gmr"]
+
+[node name="DialogueBox" type="PanelContainer" unique_id=689222758]
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = -200.0
+offset_right = -200.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_pi2qo")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=193989536]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=2107596256]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Portrait" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1200806410]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_84gmr")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="DialogueText" type="RichTextLabel" parent="MarginContainer/HBoxContainer" unique_id=743305906]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "This is [b]dialogue[/b]."

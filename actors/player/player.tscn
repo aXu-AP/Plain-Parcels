@@ -2,31 +2,92 @@
 
 [ext_resource type="Script" uid="uid://470wsxu0s7ig" path="res://actors/player/player.gd" id="1_nvxhs"]
 
-[sub_resource type="PrismMesh" id="PrismMesh_6uhly"]
-size = Vector3(3, 3, 0.5)
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_nvxhs"]
+height = 3.0
 
-[sub_resource type="SphereMesh" id="SphereMesh_nvxhs"]
+[sub_resource type="PrismMesh" id="PrismMesh_ilk7j"]
+size = Vector3(0.3, 1, 2)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ilk7j"]
-points = PackedVector3Array(0, 1.5, 0.25, 1.5, -1.5, 0.25, 0, 1.5, -0.25, -1.5, -1.5, 0.25, 1.5, -1.5, -0.25, -1.5, -1.5, -0.25)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ax26v"]
+cull_mode = 2
+metallic = 1.0
+roughness = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lsqbn"]
+material = SubResource("StandardMaterial3D_ax26v")
+size = Vector2(0.1, 1.3)
+
+[sub_resource type="Animation" id="Animation_6p1w3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Propeller:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.5707964, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_15y17"]
+resource_name = "propeller"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Propeller:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.5707964, 0, 0), Vector3(-1.5707964, 0, 6.2831855)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bop6h"]
+_data = {
+&"RESET": SubResource("Animation_6p1w3"),
+&"propeller": SubResource("Animation_15y17")
+}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nvxhs"]
+height = 3.0
 
 [node name="Player" type="CharacterBody3D" unique_id=1603607484]
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_nvxhs")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1216781747]
+[node name="Body" type="MeshInstance3D" parent="." unique_id=1216781747]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
-mesh = SubResource("PrismMesh_6uhly")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D" unique_id=1261931622]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.61989814, 0.24776855)
-mesh = SubResource("SphereMesh_nvxhs")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1021480671]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_ilk7j")
+mesh = SubResource("CapsuleMesh_nvxhs")
 
 [node name="Label" type="Label" parent="." unique_id=588177113]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="WingR" type="MeshInstance3D" parent="." unique_id=1710462313]
+transform = Transform3D(-4.371139e-08, -4.371139e-08, 1, -1, 1.9106855e-15, -4.371139e-08, 0, -1, -4.371139e-08, 1, 0, 0)
+mesh = SubResource("PrismMesh_ilk7j")
+
+[node name="WingL" type="MeshInstance3D" parent="." unique_id=1909991298]
+transform = Transform3D(-4.371139e-08, -4.371139e-08, 1, -1, 1.9106855e-15, -4.371139e-08, 0, -1, -4.371139e-08, -1, 0, 0)
+mesh = SubResource("PrismMesh_ilk7j")
+
+[node name="Propeller" type="MeshInstance3D" parent="." unique_id=1534541402]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -1.5652518)
+rotation_order = 3
+mesh = SubResource("PlaneMesh_lsqbn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=335812659]
+libraries/ = SubResource("AnimationLibrary_bop6h")
+autoplay = &"propeller"
+
+[node name="BodyCol" type="CollisionShape3D" parent="." unique_id=2008562664]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_nvxhs")

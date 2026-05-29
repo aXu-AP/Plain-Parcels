@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://tidsuj62i3av"]
+
+[ext_resource type="ArrayMesh" uid="uid://shun2jp7fcng" path="res://materials/ocean.obj" id="1_fcif3"]
+[ext_resource type="Material" uid="uid://dlet0jny1l62s" path="res://materials/water.material" id="2_dvm1j"]
+[ext_resource type="Script" uid="uid://bionciofrhs5b" path="res://actors/ocean/ocean.gd" id="3_dvm1j"]
+
+[node name="Ocean" type="MeshInstance3D" unique_id=125061546]
+cast_shadow = 0
+mesh = ExtResource("1_fcif3")
+surface_material_override/0 = ExtResource("2_dvm1j")
+script = ExtResource("3_dvm1j")

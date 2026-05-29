@@ -17,5 +17,9 @@ enum Status {
 @export_group("Multipart", "multi_part")
 @export var continuation: Quest
 @export var status := Status.AVAILABLE
+@export var start_message: Message
+@export var goal_message: Message
+@export var fail_message: Message
+@export var mid_goal_messages: Array[Message]
 
 var goals_left: int

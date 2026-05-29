@@ -10,6 +10,7 @@
 colors = PackedColorArray(0, 0.24, 0.228, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_er5hj"]
+resource_name = "quest_point"
 gradient = SubResource("Gradient_j67tr")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
@@ -41,6 +42,7 @@ noise_type = 2
 frequency = 0.0149
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_iywyb"]
+resource_name = "quest_point"
 noise = SubResource("FastNoiseLite_fcvun")
 color_ramp = SubResource("Gradient_m7dn2")
 seamless = true
@@ -62,7 +64,7 @@ func _process(delta: float) -> void:
 	mat.uv1_offset.y += delta * .3
 "
 
-[node name="QuestPoint" type="Area3D" unique_id=1895422752]
+[node name="QuestPoint" type="Area3D" unique_id=1895422752 groups=["quest_points"]]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 collision_layer = 4
 collision_mask = 2
