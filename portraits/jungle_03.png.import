@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqek12rw4v47f"
-path="res://.godot/imported/rich_man.png-4266f949a7261956b4ec564995bc9e10.ctex"
+uid="uid://csmvb474vd8yo"
+path="res://.godot/imported/jungle_03.png-efd1da8b9a42e2a0c7e25169ceb93267.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://portraits/rich_man.png"
-dest_files=["res://.godot/imported/rich_man.png-4266f949a7261956b4ec564995bc9e10.ctex"]
+source_file="res://portraits/jungle_03.png"
+dest_files=["res://.godot/imported/jungle_03.png-efd1da8b9a42e2a0c7e25169ceb93267.ctex"]
 
 [params]
 

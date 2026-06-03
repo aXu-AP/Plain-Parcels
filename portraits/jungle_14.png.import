@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbcnjxraj6eo3"
-path="res://.godot/imported/friendly_guy.png-5c10df8f1e10b16fa6541baf722bade4.ctex"
+uid="uid://bg10dpig1hcyj"
+path="res://.godot/imported/jungle_14.png-a64618870161ea5baf30cfdb6c562dfa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://portraits/friendly_guy.png"
-dest_files=["res://.godot/imported/friendly_guy.png-5c10df8f1e10b16fa6541baf722bade4.ctex"]
+source_file="res://portraits/jungle_14.png"
+dest_files=["res://.godot/imported/jungle_14.png-a64618870161ea5baf30cfdb6c562dfa.ctex"]
 
 [params]
 

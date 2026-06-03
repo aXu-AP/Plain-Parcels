@@ -117,6 +117,9 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_bop6h"]
 material = SubResource("StandardMaterial3D_15y17")
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_nvxhs"]
+radius = 2.0
+
 [node name="Player" type="CharacterBody3D" unique_id=1603607484]
 collision_layer = 2
 motion_mode = 1
@@ -216,3 +219,11 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 110.0
 offset_bottom = 37.0
+
+[node name="Interaction" type="Area3D" parent="." unique_id=60454615]
+unique_name_in_owner = true
+collision_layer = 2
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interaction" unique_id=900935709]
+shape = SubResource("SphereShape3D_nvxhs")

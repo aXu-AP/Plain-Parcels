@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr5wiaphqbdhb"
-path="res://.godot/imported/angry_man.png-c522b1215cff9cf65f539815804de5e6.ctex"
+uid="uid://dqek12rw4v47f"
+path="res://.godot/imported/city_12.png-d40d42a721b7cfecc304cdbe397a745c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://portraits/angry_man.png"
-dest_files=["res://.godot/imported/angry_man.png-c522b1215cff9cf65f539815804de5e6.ctex"]
+source_file="res://portraits/city_12.png"
+dest_files=["res://.godot/imported/city_12.png-d40d42a721b7cfecc304cdbe397a745c.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xomhfe54vky2"
-path="res://.godot/imported/granny.png-b7831ce290233267f543ed5031e53d20.ctex"
+uid="uid://y6eau7msgfgj"
+path="res://.godot/imported/city_04.png-2d9adfa6ab8887213a5726870e7e10f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://portraits/granny.png"
-dest_files=["res://.godot/imported/granny.png-b7831ce290233267f543ed5031e53d20.ctex"]
+source_file="res://portraits/city_04.png"
+dest_files=["res://.godot/imported/city_04.png-2d9adfa6ab8887213a5726870e7e10f8.ctex"]
 
 [params]
 

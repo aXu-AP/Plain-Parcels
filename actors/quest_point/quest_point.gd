@@ -34,12 +34,12 @@ func on_quest_to_goal_ended(finished: bool) -> void:
 func interact() -> void:
 	if not visible:
 		return
-	if quest_to_start != null:
-		QuestManager.start_quest(quest_to_start)
-		print("Quest started: %s!" % quest_to_start.name)
 	if quest_to_goal != null:
 		quest_to_goal.goals_left -= 1
 		if quest_to_goal.goals_left == 0:
-			QuestManager.end_quest(quest_to_goal, true)
+			QuestManager.end_quest(quest_to_goal, QuestManager.EndState.COMPLETE)
 			print("Quest finished: %s!" % quest_to_goal.name)
+	if quest_to_start != null:
+		QuestManager.start_quest(quest_to_start)
+		print("Quest started: %s!" % quest_to_start.name)
 	visible = false

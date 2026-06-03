@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://y6eau7msgfgj"
-path="res://.godot/imported/boy.png-e4ee15bdca2da347bfee1c0a9a3ce15f.ctex"
+uid="uid://dgk0tf1krtkyn"
+path="res://.godot/imported/jungle_10.png-9b156d8a73accfef581445e963e9260a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://portraits/boy.png"
-dest_files=["res://.godot/imported/boy.png-e4ee15bdca2da347bfee1c0a9a3ce15f.ctex"]
+source_file="res://portraits/jungle_10.png"
+dest_files=["res://.godot/imported/jungle_10.png-9b156d8a73accfef581445e963e9260a.ctex"]
 
 [params]
 

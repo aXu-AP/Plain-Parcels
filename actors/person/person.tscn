@@ -6,7 +6,7 @@
 
 [sub_resource type="QuadMesh" id="QuadMesh_ry88l"]
 
-[node name="Node3D" type="Node3D" unique_id=320828333]
+[node name="Person" type="Node3D" unique_id=320828333]
 script = ExtResource("1_6apwp")
 
 [node name="Head" type="MeshInstance3D" parent="." unique_id=709372128]
