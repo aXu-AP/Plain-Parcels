@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://c4odctxla17ro"]
+
+[ext_resource type="Script" uid="uid://decser6sc8hjm" path="res://gui/gui.gd" id="1_yw5qc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a4rkh"]
+font_size = 100
+
+[sub_resource type="Gradient" id="Gradient_yw5qc"]
+offsets = PackedFloat32Array(0, 0.97162575, 0.976227)
+colors = PackedColorArray(0.9411765, 0.8784314, 0, 1, 0.9411765, 0.8784314, 0, 1, 0.9411765, 0.8784314, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ioifv"]
+gradient = SubResource("Gradient_yw5qc")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="Gui" type="Control" unique_id=983143716]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yw5qc")
+
+[node name="TimerLabel" type="Label" parent="." unique_id=831767550]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "00"
+label_settings = SubResource("LabelSettings_a4rkh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=248025148]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 320.0
+offset_bottom = 60.0
+theme_override_constants/separation = 8
+
+[node name="HealthBar" type="ProgressBar" parent="VBoxContainer" unique_id=1083027466]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=2133923937]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer" unique_id=1214209214]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_ioifv")
+expand_mode = 3
+
+[node name="CoinLabel" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=288046204]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00"

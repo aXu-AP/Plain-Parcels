@@ -28,12 +28,12 @@ sky_top_color = Color(0.27634427, 0.5678373, 0.72307163, 1)
 sky_horizon_color = Color(0.69408286, 0.75920606, 0.7890147, 1)
 ground_horizon_color = Color(0.69408286, 0.75920606, 0.7890147, 1)
 
-[sub_resource type="Sky" id="Sky_fj7yv"]
+[sub_resource type="Sky" id="Sky_wukud"]
 sky_material = SubResource("ProceduralSkyMaterial_f3sb7")
 
 [sub_resource type="Environment" id="Environment_tlwt5"]
 background_mode = 2
-sky = SubResource("Sky_fj7yv")
+sky = SubResource("Sky_wukud")
 tonemap_mode = 2
 ssao_enabled = true
 
@@ -56,106 +56,32 @@ albedo_texture = SubResource("NoiseTexture2D_dwbse")
 uv1_scale = Vector3(0.1, 0.1, 0.1)
 uv1_triplanar = true
 
-[sub_resource type="Resource" id="Resource_wse8f"]
-script = ExtResource("5_pkg7o")
-text = "You are taking too long! The cookies are no longer fresh!"
-portrait = ExtResource("5_hiqwa")
-metadata/_custom_type_script = "uid://u31paso7yk1x"
-
-[sub_resource type="Resource" id="Resource_ioo17"]
-script = ExtResource("5_pkg7o")
-text = "Whoa these are the best!
-Thanks pilot!"
-portrait = ExtResource("16_udxuc")
-metadata/_custom_type_script = "uid://u31paso7yk1x"
-
-[sub_resource type="Resource" id="Resource_gbfbk"]
-script = ExtResource("5_pkg7o")
-text = "My grandson is at the fair and he must be hungry.
-Take these cookies to my him."
-portrait = ExtResource("5_hiqwa")
-metadata/_custom_type_script = "uid://u31paso7yk1x"
-
 [sub_resource type="Resource" id="Resource_036b0"]
 script = ExtResource("4_aqk2v")
 name = "Test Quest"
 time_limit = 10
-start_message = SubResource("Resource_gbfbk")
-goal_message = SubResource("Resource_ioo17")
-fail_message = SubResource("Resource_wse8f")
 metadata/_custom_type_script = "uid://b1fj4r4p7fhj5"
-
-[sub_resource type="Resource" id="Resource_wukud"]
-script = ExtResource("5_pkg7o")
-text = "The ducks are thankful and so am I!"
-portrait = ExtResource("9_wukud")
-metadata/_custom_type_script = "uid://u31paso7yk1x"
-
-[sub_resource type="Resource" id="Resource_il2jm"]
-script = ExtResource("5_pkg7o")
-text = "Please feed these ducks!"
-portrait = ExtResource("9_wukud")
-metadata/_custom_type_script = "uid://u31paso7yk1x"
 
 [sub_resource type="Resource" id="Resource_pkg7o"]
 script = ExtResource("4_aqk2v")
 name = "Multigoal Quest"
 goals = 3
-start_message = SubResource("Resource_il2jm")
-goal_message = SubResource("Resource_wukud")
 metadata/_custom_type_script = "uid://b1fj4r4p7fhj5"
-
-[sub_resource type="Resource" id="Resource_wjb0r"]
-script = ExtResource("5_pkg7o")
-text = "Thank you! Isn't it a great view from here?"
-portrait = ExtResource("10_wjb0r")
-metadata/_custom_type_script = "uid://u31paso7yk1x"
-
-[sub_resource type="Resource" id="Resource_hiqwa"]
-script = ExtResource("5_pkg7o")
-text = "Can you bring them to me?"
-portrait = ExtResource("10_wjb0r")
-duration = 3.0
-metadata/_custom_type_script = "uid://u31paso7yk1x"
 
 [sub_resource type="Resource" id="Resource_aqk2v"]
 script = ExtResource("4_aqk2v")
 name = "Missing Tools 3"
-start_message = SubResource("Resource_hiqwa")
-goal_message = SubResource("Resource_wjb0r")
 metadata/_custom_type_script = "uid://b1fj4r4p7fhj5"
-
-[sub_resource type="Resource" id="Resource_bo7i5"]
-script = ExtResource("5_pkg7o")
-text = "Wind knocked over my coworker's toolbox!
-Can you help him?"
-portrait = ExtResource("11_mc2jv")
-metadata/_custom_type_script = "uid://u31paso7yk1x"
 
 [sub_resource type="Resource" id="Resource_dwbse"]
 script = ExtResource("4_aqk2v")
 name = "Missing Tools 1"
 continuation = SubResource("Resource_aqk2v")
-start_message = SubResource("Resource_bo7i5")
 metadata/_custom_type_script = "uid://b1fj4r4p7fhj5"
-
-[sub_resource type="Resource" id="Resource_4h6ng"]
-script = ExtResource("5_pkg7o")
-text = "I think that's all the tools."
-portrait = ExtResource("11_mc2jv")
-metadata/_custom_type_script = "uid://u31paso7yk1x"
-
-[sub_resource type="Resource" id="Resource_o3ebs"]
-script = ExtResource("5_pkg7o")
-text = "I think I saw the hammer there!"
-portrait = ExtResource("11_mc2jv")
-metadata/_custom_type_script = "uid://u31paso7yk1x"
 
 [sub_resource type="Resource" id="Resource_k83mh"]
 script = ExtResource("4_aqk2v")
 name = "Missing Tools 2"
-start_message = SubResource("Resource_o3ebs")
-goal_message = SubResource("Resource_4h6ng")
 metadata/_custom_type_script = "uid://b1fj4r4p7fhj5"
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_cbp6q"]
@@ -179,6 +105,7 @@ directional_shadow_max_distance = 500.0
 [node name="Player" parent="." unique_id=1603607484 instance=ExtResource("1_f3sb7")]
 transform = Transform3D(0.9163767, 0, -0.40031725, 0, 1, 0, 0.40031725, 0, 0.9163767, -111.43321, 6.055277, 126.85454)
 max_height = 18.0
+max_health = 100
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1020584864 node_paths=PackedStringArray("target")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 27.016, 8, -12.140488)
@@ -271,7 +198,7 @@ depth = 62.45
 
 [node name="CSGTorus3D" type="CSGTorus3D" parent="CSGCombiner3D" unique_id=1415363789]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 7, 0)
-inner_radius = 3.0332277
+inner_radius = 2.3963273
 outer_radius = 3.9835625
 sides = 24
 
@@ -623,7 +550,7 @@ polygon = PackedVector2Array(-1.869194, 0.06350088, -0.46871948, 3.9607878, 1.19
 depth = 18.34
 
 [node name="CSGPolygon3D49" type="CSGPolygon3D" parent="CSGCombiner3D" unique_id=1579165645]
-transform = Transform3D(0.32401657, 0, 0.9460515, 0, 1, 0, -0.9460515, 0, 0.32401657, 72.97908, 5.582506, 89.78808)
+transform = Transform3D(0.29270905, -0.11052701, 0.9497922, 0.2896901, 0.9568659, 0.022072839, -0.9112636, 0.2686845, 0.31210196, 72.97908, 1.9029341, 89.78808)
 polygon = PackedVector2Array(-0.46871948, 3.9607878, 1.1985779, 5.3590198, 3.1766357, 5.8264747, 5.368309, 5.359735, 7.5769196, 3.8924532, 8.9444275, -0.9165721)
 depth = 18.34
 
@@ -723,6 +650,7 @@ transform = Transform3D(-0.8660254, 0, -0.49999988, 0, 1, 0, 0.49999988, 0, -0.8
 
 [node name="Reference" type="MeshInstance3D" parent="." unique_id=675973626]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+visible = false
 mesh = SubResource("PlaneMesh_cbp6q")
 surface_material_override/0 = SubResource("StandardMaterial3D_26xuy")
 metadata/_edit_lock_ = true
@@ -761,6 +689,7 @@ panning_strength = 0.6
 
 [node name="BigCoin" parent="." unique_id=938082553 instance=ExtResource("21_bc84e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01820898, 6.9228745, -0.094177455)
+quest_name = &"Fountain Coin"
 
 [node name="BeachCoins" type="Node3D" parent="." unique_id=1419342177]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 147.06158)
