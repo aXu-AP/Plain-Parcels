@@ -10,10 +10,12 @@ extends Area3D
 
 func _ready() -> void:
 	if quest_to_start != null:
-		quest_to_start.ended.connect(on_quest_to_start_ended)
+		if quest_to_start.name in Globals.flags:
+			queue_free()
+		quest_to_start.ended.connect(on_quest_to_start_ended.unbind(1))
 	if quest_to_goal != null:
 		quest_to_goal.started.connect(on_quest_started)
-		quest_to_goal.ended.connect(on_quest_to_goal_ended)
+		quest_to_goal.ended.connect(on_quest_to_goal_ended.unbind(1))
 		if quest_to_goal.status != Quest.Status.ACTIVE:
 			visible = false
 
@@ -22,12 +24,11 @@ func on_quest_started() -> void:
 	visible = true
 
 
-func on_quest_to_start_ended(finished: bool) -> void:
-	if !finished:
-		visible = true
+func on_quest_to_start_ended() -> void:
+	visible = true
 
 
-func on_quest_to_goal_ended(finished: bool) -> void:
+func on_quest_to_goal_ended() -> void:
 	visible = false
 
 
@@ -36,10 +37,15 @@ func interact() -> void:
 		return
 	if quest_to_goal != null:
 		quest_to_goal.goals_left -= 1
+		if quest_to_goal.attach_boxes:
+			Box.collect(global_position)
 		if quest_to_goal.goals_left == 0:
-			QuestManager.end_quest(quest_to_goal, QuestManager.EndState.COMPLETE)
-			print("Quest finished: %s!" % quest_to_goal.name)
-	if quest_to_start != null:
-		QuestManager.start_quest(quest_to_start)
-		print("Quest started: %s!" % quest_to_start.name)
+			quest_to_goal.end_quest(Quest.EndState.COMPLETE)
+	if quest_to_start != null and quest_to_start.start_quest():
+		if quest_to_start.attach_boxes:
+			for i in quest_to_start.goals:
+				var box = preload("uid://7l20j2o7xj5i").instantiate()
+				box.quest = quest_to_start
+				get_parent().add_child(box)
+				box.global_position = global_position
 	visible = false

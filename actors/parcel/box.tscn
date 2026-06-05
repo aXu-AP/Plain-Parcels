@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://7l20j2o7xj5i"]
+
+[ext_resource type="PackedScene" uid="uid://ddo87mty8sjvu" path="res://actors/parcel/box.glb" id="1_m04ax"]
+[ext_resource type="Script" uid="uid://b1aq50pchyypk" path="res://actors/parcel/box.gd" id="2_wvr2j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m04ax"]
+size = Vector3(0.8, 0.8, 0.8)
+
+[node name="box" unique_id=115805110 instance=ExtResource("1_m04ax")]
+script = ExtResource("2_wvr2j")
+
+[node name="BoxCrumbled1" parent="." index="1" unique_id=1429001664]
+visible = false
+
+[node name="BoxCrumbled2" parent="." index="2" unique_id=1652795889]
+visible = false
+
+[node name="BoxCrumbled3" parent="." index="3" unique_id=1484544672]
+visible = false
+
+[node name="Area3D" type="Area3D" parent="." index="4" unique_id=2053527331]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=1438409158]
+shape = SubResource("BoxShape3D_m04ax")
+
+[connection signal="body_entered" from="Area3D" to="." method="damage" unbinds=1]

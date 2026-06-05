@@ -11,6 +11,7 @@ func _process(delta: float) -> void:
 
 
 func _on_area_entered(area: Area3D) -> void:
+	Globals.coins += 1
 	$MeshInstance3D.visible = false
 	$CollectParticles.emitting = true
 	set_deferred("monitoring", false)
