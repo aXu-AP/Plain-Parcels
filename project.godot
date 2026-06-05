@@ -15,7 +15,7 @@ show_on_startup=false
 [application]
 
 config/name="Plain Parcels"
-run/main_scene="uid://7b2px7k842e6"
+run/main_scene="uid://cyaorxmndg0ly"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
