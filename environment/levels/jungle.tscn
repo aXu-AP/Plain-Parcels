@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://dpa33tbyoxltj"]
+
+[ext_resource type="PackedScene" uid="uid://c863v0os4j2pm" path="res://actors/player/player.tscn" id="1_51cey"]
+[ext_resource type="Script" uid="uid://sqxm2w3xub73" path="res://actors/player/player_camera.gd" id="2_jvk5n"]
+[ext_resource type="PackedScene" uid="uid://b50bj3akoxoom" path="res://actors/arrow/arrow.tscn" id="3_umosm"]
+[ext_resource type="Texture2D" uid="uid://drynatue11dn4" path="res://prototyping/jungle_concept.png" id="4_8rgl6"]
+[ext_resource type="Script" uid="uid://dcu2lrpxxcdaf" path="res://misc/height_override.gd" id="6_umosm"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oo1a3"]
+sky_top_color = Color(0.27634427, 0.5678373, 0.72307163, 1)
+sky_horizon_color = Color(0.69408286, 0.75920606, 0.7890147, 1)
+ground_horizon_color = Color(0.69408286, 0.75920606, 0.7890147, 1)
+
+[sub_resource type="Sky" id="Sky_fj7yv"]
+sky_material = SubResource("ProceduralSkyMaterial_oo1a3")
+
+[sub_resource type="Environment" id="Environment_47dgq"]
+background_mode = 2
+sky = SubResource("Sky_fj7yv")
+tonemap_mode = 2
+ssao_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_m808t"]
+size = Vector2(400, 400)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fsat4"]
+albedo_texture = ExtResource("4_8rgl6")
+
+[sub_resource type="Gradient" id="Gradient_jvk5n"]
+colors = PackedColorArray(0.3489257, 0.34212404, 0.14685133, 1, 0.4868825, 0.4638664, 0.24590534, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_umosm"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8rgl6"]
+noise = SubResource("FastNoiseLite_umosm")
+color_ramp = SubResource("Gradient_jvk5n")
+seamless = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oo1a3"]
+albedo_texture = SubResource("NoiseTexture2D_8rgl6")
+uv1_scale = Vector3(0.215, 0.215, 0.215)
+uv1_triplanar = true
+
+[node name="Jungle" type="Node3D" unique_id=1391360080]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1043398598]
+environment = SubResource("Environment_47dgq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1887084648]
+transform = Transform3D(0.3746068, 0.68903184, -0.620407, 0, 0.66913056, 0.74314487, 0.92718375, -0.2783871, 0.25066084, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 500.0
+
+[node name="Player" parent="." unique_id=1603607484 instance=ExtResource("1_51cey")]
+transform = Transform3D(0.99797934, 0, -0.06353971, 0, 1, 0, 0.06353971, 0, 0.99797934, -9.639446, 36.83572, 175.2916)
+max_height = 28.0
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=711902719 node_paths=PackedStringArray("target")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 27.016, 8, -12.140488)
+current = true
+fov = 80.0
+script = ExtResource("2_jvk5n")
+target = NodePath("../Player")
+max_height = 20.0
+
+[node name="Arrow" parent="Camera3D" unique_id=245266737 instance=ExtResource("3_umosm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.722046e-06, 2.7869673, -5.040502)
+max_distance = 150.0
+
+[node name="Reference" type="MeshInstance3D" parent="." unique_id=1093916128]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 35.85478, 0)
+mesh = SubResource("PlaneMesh_m808t")
+surface_material_override/0 = SubResource("StandardMaterial3D_fsat4")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=711334008]
+material_override = SubResource("StandardMaterial3D_oo1a3")
+use_collision = true
+
+[node name="Border" type="CSGPolygon3D" parent="CSGCombiner3D" unique_id=345424690]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+polygon = PackedVector2Array(-200.31805, 18.933655, -190.4411, 30.353891, -182.72472, 53.81168, -145.6861, 69.24445, -133.64856, 103.81382, -105.56093, 112.764824, -80.55986, 139.30916, -43.52126, 155.6679, 44.445477, 156.28522, 75.61961, 141.1611, 106.48515, 113.07347, 134.8814, 102.27054, 147.5363, 68.31849, 184.57487, 50.416477, 190.13066, 25.415419, 242.91069, -6.3760614, 279.02335, -7.302026, 303.40707, 26.341381, 308.6542, 202.89212, -229.64029, 214.31236, -231.39224, -190.49414, -204.53925, -161.78922, -200.62744, -134.46469, -199.39209, -108.84957, -196.6142, -60.082066, -203.09596, -19.339577, -204.05911, 2.5001516)
+depth = 65.0
+smooth_faces = true
+
+[node name="Highlands" type="CSGPolygon3D" parent="CSGCombiner3D" unique_id=748001462]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+polygon = PackedVector2Array(-218.86778, -174.23888, -181.21187, -167.44846, -156.21078, -162.81863, -123.80201, -169.30038, -98.18366, -156.64554, -79.973, -148.00317, -56.515205, -143.682, -23.797735, -150.16377, 10.771631, -145.84259, 40.711143, -115.90306, 52.1314, -96.149124, 49.044884, -64.048996, 60.156456, -37.195995, 55.83529, -7.256442, 65.71221, 25.461002, 64.47762, 48.918797, 64.47762, 81.01891, 77.441124, 99.229576, 125.89999, 114.662346, 122.81341, 155.71349, -63.614265, 167.13371, -190.16286, 121.14408, -220.71971, -73.6173)
+depth = 30.0
+smooth_faces = true
+
+[node name="RiverHigh" type="CSGPolygon3D" parent="CSGCombiner3D" unique_id=667011146]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 28.769798, 0)
+operation = 2
+polygon = PackedVector2Array(51.11411, -73.94363, 44.99384, -56.66289, 24.472996, -47.6625, 6.1121874, -54.862812, -47.1701, -59.903023, -88.57186, -48.742542, -126.3735, -36.142014, -135.37387, -10.580911, -153.37466, 10.299972, -160.93497, 30.100842, -189.7362, 32.26093, -182.89592, 55.3019, -149.05444, 68.262474, -147.2544, 76.54281, -133.2138, 66.46239, -115.93304, 77.98289, -88.57186, 82.30306, -61.93075, 99.22377, -24.849148, 107.14412, 3.5920458, 101.023865, 54.714268, 108.58418, 77.75526, 88.42332, 70.914955, 82.66306, 52.91419, 101.023865, 2.1520128, 93.10352, -24.489132, 90.943436, -31.329433, 70.78256, -32.40948, 61.062145, -50.77026, 47.021557, -72.37118, 42.70136, -84.9717, 50.621723, -82.091576, 62.142193, -66.25091, 66.102356, -57.61053, 79.062935, -38.169704, 85.54319, -33.129482, 93.46353, -61.21069, 89.14336, -74.89129, 73.66269, -99.37231, 70.78256, -112.692924, 71.5026, -134.29385, 58.542057, -136.81393, 45.941517, -146.17432, 41.26131, -155.17471, 34.421017, -146.89438, 13.54013, -127.81353, -3.0205793, -122.05331, -27.86166, -84.2517, -42.262268, -52.930355, -50.54262, 1.791997, -48.742542, 17.272648, -40.102184, 36.35346, -42.622288, 47.873997, -50.182606, 57.63808, -55.182827)
+depth = 2.0
+
+[node name="Ramp1" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1625283872]
+transform = Transform3D(0.7885139, 0.38977623, 0.4757316, -0.44313377, 0.8964554, 7.480315e-08, -0.4264723, -0.21081278, 0.87959063, 65.809845, 29.852825, 107.62697)
+operation = 2
+size = Vector3(86.89633, 38.023376, 22.267578)
+
+[node name="Ramp2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1712000889]
+transform = Transform3D(0.8299073, 0.41023773, 0.37809938, -0.4431337, 0.8964554, 7.421559e-08, -0.33894938, -0.16754863, 0.9257651, 23.169106, 30.525995, -96.480965)
+operation = 2
+size = Vector3(82.380615, 31.940002, 22.267578)
+
+[node name="Lowlands" type="CSGPolygon3D" parent="CSGCombiner3D" unique_id=1989008137]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+polygon = PackedVector2Array(-127.81454, -162.50998, -73.18256, -165.59653, -25.649664, -176.70811, 18.796656, -174.85619, 49.353508, -161.58401, 86.08349, -148.00317, 127.44329, -149.54646, 158.00015, -141.83008, 195.96469, -114.97709, 208.6196, -68.0615, 245.96683, -48.307575, 266.64676, -22.689188, 270.0419, 11.571509, 160.77805, 133.49031, 84.84884, 131.94702, -55.280556, 36.881252)
+depth = 3.0
+
+[node name="RiverLow1" type="CSGPolygon3D" parent="CSGCombiner3D" unique_id=695373769]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.4673271, 0)
+operation = 2
+polygon = PackedVector2Array(48.72134, -68.55935, 54.89736, -46.52321, 67.78234, -63.43082, 82.12962, -77.37787, 128.80673, -79.67602, 154.21625, -94.422615, 172.3659, -110.53044, 176.91818, -121.93193, 186.12077, -129.43515, 193.76434, -143.80481, 150.37836, -171.93971, 136.44608, -158.65497, 156.18384, -142.54715, 163.64029, -127.32135, 163.21683, -113.28081, 149.83145, -100.1223, 127.144356, -88.32503, 92.1066, -90.27953, 72.26746, -84.97212, 58.859413, -73.84202)
+depth = 2.0
+
+[node name="RiverLow2" type="CSGPolygon3D" parent="CSGCombiner3D" unique_id=19243117]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.4673271, 0)
+operation = 2
+polygon = PackedVector2Array(65.55519, 88.95216, 68.95827, 95.98515, 76.67186, 88.04467, 102.53514, 85.549095, 112.971176, 69.89501, 134.07018, 60.13957, 142.46437, 61.727673, 147.68242, 54.92155, 161.2947, 49.0229, 166.73958, 35.18379, 160.61406, 25.655203, 149.49739, 26.78956, 135.20454, 22.93276, 110.0219, 31.55385, 102.081406, 43.804882, 102.081406, 56.282772, 109.34123, 58.778347, 101.40077, 73.0712, 75.99126, 80.55794)
+depth = 2.0
+
+[node name="CSGPolygon3D7" type="CSGPolygon3D" parent="CSGCombiner3D" unique_id=615026271]
+transform = Transform3D(-1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, -1, -7.150672, 46.154594, 150.59073)
+operation = 2
+polygon = PackedVector2Array(-23.724577, 20.601242, -17.185654, 7.562393, -15.495879, 3.2271423, -12.79685, -4.43944, -9.285278, -8.761917, -3.5059288, -12.567013, 4.9256945, -13.60363, 10.84907, -11.798664, 18.92998, -6.6882763, 23.513142, 4.034874, 28.522722, 20.73861)
+depth = 63.1
+
+[node name="Area3D" type="Area3D" parent="." unique_id=629148781]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("6_umosm")
+new_max_height = 48.0
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Area3D" unique_id=685507736]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 25, 0)
+depth = 50.0
+polygon = PackedVector2Array(-218.86778, -174.23888, -181.21187, -167.44846, -156.21078, -162.81863, -123.80201, -169.30038, -98.18366, -156.64554, -79.973, -148.00317, -56.515205, -143.682, -23.797735, -150.16377, 10.771631, -145.84259, 40.711143, -115.90306, 52.1314, -96.149124, 49.044884, -64.048996, 60.156456, -37.195995, 55.83529, -7.256442, 65.71221, 25.461002, 64.47762, 48.918797, 64.47762, 81.01891, 77.441124, 99.229576, 125.89999, 114.662346, 61.4917, 209.71663, -68.26703, 213.43219, -190.16286, 121.14408, -220.71971, -73.6173)
