@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://b46ln0w7p0wr4" path="res://environment/main_island.glb" id="1_jjsx5"]
 [ext_resource type="Texture2D" uid="uid://bb7ybxv0478r0" path="res://environment/main_island_BasaltRock-Variation4_albedo.png" id="2_viy1l"]
-[ext_resource type="Texture2D" uid="uid://vk0i3jcvrufw" path="res://environment/grass_albedo.png" id="3_viy1l"]
 [ext_resource type="Texture2D" uid="uid://dxqtvmgeoojls" path="res://environment/s_albedo.png" id="4_aa7qv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aa7qv"]
@@ -15,12 +14,6 @@ albedo_texture = ExtResource("2_viy1l")
 uv1_scale = Vector3(0.635, 0.635, 0.635)
 uv1_triplanar = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_viy1l"]
-albedo_color = Color(0.4351923, 0.43519226, 0.43519226, 1)
-albedo_texture = ExtResource("3_viy1l")
-uv1_scale = Vector3(3.025, 3.025, 3.025)
-uv1_triplanar = true
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_226jg"]
 albedo_texture = ExtResource("4_aa7qv")
 uv1_triplanar = true
@@ -28,19 +21,16 @@ uv1_triplanar = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ljcxx"]
 albedo_color = Color(0.3180198, 0.31801978, 0.31801975, 1)
 
-[node name="island" unique_id=2105461081 instance=ExtResource("1_jjsx5")]
+[node name="island" unique_id=324386750 instance=ExtResource("1_jjsx5")]
 
-[node name="walls" parent="." index="1" unique_id=721190240]
+[node name="walls" parent="." index="1" unique_id=534784626]
 material_override = SubResource("StandardMaterial3D_aa7qv")
 
-[node name="volcano" parent="." index="2" unique_id=1896327931]
+[node name="volcano" parent="." index="2" unique_id=396640465]
 material_override = SubResource("StandardMaterial3D_w225y")
 
-[node name="floor" parent="." index="3" unique_id=108223364]
-material_override = SubResource("StandardMaterial3D_viy1l")
-
-[node name="cave" parent="." index="4" unique_id=2111642645]
+[node name="cave" parent="." index="4" unique_id=972412501]
 material_override = SubResource("StandardMaterial3D_226jg")
 
-[node name="landingzone" parent="." index="5" unique_id=1938140599]
+[node name="landingzone" parent="." index="5" unique_id=1420716891]
 material_override = SubResource("StandardMaterial3D_ljcxx")

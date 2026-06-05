@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://b50bj3akoxoom" path="res://actors/arrow/arrow.tscn" id="3_gljqa"]
 [ext_resource type="PackedScene" uid="uid://tidsuj62i3av" path="res://actors/ocean/ocean.tscn" id="4_b4opu"]
 [ext_resource type="PackedScene" uid="uid://d3hxxv1228qoh" path="res://islandmodel.tscn" id="5_04hb4"]
-[ext_resource type="Texture2D" uid="uid://dqek12rw4v47f" path="res://portraits/rich_man.png" id="7_1y0xo"]
+[ext_resource type="Texture2D" uid="uid://dqek12rw4v47f" path="res://portraits/city_12.png" id="7_1y0xo"]
 [ext_resource type="PackedScene" uid="uid://c0o43vgw2jfhd" path="res://actors/person/person.tscn" id="7_5jwi3"]
-[ext_resource type="Texture2D" uid="uid://xomhfe54vky2" path="res://portraits/granny.png" id="8_c7iw8"]
+[ext_resource type="Texture2D" uid="uid://xomhfe54vky2" path="res://portraits/city_10.png" id="8_c7iw8"]
 [ext_resource type="Texture2D" uid="uid://bxpou3hhfy705" path="res://portraits/alien.png" id="8_k1f3g"]
 [ext_resource type="PackedScene" uid="uid://b5mg80rvhe4mc" path="res://environment/house/house.tscn" id="9_1y0xo"]
 [ext_resource type="PackedScene" uid="uid://d0cna0pnxqmny" path="res://environment/rock.tscn" id="9_c7iw8"]
@@ -27,7 +27,6 @@ tonemap_mode = 2
 ssao_enabled = true
 
 [node name="Island" type="Node3D" unique_id=1108964642]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -65.889694, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1063259414]
 environment = SubResource("Environment_c7iw8")
@@ -38,9 +37,8 @@ shadow_enabled = true
 directional_shadow_max_distance = 500.0
 
 [node name="Player" parent="." unique_id=1603607484 instance=ExtResource("1_qurb2")]
-transform = Transform3D(-0.99970496, -0.0044829743, 0.023871468, -0.006185738, 0.99740404, -0.07174178, -0.023487883, -0.07186828, -0.99713755, 89.953094, 53.6873, -105.23448)
+transform = Transform3D(-0.99970496, -0.0044829743, 0.023871468, -0.006185738, 0.99740404, -0.07174178, -0.023487883, -0.07186828, -0.99713755, 89.953094, -28.677826, -105.23448)
 max_height = 18.0
-max_height_soft = 10.0
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1311905776 node_paths=PackedStringArray("target")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -320.56793, 102.82736, -82.856995)
@@ -55,11 +53,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.722046e-06, 2.7869673, -5.
 max_distance = 150.0
 
 [node name="Ocean" parent="." unique_id=125061546 instance=ExtResource("4_b4opu")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 23.106781, 0)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, -65.19071, 0)
 metadata/_edit_lock_ = true
 
 [node name="main_island" parent="." unique_id=1484359374 instance=ExtResource("5_04hb4")]
-transform = Transform3D(-20.89281, 0, 81.413414, 0, 84.05149, 0, -81.413414, 0, -20.89281, -6.8130264, 24.989758, -10.77652)
+transform = Transform3D(-20.89281, 0, 81.413414, 0, 84.05149, 0, -81.413414, 0, -20.89281, -6.8130264, -63.307735, -10.77652)
 
 [node name="Houses" type="Node3D" parent="main_island" unique_id=1839789864]
 transform = Transform3D(-0.01156695, 0, 0.0027848803, 0, 0.011897477, 0, -0.0027848803, 0, -0.01156695, 0.17751744, 0.057771206, 2.8464096)
