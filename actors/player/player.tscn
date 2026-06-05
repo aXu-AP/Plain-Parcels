@@ -1,75 +1,16 @@
 [gd_scene format=3 uid="uid://c863v0os4j2pm"]
 
 [ext_resource type="Script" uid="uid://470wsxu0s7ig" path="res://actors/player/player.gd" id="1_nvxhs"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_nvxhs"]
-height = 3.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ax26v"]
-cull_mode = 2
-metallic = 1.0
-roughness = 0.0
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_lsqbn"]
-material = SubResource("StandardMaterial3D_ax26v")
-size = Vector2(0.1, 1.3)
-
-[sub_resource type="PrismMesh" id="PrismMesh_ilk7j"]
-size = Vector3(0.3, 1, 2)
-
-[sub_resource type="PrismMesh" id="PrismMesh_nvxhs"]
-size = Vector3(0.14, 1, 1.71)
-
-[sub_resource type="PrismMesh" id="PrismMesh_ax26v"]
-size = Vector3(0.14, 1, 1.71)
-
-[sub_resource type="Animation" id="Animation_6p1w3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Model/Propeller:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-1.5707964, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_15y17"]
-resource_name = "propeller"
-length = 0.2
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Model/Propeller:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-1.5707964, 0, 0), Vector3(-1.5707964, 0, 6.2831855)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_bop6h"]
-_data = {
-&"RESET": SubResource("Animation_6p1w3"),
-&"propeller": SubResource("Animation_15y17")
-}
+[ext_resource type="PackedScene" uid="uid://dqlj2hxtiwfyg" path="res://actors/player/plane.tscn" id="2_ilk7j"]
+[ext_resource type="Texture2D" uid="uid://gqjf8skva0fx" path="res://portraits/pilot.png" id="3_lsqbn"]
+[ext_resource type="Script" uid="uid://chs7gu1re51xl" path="res://misc/rotate_billboard.gd" id="4_6p1w3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nvxhs"]
 radius = 0.2
 height = 1.0
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_nvxhs"]
-points = PackedVector3Array(-0.15, -0.5, -1, 0.15, -0.5, -1, -0.15, -0.5, 1, 0, 0.5, -1, 0.15, -0.5, 1, 0, 0.5, 1)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ilk7j"]
-points = PackedVector3Array(-0.15, -0.5, -1, 0.15, -0.5, -1, -0.15, -0.5, 1, 0, 0.5, -1, 0.15, -0.5, 1, 0, 0.5, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_ilk7j"]
+size = Vector3(0.13165283, 0.94348145, 2.0818176)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nvxhs"]
 size = Vector3(1, 0.5, 2.5)
@@ -125,48 +66,18 @@ collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_nvxhs")
 
-[node name="Label" type="Label" parent="." unique_id=588177113]
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="Model" type="Node3D" parent="." unique_id=1669609034]
+[node name="PlaneModel" parent="." unique_id=604686313 instance=ExtResource("2_ilk7j")]
 unique_name_in_owner = true
 
-[node name="Body" type="MeshInstance3D" parent="Model" unique_id=1216781747]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
-mesh = SubResource("CapsuleMesh_nvxhs")
-
-[node name="Propeller" type="MeshInstance3D" parent="Model" unique_id=1534541402]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -1.5652518)
-rotation_order = 3
-mesh = SubResource("PlaneMesh_lsqbn")
-
-[node name="WingR" type="MeshInstance3D" parent="Model" unique_id=1710462313]
+[node name="PilotHead" type="Sprite3D" parent="PlaneModel" unique_id=1284651171]
 unique_name_in_owner = true
-transform = Transform3D(-4.371139e-08, -4.371139e-08, 1, -1, 1.9106855e-15, -4.371139e-08, 0, -1, -4.371139e-08, 1, 0, 0)
-mesh = SubResource("PrismMesh_ilk7j")
-
-[node name="WingRBroken" type="MeshInstance3D" parent="Model" unique_id=1722503224]
-unique_name_in_owner = true
-transform = Transform3D(-0.16466996, 0.13836673, 0.97659534, -0.98400337, -0.09128319, -0.15298584, 0.06797858, -0.9861653, 0.15118493, 1, -0.12514955, 0)
-visible = false
-mesh = SubResource("PrismMesh_nvxhs")
-
-[node name="WingL" type="MeshInstance3D" parent="Model" unique_id=1909991298]
-unique_name_in_owner = true
-transform = Transform3D(-4.371139e-08, -4.371139e-08, 1, -1, 1.9106855e-15, -4.371139e-08, 0, -1, -4.371139e-08, -1, 0, 0)
-mesh = SubResource("PrismMesh_ilk7j")
-
-[node name="WingLBroken" type="MeshInstance3D" parent="Model" unique_id=1048463729]
-unique_name_in_owner = true
-transform = Transform3D(0.09226413, -0.016206793, 0.99560267, -0.98510045, -0.14722428, 0.08889429, 0.14513619, -0.9889704, -0.029548839, -1, -0.07361966, 0)
-visible = false
-mesh = SubResource("PrismMesh_ax26v")
-
-[node name="AnimationPlayerPropeller" type="AnimationPlayer" parent="Model" unique_id=335812659]
-root_node = NodePath("../..")
-libraries/ = SubResource("AnimationLibrary_bop6h")
-autoplay = &"propeller"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9289682, -0.26133063)
+pixel_size = 0.005
+alpha_cut = 1
+texture = ExtResource("3_lsqbn")
+hframes = 2
+vframes = 2
+script = ExtResource("4_6p1w3")
 
 [node name="BodyCol" type="CollisionShape3D" parent="." unique_id=2008562664]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
@@ -174,19 +85,21 @@ shape = SubResource("CapsuleShape3D_nvxhs")
 
 [node name="WingRCol" type="Area3D" parent="." unique_id=1906600553]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26657397, 0)
 collision_layer = 0
 
 [node name="WingRCol" type="CollisionShape3D" parent="WingRCol" unique_id=1664251579]
-transform = Transform3D(-4.371139e-08, -4.371139e-08, 1, -1, 1.9106855e-15, -4.371139e-08, 0, -1, -4.371139e-08, 1, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_nvxhs")
+transform = Transform3D(-4.371139e-08, -4.371139e-08, 1, -1, 1.9106855e-15, -4.371139e-08, 0, -1, -4.371139e-08, 1.2420349, -0.08639528, -0.21783449)
+shape = SubResource("BoxShape3D_ilk7j")
 
 [node name="WingLCol" type="Area3D" parent="." unique_id=303914930]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26657397, 0)
 collision_layer = 0
 
-[node name="WingLCol" type="CollisionShape3D" parent="WingLCol" unique_id=1108495732]
-transform = Transform3D(-4.371139e-08, -4.371139e-08, 1, -1, 1.9106855e-15, -4.371139e-08, 0, -1, -4.371139e-08, -1, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_ilk7j")
+[node name="WingLCol" type="CollisionShape3D" parent="WingLCol" unique_id=1188222669]
+transform = Transform3D(-4.371139e-08, -4.371139e-08, 1, -1, 1.9106855e-15, -4.371139e-08, 0, -1, -4.371139e-08, -1.242, -0.086, -0.218)
+shape = SubResource("BoxShape3D_ilk7j")
 
 [node name="TopCol" type="Area3D" parent="." unique_id=1877236025]
 collision_layer = 0
@@ -212,14 +125,6 @@ explosiveness = 0.9
 process_material = SubResource("ParticleProcessMaterial_ax26v")
 draw_pass_1 = SubResource("QuadMesh_bop6h")
 
-[node name="HealthBar" type="ProgressBar" parent="." unique_id=1774193732]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 0)
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 110.0
-offset_bottom = 37.0
-
 [node name="Interaction" type="Area3D" parent="." unique_id=60454615]
 unique_name_in_owner = true
 collision_layer = 2
@@ -227,3 +132,7 @@ collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interaction" unique_id=900935709]
 shape = SubResource("SphereShape3D_nvxhs")
+
+[node name="Tail" type="Node3D" parent="." unique_id=516643983]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
