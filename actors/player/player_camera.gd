@@ -18,7 +18,9 @@ func _physics_process(delta: float) -> void:
 	var target_position := Vector3.BACK
 	target_position = target_position.rotated(Vector3.RIGHT, PI / 2 * camera_input_smoothed.y)
 	target_position = target_position.rotated(Vector3.UP, target.rotation.y + PI / 2 * camera_input_smoothed.x)
-	target_position = target.global_position + target_position * distance
+	var _distance = distance
+	_distance -= target.is_braking * 3
+	target_position = target.global_position + target_position * _distance
 	var snap_amount: float = 0.04
 	if snap_to_target:
 		snap_amount = 1.0
@@ -27,4 +29,5 @@ func _physics_process(delta: float) -> void:
 	var height_force: float = max(0, remap(global_position.y, target.current_max_height_soft, target.current_max_height + 2, 0, 1))
 	global_position.y = lerp(global_position.y, target.current_max_height_soft, height_force)
 	look_at(target_flat)
+	fov = lerp(fov, 80 + target.is_boosting * 10, delta * 2)
 	#rotation.x += PI / 4 * camera_input_smoothed.y

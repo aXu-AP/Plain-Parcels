@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dqlj2hxtiwfyg"]
+
+[ext_resource type="PackedScene" uid="uid://dmwsuefdo7ae8" path="res://actors/player/plane.glb" id="1_nx18g"]
+[ext_resource type="Script" uid="uid://de36ur183ij84" path="res://actors/player/plane.gd" id="2_ok1et"]
+
+[node name="plane" unique_id=604686313 instance=ExtResource("1_nx18g")]
+script = ExtResource("2_ok1et")
+
+[node name="BackseatCover" parent="." index="3" unique_id=610757781]
+visible = false
