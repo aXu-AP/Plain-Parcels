@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://iue71fgiava4"]
+
+[ext_resource type="PackedScene" uid="uid://c863v0os4j2pm" path="res://actors/player/player.tscn" id="1_lvgy1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iipd4"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_xm58f"]
+sky_material = SubResource("ProceduralSkyMaterial_iipd4")
+
+[sub_resource type="Environment" id="Environment_62x5u"]
+background_mode = 2
+sky = SubResource("Sky_xm58f")
+tonemap_mode = 2
+
+[sub_resource type="Animation" id="Animation_mi2o2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_24d83"]
+resource_name = "rotate_cam"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.2831855, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oac5t"]
+_data = {
+&"RESET": SubResource("Animation_mi2o2"),
+&"rotate_cam": SubResource("Animation_24d83")
+}
+
+[node name="Node3D" type="Node3D" unique_id=810513104]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1251373634]
+environment = SubResource("Environment_62x5u")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=283859207]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=594023573]
+libraries/ = SubResource("AnimationLibrary_oac5t")
+autoplay = &"rotate_cam"
+
+[node name="Pivot" type="Node3D" parent="." unique_id=1361172143]
+
+[node name="Camera3D" type="Camera3D" parent="Pivot" unique_id=347049121]
+transform = Transform3D(1, 0, 0, 0, 0.9232237, 0.3842631, 0, -0.3842631, 0.9232237, 0, 2.076212, 3.8974595)
+
+[node name="Player" parent="." unique_id=1603607484 instance=ExtResource("1_lvgy1")]
+forward_speed = 0.0
