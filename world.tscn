@@ -24,6 +24,8 @@
 [ext_resource type="AudioStream" uid="uid://8368pfj1i5mn" path="res://music/menu.mp3" id="20_26xuy"]
 [ext_resource type="PackedScene" uid="uid://0ks4o4mvb6yu" path="res://actors/big_coin/big_coin.tscn" id="21_bc84e"]
 [ext_resource type="Script" uid="uid://eb2d8rru8uw5" path="res://misc/exit_trigger.gd" id="23_il2jm"]
+[ext_resource type="Script" uid="uid://pm8hpmyh6iqg" path="res://misc/coin_spawner.gd" id="24_mc2jv"]
+[ext_resource type="Script" uid="uid://crcdacsuurjco" path="res://misc/quests/coin_quest.gd" id="25_bo7i5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_top_color = Color(0.27634427, 0.5678373, 0.72307163, 1)
@@ -172,6 +174,32 @@ size = Vector2(400, 400)
 albedo_texture = ExtResource("18_ikiii")
 proximity_fade_enabled = true
 proximity_fade_distance = 0.5
+
+[sub_resource type="Resource" id="Resource_bh8nc"]
+script = ExtResource("5_pkg7o")
+text = "Yay!"
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_jjr1n"]
+script = ExtResource("5_pkg7o")
+text = "Not enough coins..."
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_gggvi"]
+script = ExtResource("5_pkg7o")
+text = "Collect at least 30 coins!"
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_w44yn"]
+script = ExtResource("25_bo7i5")
+coin_requirement = 30
+name = "Beach Coins"
+start_message = SubResource("Resource_gggvi")
+end_messages = Dictionary[int, ExtResource("5_pkg7o")]({
+0: SubResource("Resource_bh8nc"),
+7: SubResource("Resource_jjr1n")
+})
+metadata/_custom_type_script = "uid://crcdacsuurjco"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wjb0r"]
 size = Vector3(48.63971, 27.845215, 33.561157)
@@ -786,132 +814,185 @@ quest_name = &"Fountain Coin"
 
 [node name="BeachCoins" type="Node3D" parent="." unique_id=1419342177]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 147.06158)
+script = ExtResource("24_mc2jv")
+quest = SubResource("Resource_w44yn")
 
 [node name="Coin10" parent="BeachCoins" unique_id=1513854474 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.10642, 3.031218, 25.92247)
+is_quest_coin = true
 
 [node name="Coin11" parent="BeachCoins" unique_id=1012589274 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.00927, 3.031218, 22.721603)
+is_quest_coin = true
 
 [node name="Coin12" parent="BeachCoins" unique_id=2144966423 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.399986, 3.031218, 19.264633)
+is_quest_coin = true
 
 [node name="Coin13" parent="BeachCoins" unique_id=1523460262 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.399986, 3.031218, 19.264633)
+is_quest_coin = true
 
 [node name="Coin14" parent="BeachCoins" unique_id=1009420038 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.053383, 3.031218, 13.503006)
+is_quest_coin = true
 
 [node name="Coin15" parent="BeachCoins" unique_id=114362294 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.163734, 3.031218, 10.302109)
+is_quest_coin = true
 
 [node name="Coin16" parent="BeachCoins" unique_id=1805920835 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.018013, 3.031218, 7.6133575)
+is_quest_coin = true
 
 [node name="Coin17" parent="BeachCoins" unique_id=286700268 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.945152, 3.031218, 5.9488983)
+is_quest_coin = true
 
 [node name="Coin18" parent="BeachCoins" unique_id=491186275 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.494774, 3.031218, 3.7722626)
+is_quest_coin = true
 
 [node name="Coin19" parent="BeachCoins" unique_id=1616256236 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.269585, 3.031218, 2.6199799)
+is_quest_coin = true
 
 [node name="Coin20" parent="BeachCoins" unique_id=1737700354 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.300468, 3.031218, 1.7237091)
+is_quest_coin = true
 
 [node name="Coin21" parent="BeachCoins" unique_id=679836753 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.666893, 3.031218, 1.0835419)
+is_quest_coin = true
 
 [node name="Coin22" parent="BeachCoins" unique_id=1204775358 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.033333, 3.031218, 0.31529236)
+is_quest_coin = true
 
 [node name="Coin23" parent="BeachCoins" unique_id=1382027903 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.057213, 3.031218, -2.3734283)
+is_quest_coin = true
 
 [node name="Coin24" parent="BeachCoins" unique_id=1748723378 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.306694, 3.031218, -5.1902313)
+is_quest_coin = true
 
 [node name="Coin25" parent="BeachCoins" unique_id=765489837 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.044029, 3.031218, -7.238785)
+is_quest_coin = true
 
 [node name="Coin26" parent="BeachCoins" unique_id=1883500786 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.141167, 3.031218, -9.671463)
+is_quest_coin = true
 
 [node name="Coin27" parent="BeachCoins" unique_id=286562800 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.622414, 3.031218, -10.9518585)
+is_quest_coin = true
 
 [node name="Coin28" parent="BeachCoins" unique_id=1034609994 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.719551, 3.031218, -12.872391)
+is_quest_coin = true
 
 [node name="Coin29" parent="BeachCoins" unique_id=295627145 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.63349, 3.031218, -17.865768)
+is_quest_coin = true
 
 [node name="Coin30" parent="BeachCoins" unique_id=1529187739 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.962425, 3.031218, -20.426468)
+is_quest_coin = true
 
 [node name="Coin31" parent="BeachCoins" unique_id=1016957765 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.65119, 3.031218, -21.962906)
+is_quest_coin = true
 
 [node name="Coin32" parent="BeachCoins" unique_id=673875130 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.21189, 3.031218, -25.035782)
+is_quest_coin = true
 
 [node name="Coin33" parent="BeachCoins" unique_id=911413333 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.370464, 3.031218, -28.335953)
+is_quest_coin = true
 
 [node name="Coin34" parent="BeachCoins" unique_id=328204353 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.542503, 3.031218, -29.104935)
+is_quest_coin = true
 
 [node name="Coin35" parent="BeachCoins" unique_id=1645980189 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.515568, 3.031218, -29.040848)
+is_quest_coin = true
 
 [node name="Coin36" parent="BeachCoins" unique_id=1939102696 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.9119, 3.031218, -30.354538)
+is_quest_coin = true
 
 [node name="Coin37" parent="BeachCoins" unique_id=778736302 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.0519, 3.031218, -31.828415)
+is_quest_coin = true
 
 [node name="Coin38" parent="BeachCoins" unique_id=39370702 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.805786, 3.031218, -35.609207)
+is_quest_coin = true
 
 [node name="Coin39" parent="BeachCoins" unique_id=1778643698 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.10599, 3.031218, -36.986984)
+is_quest_coin = true
 
 [node name="Coin40" parent="BeachCoins" unique_id=1520202561 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.27803, 3.031218, -38.71718)
+is_quest_coin = true
 
 [node name="Coin41" parent="BeachCoins" unique_id=2063150751 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.7064, 3.031218, -39.96678)
+is_quest_coin = true
 
 [node name="Coin42" parent="BeachCoins" unique_id=1397112685 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.1668, 3.031218, -41.72902)
+is_quest_coin = true
 
 [node name="Coin43" parent="BeachCoins" unique_id=1904336792 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.72171, 3.031218, -45.573914)
+is_quest_coin = true
 
 [node name="Coin44" parent="BeachCoins" unique_id=1960469739 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.086, 3.031218, -46.727386)
+is_quest_coin = true
 
 [node name="Coin45" parent="BeachCoins" unique_id=2000715770 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.93762, 3.031218, -47.592484)
+is_quest_coin = true
 
 [node name="Coin46" parent="BeachCoins" unique_id=441471917 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.8466, 3.031218, -49.06636)
+is_quest_coin = true
 
 [node name="Coin47" parent="BeachCoins" unique_id=1554827032 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.80991, 3.031218, -52.980515)
+is_quest_coin = true
 
 [node name="Coin48" parent="BeachCoins" unique_id=519072300 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.32532, 3.031218, -54.878296)
+is_quest_coin = true
 
 [node name="Coin49" parent="BeachCoins" unique_id=1201616533 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.43378, 3.031218, -56.835373)
+is_quest_coin = true
 
 [node name="Coin50" parent="BeachCoins" unique_id=2064947469 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.12709, 3.031218, -58.14009)
+is_quest_coin = true
 
 [node name="Coin51" parent="BeachCoins" unique_id=442773811 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -133.87971, 3.031218, -59.85994)
+is_quest_coin = true
+
+[node name="QuestPoint" parent="BeachCoins" unique_id=1508452915 instance=ExtResource("3_tlwt5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.46536, 0, 31.556671)
+quest = SubResource("Resource_w44yn")
+
+[node name="QuestPoint2" parent="BeachCoins" unique_id=676503088 instance=ExtResource("3_tlwt5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.03323, -3.8146973e-06, -76.21283)
+action = 1
+quest = SubResource("Resource_w44yn")
 
 [node name="CanyonExit" type="Area3D" parent="." unique_id=1952640041]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -164.32509)

@@ -4,6 +4,7 @@ signal flag_added(StringName)
 
 var flags: Array[StringName] = []
 var coins: int = 0
+var quest_coins: int = 0
 
 func reset_state() -> void:
 	coins = 0

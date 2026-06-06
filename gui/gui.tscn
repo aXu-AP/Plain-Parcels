@@ -50,15 +50,30 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=2133923937]
+[node name="CoinCounter" type="HBoxContainer" parent="VBoxContainer" unique_id=2133923937]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer" unique_id=1214209214]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/CoinCounter" unique_id=1214209214]
 layout_mode = 2
 texture = SubResource("GradientTexture2D_ioifv")
 expand_mode = 3
 
-[node name="CoinLabel" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=288046204]
+[node name="CoinLabel" type="Label" parent="VBoxContainer/CoinCounter" unique_id=288046204]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00"
+
+[node name="QuestCoinCounter" type="HBoxContainer" parent="VBoxContainer" unique_id=888952005]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/QuestCoinCounter" unique_id=67803249]
+modulate = Color(0.20127013, 0.5217651, 0.59091336, 1)
+layout_mode = 2
+texture = SubResource("GradientTexture2D_ioifv")
+expand_mode = 3
+
+[node name="QuestCoinLabel" type="Label" parent="VBoxContainer/QuestCoinCounter" unique_id=492176782]
 unique_name_in_owner = true
 layout_mode = 2
 text = "00"
