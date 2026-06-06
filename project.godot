@@ -15,12 +15,13 @@ show_on_startup=false
 [application]
 
 config/name="Plain Parcels"
-run/main_scene="uid://cyaorxmndg0ly"
+run/main_scene="uid://b0ui2l5tuy5sd"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://cew5swoj8vshb"
 
 [autoload]
 
+QuestManager="*uid://ro8jre3a4urx"
 GuiSize="*uid://bn7nhvdo4suec"
 DialogueBox="*uid://bn0sh6bm6kifd"
 Gui="*uid://c4odctxla17ro"

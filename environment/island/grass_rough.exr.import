@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0fygmcvpoyv4"
-path="res://.godot/imported/s_rough.exr-c304e3c06c1319136170d359fbf8e614.ctex"
+uid="uid://51kdoqipswlx"
+path="res://.godot/imported/grass_rough.exr-ad034af42b013393b7ad2fd948232286.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://environment/s_rough.exr"
-dest_files=["res://.godot/imported/s_rough.exr-c304e3c06c1319136170d359fbf8e614.ctex"]
+source_file="res://environment/island/grass_rough.exr"
+dest_files=["res://.godot/imported/grass_rough.exr-ad034af42b013393b7ad2fd948232286.ctex"]
 
 [params]
 
