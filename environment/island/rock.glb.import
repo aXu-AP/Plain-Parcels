@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bt7r6qp8mrmnc"
-path="res://.godot/imported/rock.glb-a4a7805819d3361da33d2d0505e32fd5.scn"
+path="res://.godot/imported/rock.glb-7c549c23571bacf5e133b081698472d1.scn"
 
 [deps]
 
-source_file="res://environment/rock.glb"
-dest_files=["res://.godot/imported/rock.glb-a4a7805819d3361da33d2d0505e32fd5.scn"]
+source_file="res://environment/island/rock.glb"
+dest_files=["res://.godot/imported/rock.glb-7c549c23571bacf5e133b081698472d1.scn"]
 
 [params]
 

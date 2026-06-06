@@ -70,6 +70,7 @@ max_distance = 150.0
 
 [node name="Reference" type="MeshInstance3D" parent="." unique_id=1093916128]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 35.85478, 0)
+visible = false
 mesh = SubResource("PlaneMesh_m808t")
 surface_material_override/0 = SubResource("StandardMaterial3D_fsat4")
 

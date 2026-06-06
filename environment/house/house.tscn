@@ -1,35 +1,5 @@
 [gd_scene format=3 uid="uid://b5mg80rvhe4mc"]
 
 [ext_resource type="PackedScene" uid="uid://bi3wjucbqxnds" path="res://environment/house/house.glb" id="1_gopa6"]
-[ext_resource type="Texture2D" uid="uid://c75l6b204vejk" path="res://environment/house/marble_albedo.png" id="2_a4dnj"]
-[ext_resource type="Texture2D" uid="uid://qi3jsgvhbpnu" path="res://environment/house/roof_albedo.png" id="2_ftxbw"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a4dnj"]
-albedo_texture = ExtResource("2_a4dnj")
-uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qv13x"]
-albedo_color = Color(0.74558026, 0.7455802, 0.7455802, 1)
-albedo_texture = ExtResource("2_ftxbw")
-uv1_scale = Vector3(1.39, 1.39, 1.39)
-uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0t3fo"]
-albedo_color = Color(0.16029742, 0.10651415, 0.04756006, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nkh6x"]
-albedo_color = Color(0, 0, 0, 1)
 
 [node name="house" unique_id=920248923 instance=ExtResource("1_gopa6")]
-
-[node name="house" parent="." index="0" unique_id=2137148207]
-material_override = SubResource("StandardMaterial3D_a4dnj")
-
-[node name="roof" parent="." index="1" unique_id=1737996128]
-material_override = SubResource("StandardMaterial3D_qv13x")
-
-[node name="door" parent="." index="2" unique_id=1290235717]
-material_override = SubResource("StandardMaterial3D_0t3fo")
-
-[node name="window" parent="." index="3" unique_id=1575997991]
-material_override = SubResource("StandardMaterial3D_nkh6x")

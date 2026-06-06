@@ -2,19 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2qvtepkx5svk"
-path="res://.godot/imported/main_island_BasaltRock-Variation4_normal.png-5c9bd940ddda34f9151ab4712856b3f5.ctex"
+uid="uid://tbb7h8qq1h6v"
+path="res://.godot/imported/grass_displace.exr-04639b4c5c250136c49c259dc0b59b4e.ctex"
 metadata={
 "vram_texture": false
-}
-generator_parameters={
-"md5": "fb31edb2f6b983ced613aee49c357496"
 }
 
 [deps]
 
-source_file="res://environment/main_island_BasaltRock-Variation4_normal.png"
-dest_files=["res://.godot/imported/main_island_BasaltRock-Variation4_normal.png-5c9bd940ddda34f9151ab4712856b3f5.ctex"]
+source_file="res://environment/island/grass_displace.exr"
+dest_files=["res://.godot/imported/grass_displace.exr-04639b4c5c250136c49c259dc0b59b4e.ctex"]
 
 [params]
 
@@ -26,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
