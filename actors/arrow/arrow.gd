@@ -12,8 +12,8 @@ func _process(delta: float) -> void:
 	var closest_point: QuestPoint = null
 	for p: QuestPoint in points:
 		var distance = player.global_position.distance_squared_to(p.global_position)
-		if (p.quest_to_goal # Is a goal point.
-				and p.quest_to_goal.status == Quest.Status.ACTIVE 
+		if (p.action == Quest.Action.GOAL # Is a goal point.
+				and p.quest.status == Quest.Status.ACTIVE 
 				and p.visible # Multigoal quest can be active even if some are collected.
 				and distance < closest_distance):
 			closest_distance = distance

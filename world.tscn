@@ -4,16 +4,17 @@
 [ext_resource type="Script" uid="uid://sqxm2w3xub73" path="res://actors/player/player_camera.gd" id="2_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://b50bj3akoxoom" path="res://actors/arrow/arrow.tscn" id="3_dwbse"]
 [ext_resource type="PackedScene" uid="uid://kxjnuco5kcko" path="res://actors/quest_point/quest_point.tscn" id="3_tlwt5"]
-[ext_resource type="Script" uid="uid://b1fj4r4p7fhj5" path="res://misc/quest.gd" id="4_aqk2v"]
 [ext_resource type="Texture2D" uid="uid://xomhfe54vky2" path="res://portraits/city_10.png" id="5_hiqwa"]
 [ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="5_pkg7o"]
 [ext_resource type="PackedScene" uid="uid://tidsuj62i3av" path="res://actors/ocean/ocean.tscn" id="6_dwbse"]
+[ext_resource type="Script" uid="uid://cwt46u8hoo78l" path="res://misc/quests/parcel_quest.gd" id="8_il2jm"]
 [ext_resource type="PackedScene" uid="uid://d4lgnhbh2acyf" path="res://environment/buildings/corner_col.glb" id="9_ic0uy"]
 [ext_resource type="Texture2D" uid="uid://b44f57jbv452j" path="res://portraits/city_09.png" id="9_wukud"]
 [ext_resource type="PackedScene" uid="uid://di3v1ch8fq7j1" path="res://environment/buildings/halfarc_col.glb" id="10_k3n1d"]
 [ext_resource type="Texture2D" uid="uid://cr5wiaphqbdhb" path="res://portraits/city_06.png" id="10_wjb0r"]
 [ext_resource type="PackedScene" uid="uid://do3akernwtx10" path="res://environment/buildings/octacon_col.glb" id="11_2o6r5"]
 [ext_resource type="Texture2D" uid="uid://bbcnjxraj6eo3" path="res://portraits/city_07.png" id="11_mc2jv"]
+[ext_resource type="Script" uid="uid://b1fj4r4p7fhj5" path="res://misc/quests/quest.gd" id="11_wjb0r"]
 [ext_resource type="PackedScene" uid="uid://cabed1rpt4083" path="res://environment/buildings/crane.tscn" id="13_2o6r5"]
 [ext_resource type="PackedScene" uid="uid://c0o43vgw2jfhd" path="res://actors/person/person.tscn" id="15_hiqwa"]
 [ext_resource type="Texture2D" uid="uid://y6eau7msgfgj" path="res://portraits/city_04.png" id="16_udxuc"]
@@ -22,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://b5ny1cpw4dsak" path="res://prototyping/big_building.tscn" id="19_cbp6q"]
 [ext_resource type="AudioStream" uid="uid://8368pfj1i5mn" path="res://music/menu.mp3" id="20_26xuy"]
 [ext_resource type="PackedScene" uid="uid://0ks4o4mvb6yu" path="res://actors/big_coin/big_coin.tscn" id="21_bc84e"]
+[ext_resource type="Script" uid="uid://eb2d8rru8uw5" path="res://misc/exit_trigger.gd" id="23_il2jm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_top_color = Color(0.27634427, 0.5678373, 0.72307163, 1)
@@ -56,32 +58,111 @@ albedo_texture = SubResource("NoiseTexture2D_dwbse")
 uv1_scale = Vector3(0.1, 0.1, 0.1)
 uv1_triplanar = true
 
-[sub_resource type="Resource" id="Resource_036b0"]
-script = ExtResource("4_aqk2v")
-name = "Test Quest"
+[sub_resource type="Resource" id="Resource_wjb0r"]
+script = ExtResource("5_pkg7o")
+text = "Thanks!"
+portrait = ExtResource("16_udxuc")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_mc2jv"]
+script = ExtResource("5_pkg7o")
+text = "Be faster!"
+portrait = ExtResource("5_hiqwa")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_bo7i5"]
+script = ExtResource("5_pkg7o")
+text = "Hi!"
+portrait = ExtResource("5_hiqwa")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_4h6ng"]
+script = ExtResource("8_il2jm")
+name = "Cookie Quest"
 time_limit = 10
-metadata/_custom_type_script = "uid://b1fj4r4p7fhj5"
+start_message = SubResource("Resource_bo7i5")
+end_messages = Dictionary[int, ExtResource("5_pkg7o")]({
+0: SubResource("Resource_wjb0r"),
+1: SubResource("Resource_mc2jv")
+})
+metadata/_custom_type_script = "uid://cwt46u8hoo78l"
 
-[sub_resource type="Resource" id="Resource_pkg7o"]
-script = ExtResource("4_aqk2v")
-name = "Multigoal Quest"
-goals = 3
-metadata/_custom_type_script = "uid://b1fj4r4p7fhj5"
+[sub_resource type="Animation" id="Animation_il2jm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.0441985, 8, 76.58017)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.073373616, 0)]
+}
 
-[sub_resource type="Resource" id="Resource_aqk2v"]
-script = ExtResource("4_aqk2v")
-name = "Missing Tools 3"
-metadata/_custom_type_script = "uid://b1fj4r4p7fhj5"
+[sub_resource type="Animation" id="Animation_wjb0r"]
+resource_name = "start_quest"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Camera3D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.2833333, 3, 6.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1.0441985, 8, 76.58017), Vector3(-1.9303665, 8.616451, 32.509686), Vector3(1.8929839, 8.616451, 22.510109), Vector3(45.964024, 8.616451, -42.540207)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../Camera3D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.2833333, 3.0333333, 6.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.073373616, 0), Vector3(0, 0.031223914, 0), Vector3(0, -0.27635548, 0), Vector3(-0.5468465, -0.27576202, 0)]
+}
 
-[sub_resource type="Resource" id="Resource_dwbse"]
-script = ExtResource("4_aqk2v")
-name = "Missing Tools 1"
-continuation = SubResource("Resource_aqk2v")
-metadata/_custom_type_script = "uid://b1fj4r4p7fhj5"
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mc2jv"]
+_data = {
+&"RESET": SubResource("Animation_il2jm"),
+&"cutscene": SubResource("Animation_wjb0r")
+}
+
+[sub_resource type="Resource" id="Resource_o3ebs"]
+script = ExtResource("5_pkg7o")
+text = "Feed the ducks please!"
+portrait = ExtResource("9_wukud")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
 
 [sub_resource type="Resource" id="Resource_k83mh"]
-script = ExtResource("4_aqk2v")
-name = "Missing Tools 2"
+script = ExtResource("8_il2jm")
+name = "Feed the ducks"
+goals = 3
+start_message = SubResource("Resource_o3ebs")
+metadata/_custom_type_script = "uid://cwt46u8hoo78l"
+
+[sub_resource type="Resource" id="Resource_qktwf"]
+script = ExtResource("11_wjb0r")
 metadata/_custom_type_script = "uid://b1fj4r4p7fhj5"
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_cbp6q"]
@@ -91,6 +172,9 @@ size = Vector2(400, 400)
 albedo_texture = ExtResource("18_ikiii")
 proximity_fade_enabled = true
 proximity_fade_distance = 0.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wjb0r"]
+size = Vector3(48.63971, 27.845215, 33.561157)
 
 [node name="Node3D" type="Node3D" unique_id=1664355870]
 
@@ -103,12 +187,12 @@ shadow_enabled = true
 directional_shadow_max_distance = 500.0
 
 [node name="Player" parent="." unique_id=1603607484 instance=ExtResource("1_f3sb7")]
-transform = Transform3D(0.9163767, 0, -0.40031725, 0, 1, 0, 0.40031725, 0, 0.9163767, -111.43321, 6.055277, 126.85454)
+transform = Transform3D(-0.12701252, 0, 0.99190104, 0, 1, 0, -0.99190104, 0, -0.12701252, 46.34433, 6.055277, -16.910202)
 max_height = 18.0
 max_health = 100
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1020584864 node_paths=PackedStringArray("target")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 27.016, 8, -12.140488)
+transform = Transform3D(0.9973094, 0, 0.07330779, 0, 0.99999994, 0, -0.0733078, 0, 0.9973093, 1.0441985, 8, 76.58017)
 current = true
 fov = 80.0
 script = ExtResource("2_fj7yv")
@@ -191,7 +275,7 @@ polygon = PackedVector2Array(-11.197968, 6.195112, -11.980767, -9.019993, 0.3140
 depth = 2.0
 
 [node name="CSGPolygon3D13" type="CSGPolygon3D" parent="CSGCombiner3D" unique_id=532694735]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -134.68167)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1946945, -134.68167)
 operation = 2
 polygon = PackedVector2Array(-23.211195, 31.16409, -16.584503, 24.579212, -15.293724, 16.91402, -12.504315, 9.32812, -8.284874, 2.3693104, -3.6970267, -2.2533188, 4.133969, -1.6684055, 8.30662, 3.0005417, 11.178041, 10.958957, 9.882169, 18.283144, 11.1819105, 24.550331, 13.511496, 29.860271)
 depth = 62.45
@@ -568,14 +652,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.547874, 4.347208, -50.4358
 
 [node name="QuestPoint" parent="GrannyQuest" unique_id=1895422752 instance=ExtResource("3_tlwt5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.05751, -2.2818618, 110.10599)
-quest_to_start = SubResource("Resource_036b0")
+quest = SubResource("Resource_4h6ng")
 
 [node name="Person1" parent="GrannyQuest/QuestPoint" unique_id=320828333 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.64, 0)
 portrait = ExtResource("5_hiqwa")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GrannyQuest/QuestPoint" unique_id=1391746106]
+libraries/ = SubResource("AnimationLibrary_mc2jv")
+
 [node name="QuestPoint2" parent="GrannyQuest" unique_id=890679865 instance=ExtResource("3_tlwt5")]
-quest_to_goal = SubResource("Resource_036b0")
+action = 1
+quest = SubResource("Resource_4h6ng")
 
 [node name="Person3" parent="GrannyQuest/QuestPoint2" unique_id=17138524 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
@@ -586,7 +674,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.09892, 4.600795, -8.47580
 
 [node name="QuestPoint6" parent="Duck" unique_id=994692261 instance=ExtResource("3_tlwt5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4056549, -2.1162226, 56.72768)
-quest_to_start = SubResource("Resource_pkg7o")
+quest = SubResource("Resource_k83mh")
 
 [node name="Person5" parent="Duck/QuestPoint6" unique_id=1311201184 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0686316, 0)
@@ -594,21 +682,24 @@ portrait = ExtResource("9_wukud")
 
 [node name="QuestPoint7" parent="Duck" unique_id=42907753 instance=ExtResource("3_tlwt5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.106247, 1.3992062, 20.8749)
-quest_to_goal = SubResource("Resource_pkg7o")
+action = 1
+quest = SubResource("Resource_k83mh")
 
 [node name="QuestPoint8" parent="Duck" unique_id=1948985364 instance=ExtResource("3_tlwt5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.000015, -1.9196405, 32.593006)
-quest_to_goal = SubResource("Resource_pkg7o")
+action = 1
+quest = SubResource("Resource_k83mh")
 
 [node name="QuestPoint9" parent="Duck" unique_id=1060353130 instance=ExtResource("3_tlwt5")]
-quest_to_goal = SubResource("Resource_pkg7o")
+action = 1
+quest = SubResource("Resource_k83mh")
 
 [node name="SeriesQuest" type="Node3D" parent="." unique_id=489741480]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.362701, 2.0653539, -16.538788)
 
 [node name="QuestPoint3" parent="SeriesQuest" unique_id=546510407 instance=ExtResource("3_tlwt5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.642307, 0, 96.80116)
-quest_to_start = SubResource("Resource_dwbse")
+quest = SubResource("Resource_qktwf")
 
 [node name="Person2" parent="SeriesQuest/QuestPoint3" unique_id=1574174071 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6430807, 0)
@@ -616,17 +707,19 @@ portrait = ExtResource("11_mc2jv")
 
 [node name="QuestPoint4" parent="SeriesQuest" unique_id=980856128 instance=ExtResource("3_tlwt5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.64407, 7.0236516, 89.25044)
-quest_to_start = SubResource("Resource_k83mh")
-quest_to_goal = SubResource("Resource_dwbse")
+action = 2
+quest = SubResource("Resource_qktwf")
 
 [node name="QuestPoint6" parent="SeriesQuest" unique_id=1811644121 instance=ExtResource("3_tlwt5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.15732, 1.7620485, 160.22116)
-quest_to_start = SubResource("Resource_aqk2v")
-quest_to_goal = SubResource("Resource_k83mh")
+action = 1
+required_flags = Array[StringName]([&"Cookie quest"])
+quest = SubResource("Resource_qktwf")
 
 [node name="QuestPoint5" parent="SeriesQuest" unique_id=1420992607 instance=ExtResource("3_tlwt5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.529533, 23.693123, 128.39815)
-quest_to_goal = SubResource("Resource_aqk2v")
+action = 1
+quest = SubResource("Resource_qktwf")
 
 [node name="Person4" parent="SeriesQuest/QuestPoint5" unique_id=417465891 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.9428425, 0)
@@ -819,3 +912,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.12709, 3.031218, -58.140
 
 [node name="Coin51" parent="BeachCoins" unique_id=442773811 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -133.87971, 3.031218, -59.85994)
+
+[node name="CanyonExit" type="Area3D" parent="." unique_id=1952640041]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -164.32509)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("23_il2jm")
+level = "uid://cyaorxmndg0ly"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CanyonExit" unique_id=1172961125]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7796936, 13.422607, -8.996033)
+shape = SubResource("BoxShape3D_wjb0r")
+
+[node name="CanyonEntrance" type="Marker3D" parent="." unique_id=835338886]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 17.565632, -149.95107)

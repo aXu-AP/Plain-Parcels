@@ -31,6 +31,20 @@ Globals="*uid://mdya2eaix0nx"
 
 enabled=PackedStringArray()
 
+[file_customization]
+
+folder_colors={
+"res://actors/": "red",
+"res://addons/": "gray",
+"res://environment/": "teal",
+"res://globals/": "gray",
+"res://gui/": "green",
+"res://materials/": "pink",
+"res://misc/": "gray",
+"res://music/": "purple",
+"res://portraits/": "green"
+}
+
 [filesystem]
 
 import/blender/enabled=false
