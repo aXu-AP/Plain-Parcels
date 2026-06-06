@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://b5ny1cpw4dsak" path="res://prototyping/big_building.tscn" id="19_cbp6q"]
 [ext_resource type="AudioStream" uid="uid://8368pfj1i5mn" path="res://music/menu.mp3" id="20_26xuy"]
 [ext_resource type="PackedScene" uid="uid://0ks4o4mvb6yu" path="res://actors/big_coin/big_coin.tscn" id="21_bc84e"]
+[ext_resource type="Script" uid="uid://eb2d8rru8uw5" path="res://misc/exit_trigger.gd" id="23_il2jm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_top_color = Color(0.27634427, 0.5678373, 0.72307163, 1)
@@ -171,6 +172,9 @@ size = Vector2(400, 400)
 albedo_texture = ExtResource("18_ikiii")
 proximity_fade_enabled = true
 proximity_fade_distance = 0.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wjb0r"]
+size = Vector3(48.63971, 27.845215, 33.561157)
 
 [node name="Node3D" type="Node3D" unique_id=1664355870]
 
@@ -908,3 +912,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.12709, 3.031218, -58.140
 
 [node name="Coin51" parent="BeachCoins" unique_id=442773811 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -133.87971, 3.031218, -59.85994)
+
+[node name="CanyonExit" type="Area3D" parent="." unique_id=1952640041]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -164.32509)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("23_il2jm")
+level = "uid://cyaorxmndg0ly"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CanyonExit" unique_id=1172961125]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7796936, 13.422607, -8.996033)
+shape = SubResource("BoxShape3D_wjb0r")
+
+[node name="CanyonEntrance" type="Marker3D" parent="." unique_id=835338886]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 17.565632, -149.95107)
