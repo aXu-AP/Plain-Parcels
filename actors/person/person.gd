@@ -1,10 +1,10 @@
 extends Node3D
 
-@export var portrait: Texture2D
+@export var character: Character
 
 func _ready() -> void:
 	var head_material: StandardMaterial3D = preload("uid://br5vxykep0o1f").duplicate()
-	head_material.albedo_texture = portrait
+	head_material.albedo_texture = character.portrait
 	%Head.set_surface_override_material(0, head_material)
 
 

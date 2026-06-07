@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://kxjnuco5kcko" path="res://actors/quest_point/quest_point.tscn" id="3_tlwt5"]
 [ext_resource type="Material" uid="uid://b2ossgcs5ivle" path="res://materials/cardboard.material" id="4_2hkdo"]
 [ext_resource type="Material" uid="uid://ce2jhu2eunpmc" path="res://materials/landingzone.material" id="4_k4q6i"]
-[ext_resource type="Texture2D" uid="uid://xomhfe54vky2" path="res://portraits/city_10.png" id="5_hiqwa"]
 [ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="5_pkg7o"]
 [ext_resource type="Material" uid="uid://duvgsu2dg7yy6" path="res://materials/ground.material" id="5_vcfdf"]
 [ext_resource type="PackedScene" uid="uid://tidsuj62i3av" path="res://actors/ocean/ocean.tscn" id="6_dwbse"]
@@ -14,26 +13,23 @@
 [ext_resource type="Material" uid="uid://sj7yt8h4pdly" path="res://materials/Volcano.material" id="6_uhn4v"]
 [ext_resource type="Material" uid="uid://bd1hd48nywuim" path="res://materials/planks.material" id="8_6sqxf"]
 [ext_resource type="PackedScene" uid="uid://d4lgnhbh2acyf" path="res://environment/buildings/corner_col.glb" id="9_ic0uy"]
-[ext_resource type="Texture2D" uid="uid://b44f57jbv452j" path="res://portraits/city_09.png" id="9_wukud"]
 [ext_resource type="PackedScene" uid="uid://fyulu1v868oa" path="res://environment/buildings/rich_man_house.tscn" id="10_cy8hy"]
 [ext_resource type="PackedScene" uid="uid://di3v1ch8fq7j1" path="res://environment/buildings/halfarc_col.glb" id="10_k3n1d"]
-[ext_resource type="Texture2D" uid="uid://cr5wiaphqbdhb" path="res://portraits/city_06.png" id="10_wjb0r"]
 [ext_resource type="Material" uid="uid://dojdg8yber5oq" path="res://materials/walls.material" id="10_xx4tx"]
 [ext_resource type="PackedScene" uid="uid://do3akernwtx10" path="res://environment/buildings/octacon_col.glb" id="11_2o6r5"]
-[ext_resource type="Texture2D" uid="uid://bbcnjxraj6eo3" path="res://portraits/city_07.png" id="11_mc2jv"]
 [ext_resource type="Script" uid="uid://b1fj4r4p7fhj5" path="res://misc/quests/quest.gd" id="11_wjb0r"]
 [ext_resource type="PackedScene" uid="uid://bi3wjucbqxnds" path="res://environment/house/house.glb" id="11_wplpn"]
-[ext_resource type="Texture2D" uid="uid://dqek12rw4v47f" path="res://portraits/city_12.png" id="12_6j73e"]
 [ext_resource type="PackedScene" uid="uid://cabed1rpt4083" path="res://environment/buildings/crane.tscn" id="13_2o6r5"]
 [ext_resource type="Resource" uid="uid://d381wtj2vlcwy" path="res://misc/quests/cookie_delivery.tres" id="13_k4q6i"]
-[ext_resource type="Texture2D" uid="uid://c431kyplw3l5h" path="res://portraits/city_01.png" id="13_wplpn"]
+[ext_resource type="Resource" uid="uid://blpw0u2l6t3v3" path="res://actors/person/city/young.tres" id="13_tt5cd"]
 [ext_resource type="Resource" uid="uid://bstr6yhe735uv" path="res://misc/quests/statue_cleaning.tres" id="14_tqocu"]
 [ext_resource type="PackedScene" uid="uid://d3k4ruwtp0cjt" path="res://environment/plants/palm.glb" id="15_6sqxf"]
+[ext_resource type="Resource" uid="uid://4r52b7bvxufl" path="res://actors/person/city/rich.tres" id="15_gbexd"]
 [ext_resource type="PackedScene" uid="uid://c0o43vgw2jfhd" path="res://actors/person/person.tscn" id="15_hiqwa"]
 [ext_resource type="PackedScene" uid="uid://ddnhgbek2il4r" path="res://environment/plants/spruce.tscn" id="16_k4q6i"]
 [ext_resource type="Resource" uid="uid://cpc8hhtbqe3c6" path="res://misc/quests/shady_business_1.tres" id="16_nqnse"]
-[ext_resource type="Texture2D" uid="uid://y6eau7msgfgj" path="res://portraits/city_04.png" id="16_udxuc"]
 [ext_resource type="Resource" uid="uid://g8pox55itc3g" path="res://misc/quests/shady_business_2.tres" id="17_cpdoo"]
+[ext_resource type="Resource" uid="uid://d2dthcgj1ixv3" path="res://actors/person/city/angry.tres" id="19_6frpt"]
 [ext_resource type="PackedScene" uid="uid://cl8hilweunnql" path="res://actors/coin/coin.tscn" id="19_26xuy"]
 [ext_resource type="PackedScene" uid="uid://b5ny1cpw4dsak" path="res://prototyping/big_building.tscn" id="19_cbp6q"]
 [ext_resource type="PackedScene" uid="uid://0ks4o4mvb6yu" path="res://actors/big_coin/big_coin.tscn" id="21_bc84e"]
@@ -41,18 +37,22 @@
 [ext_resource type="Resource" uid="uid://dvvsn5n4bp0jv" path="res://misc/quests/bird_feeding_1.tres" id="22_tqocu"]
 [ext_resource type="Script" uid="uid://eb2d8rru8uw5" path="res://misc/exit_trigger.gd" id="23_il2jm"]
 [ext_resource type="Script" uid="uid://pm8hpmyh6iqg" path="res://misc/coin_spawner.gd" id="24_mc2jv"]
+[ext_resource type="Resource" uid="uid://dee0v6tjaudxb" path="res://actors/person/city/granny.tres" id="25_xrsn8"]
+[ext_resource type="Resource" uid="uid://ceouj67bs2hjm" path="res://actors/person/city/kid.tres" id="27_fxuss"]
 [ext_resource type="PackedScene" uid="uid://cyya17uhqc7b5" path="res://environment/buildings/fountain.glb" id="27_o3ebs"]
 [ext_resource type="PackedScene" uid="uid://doi01fmd213dr" path="res://environment/buildings/house1.glb" id="28_k83mh"]
+[ext_resource type="Resource" uid="uid://bcdv85se0i1yf" path="res://actors/person/city/bird.tres" id="30_tgkqj"]
 [ext_resource type="Resource" uid="uid://bic4l062e002c" path="res://misc/quests/beach_coins.tres" id="32_6sqxf"]
-[ext_resource type="Texture2D" uid="uid://by3vg1d5xjeqr" path="res://portraits/city_08.png" id="33_k4q6i"]
+[ext_resource type="Resource" uid="uid://dgahkw07505rf" path="res://actors/person/city/construction.tres" id="33_2b3xb"]
 [ext_resource type="PackedScene" uid="uid://benqh0kf11f3s" path="res://environment/buildings/statue.glb" id="37_eep5w"]
-[ext_resource type="Texture2D" uid="uid://bcu8in2pngpah" path="res://portraits/city_02.png" id="47_tt5cd"]
-[ext_resource type="Texture2D" uid="uid://bxpou3hhfy705" path="res://portraits/alien.png" id="48_gbexd"]
-[ext_resource type="Texture2D" uid="uid://c1dal1uj6ekro" path="res://portraits/city_05.png" id="49_6frpt"]
-[ext_resource type="Texture2D" uid="uid://24miad2nm0om" path="res://portraits/city_11.png" id="50_xrsn8"]
-[ext_resource type="Texture2D" uid="uid://danofja0xbkmy" path="res://portraits/city_14.png" id="51_fxuss"]
-[ext_resource type="Texture2D" uid="uid://cjmdnj75aymg8" path="res://portraits/city_03.png" id="52_tgkqj"]
-[ext_resource type="Texture2D" uid="uid://dwjv2ua5r55no" path="res://portraits/city_13.png" id="53_2b3xb"]
+[ext_resource type="Resource" uid="uid://dlalt8w6rcxj2" path="res://actors/person/city/homeless.tres" id="42_vs3uv"]
+[ext_resource type="Resource" uid="uid://jdypyryrdugg" path="res://actors/person/city/vanity.tres" id="47_ty1sn"]
+[ext_resource type="Resource" uid="uid://cl6e2yfau54q7" path="res://actors/person/city/alien.tres" id="48_jp2sm"]
+[ext_resource type="Resource" uid="uid://dothb61sf7612" path="res://actors/person/city/serious.tres" id="49_7x1jl"]
+[ext_resource type="Resource" uid="uid://b266jl08xgdxe" path="res://actors/person/city/painful.tres" id="50_36xij"]
+[ext_resource type="Resource" uid="uid://cf315tmsyt1sm" path="res://actors/person/city/shy.tres" id="51_fje51"]
+[ext_resource type="Resource" uid="uid://3tan4mamgwoj" path="res://actors/person/city/dad.tres" id="52_nmvc4"]
+[ext_resource type="Resource" uid="uid://6v4rec7wc8nl" path="res://actors/person/city/afro.tres" id="53_pp44n"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_top_color = Color(0.27634427, 0.5678373, 0.72307163, 1)
@@ -232,14 +232,14 @@ transform = Transform3D(-0.55777425, 3.821371e-15, -0.8299927, 7.2560276e-08, 1,
 
 [node name="YoungPerson" parent="Buildings/ResidentialBlock" unique_id=320828333 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5026817, 1.0082655, 23.020348)
-portrait = ExtResource("13_wplpn")
+character = ExtResource("13_tt5cd")
 
 [node name="RichManHouse" parent="." unique_id=1090992063 instance=ExtResource("10_cy8hy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -142.27084, 2.0000048, -99.3867)
 
 [node name="RichPerson" parent="RichManHouse" unique_id=1933162699 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5951996, 0, 31.351402)
-portrait = ExtResource("12_6j73e")
+character = ExtResource("15_gbexd")
 
 [node name="QuestPoint" parent="RichManHouse/RichPerson" unique_id=1895422752 instance=ExtResource("3_tlwt5")]
 required_flags = Array[StringName]([&"Bird Feeding 1"])
@@ -256,7 +256,7 @@ quest = ExtResource("14_tqocu")
 
 [node name="AngryPerson" parent="RichManHouse" unique_id=1240662947 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.76361, 0.008269787, -37.015)
-portrait = ExtResource("10_wjb0r")
+character = ExtResource("19_6frpt")
 
 [node name="ShadyStartQuestPoint" parent="RichManHouse/AngryPerson" unique_id=634044897 instance=ExtResource("3_tlwt5")]
 availability_delay = 3
@@ -533,7 +533,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.547874, 4.347208, -50.4358
 
 [node name="GrannyPerson" parent="CookieDelivery" unique_id=1497924675 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.05751, -2.9218616, 110.10599)
-portrait = ExtResource("5_hiqwa")
+character = ExtResource("25_xrsn8")
 
 [node name="CookieQuestPoint" parent="CookieDelivery/GrannyPerson" unique_id=1388076005 instance=ExtResource("3_tlwt5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63999987, 0)
@@ -545,7 +545,7 @@ quest = ExtResource("17_cpdoo")
 
 [node name="KidPerson" parent="CookieDelivery" unique_id=17138524 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
-portrait = ExtResource("16_udxuc")
+character = ExtResource("27_fxuss")
 
 [node name="CookieQuestPoint" parent="CookieDelivery/KidPerson" unique_id=890679865 instance=ExtResource("3_tlwt5")]
 action = 1
@@ -563,7 +563,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.09892, 4.600795, -8.47580
 
 [node name="BirdPerson" parent="BirdFeeding" unique_id=1311201184 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.77678, -1.509377, 5.125)
-portrait = ExtResource("9_wukud")
+character = ExtResource("30_tgkqj")
 
 [node name="ShadyQuestPoint" parent="BirdFeeding/BirdPerson" unique_id=91283606 instance=ExtResource("3_tlwt5")]
 action = 1
@@ -608,7 +608,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.362701, 2.0653539, -16.53
 
 [node name="ConstructionPerson" parent="SeriesQuest" unique_id=1574174071 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.642307, -0.6430807, 96.80116)
-portrait = ExtResource("11_mc2jv")
+character = ExtResource("33_2b3xb")
 
 [node name="QuestPoint3" parent="SeriesQuest/ConstructionPerson" unique_id=546510407 instance=ExtResource("3_tlwt5")]
 quest = SubResource("Resource_qktwf")
@@ -696,7 +696,7 @@ quest = ExtResource("32_6sqxf")
 
 [node name="HomelessPerson" parent="BeachCoins" unique_id=1045618670 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.02863, 1.0082533, 29.625885)
-portrait = ExtResource("33_k4q6i")
+character = ExtResource("42_vs3uv")
 
 [node name="QuestPoint" parent="BeachCoins/HomelessPerson" unique_id=1508452915 instance=ExtResource("3_tlwt5")]
 quest = ExtResource("32_6sqxf")
@@ -974,28 +974,28 @@ transform = Transform3D(-0.8950044, 0, -0.44605717, 0, 1, 0, 0.44605717, 0, -0.8
 
 [node name="VanityPerson" parent="." unique_id=715962078 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.23692, 0, 0)
-portrait = ExtResource("47_tt5cd")
+character = ExtResource("47_ty1sn")
 
 [node name="AlienPerson" parent="." unique_id=1275784419 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.23692, 0, 0)
-portrait = ExtResource("48_gbexd")
+character = ExtResource("48_jp2sm")
 
 [node name="SeriousOldPerson" parent="." unique_id=1540844805 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.23692, 0, 0)
-portrait = ExtResource("49_6frpt")
+character = ExtResource("49_7x1jl")
 
 [node name="PainfulPerson" parent="." unique_id=1711070339 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.23692, 0, 0)
-portrait = ExtResource("50_xrsn8")
+character = ExtResource("50_36xij")
 
 [node name="ShyPerson" parent="." unique_id=1602629499 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.23692, 0, 0)
-portrait = ExtResource("51_fxuss")
+character = ExtResource("51_fje51")
 
 [node name="ShyDadPerson" parent="." unique_id=1600690858 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.23692, 0, 0)
-portrait = ExtResource("52_tgkqj")
+character = ExtResource("52_nmvc4")
 
 [node name="AfroPerson" parent="." unique_id=314659469 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.23692, 0, 0)
-portrait = ExtResource("53_2b3xb")
+character = ExtResource("53_pp44n")

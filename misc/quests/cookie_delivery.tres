@@ -1,33 +1,33 @@
 [gd_resource type="Resource" script_class="ParcelQuest" format=3 uid="uid://d381wtj2vlcwy"]
 
 [ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_ilk2w"]
-[ext_resource type="Texture2D" uid="uid://y6eau7msgfgj" path="res://portraits/city_04.png" id="2_ci64h"]
-[ext_resource type="Texture2D" uid="uid://xomhfe54vky2" path="res://portraits/city_10.png" id="3_nl2x5"]
+[ext_resource type="Resource" uid="uid://ceouj67bs2hjm" path="res://actors/person/city/kid.tres" id="2_ilk2w"]
+[ext_resource type="Resource" uid="uid://dee0v6tjaudxb" path="res://actors/person/city/granny.tres" id="3_ci64h"]
 [ext_resource type="Script" uid="uid://cwt46u8hoo78l" path="res://misc/quests/parcel_quest.gd" id="4_qhb2b"]
 
 [sub_resource type="Resource" id="Resource_wjb0r"]
 script = ExtResource("1_ilk2w")
 text = "Wow! Grandma's freshly baked cookies!
 Thank you Mr. Pilot"
-portrait = ExtResource("2_ci64h")
+character = ExtResource("2_ilk2w")
 metadata/_custom_type_script = "uid://u31paso7yk1x"
 
 [sub_resource type="Resource" id="Resource_mc2jv"]
 script = ExtResource("1_ilk2w")
-text = "You were too slow! Now my grandson cant enjoy the cookies, he only likes them fresh out the oven! Now i have to make more..."
-portrait = ExtResource("3_nl2x5")
+text = "You were too slow! Now my grandson can't enjoy the cookies, he only likes them fresh out the oven! Now i have to make more..."
+character = ExtResource("3_ci64h")
 metadata/_custom_type_script = "uid://u31paso7yk1x"
 
 [sub_resource type="Resource" id="Resource_ilk2w"]
 script = ExtResource("1_ilk2w")
 text = "Oh dear. My fragile cookies are now all just crumbles, he can't eat them like that! Now i have to make more..."
-portrait = ExtResource("3_nl2x5")
+character = ExtResource("3_ci64h")
 metadata/_custom_type_script = "uid://u31paso7yk1x"
 
 [sub_resource type="Resource" id="Resource_bo7i5"]
 script = ExtResource("1_ilk2w")
 text = "Can you please deliver these freshly baked cookies to my grandson before they get cold?"
-portrait = ExtResource("3_nl2x5")
+character = ExtResource("3_ci64h")
 metadata/_custom_type_script = "uid://u31paso7yk1x"
 
 [resource]

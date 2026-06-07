@@ -2,24 +2,24 @@
 
 [ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_2c6x2"]
 [ext_resource type="Script" uid="uid://crcdacsuurjco" path="res://misc/quests/coin_quest.gd" id="2_01seo"]
-[ext_resource type="Texture2D" uid="uid://by3vg1d5xjeqr" path="res://portraits/city_08.png" id="2_l4ra7"]
+[ext_resource type="Resource" uid="uid://dlalt8w6rcxj2" path="res://actors/person/city/homeless.tres" id="2_l4ra7"]
 
 [sub_resource type="Resource" id="Resource_bh8nc"]
 script = ExtResource("1_2c6x2")
 text = "Oh thank you so much dude, i will never forget this!"
-portrait = ExtResource("2_l4ra7")
+character = ExtResource("2_l4ra7")
 metadata/_custom_type_script = "uid://u31paso7yk1x"
 
 [sub_resource type="Resource" id="Resource_jjr1n"]
 script = ExtResource("1_2c6x2")
 text = "Aww man, another day without food..."
-portrait = ExtResource("2_l4ra7")
+character = ExtResource("2_l4ra7")
 metadata/_custom_type_script = "uid://u31paso7yk1x"
 
 [sub_resource type="Resource" id="Resource_gggvi"]
 script = ExtResource("1_2c6x2")
 text = "HEY THERE! Could you spare a few coins so i can eat something today?"
-portrait = ExtResource("2_l4ra7")
+character = ExtResource("2_l4ra7")
 metadata/_custom_type_script = "uid://u31paso7yk1x"
 
 [resource]

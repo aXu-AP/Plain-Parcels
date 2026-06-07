@@ -2,26 +2,26 @@
 
 [ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_hsp5f"]
 [ext_resource type="Script" uid="uid://cwt46u8hoo78l" path="res://misc/quests/parcel_quest.gd" id="2_apvfn"]
-[ext_resource type="Texture2D" uid="uid://cr5wiaphqbdhb" path="res://portraits/city_06.png" id="2_naq48"]
-[ext_resource type="Texture2D" uid="uid://dqek12rw4v47f" path="res://portraits/city_12.png" id="3_naq48"]
-
-[sub_resource type="Resource" id="Resource_3o7m1"]
-script = ExtResource("1_hsp5f")
-text = "Well crap, now the money is all over the place..."
-portrait = ExtResource("2_naq48")
-metadata/_custom_type_script = "uid://u31paso7yk1x"
+[ext_resource type="Resource" uid="uid://d2dthcgj1ixv3" path="res://actors/person/city/angry.tres" id="2_naq48"]
+[ext_resource type="Resource" uid="uid://4r52b7bvxufl" path="res://actors/person/city/rich.tres" id="3_3o7m1"]
 
 [sub_resource type="Resource" id="Resource_nanms"]
 script = ExtResource("1_hsp5f")
 text = "WELL DONE PILOT, now everybody will eat much better for a while! That scum deserved it."
-portrait = ExtResource("2_naq48")
+character = ExtResource("2_naq48")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_3o7m1"]
+script = ExtResource("1_hsp5f")
+text = "Well crap, now the money is all over the place..."
+character = ExtResource("2_naq48")
 metadata/_custom_type_script = "uid://u31paso7yk1x"
 
 [sub_resource type="Resource" id="Resource_hnnf5"]
 script = ExtResource("1_hsp5f")
 text = "YOU HAD A CHANGE OF MIND I SEE, Well thank you idiot thief!
 I'll make sure to tell everyone how intimidated you were by my threats!"
-portrait = ExtResource("3_naq48")
+character = ExtResource("3_3o7m1")
 metadata/_custom_type_script = "uid://u31paso7yk1x"
 
 [sub_resource type="Resource" id="Resource_ir2uc"]
@@ -37,7 +37,7 @@ metadata/_custom_type_script = "uid://u31paso7yk1x"
 [sub_resource type="Resource" id="Resource_jqe7g"]
 script = ExtResource("1_hsp5f")
 text = "Great, well done Pilot, now go give these money to the people of the city except the Rich Man of course. He has more money than he needs..."
-portrait = ExtResource("2_naq48")
+character = ExtResource("2_naq48")
 metadata/_custom_type_script = "uid://u31paso7yk1x"
 
 [resource]

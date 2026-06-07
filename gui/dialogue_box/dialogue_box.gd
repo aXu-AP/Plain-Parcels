@@ -23,7 +23,10 @@ func _show_next_message():
 	var message = _message_queue.pop_front()
 	%DialogueText.text = message.text
 	%DialogueText.visible_characters = 0
-	%Portrait.texture = message.portrait
+	if message.character:
+		%Portrait.texture = message.character.portrait
+	else:
+		%Portrait.texture = null
 	scale.y = 0
 	var tween = create_tween()
 	tween.tween_property(self, "scale:y", 1, 0.15)
