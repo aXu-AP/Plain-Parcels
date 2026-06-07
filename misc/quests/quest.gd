@@ -75,7 +75,7 @@ func try_goal(_source: Node3D) -> EndState:
 		return EndState.COMPLETE
 	var msg_id = goals - goals_left - 1
 	if mid_goal_messages.size() > msg_id and mid_goal_messages[msg_id]:
-		DialogueBox.queue_message(mid_goal_messages[msg_id])
+		DialogueBox.queue_message(mid_goal_messages[msg_id], true)
 	return EndState.CONTINUE
 
 
@@ -113,9 +113,9 @@ func end_quest(state: EndState) -> bool:
 		Globals.add_flag(name)
 	else:
 		status = Status.AVAILABLE
-	var message = end_messages.get(state)
+	var message: Message = end_messages.get(state)
 	if message:
-		DialogueBox.queue_message(message)
+		DialogueBox.queue_message(message, true)
 	ended.emit(state)
 	if delay_finishing:
 		Globals.get_tree().create_timer(3).timeout.connect(reset_active)

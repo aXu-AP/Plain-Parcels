@@ -29,7 +29,7 @@ func damaged() -> void:
 	if invincible:
 		return
 	if damage_messages.size() > hits:
-		DialogueBox.queue_message(damage_messages[hits])
+		DialogueBox.queue_message(damage_messages[hits], true)
 	hits += 1
 	if hits >= max_health:
 		end_quest(EndState.CUSTOM1)

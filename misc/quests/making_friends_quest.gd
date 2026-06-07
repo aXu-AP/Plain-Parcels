@@ -14,7 +14,7 @@ func start_quest(source: Node3D) -> bool:
 
 func do_action(source: Node3D, action: Action) -> void:
 	if action == Action.CUSTOM1:
-		DialogueBox.queue_message(wrong_person_message)
+		DialogueBox.queue_message(wrong_person_message, true)
 		wrong_goals += 1
 		if wrong_goals >= max_wrong_goals:
 			end_quest(EndState.CUSTOM2)

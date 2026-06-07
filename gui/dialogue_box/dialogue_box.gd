@@ -2,15 +2,15 @@ extends PanelContainer
 
 var _message_queue: Array[Message] = []
 var _current_message: Message = null
-
+var tween: Tween
 
 func _ready() -> void:
 	visible = false
 
 
-func queue_message(message: Message) -> void:
+func queue_message(message: Message, priority = false) -> void:
 	_message_queue.append(message)
-	if _message_queue.size() == 1 and _current_message == null:
+	if _message_queue.size() == 1 and _current_message == null or priority:
 		_show_next_message()
 
 
@@ -28,7 +28,9 @@ func _show_next_message():
 	else:
 		%Portrait.texture = null
 	scale.y = 0
-	var tween = create_tween()
+	if is_instance_valid(tween):
+		tween.kill()
+	tween = create_tween()
 	tween.tween_property(self, "scale:y", 1, 0.15)
 	tween.tween_interval(.3)
 	var chars = %DialogueText.get_total_character_count()
