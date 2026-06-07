@@ -118,7 +118,13 @@ func end_quest(state: EndState) -> bool:
 		DialogueBox.queue_message(message)
 	ended.emit(state)
 	if delay_finishing:
-		await Globals.get_tree().create_timer(3).timeout
-	active_quest = null
-	Globals.quest_ended.emit(self)
+		Globals.get_tree().create_timer(3).timeout.connect(reset_active)
+	else:
+		reset_active()
 	return true
+
+
+func reset_active() -> void:
+	if active_quest == self:
+		active_quest = null
+		Globals.quest_ended.emit(self)

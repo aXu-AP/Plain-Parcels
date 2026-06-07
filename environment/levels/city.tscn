@@ -23,6 +23,7 @@
 [ext_resource type="Resource" uid="uid://d381wtj2vlcwy" path="res://misc/quests/cookie_delivery.tres" id="13_k4q6i"]
 [ext_resource type="Resource" uid="uid://blpw0u2l6t3v3" path="res://actors/person/city/young.tres" id="13_tt5cd"]
 [ext_resource type="Resource" uid="uid://bstr6yhe735uv" path="res://misc/quests/statue_cleaning.tres" id="14_tqocu"]
+[ext_resource type="Resource" uid="uid://cyf81y5p4wtfc" path="res://misc/quests/making_friends.tres" id="15_6frpt"]
 [ext_resource type="PackedScene" uid="uid://d3k4ruwtp0cjt" path="res://environment/plants/palm.glb" id="15_6sqxf"]
 [ext_resource type="Resource" uid="uid://4r52b7bvxufl" path="res://actors/person/city/rich.tres" id="15_gbexd"]
 [ext_resource type="PackedScene" uid="uid://c0o43vgw2jfhd" path="res://actors/person/person.tscn" id="15_hiqwa"]
@@ -67,10 +68,6 @@ background_mode = 2
 sky = SubResource("Sky_wukud")
 tonemap_mode = 2
 ssao_enabled = true
-
-[sub_resource type="Resource" id="Resource_xx4tx"]
-script = ExtResource("11_wjb0r")
-metadata/_custom_type_script = "uid://b1fj4r4p7fhj5"
 
 [sub_resource type="Resource" id="Resource_qktwf"]
 script = ExtResource("11_wjb0r")
@@ -234,6 +231,9 @@ transform = Transform3D(-0.55777425, 3.821371e-15, -0.8299927, 7.2560276e-08, 1,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5026817, 1.0082655, 23.020348)
 character = ExtResource("13_tt5cd")
 
+[node name="FriendQuestPoint" parent="Buildings/ResidentialBlock/YoungPerson" unique_id=1895422752 instance=ExtResource("3_tlwt5")]
+quest = ExtResource("15_6frpt")
+
 [node name="RichManHouse" parent="." unique_id=1090992063 instance=ExtResource("10_cy8hy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -142.27084, 2.0000048, -99.3867)
 
@@ -241,13 +241,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -142.27084, 2.0000048, -99.38
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5951996, 0, 31.351402)
 character = ExtResource("15_gbexd")
 
-[node name="QuestPoint" parent="RichManHouse/RichPerson" unique_id=1895422752 instance=ExtResource("3_tlwt5")]
+[node name="QuestPoint" parent="RichManHouse/RichPerson" unique_id=295749474 instance=ExtResource("3_tlwt5")]
 required_flags = Array[StringName]([&"Bird Feeding 1"])
 quest = ExtResource("14_tqocu")
 
 [node name="ShadyFailQuestPoint" parent="RichManHouse/RichPerson" unique_id=291317510 instance=ExtResource("3_tlwt5")]
 action = 2
 quest = ExtResource("17_cpdoo")
+
+[node name="FriendQuestPoint" parent="RichManHouse/RichPerson" unique_id=1382397581 instance=ExtResource("3_tlwt5")]
+action = 3
+quest = ExtResource("15_6frpt")
 
 [node name="QuestPoint2" parent="RichManHouse" unique_id=1511746791 instance=ExtResource("3_tlwt5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.570694, 8.088255, 75.104225)
@@ -270,6 +274,10 @@ quest = ExtResource("16_nqnse")
 [node name="ShadyStart2QuestPoint" parent="RichManHouse/AngryPerson" unique_id=603218117 instance=ExtResource("3_tlwt5")]
 required_flags = Array[StringName]([&"Shady Business 1"])
 quest = ExtResource("17_cpdoo")
+
+[node name="FriendQuestPoint" parent="RichManHouse/AngryPerson" unique_id=1443912774 instance=ExtResource("3_tlwt5")]
+action = 3
+quest = ExtResource("15_6frpt")
 
 [node name="HouseCoins" type="Node3D" parent="RichManHouse" unique_id=697565618]
 script = ExtResource("24_mc2jv")
@@ -543,6 +551,10 @@ quest = ExtResource("13_k4q6i")
 action = 1
 quest = ExtResource("17_cpdoo")
 
+[node name="FriendQuestPoint" parent="CookieDelivery/GrannyPerson" unique_id=1822294787 instance=ExtResource("3_tlwt5")]
+action = 3
+quest = ExtResource("15_6frpt")
+
 [node name="KidPerson" parent="CookieDelivery" unique_id=17138524 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 character = ExtResource("27_fxuss")
@@ -555,8 +567,9 @@ quest = ExtResource("13_k4q6i")
 action = 1
 quest = ExtResource("17_cpdoo")
 
-[node name="FriendQuestPoint" parent="CookieDelivery/KidPerson" unique_id=1350352894 instance=ExtResource("3_tlwt5")]
-quest = SubResource("Resource_xx4tx")
+[node name="FriendQuestPoint" parent="CookieDelivery/KidPerson" unique_id=1255180196 instance=ExtResource("3_tlwt5")]
+action = 1
+quest = ExtResource("15_6frpt")
 
 [node name="BirdFeeding" type="Node3D" parent="." unique_id=969311564]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.09892, 4.600795, -8.475807)
@@ -568,6 +581,10 @@ character = ExtResource("30_tgkqj")
 [node name="ShadyQuestPoint" parent="BirdFeeding/BirdPerson" unique_id=91283606 instance=ExtResource("3_tlwt5")]
 action = 1
 quest = ExtResource("17_cpdoo")
+
+[node name="FriendQuestPoint" parent="BirdFeeding/BirdPerson" unique_id=1791133010 instance=ExtResource("3_tlwt5")]
+action = 3
+quest = ExtResource("15_6frpt")
 
 [node name="QuestPoint1" parent="BirdFeeding" unique_id=994692261 instance=ExtResource("3_tlwt5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.77678, -0.44074535, 5.125)
@@ -616,6 +633,10 @@ quest = SubResource("Resource_qktwf")
 [node name="ShadyQuestPoint" parent="SeriesQuest/ConstructionPerson" unique_id=1445306530 instance=ExtResource("3_tlwt5")]
 action = 1
 quest = ExtResource("17_cpdoo")
+
+[node name="FriendQuestPoint" parent="SeriesQuest/ConstructionPerson" unique_id=248410829 instance=ExtResource("3_tlwt5")]
+action = 3
+quest = ExtResource("15_6frpt")
 
 [node name="QuestPoint4" parent="SeriesQuest" unique_id=980856128 instance=ExtResource("3_tlwt5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.64407, 7.0236516, 89.25044)
@@ -704,6 +725,10 @@ quest = ExtResource("32_6sqxf")
 [node name="ShadyQuestPoint" parent="BeachCoins/HomelessPerson" unique_id=525935166 instance=ExtResource("3_tlwt5")]
 action = 1
 quest = ExtResource("17_cpdoo")
+
+[node name="FriendQuestPoint" parent="BeachCoins/HomelessPerson" unique_id=1480226990 instance=ExtResource("3_tlwt5")]
+action = 3
+quest = ExtResource("15_6frpt")
 
 [node name="QuestPoint2" parent="BeachCoins" unique_id=676503088 instance=ExtResource("3_tlwt5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -169.34738, -3.8146973e-06, -71.71955)
@@ -976,26 +1001,54 @@ transform = Transform3D(-0.8950044, 0, -0.44605717, 0, 1, 0, 0.44605717, 0, -0.8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.23692, 0, 0)
 character = ExtResource("47_ty1sn")
 
+[node name="FriendQuestPoint" parent="VanityPerson" unique_id=763376972 instance=ExtResource("3_tlwt5")]
+action = 3
+quest = ExtResource("15_6frpt")
+
 [node name="AlienPerson" parent="." unique_id=1275784419 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.23692, 0, 0)
 character = ExtResource("48_jp2sm")
+
+[node name="FriendQuestPoint" parent="AlienPerson" unique_id=1780616342 instance=ExtResource("3_tlwt5")]
+action = 2
+quest = ExtResource("15_6frpt")
 
 [node name="SeriousOldPerson" parent="." unique_id=1540844805 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.23692, 0, 0)
 character = ExtResource("49_7x1jl")
 
+[node name="FriendQuestPoint" parent="SeriousOldPerson" unique_id=198483175 instance=ExtResource("3_tlwt5")]
+action = 3
+quest = ExtResource("15_6frpt")
+
 [node name="PainfulPerson" parent="." unique_id=1711070339 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.23692, 0, 0)
 character = ExtResource("50_36xij")
+
+[node name="FriendQuestPoint" parent="PainfulPerson" unique_id=1969971291 instance=ExtResource("3_tlwt5")]
+action = 3
+quest = ExtResource("15_6frpt")
 
 [node name="ShyPerson" parent="." unique_id=1602629499 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.23692, 0, 0)
 character = ExtResource("51_fje51")
 
+[node name="FriendQuestPoint" parent="ShyPerson" unique_id=1326494533 instance=ExtResource("3_tlwt5")]
+action = 3
+quest = ExtResource("15_6frpt")
+
 [node name="ShyDadPerson" parent="." unique_id=1600690858 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.23692, 0, 0)
 character = ExtResource("52_nmvc4")
 
+[node name="FriendQuestPoint" parent="ShyDadPerson" unique_id=1182319498 instance=ExtResource("3_tlwt5")]
+action = 3
+quest = ExtResource("15_6frpt")
+
 [node name="AfroPerson" parent="." unique_id=314659469 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.23692, 0, 0)
 character = ExtResource("53_pp44n")
+
+[node name="FriendQuestPoint" parent="AfroPerson" unique_id=908915525 instance=ExtResource("3_tlwt5")]
+action = 3
+quest = ExtResource("15_6frpt")
