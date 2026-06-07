@@ -79,6 +79,13 @@ hframes = 2
 vframes = 2
 script = ExtResource("4_6p1w3")
 
+[node name="PassengerHead" type="Sprite3D" parent="PlaneModel" unique_id=683986237]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9289682, 0.55848396)
+pixel_size = 0.005
+alpha_cut = 1
+script = ExtResource("4_6p1w3")
+
 [node name="BodyCol" type="CollisionShape3D" parent="." unique_id=2008562664]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_nvxhs")

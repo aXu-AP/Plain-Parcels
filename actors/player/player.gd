@@ -195,3 +195,7 @@ func process_max_height(delta: float) -> void:
 	current_max_height_soft = current_max_height - 8
 	if global_position.y > current_max_height_soft:
 		velocity.y -= ease(remap(global_position.y, current_max_height_soft, current_max_height, 0, 1), 3) * downwards_force
+
+
+func set_passenger(texture: Texture2D) -> void:
+	%PassengerHead.texture = texture

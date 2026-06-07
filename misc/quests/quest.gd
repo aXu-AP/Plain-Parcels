@@ -36,7 +36,7 @@ enum Action {
 
 static var active_quest: Quest
 
-@export var name: String
+@export var name: StringName
 @export var goals: int = 1
 @export var time_limit: int = 0
 @export var status := Status.AVAILABLE:
@@ -48,6 +48,10 @@ static var active_quest: Quest
 @export var start_message: Message
 @export var end_messages: Dictionary[EndState, Message]
 @export var mid_goal_messages: Array[Message]
+## Delays setting active_quest to null after finishing this quest.
+## Use this if the goal overlaps with another quest.
+@export var delay_finishing := true
+@export var show_arrow := true
 
 
 var goals_left: int
@@ -69,6 +73,9 @@ func try_goal(_source: Node3D) -> EndState:
 	goals_left -= 1
 	if goals_left <= 0:
 		return EndState.COMPLETE
+	var msg_id = goals - goals_left - 1
+	if mid_goal_messages.size() > msg_id and mid_goal_messages[msg_id]:
+		DialogueBox.queue_message(mid_goal_messages[msg_id])
 	return EndState.CONTINUE
 
 
@@ -82,14 +89,15 @@ func start_quest(_source: Node3D) -> bool:
 	
 	print("%s started" % name)
 	status = Quest.Status.ACTIVE
-	active_quest = self
 	goals_left = goals
-	started.emit()
 	if start_message:
 		DialogueBox.queue_message(start_message)
 	if time_limit > 0:
 		timer = Player.instance.get_tree().create_timer(time_limit, false)
 		timer.timeout.connect(end_quest.bind(EndState.TIMEOUT))
+	started.emit()
+	active_quest = self
+	Globals.quest_started.emit(self)
 	return true
 
 
@@ -109,5 +117,8 @@ func end_quest(state: EndState) -> bool:
 	if message:
 		DialogueBox.queue_message(message)
 	ended.emit(state)
+	if delay_finishing:
+		await Globals.get_tree().create_timer(3).timeout
 	active_quest = null
+	Globals.quest_ended.emit(self)
 	return true

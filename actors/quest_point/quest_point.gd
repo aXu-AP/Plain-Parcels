@@ -16,31 +16,46 @@ signal quest_ended(end_state: Quest.EndState)
 
 
 func _ready() -> void:
-	update_visibility()
-	quest.status_changed.connect(update_visibility.unbind(1))
-	Globals.flag_added.connect(update_visibility.bind(availability_delay).unbind(1))
+	update_availability()
+	quest.status_changed.connect(update_availability.bind(availability_delay).unbind(1))
+	Globals.flag_added.connect(update_availability.bind(availability_delay).unbind(1))
 	quest.started.connect(quest_started.emit)
 	quest.ended.connect(quest_ended.emit)
+	Globals.quest_started.connect(disable_if_other_active.unbind(1))
+	Globals.quest_ended.connect(disable_if_other_active.unbind(1))
 
 
-func update_visibility(delay: int = 0) -> void:
-	if delay:
-		await get_tree().create_timer(delay).finished
+func update_availability(delay: int = 0) -> void:
 	# The quest is completed, quest no longer available.
 	if quest.name in required_flags:
 		queue_free()
-	visible = check_visibility()
-	set_deferred("monitoring", visible)
+	var is_available = check_availability()
+	if is_available and delay:
+		await get_tree().create_timer(delay).timeout
+		update_availability() # Need to recheck visibility, it might have been changed again.
+	else:
+		visible = is_available
+		set_deferred("monitoring", is_available)
 
 
-func check_visibility() -> bool:
+func check_availability() -> bool:
 	if not required_flags.all(func (f): return f in Globals.flags):
 		return false
 	if action == Quest.Action.START and quest.status != Quest.Status.AVAILABLE:
 		return false
 	if action != Quest.Action.START and quest.status != Quest.Status.ACTIVE:
 		return false
+	if Quest.active_quest != null and Quest.active_quest != quest:
+		return false
 	return true
+
+
+func disable_if_other_active() -> void:
+	if Quest.active_quest == null:
+		update_availability()
+	elif Quest.active_quest != quest:
+		visible = false
+		set_deferred("monitoring", false)
 
 
 func interact() -> void:

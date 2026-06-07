@@ -11,4 +11,4 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	var camera := get_viewport().get_camera_3d()
 	var distance: float = global_position.distance_to(camera.global_position)
-	scale = Vector3.ONE * clamp(distance * .02, 1, 3)
+	%Model.scale = Vector3.ONE * clamp(distance * .02, 1, 3)

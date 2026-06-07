@@ -29,7 +29,7 @@ func _show_next_message():
 	tween.tween_property(self, "scale:y", 1, 0.15)
 	tween.tween_interval(.3)
 	var chars = %DialogueText.get_total_character_count()
-	tween.tween_method(_show_characters, 0, chars, chars * 0.05)
+	tween.tween_method(_show_characters, 0, chars, chars * 0.03)
 	tween.tween_interval(message.duration)
 	tween.tween_property(self, "scale:y", 0, 0.15)
 	tween.tween_callback(_show_next_message)

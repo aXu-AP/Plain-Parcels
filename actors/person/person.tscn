@@ -9,11 +9,14 @@
 [node name="Person" type="Node3D" unique_id=320828333]
 script = ExtResource("1_6apwp")
 
-[node name="Head" type="MeshInstance3D" parent="." unique_id=709372128]
+[node name="Model" type="Node3D" parent="." unique_id=563772048]
+unique_name_in_owner = true
+
+[node name="Head" type="MeshInstance3D" parent="Model" unique_id=709372128]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.777947, 0)
 mesh = SubResource("QuadMesh_ry88l")
 surface_material_override/0 = ExtResource("2_6apwp")
 
-[node name="Torso" parent="." unique_id=1998308787 instance=ExtResource("3_bi1tg")]
+[node name="Torso" parent="Model" unique_id=1998308787 instance=ExtResource("3_bi1tg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 0)

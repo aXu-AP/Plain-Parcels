@@ -41,3 +41,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 bbcode_enabled = true
 text = "This is [b]dialogue[/b]."
+scroll_active = false
+scroll_following_visible_characters = true
+visible_characters_behavior = 1
