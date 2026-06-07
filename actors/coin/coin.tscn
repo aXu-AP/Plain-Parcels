@@ -1,11 +1,7 @@
 [gd_scene format=3 uid="uid://cl8hilweunnql"]
 
 [ext_resource type="Script" uid="uid://ckdg66fdyek53" path="res://actors/coin/coin.gd" id="1_xamdp"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tx177"]
-albedo_color = Color(0.88180196, 0.6932975, 0, 1)
-metallic = 1.0
-metallic_specular = 0.0
+[ext_resource type="Material" uid="uid://c1g7w8565ycii" path="res://materials/coin.tres" id="2_tx177"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_krrhs"]
 height = 0.2
@@ -65,7 +61,7 @@ script = ExtResource("1_xamdp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=857286644]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_tx177")
+material_override = ExtResource("2_tx177")
 mesh = SubResource("CylinderMesh_krrhs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=743954163]

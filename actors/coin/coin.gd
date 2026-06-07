@@ -4,6 +4,10 @@ extends Area3D
 @export var is_quest_coin := false
 
 
+func _ready() -> void:
+	if is_quest_coin:
+		$MeshInstance3D.material_override = preload("uid://b3j4vl5d3pon3")
+
 func _process(delta: float) -> void:
 	rotation.y += TAU * delta
 
