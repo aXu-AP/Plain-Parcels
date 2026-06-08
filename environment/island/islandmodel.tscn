@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://d3hxxv1228qoh"]
 
 [ext_resource type="PackedScene" uid="uid://b46ln0w7p0wr4" path="res://environment/island/main_island.glb" id="1_jjsx5"]
+[ext_resource type="Material" uid="uid://dlet0jny1l62s" path="res://materials/water.material" id="2_8i7qp"]
 
-[node name="island" unique_id=1041211503 instance=ExtResource("1_jjsx5")]
+[node name="island" unique_id=1928906141 instance=ExtResource("1_jjsx5")]
+
+[node name="Ocean" parent="." index="5" unique_id=1214683241]
+surface_material_override/0 = ExtResource("2_8i7qp")
