@@ -1,0 +1,71 @@
+[gd_resource type="Resource" format=3 uid="uid://cyf81y5p4wtfc"]
+
+[ext_resource type="Resource" uid="uid://blpw0u2l6t3v3" path="res://actors/person/city/young.tres" id="1_56uk0"]
+[ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="2_gixpn"]
+[ext_resource type="Script" uid="uid://dmu70bqbvybna" path="res://misc/quests/making_friends_quest.gd" id="3_56uk0"]
+
+[sub_resource type="Resource" id="Resource_6frpt"]
+script = ExtResource("2_gixpn")
+text = "Ouch!"
+character = ExtResource("1_56uk0")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_xrsn8"]
+script = ExtResource("2_gixpn")
+text = "That hurt!"
+character = ExtResource("1_56uk0")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_gbexd"]
+script = ExtResource("2_gixpn")
+text = "I'm never going on a plane again..."
+character = ExtResource("1_56uk0")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_gixpn"]
+script = ExtResource("2_gixpn")
+text = "Thank you for helping me find a friend Mr.Pilot, now i have someone to play with!"
+character = ExtResource("1_56uk0")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_84y4u"]
+script = ExtResource("2_gixpn")
+text = "WHAT IS THAT, I DONT WANNA BE FRIEND WITH THAT THING!! TAKE ME HOME NOW!"
+character = ExtResource("1_56uk0")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_gykdv"]
+script = ExtResource("2_gixpn")
+text = "Maybe there is nobody out there who wants to be my friend.
+I thought there would be a least someone my age..."
+character = ExtResource("1_56uk0")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_fxuss"]
+script = ExtResource("2_gixpn")
+text = "Hi... can you help me make a friend..? I'm very shy and i just want a friend who will play with me..."
+character = ExtResource("1_56uk0")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_xanbw"]
+script = ExtResource("2_gixpn")
+text = "I dont wanna be friends with them..."
+character = ExtResource("1_56uk0")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[resource]
+script = ExtResource("3_56uk0")
+max_wrong_goals = 3
+wrong_person_message = SubResource("Resource_xanbw")
+character = ExtResource("1_56uk0")
+max_health = 3
+damage_messages = Array[ExtResource("2_gixpn")]([SubResource("Resource_6frpt"), SubResource("Resource_xrsn8"), SubResource("Resource_gbexd")])
+name = &"Making Friends"
+start_message = SubResource("Resource_fxuss")
+end_messages = Dictionary[int, ExtResource("2_gixpn")]({
+0: SubResource("Resource_gixpn"),
+4: SubResource("Resource_84y4u"),
+8: SubResource("Resource_gykdv")
+})
+show_arrow = false
+metadata/_custom_type_script = "uid://b00fa48eqrk5h"

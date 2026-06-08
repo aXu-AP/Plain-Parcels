@@ -4,6 +4,7 @@ extends CharacterBody3D
 signal damaged
 signal died
 signal respawned
+signal passenger_changed(Character)
 
 static var instance: Player
 
@@ -195,3 +196,11 @@ func process_max_height(delta: float) -> void:
 	current_max_height_soft = current_max_height - 8
 	if global_position.y > current_max_height_soft:
 		velocity.y -= ease(remap(global_position.y, current_max_height_soft, current_max_height, 0, 1), 3) * downwards_force
+
+
+func set_passenger(character: Character) -> void:
+	if character:
+		%PassengerHead.texture = character.portrait
+	else:
+		%PassengerHead.texture = null
+	passenger_changed.emit(character)

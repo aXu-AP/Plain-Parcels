@@ -1,0 +1,55 @@
+[gd_resource type="Resource" script_class="ParcelQuest" format=3 uid="uid://g8pox55itc3g"]
+
+[ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_hsp5f"]
+[ext_resource type="Script" uid="uid://cwt46u8hoo78l" path="res://misc/quests/parcel_quest.gd" id="2_apvfn"]
+[ext_resource type="Resource" uid="uid://d2dthcgj1ixv3" path="res://actors/person/city/angry.tres" id="2_naq48"]
+[ext_resource type="Resource" uid="uid://4r52b7bvxufl" path="res://actors/person/city/rich.tres" id="3_3o7m1"]
+
+[sub_resource type="Resource" id="Resource_nanms"]
+script = ExtResource("1_hsp5f")
+text = "WELL DONE PILOT, now everybody will eat much better for a while! That scum deserved it."
+character = ExtResource("2_naq48")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_3o7m1"]
+script = ExtResource("1_hsp5f")
+text = "Well crap, now the money is all over the place..."
+character = ExtResource("2_naq48")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_hnnf5"]
+script = ExtResource("1_hsp5f")
+text = "YOU HAD A CHANGE OF MIND I SEE, Well thank you idiot thief!
+I'll make sure to tell everyone how intimidated you were by my threats!"
+character = ExtResource("3_3o7m1")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_ir2uc"]
+script = ExtResource("1_hsp5f")
+text = "Oh thank you mysterious pilot!"
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_ugc38"]
+script = ExtResource("1_hsp5f")
+text = "Is there a new superhero in the town?"
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_jqe7g"]
+script = ExtResource("1_hsp5f")
+text = "Great, well done Pilot, now go give these money to the people of the city except the Rich Man of course. He has more money than he needs..."
+character = ExtResource("2_naq48")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[resource]
+script = ExtResource("2_apvfn")
+name = &"Shady Business 2"
+goals = 3
+start_message = SubResource("Resource_jqe7g")
+end_messages = Dictionary[int, ExtResource("1_hsp5f")]({
+0: SubResource("Resource_nanms"),
+2: SubResource("Resource_3o7m1"),
+4: SubResource("Resource_hnnf5")
+})
+mid_goal_messages = Array[ExtResource("1_hsp5f")]([SubResource("Resource_ir2uc"), SubResource("Resource_ugc38")])
+show_arrow = false
+metadata/_custom_type_script = "uid://cwt46u8hoo78l"

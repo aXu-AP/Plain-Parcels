@@ -20,6 +20,11 @@ func _process(_delta: float) -> void:
 		%HealthBar.custom_minimum_size.x = Player.instance.max_health * 5
 		%HealthBar.value = Player.instance.health
 	%CoinLabel.text = "%03d" % Globals.coins
+	if Quest.active_quest is CoinQuest:
+		%QuestCoinCounter.visible = true
+		%QuestCoinLabel.text = "%03d/%d" % [Globals.quest_coins, Quest.active_quest.coin_requirement]
+	else:
+		%QuestCoinCounter.visible = false
 
 
 func _new_timer_tween() -> void:

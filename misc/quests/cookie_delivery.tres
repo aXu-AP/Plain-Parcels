@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="ParcelQuest" format=3 uid="uid://d381wtj2vlcwy"]
+
+[ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_ilk2w"]
+[ext_resource type="Resource" uid="uid://ceouj67bs2hjm" path="res://actors/person/city/kid.tres" id="2_ilk2w"]
+[ext_resource type="Resource" uid="uid://dee0v6tjaudxb" path="res://actors/person/city/granny.tres" id="3_ci64h"]
+[ext_resource type="Script" uid="uid://cwt46u8hoo78l" path="res://misc/quests/parcel_quest.gd" id="4_qhb2b"]
+
+[sub_resource type="Resource" id="Resource_wjb0r"]
+script = ExtResource("1_ilk2w")
+text = "Wow! Grandma's freshly baked cookies!
+Thank you Mr. Pilot"
+character = ExtResource("2_ilk2w")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_mc2jv"]
+script = ExtResource("1_ilk2w")
+text = "You were too slow! Now my grandson can't enjoy the cookies, he only likes them fresh out the oven! Now i have to make more..."
+character = ExtResource("3_ci64h")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_ilk2w"]
+script = ExtResource("1_ilk2w")
+text = "Oh dear. My fragile cookies are now all just crumbles, he can't eat them like that! Now i have to make more..."
+character = ExtResource("3_ci64h")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_bo7i5"]
+script = ExtResource("1_ilk2w")
+text = "Can you please deliver these freshly baked cookies to my grandson before they get cold?"
+character = ExtResource("3_ci64h")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[resource]
+script = ExtResource("4_qhb2b")
+name = &"Cookie Delivery"
+time_limit = 10
+start_message = SubResource("Resource_bo7i5")
+end_messages = Dictionary[int, ExtResource("1_ilk2w")]({
+0: SubResource("Resource_wjb0r"),
+1: SubResource("Resource_mc2jv"),
+2: SubResource("Resource_ilk2w")
+})
+metadata/_custom_type_script = "uid://cwt46u8hoo78l"

@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://ddnhgbek2il4r"]
+
+[ext_resource type="Material" uid="uid://b0kxxqa1o3nrj" path="res://materials/spruce.material" id="1_pwgf6"]
+[ext_resource type="Material" uid="uid://bd1hd48nywuim" path="res://materials/planks.material" id="2_fi7do"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_acrqh"]
+top_radius = 0.0
+bottom_radius = 2.0
+height = 5.0
+radial_segments = 12
+rings = 0
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_cdgoy"]
+top_radius = 0.0
+height = 8.0
+radial_segments = 8
+rings = 0
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fi7do"]
+height = 3.0332031
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_acrqh"]
+height = 5.6224365
+radius = 0.9316406
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cdgoy"]
+height = 2.6263885
+radius = 0.45898438
+
+[node name="Spruce" type="Node3D" unique_id=1175311855]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1362488359]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.2624235, 0)
+mesh = SubResource("CylinderMesh_acrqh")
+surface_material_override/0 = ExtResource("1_pwgf6")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1381146696]
+transform = Transform3D(0.92624605, -0.0317295, 0.024747064, 0.032077443, 0.9264772, -0.012726148, -0.024294365, 0.013570403, 0.926702, -0.10698652, 7.366606, -0.03598118)
+mesh = SubResource("CylinderMesh_acrqh")
+surface_material_override/0 = ExtResource("1_pwgf6")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=867832161]
+transform = Transform3D(0.70394725, -0.03268016, 0, 0.03268016, 0.70394725, 0, 0, 0, 0.7047055, -0.1971631, 9.320231, 0.0205307)
+mesh = SubResource("CylinderMesh_acrqh")
+surface_material_override/0 = ExtResource("1_pwgf6")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=721193501]
+transform = Transform3D(0.55135834, -0.036633443, -0.00011850322, 0.03662278, 0.55114865, 0.015231636, -0.00089160976, -0.015205978, 0.55236405, -0.3348639, 10.703725, -0.029634476)
+mesh = SubResource("CylinderMesh_acrqh")
+surface_material_override/0 = ExtResource("1_pwgf6")
+
+[node name="Stump" type="MeshInstance3D" parent="." unique_id=438060349]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+mesh = SubResource("CylinderMesh_cdgoy")
+surface_material_override/0 = ExtResource("2_fi7do")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=39807687]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=981921733]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5166016, 0)
+shape = SubResource("CylinderShape3D_fi7do")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1569663174]
+transform = Transform3D(0.99979186, -0.020401483, 0, 0.020401483, 0.99979186, 0, 0, 0, 1, -0.08715582, 5.624675, 0)
+shape = SubResource("CylinderShape3D_acrqh")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" unique_id=1724499446]
+transform = Transform3D(0.99344873, -0.114278294, 0, 0.114278294, 0.99344873, 0, 0, 0, 1, -0.23910542, 9.6621, 0)
+shape = SubResource("CylinderShape3D_cdgoy")
