@@ -26,6 +26,10 @@ DialogueBox="*uid://bn0sh6bm6kifd"
 Gui="*uid://c4odctxla17ro"
 Globals="*uid://mdya2eaix0nx"
 
+[display]
+
+window/size/mode=2
+
 [editor_plugins]
 
 enabled=PackedStringArray()
