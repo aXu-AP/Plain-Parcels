@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="CoinQuest" format=3 uid="uid://cpc8hhtbqe3c6"]
+
+[ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_kli87"]
+[ext_resource type="Resource" uid="uid://4r52b7bvxufl" path="res://actors/person/city/rich.tres" id="2_kli87"]
+[ext_resource type="Resource" uid="uid://d2dthcgj1ixv3" path="res://actors/person/city/angry.tres" id="3_fdq7t"]
+[ext_resource type="Script" uid="uid://crcdacsuurjco" path="res://misc/quests/coin_quest.gd" id="3_xdtca"]
+
+[sub_resource type="Resource" id="Resource_2v7bb"]
+script = ExtResource("1_kli87")
+text = "HEY STOP THIEF!! Thats my money!"
+character = ExtResource("2_kli87")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_fdq7t"]
+script = ExtResource("1_kli87")
+text = "FANTASTIC! Now we will never be left alone by that fool."
+character = ExtResource("3_fdq7t")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_kli87"]
+script = ExtResource("1_kli87")
+text = "I think you missed a few coins. That man doesn't deserve having them!"
+character = ExtResource("3_fdq7t")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_ou8qr"]
+script = ExtResource("1_kli87")
+text = "I've had enough of that Rich Man flaunting his money and looking down on us others!! Go take his money when he drops them.
+Swap your Plane colour so he doesnt know its you."
+character = ExtResource("3_fdq7t")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[resource]
+script = ExtResource("3_xdtca")
+coin_requirement = 20
+name = &"Shady Business 1"
+start_message = SubResource("Resource_ou8qr")
+end_messages = Dictionary[int, ExtResource("1_kli87")]({
+0: SubResource("Resource_2v7bb"),
+3: SubResource("Resource_fdq7t"),
+7: SubResource("Resource_kli87")
+})
+delay_finishing = false
+metadata/_custom_type_script = "uid://crcdacsuurjco"

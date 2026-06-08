@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Character" format=3 uid="uid://cf315tmsyt1sm"]
+
+[ext_resource type="Texture2D" uid="uid://danofja0xbkmy" path="res://portraits/city_14.png" id="1_kuglj"]
+[ext_resource type="Script" uid="uid://dpiwy6dhp58g8" path="res://actors/person/character.gd" id="2_d87fn"]
+
+[resource]
+script = ExtResource("2_d87fn")
+portrait = ExtResource("1_kuglj")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"

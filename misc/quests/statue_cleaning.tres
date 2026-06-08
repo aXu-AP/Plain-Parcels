@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="Quest" format=3 uid="uid://bstr6yhe735uv"]
+
+[ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_b1xw7"]
+[ext_resource type="Script" uid="uid://b1fj4r4p7fhj5" path="res://misc/quests/quest.gd" id="2_gmqur"]
+[ext_resource type="Resource" uid="uid://4r52b7bvxufl" path="res://actors/person/city/rich.tres" id="2_kl56k"]
+
+[sub_resource type="Resource" id="Resource_gmqur"]
+script = ExtResource("1_b1xw7")
+text = "Well done Pilot, now the city will be able to admire me in my full glory even when im not here!"
+character = ExtResource("2_kl56k")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_4rsls"]
+script = ExtResource("1_b1xw7")
+text = "Now my statue will never get cleaned!
+The city will never be able to see my beauty.."
+character = ExtResource("2_kl56k")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_u4vaf"]
+script = ExtResource("1_b1xw7")
+text = "WHAT HAVE YOU DONE?! YOU WILL SURELY PAY FOR THAT!!"
+character = ExtResource("2_kl56k")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_kl56k"]
+script = ExtResource("1_b1xw7")
+text = "Hello there! Go clean the statue of me in the park, the birds keep doing their business on it and its revolting to look at that way."
+character = ExtResource("2_kl56k")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[resource]
+script = ExtResource("2_gmqur")
+name = &"Statue Cleaning"
+start_message = SubResource("Resource_kl56k")
+end_messages = Dictionary[int, ExtResource("1_b1xw7")]({
+0: SubResource("Resource_gmqur"),
+3: SubResource("Resource_4rsls"),
+7: SubResource("Resource_u4vaf")
+})
+metadata/_custom_type_script = "uid://b1fj4r4p7fhj5"

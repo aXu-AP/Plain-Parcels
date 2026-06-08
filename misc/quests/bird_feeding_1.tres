@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="ParcelQuest" format=3 uid="uid://dvvsn5n4bp0jv"]
+
+[ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_vvrci"]
+[ext_resource type="Resource" uid="uid://bcdv85se0i1yf" path="res://actors/person/city/bird.tres" id="2_vvrci"]
+[ext_resource type="Script" uid="uid://cwt46u8hoo78l" path="res://misc/quests/parcel_quest.gd" id="3_ahhj7"]
+
+[sub_resource type="Resource" id="Resource_6sqxf"]
+script = ExtResource("1_vvrci")
+text = "Thank you for feeding the birds for me!
+They look very full and happy!"
+character = ExtResource("2_vvrci")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_73e47"]
+script = ExtResource("1_vvrci")
+text = "Oh no! Who will feed the birds now??"
+character = ExtResource("2_vvrci")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_ahhj7"]
+script = ExtResource("1_vvrci")
+text = "Oh no! Who will feed the birds now??"
+character = ExtResource("2_vvrci")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_o3ebs"]
+script = ExtResource("1_vvrci")
+text = "Hey there, can you please feed the birds for me?
+The rich guy cant know that i'm the one who feeds the birds."
+character = ExtResource("2_vvrci")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[resource]
+script = ExtResource("3_ahhj7")
+name = &"Bird Feeding 1"
+goals = 2
+start_message = SubResource("Resource_o3ebs")
+end_messages = Dictionary[int, ExtResource("1_vvrci")]({
+0: SubResource("Resource_6sqxf"),
+2: SubResource("Resource_73e47"),
+3: SubResource("Resource_ahhj7")
+})
+metadata/_custom_type_script = "uid://cwt46u8hoo78l"
