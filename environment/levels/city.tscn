@@ -33,7 +33,7 @@
 [ext_resource type="Resource" uid="uid://d2dthcgj1ixv3" path="res://actors/person/city/angry.tres" id="19_6frpt"]
 [ext_resource type="PackedScene" uid="uid://cl8hilweunnql" path="res://actors/coin/coin.tscn" id="19_26xuy"]
 [ext_resource type="PackedScene" uid="uid://b5ny1cpw4dsak" path="res://prototyping/big_building.tscn" id="19_cbp6q"]
-[ext_resource type="PackedScene" uid="uid://0ks4o4mvb6yu" path="res://actors/big_coin/big_coin.tscn" id="21_bc84e"]
+[ext_resource type="PackedScene" uid="uid://0ks4o4mvb6yu" path="res://actors/jewel/jewel.tscn" id="21_bc84e"]
 [ext_resource type="Resource" uid="uid://c4ashlbj1pcva" path="res://misc/quests/bird_feeding_2.tres" id="22_k2agv"]
 [ext_resource type="Resource" uid="uid://dvvsn5n4bp0jv" path="res://misc/quests/bird_feeding_1.tres" id="22_tqocu"]
 [ext_resource type="Script" uid="uid://eb2d8rru8uw5" path="res://misc/exit_trigger.gd" id="23_il2jm"]
@@ -706,10 +706,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.733469, 3.031218, 38.095413
 [node name="Coin8" parent="." unique_id=1461484566 instance=ExtResource("19_26xuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.733469, 3.031218, 34.095413)
 
-[node name="BigCoin" parent="." unique_id=938082553 instance=ExtResource("21_bc84e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1741736, 14.229533, -1.3808839)
-quest_name = &"Fountain Coin"
-
 [node name="BeachCoins" type="Node3D" parent="." unique_id=1419342177]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.860313, 7.6293945e-06, 150.26944)
 script = ExtResource("24_mc2jv")
@@ -986,7 +982,11 @@ shape = SubResource("BoxShape3D_wjb0r")
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 17.565632, -149.95107)
 
 [node name="fountain" parent="." unique_id=786101512 instance=ExtResource("27_o3ebs")]
-transform = Transform3D(-1, 0, -8.940697e-08, 0, 1, 0, 8.940697e-08, 0, -1, 0.7661619, 1.6972882, -0.95320696)
+transform = Transform3D(-0.86602545, 0, 0.4999999, 0, 1, 0, -0.4999999, 0, -0.86602545, 0.7661619, 1.6972882, -0.95320696)
+
+[node name="FountainJewel" parent="fountain" unique_id=938082553 instance=ExtResource("21_bc84e")]
+transform = Transform3D(-1, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -1, 0.94033545, 12.532245, 0.42767704)
+quest_name = &"Fountain Jewel"
 
 [node name="house1" parent="." unique_id=1067733595 instance=ExtResource("28_k83mh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.749762, 0.69761693, 43.77847)
