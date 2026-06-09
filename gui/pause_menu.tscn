@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bct3rpsoct5j5"]
 
-[ext_resource type="Script" uid="uid://otomuq8l1tdo" path="res://ui/action_button.gd" id="1_0lvyc"]
+[ext_resource type="Script" uid="uid://otomuq8l1tdo" path="res://gui/action_button.gd" id="1_0lvyc"]
+[ext_resource type="Script" uid="uid://djvh2rqq7colg" path="res://gui/pause_ap_button.gd" id="2_7uvn2"]
 
 [node name="PauseMenu" type="Control" unique_id=1707248854]
 layout_mode = 3
@@ -26,6 +27,12 @@ layout_mode = 2
 text = "Resume"
 script = ExtResource("1_0lvyc")
 method = "resume"
+
+[node name="APButton" type="Button" parent="VBoxContainer" unique_id=922806045]
+visible = false
+layout_mode = 2
+text = "Open AP Text Client"
+script = ExtResource("2_7uvn2")
 
 [node name="MenuButton" type="Button" parent="VBoxContainer" unique_id=990650672]
 layout_mode = 2

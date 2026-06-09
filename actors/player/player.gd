@@ -156,10 +156,14 @@ func process_collisions() -> void:
 		damage += 3
 		_collision_velocity = basis.z * 40
 	if damage > 0:
-		health -= damage
-		damaged.emit()
-		_invincibility_timer = .1
-		_shake_intensity = 1.0
+		do_damage(damage)
+
+
+func do_damage(amount: int = 3) -> void:
+	health -= amount
+	damaged.emit()
+	_invincibility_timer = .1
+	_shake_intensity = 1.0
 
 
 func process_wing_state(delta: float) -> void:

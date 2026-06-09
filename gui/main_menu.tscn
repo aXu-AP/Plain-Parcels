@@ -52,7 +52,14 @@ script = ExtResource("1_df8v8")
 target = NodePath("../../..")
 method = "start_new_game"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=1502887639]
+[node name="ArchipelagoButton" type="Button" parent="VBoxContainer" unique_id=1502887639 node_paths=PackedStringArray("target")]
+layout_mode = 2
+text = "Play in Archipelago"
+script = ExtResource("1_df8v8")
+target = NodePath("../..")
+method = "play_archipelago"
+
+[node name="QuitButton2" type="Button" parent="VBoxContainer" unique_id=391081657]
 layout_mode = 2
 text = "Quit"
 script = ExtResource("1_df8v8")

@@ -25,6 +25,7 @@ GameManager="*uid://1lw6tjyp1b5s"
 DialogueBox="*uid://bn0sh6bm6kifd"
 Gui="*uid://c4odctxla17ro"
 Globals="*uid://mdya2eaix0nx"
+Archipelago="*uid://c0ovofocoscyg"
 
 [display]
 

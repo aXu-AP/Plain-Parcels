@@ -20,3 +20,10 @@ func continue_game() -> void:
 	GameManager.game_ended.connect(connector.quit)
 	connector.load_game()
 	GameManager.start_game()
+
+
+func play_archipelago() -> void:
+	var ap_menu: Node = load("uid://ddu3ha85vnt3h").instantiate()
+	add_sibling(ap_menu)
+	visible = false
+	ap_menu.tree_exited.connect(set.bind("visible", true))
