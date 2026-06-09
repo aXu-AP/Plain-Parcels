@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://v2xnhkcjo41p"]
 
-[ext_resource type="Script" uid="uid://otomuq8l1tdo" path="res://ui/action_button.gd" id="1_df8v8"]
+[ext_resource type="Script" uid="uid://otomuq8l1tdo" path="res://gui/action_button.gd" id="1_df8v8"]
+[ext_resource type="Script" uid="uid://qrmg0pdtxpmd" path="res://gui/main_menu.gd" id="1_rhnsr"]
+[ext_resource type="Texture2D" uid="uid://cew5swoj8vshb" path="res://materials/logo.svg" id="1_xkvi0"]
 
 [node name="MainMenu" type="Control" unique_id=1055886911]
 layout_mode = 3
@@ -9,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_rhnsr")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=841680420]
 layout_mode = 1
@@ -21,14 +24,35 @@ grow_vertical = 2
 theme_override_constants/separation = 15
 alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=234604152]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer" unique_id=1536959594]
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
-text = "Play!"
+texture = ExtResource("1_xkvi0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1371444401]
+layout_mode = 2
+
+[node name="ContinueButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=234604152 node_paths=PackedStringArray("target")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Continue"
 script = ExtResource("1_df8v8")
-method = "start_game"
+target = NodePath("../../..")
+method = "continue_game"
 grab_focus_on_visible = true
 
-[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1502887639]
+[node name="StartButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1504487396 node_paths=PackedStringArray("target")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Start new game"
+script = ExtResource("1_df8v8")
+target = NodePath("../../..")
+method = "start_new_game"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=1502887639]
 layout_mode = 2
 text = "Quit"
 script = ExtResource("1_df8v8")

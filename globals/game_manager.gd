@@ -5,6 +5,8 @@ signal unpaused
 signal level_changed
 signal transition_started
 signal transition_ended
+signal game_started
+signal game_ended
 
 @export_file("*.tscn") var game_path := "res://game.tscn"
 @export_file("*.tscn") var main_menu_path := "res://gui/main_menu.tscn"
@@ -38,6 +40,7 @@ func start_game() -> void:
 	load_level(game_path)
 	await level_changed
 	in_game = true
+	game_started.emit()
 	resume()
 
 
@@ -52,6 +55,7 @@ func _input(event: InputEvent) -> void:
 
 func open_main_menu() -> void:
 	in_game = false
+	game_ended.emit()
 	load_level(main_menu_path)
 	await level_changed # Don't resume until current level is unloaded
 	resume()
@@ -109,4 +113,6 @@ func quit() -> void:
 		ui_layer.add_child(transition)
 		transition.play("fade_out")
 		await transition.animation_finished
+	in_game = false
+	game_ended.emit()
 	get_tree().quit()
