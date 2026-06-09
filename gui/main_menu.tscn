@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://v2xnhkcjo41p"]
+
+[ext_resource type="Script" uid="uid://otomuq8l1tdo" path="res://ui/action_button.gd" id="1_df8v8"]
+
+[node name="MainMenu" type="Control" unique_id=1055886911]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=841680420]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_right = 0.7
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=234604152]
+layout_mode = 2
+text = "Play!"
+script = ExtResource("1_df8v8")
+method = "start_game"
+grab_focus_on_visible = true
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1502887639]
+layout_mode = 2
+text = "Quit"
+script = ExtResource("1_df8v8")
+method = "quit"

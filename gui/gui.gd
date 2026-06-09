@@ -3,6 +3,10 @@ extends Control
 var _timer_tween: Tween
 
 func _process(_delta: float) -> void:
+	visible = GameManager.in_game
+	if not visible:
+		return
+	
 	if is_instance_valid(Quest.active_quest) and is_instance_valid(Quest.active_quest.timer):
 		if not %TimerLabel.visible:
 			%TimerLabel.visible = true
