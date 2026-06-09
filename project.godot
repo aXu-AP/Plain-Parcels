@@ -22,14 +22,15 @@ config/icon="uid://cew5swoj8vshb"
 [autoload]
 
 GameManager="*uid://1lw6tjyp1b5s"
-GuiSize="*uid://bn7nhvdo4suec"
 DialogueBox="*uid://bn0sh6bm6kifd"
 Gui="*uid://c4odctxla17ro"
 Globals="*uid://mdya2eaix0nx"
 
 [display]
 
-window/size/mode=2
+window/subwindows/embed_subwindows=false
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [editor_plugins]
 

@@ -21,7 +21,7 @@ func _process(_delta: float) -> void:
 		_timer_tween.tween_callback(%TimerLabel.set.bind("visible", false))
 	if is_instance_valid(Player.instance):
 		%HealthBar.max_value = Player.instance.max_health
-		%HealthBar.custom_minimum_size.x = Player.instance.max_health * 5
+		%HealthBar.custom_minimum_size.x = Player.instance.max_health * 3
 		%HealthBar.value = Player.instance.health
 	%CoinLabel.text = "%03d" % Globals.coins
 	if Quest.active_quest is CoinQuest:
