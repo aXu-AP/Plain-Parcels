@@ -23,6 +23,7 @@ func _process(_delta: float) -> void:
 		%HealthBar.max_value = Player.instance.max_health
 		%HealthBar.custom_minimum_size.x = Player.instance.max_health * 3
 		%HealthBar.value = Player.instance.health
+	%JewelLabel.text = "%d" % Globals.jewels
 	%CoinLabel.text = "%03d" % Globals.coins
 	if Quest.active_quest is CoinQuest:
 		%QuestCoinCounter.visible = true

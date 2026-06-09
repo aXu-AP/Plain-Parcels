@@ -8,6 +8,7 @@ var lerp_distance: float
 
 
 func _ready() -> void:
+	Globals.flag_added.connect(_on_flag_added)
 	if quest_name in Globals.flags:
 		queue_free()
 	Player.instance.damaged.connect(player_damaged)
@@ -29,6 +30,11 @@ func _on_area_entered(_area: Area3D) -> void:
 	tween.tween_callback(collect)
 
 
+func _on_flag_added(flag: StringName) -> void:
+	if flag == quest_name and not connected:
+		queue_free()
+
+
 func player_damaged() -> void:
 	last_damaged = Time.get_ticks_msec()
 	connected = false
@@ -37,6 +43,7 @@ func player_damaged() -> void:
 
 
 func collect() -> void:
+	Globals.collect_jewel(quest_name)
 	Globals.add_flag(quest_name)
 	get_parent().remove_child(self)
 	Player.instance.add_child(self)
