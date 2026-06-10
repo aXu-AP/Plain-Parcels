@@ -45,7 +45,7 @@ func start_game() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("pause") and in_game:
+	if event.is_action_pressed("pause") and in_game and not prevent_pause:
 		if not get_tree().paused:
 			pause()
 		else:
@@ -62,8 +62,6 @@ func open_main_menu() -> void:
 
 
 func pause() -> void:
-	if prevent_pause:
-		return
 	get_tree().paused = true
 	pause_menu.visible = true
 	_grab_focus_first(pause_menu)

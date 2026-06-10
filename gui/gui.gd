@@ -2,6 +2,12 @@ extends Control
 
 var _timer_tween: Tween
 
+
+func _ready() -> void:
+	Globals.shop_opened.connect(set.bind("visible", false).unbind(1))
+	Globals.shop_closed.connect(set.bind("visible", true))
+
+
 func _process(_delta: float) -> void:
 	visible = GameManager.in_game
 	if not visible:

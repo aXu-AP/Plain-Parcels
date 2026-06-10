@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c4odctxla17ro"]
 
 [ext_resource type="Script" uid="uid://decser6sc8hjm" path="res://gui/gui.gd" id="1_yw5qc"]
+[ext_resource type="Texture2D" uid="uid://bbrvdhw8ysono" path="res://gui/icons/coin.png" id="2_ioifv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_a4rkh"]
 font_size = 100
@@ -8,15 +9,9 @@ font_size = 100
 [sub_resource type="Gradient" id="Gradient_yw5qc"]
 interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.976227)
-colors = PackedColorArray(1, 1, 1, 1, 0.9411765, 0.8784314, 0, 0)
+colors = PackedColorArray(1, 0.8627451, 0, 1, 0.9411765, 0.8784314, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_yw5qc"]
-gradient = SubResource("Gradient_yw5qc")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 0.5)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ioifv"]
 gradient = SubResource("Gradient_yw5qc")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
@@ -76,9 +71,9 @@ text = "00"
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/CoinCounter" unique_id=1214209214]
-modulate = Color(1, 0.83137256, 0.09019608, 1)
+modulate = Color(1, 0.8666667, 0, 1)
 layout_mode = 2
-texture = SubResource("GradientTexture2D_ioifv")
+texture = ExtResource("2_ioifv")
 expand_mode = 3
 
 [node name="CoinLabel" type="Label" parent="VBoxContainer/CoinCounter" unique_id=288046204]
@@ -93,7 +88,7 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/QuestCoinCounter" unique_id=67803249]
 modulate = Color(0.28801966, 0.542699, 0.28045934, 1)
 layout_mode = 2
-texture = SubResource("GradientTexture2D_ioifv")
+texture = ExtResource("2_ioifv")
 expand_mode = 3
 
 [node name="QuestCoinLabel" type="Label" parent="VBoxContainer/QuestCoinCounter" unique_id=492176782]

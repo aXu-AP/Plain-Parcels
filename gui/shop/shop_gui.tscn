@@ -1,0 +1,315 @@
+[gd_scene format=3 uid="uid://darjdei22adsg"]
+
+[ext_resource type="Script" uid="uid://bry553fxwcn07" path="res://gui/shop/shop_gui.gd" id="1_ece5q"]
+[ext_resource type="Script" uid="uid://bkffasrhn2rcw" path="res://gui/shop/shop_item_data.gd" id="2_trisq"]
+[ext_resource type="Script" uid="uid://chj812iy8llfj" path="res://gui/shop/shop_inventory.gd" id="3_4opua"]
+[ext_resource type="Texture2D" uid="uid://dqvidi3fnpdme" path="res://gui/icons/wrench.png" id="3_ik84c"]
+[ext_resource type="Script" uid="uid://otomuq8l1tdo" path="res://gui/action_button.gd" id="4_4opua"]
+[ext_resource type="Texture2D" uid="uid://ccewmmorqnv6t" path="res://gui/icons/brake.png" id="4_lo4cm"]
+[ext_resource type="Texture2D" uid="uid://bbrvdhw8ysono" path="res://gui/icons/coin.png" id="4_nd0a0"]
+[ext_resource type="Texture2D" uid="uid://c22ye4m4vl2jg" path="res://gui/icons/carrier.png" id="4_pg7yb"]
+[ext_resource type="Texture2D" uid="uid://2uw5enoy8ow3" path="res://gui/icons/jewel.png" id="5_6m348"]
+[ext_resource type="Texture2D" uid="uid://61jcxrlmkrlv" path="res://gui/icons/boost.png" id="5_htsk2"]
+[ext_resource type="Texture2D" uid="uid://bswnwlb8sgr0p" path="res://gui/icons/shop_upgrade.png" id="6_3s2d5"]
+[ext_resource type="Texture2D" uid="uid://diay2ke3wh2p7" path="res://gui/icons/passenger.png" id="6_lo4cm"]
+[ext_resource type="Texture2D" uid="uid://b0uspix4p1n32" path="res://gui/icons/health.png" id="8_3s2d5"]
+[ext_resource type="Texture2D" uid="uid://86fujiogt6cu" path="res://gui/icons/bucket.png" id="10_xi27e"]
+[ext_resource type="Texture2D" uid="uid://bfkc4t15eq617" path="res://gui/icons/retract_wings.png" id="11_6wsye"]
+[ext_resource type="Texture2D" uid="uid://tpkdrixwdayk" path="res://gui/icons/soar.png" id="11_lrlfv"]
+[ext_resource type="Texture2D" uid="uid://yide2nsoay2u" path="res://gui/icons/claw.png" id="11_p88yp"]
+
+[sub_resource type="Resource" id="Resource_pg7yb"]
+resource_name = "Fix Plane"
+script = ExtResource("2_trisq")
+display_name = "Fix Plane"
+price = 5
+item_icon = ExtResource("3_ik84c")
+metadata/_custom_type_script = "uid://bkffasrhn2rcw"
+
+[sub_resource type="Resource" id="Resource_ep6jk"]
+resource_name = "Carrier"
+script = ExtResource("2_trisq")
+display_name = "Carrier"
+flag = &"Carrier 1"
+extra_flag = &"Carrier"
+price = 10
+item_icon = ExtResource("4_pg7yb")
+metadata/_custom_type_script = "uid://bkffasrhn2rcw"
+
+[sub_resource type="Resource" id="Resource_nd0a0"]
+resource_name = "Brake"
+script = ExtResource("2_trisq")
+display_name = "Brake"
+price = 10
+item_icon = ExtResource("4_lo4cm")
+metadata/_custom_type_script = "uid://bkffasrhn2rcw"
+
+[sub_resource type="Resource" id="Resource_6m348"]
+resource_name = "Shop Upgrade"
+script = ExtResource("2_trisq")
+display_name = "Shop Upgrade"
+flag = &"Shop Upgrade 1"
+extra_flag = &"Shop Upgrade"
+price = 2
+item_icon = ExtResource("6_3s2d5")
+jewel_currency = true
+metadata/_custom_type_script = "uid://bkffasrhn2rcw"
+
+[sub_resource type="Resource" id="Resource_xi27e"]
+resource_name = "Carrier"
+script = ExtResource("2_trisq")
+display_name = "Carrier"
+flag = &"Carrier 2"
+extra_flag = &"Carrier"
+price = 20
+item_icon = ExtResource("4_pg7yb")
+tier = 1
+metadata/_custom_type_script = "uid://bkffasrhn2rcw"
+
+[sub_resource type="Resource" id="Resource_trisq"]
+resource_name = "Boost"
+script = ExtResource("2_trisq")
+display_name = "Boost"
+price = 20
+item_icon = ExtResource("5_htsk2")
+tier = 1
+metadata/_custom_type_script = "uid://bkffasrhn2rcw"
+
+[sub_resource type="Resource" id="Resource_3s2d5"]
+resource_name = "Max Health Upgrade"
+script = ExtResource("2_trisq")
+display_name = "Max Health Upgrade"
+flag = &"Max Health Upgrade 1"
+extra_flag = &"Max Health Upgrade"
+price = 30
+item_icon = ExtResource("8_3s2d5")
+tier = 1
+metadata/_custom_type_script = "uid://bkffasrhn2rcw"
+
+[sub_resource type="Resource" id="Resource_htsk2"]
+resource_name = "Passenger Seat"
+script = ExtResource("2_trisq")
+display_name = "Passenger Seat"
+price = 20
+item_icon = ExtResource("6_lo4cm")
+tier = 1
+metadata/_custom_type_script = "uid://bkffasrhn2rcw"
+
+[sub_resource type="Resource" id="Resource_4opua"]
+resource_name = "Shop Upgrade"
+script = ExtResource("2_trisq")
+display_name = "Shop Upgrade"
+flag = &"Shop Upgrade 2"
+extra_flag = &"Shop Upgrade"
+price = 3
+item_icon = ExtResource("6_3s2d5")
+tier = 1
+jewel_currency = true
+metadata/_custom_type_script = "uid://bkffasrhn2rcw"
+
+[sub_resource type="Resource" id="Resource_lrlfv"]
+resource_name = "Carrier"
+script = ExtResource("2_trisq")
+display_name = "Carrier"
+flag = &"Carrier 3"
+extra_flag = &"Carrier"
+price = 30
+item_icon = ExtResource("4_pg7yb")
+tier = 2
+metadata/_custom_type_script = "uid://bkffasrhn2rcw"
+
+[sub_resource type="Resource" id="Resource_wecce"]
+resource_name = "Bucket"
+script = ExtResource("2_trisq")
+display_name = "Bucket"
+price = 30
+item_icon = ExtResource("10_xi27e")
+tier = 2
+metadata/_custom_type_script = "uid://bkffasrhn2rcw"
+
+[sub_resource type="Resource" id="Resource_s6nae"]
+resource_name = "Retract Wings"
+script = ExtResource("2_trisq")
+display_name = "Retract Wings"
+price = 50
+item_icon = ExtResource("11_6wsye")
+tier = 2
+metadata/_custom_type_script = "uid://bkffasrhn2rcw"
+
+[sub_resource type="Resource" id="Resource_p88yp"]
+resource_name = "Max Health Upgrade"
+script = ExtResource("2_trisq")
+display_name = "Max Health Upgrade"
+flag = &"Max Health Upgrade 1"
+extra_flag = &"Max Health Upgrade"
+price = 100
+item_icon = ExtResource("8_3s2d5")
+tier = 2
+metadata/_custom_type_script = "uid://bkffasrhn2rcw"
+
+[sub_resource type="Resource" id="Resource_15wqk"]
+resource_name = "Shop Upgrade"
+script = ExtResource("2_trisq")
+display_name = "Shop Upgrade"
+flag = &"Shop Upgrade 3"
+extra_flag = &"Shop Upgrade"
+price = 4
+item_icon = ExtResource("6_3s2d5")
+tier = 2
+jewel_currency = true
+metadata/_custom_type_script = "uid://bkffasrhn2rcw"
+
+[sub_resource type="Resource" id="Resource_0v5xp"]
+resource_name = "Claw"
+script = ExtResource("2_trisq")
+display_name = "Claw"
+price = 100
+item_icon = ExtResource("11_p88yp")
+tier = 2
+metadata/_custom_type_script = "uid://bkffasrhn2rcw"
+
+[sub_resource type="Resource" id="Resource_64ly3"]
+resource_name = "Soar"
+script = ExtResource("2_trisq")
+display_name = "Soar"
+price = 100
+item_icon = ExtResource("11_lrlfv")
+tier = 3
+metadata/_custom_type_script = "uid://bkffasrhn2rcw"
+
+[sub_resource type="Resource" id="Resource_6wsye"]
+resource_name = "Max Health Upgrade"
+script = ExtResource("2_trisq")
+display_name = "Max Health Upgrade"
+flag = &"Max Health Upgrade 1"
+extra_flag = &"Max Health Upgrade"
+price = 5
+item_icon = ExtResource("8_3s2d5")
+tier = 3
+jewel_currency = true
+metadata/_custom_type_script = "uid://bkffasrhn2rcw"
+
+[sub_resource type="Resource" id="Resource_ixfve"]
+script = ExtResource("3_4opua")
+items = Array[ExtResource("2_trisq")]([SubResource("Resource_pg7yb"), SubResource("Resource_ep6jk"), SubResource("Resource_nd0a0"), SubResource("Resource_6m348"), SubResource("Resource_xi27e"), SubResource("Resource_trisq"), SubResource("Resource_3s2d5"), SubResource("Resource_htsk2"), SubResource("Resource_4opua"), SubResource("Resource_lrlfv"), SubResource("Resource_wecce"), SubResource("Resource_s6nae"), SubResource("Resource_p88yp"), SubResource("Resource_15wqk"), SubResource("Resource_0v5xp"), SubResource("Resource_64ly3"), SubResource("Resource_6wsye")])
+metadata/_custom_type_script = "uid://chj812iy8llfj"
+
+[sub_resource type="LabelSettings" id="LabelSettings_ufsgr"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_trisq"]
+font_size = 20
+
+[node name="ShopGui" type="Control" unique_id=1271355444]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ece5q")
+inventory = SubResource("Resource_ixfve")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=910247545]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = 50.0
+offset_right = 300.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1452596651]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=914507562]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=664117567]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=58614745]
+layout_mode = 2
+text = "Shop"
+label_settings = SubResource("LabelSettings_ufsgr")
+
+[node name="Control" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1297310167]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=885851980]
+modulate = Color(1, 0.8666667, 0, 1)
+layout_mode = 2
+texture = ExtResource("4_nd0a0")
+expand_mode = 2
+
+[node name="CoinsLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1033067748]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_trisq")
+
+[node name="TextureRect2" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=294273096]
+layout_mode = 2
+texture = ExtResource("5_6m348")
+expand_mode = 2
+
+[node name="JewelLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=620545436]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_trisq")
+horizontal_alignment = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1840656645]
+layout_mode = 2
+bbcode_enabled = true
+text = "Getting upgrades opens new quests!"
+fit_content = true
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1445227728]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer" unique_id=1652771533]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/ScrollContainer" unique_id=1031627735]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="InventoryContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer" unique_id=1973973587]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=912806305]
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1952251994]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "Collect [b]Jewels[/b] to unlock more stuff in the shop!"
+scroll_active = false
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1363591027 node_paths=PackedStringArray("target")]
+layout_mode = 2
+text = "Close"
+script = ExtResource("4_4opua")
+target = NodePath("../../../../..")
+method = "queue_free"
