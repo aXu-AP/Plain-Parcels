@@ -57,9 +57,10 @@
 [ext_resource type="PackedScene" uid="uid://ysnhrkleqkym" path="res://environment/buildings/flight_control.tscn" id="55_6frpt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
-sky_top_color = Color(0.27634427, 0.5678373, 0.72307163, 1)
-sky_horizon_color = Color(0.69408286, 0.75920606, 0.7890147, 1)
-ground_horizon_color = Color(0.69408286, 0.75920606, 0.7890147, 1)
+sky_top_color = Color(0.20454744, 0.54231316, 1, 1)
+sky_horizon_color = Color(0.5055328, 0.64495695, 0.96768826, 1)
+ground_bottom_color = Color(0.33112925, 0.48862988, 0.6879096, 1)
+ground_horizon_color = Color(0.3761137, 0.5364543, 0.74215454, 1)
 
 [sub_resource type="Sky" id="Sky_wukud"]
 sky_material = SubResource("ProceduralSkyMaterial_f3sb7")
@@ -67,8 +68,14 @@ sky_material = SubResource("ProceduralSkyMaterial_f3sb7")
 [sub_resource type="Environment" id="Environment_tlwt5"]
 background_mode = 2
 sky = SubResource("Sky_wukud")
+ambient_light_color = Color(0.4045111, 0.40451115, 0.4045111, 1)
+ambient_light_sky_contribution = 0.3
 tonemap_mode = 2
 ssao_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.34994134, 0.51470923, 0.598682, 1)
+fog_density = 0.001
+fog_sky_affect = 0.0
 
 [sub_resource type="Resource" id="Resource_qktwf"]
 script = ExtResource("11_wjb0r")

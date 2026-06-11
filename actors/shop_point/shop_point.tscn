@@ -19,6 +19,7 @@ fill_to = Vector2(0.5, 0)
 blend_mode = 1
 depth_draw_mode = 2
 shading_mode = 0
+disable_fog = true
 albedo_texture = SubResource("GradientTexture2D_er5hj")
 billboard_mode = 1
 billboard_keep_scale = true
