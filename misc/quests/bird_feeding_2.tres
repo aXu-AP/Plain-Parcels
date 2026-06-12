@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ParcelQuest" format=3 uid="uid://c4ashlbj1pcva"]
+[gd_resource type="Resource" script_class="ParcelQuest" format=3 uid="uid://dl6p8st8vfgo1"]
 
 [ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_87q7k"]
 [ext_resource type="Resource" uid="uid://bcdv85se0i1yf" path="res://actors/person/city/bird.tres" id="2_87q7k"]

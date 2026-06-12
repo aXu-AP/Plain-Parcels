@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="ParcelQuest" format=3 uid="uid://b75xe6pg7dcec"]
+
+[ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_qsion"]
+[ext_resource type="Texture2D" uid="uid://c01dj2kvqxik7" path="res://portraits/island/Saari_Vainoharhainen_Mies.png" id="2_oto08"]
+[ext_resource type="Script" uid="uid://dpiwy6dhp58g8" path="res://actors/person/character.gd" id="3_xuy2o"]
+[ext_resource type="Script" uid="uid://cwt46u8hoo78l" path="res://misc/quests/parcel_quest.gd" id="5_ksj4q"]
+
+[sub_resource type="Resource" id="Resource_qsion"]
+script = ExtResource("3_xuy2o")
+portrait = ExtResource("2_oto08")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_856kb"]
+script = ExtResource("1_qsion")
+text = "OH THANK YOU! Now we are all safe but I will Still keep watch over the others here even though they Still dont believe me! One day they will see that im not crazy and that alien DO EXIST!
+"
+character = SubResource("Resource_qsion")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_xuy2o"]
+script = ExtResource("3_xuy2o")
+portrait = ExtResource("2_oto08")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_4qbev"]
+script = ExtResource("1_qsion")
+text = "WERE DOOMED AND ITS ALL YOUR FAULT!! They are gonna kidnap all of us and do tests on us, i've seen it before! Them with Gray skin and yellow eyes, it will always haunt my dreams!
+"
+character = SubResource("Resource_xuy2o")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_ksj4q"]
+script = ExtResource("3_xuy2o")
+portrait = ExtResource("2_oto08")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_x6not"]
+script = ExtResource("1_qsion")
+text = "You there! Have you seen weird things flying around in the sky?! They are watching us, even at this very moment! But dont worry! I have created a device that will block them out so they cant watch us anymore! Just Place these rods around the Island! AND BE QUICK ABOUT IT! WE DONT HAVE MUCH TIME!!!
+"
+character = SubResource("Resource_ksj4q")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[resource]
+script = ExtResource("5_ksj4q")
+name = &"Ufo Sightings"
+goals = 4
+time_limit = 120
+start_message = SubResource("Resource_x6not")
+end_messages = Dictionary[int, ExtResource("1_qsion")]({
+0: SubResource("Resource_856kb"),
+1: SubResource("Resource_4qbev")
+})
+metadata/_custom_type_script = "uid://cwt46u8hoo78l"

@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://difkvbjrxrafa"]
+
+[ext_resource type="Shader" uid="uid://dk22tc0qhoewb" path="res://actors/lava/lava.gdshader" id="1_8c5sy"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_8c5sy")
+shader_parameter/dark_lava_color = Color(0.2899832, 0.009452921, 0.026784595, 1)
+shader_parameter/light_lava_color = Color(0.42020303, 0.327462, 0.041730262, 1)
+shader_parameter/speed = 0.5050000239875
+shader_parameter/scale = 25.91700122779762
+shader_parameter/sharpness = 3.106000100035
+shader_parameter/emission_intensity = 5.53200026277
