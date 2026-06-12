@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ParcelQuest" format=3 uid="uid://c4ashlbj1pcva"]
+
+[ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_87q7k"]
+[ext_resource type="Script" uid="uid://cwt46u8hoo78l" path="res://misc/quests/parcel_quest.gd" id="3_87q7k"]
+
+[resource]
+script = ExtResource("3_87q7k")
+metadata/_custom_type_script = "uid://b1fj4r4p7fhj5"

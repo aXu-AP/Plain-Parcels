@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="CoinQuest" format=3 uid="uid://7vpe5n47wm7p"]
+
+[ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_s18kn"]
+[ext_resource type="Texture2D" uid="uid://p0vlwmv1epap" path="res://portraits/island/Saari_Johtajan_Tytto.png" id="2_3licc"]
+[ext_resource type="Script" uid="uid://dpiwy6dhp58g8" path="res://actors/person/character.gd" id="3_88btb"]
+[ext_resource type="Script" uid="uid://crcdacsuurjco" path="res://misc/quests/coin_quest.gd" id="4_52gmp"]
+
+[sub_resource type="Resource" id="Resource_6ognb"]
+script = ExtResource("3_88btb")
+portrait = ExtResource("2_3licc")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_unm86"]
+script = ExtResource("1_s18kn")
+text = "Yay!"
+character = SubResource("Resource_6ognb")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_3bny2"]
+script = ExtResource("3_88btb")
+portrait = ExtResource("2_3licc")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_12tnt"]
+script = ExtResource("1_s18kn")
+text = "GG!"
+character = SubResource("Resource_3bny2")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_f5v8s"]
+script = ExtResource("3_88btb")
+portrait = ExtResource("2_3licc")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_p1wx2"]
+script = ExtResource("1_s18kn")
+text = "Hey there Pilot, I heard you helped my boyfriend gather some money for the anniversary gift for me. That was very kind of you! But now in turn I need help from you. Could you please collect coins for me too, so that I can afford him a gift too? Thanks!"
+character = SubResource("Resource_f5v8s")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[resource]
+script = ExtResource("4_52gmp")
+coin_requirement = 25
+name = &"Gathering Money 2"
+time_limit = 60
+start_message = SubResource("Resource_p1wx2")
+end_messages = Dictionary[int, ExtResource("1_s18kn")]({
+0: SubResource("Resource_unm86"),
+2: SubResource("Resource_12tnt")
+})
+metadata/_custom_type_script = "uid://cwt46u8hoo78l"

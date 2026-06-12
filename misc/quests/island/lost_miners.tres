@@ -1,0 +1,67 @@
+[gd_resource type="Resource" script_class="Quest" format=3 uid="uid://b61f2vgv2tnsm"]
+
+[ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_j0xqf"]
+[ext_resource type="Texture2D" uid="uid://cistgvxipnrsg" path="res://portraits/cave/Luola_Masentunut_mies.png" id="2_j0xqf"]
+[ext_resource type="Script" uid="uid://dpiwy6dhp58g8" path="res://actors/person/character.gd" id="3_wsh4a"]
+[ext_resource type="Script" uid="uid://b1fj4r4p7fhj5" path="res://misc/quests/quest.gd" id="5_jm82r"]
+
+[sub_resource type="Resource" id="Resource_1v7wl"]
+script = ExtResource("3_wsh4a")
+portrait = ExtResource("2_j0xqf")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_6sqxf"]
+script = ExtResource("1_j0xqf")
+text = "You found everyone? Thank goodness, now I dont have to worry so much about them, thank you!"
+character = SubResource("Resource_1v7wl")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_638ih"]
+script = ExtResource("3_wsh4a")
+portrait = ExtResource("2_j0xqf")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_ahhj7"]
+script = ExtResource("1_j0xqf")
+text = "CRAP! Now I wont know if my friends are okay…"
+character = SubResource("Resource_638ih")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_ul722"]
+script = ExtResource("1_j0xqf")
+text = "HUH, WHO ARE YOU?! Yes im fine, somehow… Are the others okay? Oh you dont know yet? Damn…"
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_j0xqf"]
+script = ExtResource("1_j0xqf")
+text = "HUH, WHO ARE YOU SUPPOSED TO BE?! Yeah im fine! Are the others okay? 2 have been found now? I hope everyone is okay..."
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_jm82r"]
+script = ExtResource("1_j0xqf")
+text = "HUH, WHO ARE YOU?! Yes im fine, are the others okay? Yes? Thank goodness..."
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_wsh4a"]
+script = ExtResource("3_wsh4a")
+portrait = ExtResource("2_j0xqf")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_o3ebs"]
+script = ExtResource("1_j0xqf")
+text = "Hey..! How are you here?! There was a sudden collapse of boulders and me and my friends got seperated. Could you please go find them and make sure that they are alright? There should be 3 lost somewhere in these tunnels…
+"
+character = SubResource("Resource_wsh4a")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[resource]
+script = ExtResource("5_jm82r")
+name = &"Lost Miners"
+goals = 3
+start_message = SubResource("Resource_o3ebs")
+end_messages = Dictionary[int, ExtResource("1_j0xqf")]({
+0: SubResource("Resource_6sqxf"),
+3: SubResource("Resource_ahhj7")
+})
+mid_goal_messages = Array[ExtResource("1_j0xqf")]([SubResource("Resource_ul722"), SubResource("Resource_j0xqf"), SubResource("Resource_jm82r")])
+metadata/_custom_type_script = "uid://cwt46u8hoo78l"

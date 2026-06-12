@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="ParcelQuest" format=3 uid="uid://bpnvngj04mge1"]
+
+[ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_pbqd3"]
+[ext_resource type="Texture2D" uid="uid://c01dj2kvqxik7" path="res://portraits/island/Saari_Vainoharhainen_Mies.png" id="2_wa0gs"]
+[ext_resource type="Script" uid="uid://dpiwy6dhp58g8" path="res://actors/person/character.gd" id="3_aeiep"]
+[ext_resource type="Texture2D" uid="uid://b88hd5uhbqsxw" path="res://portraits/island/Saari_Kylan_Johtaja.png" id="4_7nvek"]
+[ext_resource type="Script" uid="uid://cwt46u8hoo78l" path="res://misc/quests/parcel_quest.gd" id="5_8v16u"]
+
+[sub_resource type="Resource" id="Resource_wrt3j"]
+script = ExtResource("3_aeiep")
+portrait = ExtResource("2_wa0gs")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_u4ncy"]
+script = ExtResource("1_pbqd3")
+text = "WHAT ARE THESE?! \"Crazy Medication\"?! DID THE CHIEF SENT YOU?! It seems that he Still thinks im crazy, im not, im sure that Aliens are what destroyed the old village and not some volcanic activity! Maybe the chief is trying to hide truth! You know what, take this to him!
+"
+character = SubResource("Resource_wrt3j")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_73cqv"]
+script = ExtResource("3_aeiep")
+portrait = ExtResource("4_7nvek")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_b3ctt"]
+script = ExtResource("1_pbqd3")
+text = "Guess i have to do everything around here like always, thanks for trying."
+character = SubResource("Resource_73cqv")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_s2sn4"]
+script = ExtResource("3_aeiep")
+portrait = ExtResource("4_7nvek")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_rfc5k"]
+script = ExtResource("1_pbqd3")
+text = "Hey you, take this medication to the crazy guy living up north-east of the village. There is this crazy guy who believes that Aliens are coming to kidnap us, now the weird rods he put up are disturbing the wildlife here so it needs to stop.
+"
+character = SubResource("Resource_s2sn4")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[resource]
+script = ExtResource("5_8v16u")
+name = &"Crazy Medication"
+time_limit = 35
+start_message = SubResource("Resource_rfc5k")
+end_messages = Dictionary[int, ExtResource("1_pbqd3")]({
+0: SubResource("Resource_u4ncy"),
+2: SubResource("Resource_b3ctt")
+})
+metadata/_custom_type_script = "uid://cwt46u8hoo78l"

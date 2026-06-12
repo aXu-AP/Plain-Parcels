@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://d0cna0pnxqmny"]
-
-[ext_resource type="PackedScene" uid="uid://bt7r6qp8mrmnc" path="res://environment/island/rock.glb" id="1_uywka"]
-
-[node name="rock" unique_id=1691695306 instance=ExtResource("1_uywka")]

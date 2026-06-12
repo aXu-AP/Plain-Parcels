@@ -1,0 +1,7 @@
+The project uses following third party assets:
+	
+Cave texture by Adamyuyuyu (CC-BY)
+Marble rock by Adamyuyuyu (CC-BY)
+Grass texture by leoskateman (CC-BY)
+Basalt rock texture by PeuVilasBoas (CC-BY)
+Stylized roof tiles by Saurav72 (CC-BY)

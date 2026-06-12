@@ -1,0 +1,88 @@
+[gd_resource type="Resource" script_class="PassengerQuest" format=3 uid="uid://cqoa1rcpoxhg7"]
+
+[ext_resource type="Texture2D" uid="uid://dg31k27g37de7" path="res://portraits/island/Saari_Turisti_Mies.png" id="1_4mhio"]
+[ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_egm4m"]
+[ext_resource type="Script" uid="uid://dpiwy6dhp58g8" path="res://actors/person/character.gd" id="3_4gfq8"]
+[ext_resource type="Script" uid="uid://b00fa48eqrk5h" path="res://misc/quests/passenger_quest.gd" id="4_egm4m"]
+
+[sub_resource type="Resource" id="Resource_aehvg"]
+script = ExtResource("3_4gfq8")
+portrait = ExtResource("1_4mhio")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_4mhio"]
+script = ExtResource("3_4gfq8")
+portrait = ExtResource("1_4mhio")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_egm4m"]
+script = ExtResource("1_egm4m")
+text = "Ouch!"
+character = SubResource("Resource_4mhio")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_c10qo"]
+script = ExtResource("3_4gfq8")
+portrait = ExtResource("1_4mhio")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_qd1nx"]
+script = ExtResource("1_egm4m")
+text = "Thank you for showing me around the Island, im gonna go check the caves on foot someday.
+"
+character = SubResource("Resource_c10qo")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_lju23"]
+script = ExtResource("3_4gfq8")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_ji367"]
+script = ExtResource("1_egm4m")
+text = "Well this flight didnt go as well as i thought it would.."
+character = SubResource("Resource_lju23")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_nfqyp"]
+script = ExtResource("1_egm4m")
+text = "This ferris Wheel is fairly new, after the eruption it got blocked by rubble and was out of Service until you came along and fixed it!
+"
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_4m3gr"]
+script = ExtResource("1_egm4m")
+text = "Last time this volcano erupted was a year ago, around 20 people died to the eruption and the damages it caused.."
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_q4ddq"]
+script = ExtResource("1_egm4m")
+text = "Ruined buildings are the only thing left of the old town, its a shame I never got to see it. It was an amazing town from what i heard.
+"
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_4gfq8"]
+script = ExtResource("3_4gfq8")
+portrait = ExtResource("1_4mhio")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_bpuuk"]
+script = ExtResource("1_egm4m")
+text = "Yooo dude whats up, I heard from a friend that I could catch a ride from you. You see I wanna see the sights around this Island, this Place has so much history and things to see!
+"
+character = SubResource("Resource_4gfq8")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[resource]
+script = ExtResource("4_egm4m")
+character = SubResource("Resource_aehvg")
+max_health = 3
+damage_messages = Array[ExtResource("1_egm4m")]([SubResource("Resource_egm4m")])
+name = &"Tourist Guide"
+goals = 3
+start_message = SubResource("Resource_bpuuk")
+end_messages = Dictionary[int, ExtResource("1_egm4m")]({
+0: SubResource("Resource_qd1nx"),
+3: SubResource("Resource_ji367")
+})
+mid_goal_messages = Array[ExtResource("1_egm4m")]([SubResource("Resource_nfqyp"), SubResource("Resource_4m3gr"), SubResource("Resource_q4ddq")])
+metadata/_custom_type_script = "uid://cwt46u8hoo78l"
