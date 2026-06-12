@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://bvup33jhbscac"]
+
+[ext_resource type="Script" uid="uid://cah3hjliaxnok" path="res://gui/shop/shop_item_button.gd" id="1_xj3yx"]
+[ext_resource type="Texture2D" uid="uid://bbrvdhw8ysono" path="res://gui/icons/coin.png" id="2_2fegq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xj3yx"]
+bg_color = Color(1, 1, 1, 0.1764706)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="ShopItemButton" type="PanelContainer" unique_id=16619090]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 1152.0
+offset_bottom = 60.0
+focus_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xj3yx")
+script = ExtResource("1_xj3yx")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1290926822]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=327325800]
+layout_mode = 2
+
+[node name="IconTextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=439569184]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+expand_mode = 2
+
+[node name="NameLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=175732534]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Item"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer" unique_id=1974137102]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="CurrencyTextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/MarginContainer" unique_id=1752093230]
+unique_name_in_owner = true
+modulate = Color(1, 0.8666667, 0, 1)
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_2fegq")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="PriceLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=264160503]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "x99"
+horizontal_alignment = 2
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_focus_exited"]

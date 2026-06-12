@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://ddu3ha85vnt3h"]
+
+[ext_resource type="Script" uid="uid://otomuq8l1tdo" path="res://gui/action_button.gd" id="1_1fl3s"]
+[ext_resource type="Script" uid="uid://jmgj1vyqgdhb" path="res://gui/ap_connection_menu.gd" id="1_uh86x"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_uh86x"]
+action = &"ui_accept"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_bd4nn"]
+events = [SubResource("InputEventAction_uh86x")]
+
+[node name="ApConnectionMenu" type="Control" unique_id=987637163]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uh86x")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1029946289]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_right = 0.7
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=1384093600]
+layout_mode = 2
+bbcode_enabled = true
+text = "Plain Parcels supports Archipelago randomizator.
+To learn more about Archipelago, see [url=\"https://archipelago.gg\"]archipelago.gg[/url]."
+fit_content = true
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer" unique_id=2074612534]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/GridContainer" unique_id=912322536]
+layout_mode = 2
+text = "Address:"
+
+[node name="AddressLineEdit" type="LineEdit" parent="VBoxContainer/GridContainer" unique_id=1427670075]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "archipelago.gg"
+placeholder_text = "archipelago.gg"
+emoji_menu_enabled = false
+clear_button_enabled = true
+select_all_on_focus = true
+caret_blink = true
+
+[node name="Label2" type="Label" parent="VBoxContainer/GridContainer" unique_id=2109220463]
+layout_mode = 2
+text = "Port:"
+
+[node name="PortLineEdit" type="LineEdit" parent="VBoxContainer/GridContainer" unique_id=1688662736]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "38281"
+placeholder_text = "38281"
+emoji_menu_enabled = false
+clear_button_enabled = true
+select_all_on_focus = true
+caret_blink = true
+
+[node name="Label3" type="Label" parent="VBoxContainer/GridContainer" unique_id=1476499087]
+layout_mode = 2
+text = "Slot:"
+
+[node name="SlotLineEdit" type="LineEdit" parent="VBoxContainer/GridContainer" unique_id=962819208]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Player1"
+emoji_menu_enabled = false
+clear_button_enabled = true
+select_all_on_focus = true
+caret_blink = true
+
+[node name="Label4" type="Label" parent="VBoxContainer/GridContainer" unique_id=2104704657]
+layout_mode = 2
+text = "Password:"
+
+[node name="PasswordLineEdit" type="LineEdit" parent="VBoxContainer/GridContainer" unique_id=1748473147]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "(no password)"
+emoji_menu_enabled = false
+clear_button_enabled = true
+select_all_on_focus = true
+caret_blink = true
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer" unique_id=1892209936]
+layout_mode = 2
+text = "Hide connection data"
+
+[node name="ConnectButton" type="Button" parent="VBoxContainer" unique_id=368534972 node_paths=PackedStringArray("target")]
+unique_name_in_owner = true
+layout_mode = 2
+shortcut = SubResource("Shortcut_bd4nn")
+text = "Connect!"
+script = ExtResource("1_1fl3s")
+target = NodePath("../..")
+method = "connect_to_ap"
+
+[node name="BackButton2" type="Button" parent="VBoxContainer" unique_id=1775507482 node_paths=PackedStringArray("target")]
+layout_mode = 2
+text = "Back"
+script = ExtResource("1_1fl3s")
+target = NodePath("../..")
+method = "queue_free"
+
+[node name="StatusLabel" type="Label" parent="VBoxContainer" unique_id=2132894124]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Connection failed."
+
+[connection signal="meta_clicked" from="VBoxContainer/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
+[connection signal="focus_exited" from="VBoxContainer/GridContainer/AddressLineEdit" to="." method="_on_address_line_edit_focus_exited"]
+[connection signal="text_submitted" from="VBoxContainer/GridContainer/AddressLineEdit" to="." method="connect_to_ap" unbinds=1]
+[connection signal="text_submitted" from="VBoxContainer/GridContainer/PortLineEdit" to="." method="connect_to_ap" unbinds=1]
+[connection signal="text_submitted" from="VBoxContainer/GridContainer/SlotLineEdit" to="." method="connect_to_ap" unbinds=1]
+[connection signal="text_submitted" from="VBoxContainer/GridContainer/PasswordLineEdit" to="." method="connect_to_ap" unbinds=1]
+[connection signal="toggled" from="VBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]

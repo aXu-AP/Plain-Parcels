@@ -11,7 +11,7 @@ size = Vector2(10, 10)
 [sub_resource type="Gradient" id="Gradient_j67tr"]
 colors = PackedColorArray(0, 0.24, 0.228, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_er5hj"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lsniv"]
 resource_name = "quest_point"
 gradient = SubResource("Gradient_j67tr")
 fill = 1
@@ -22,7 +22,8 @@ fill_to = Vector2(0.5, 0)
 blend_mode = 1
 depth_draw_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("GradientTexture2D_er5hj")
+disable_fog = true
+albedo_texture = SubResource("GradientTexture2D_lsniv")
 billboard_mode = 1
 billboard_keep_scale = true
 proximity_fade_enabled = true
@@ -45,7 +46,7 @@ colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0, 2.887845e-06, 0.6924817, 0.688
 noise_type = 2
 frequency = 0.0149
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_iywyb"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7tbay"]
 resource_name = "quest_point"
 noise = SubResource("FastNoiseLite_fcvun")
 color_ramp = SubResource("Gradient_m7dn2")
@@ -55,7 +56,7 @@ seamless = true
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("NoiseTexture2D_iywyb")
+albedo_texture = SubResource("NoiseTexture2D_7tbay")
 uv1_scale = Vector3(1, 0.01, 1)
 distance_fade_mode = 1
 distance_fade_max_distance = 1.0
@@ -74,15 +75,26 @@ collision_mask = 2
 script = ExtResource("1_lsniv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=227234301]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("SphereShape3D_qptmr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1191988690]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("QuadMesh_e8e0c")
 surface_material_override/0 = SubResource("StandardMaterial3D_eqvcb")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1008679329]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CylinderMesh_7pym1")
 surface_material_override/0 = SubResource("StandardMaterial3D_8yqlp")
 script = SubResource("GDScript_8643t")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1913272040]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+pixel_size = 0.01
+billboard = 2
+text = "!"
+font_size = 256
+outline_size = 32
 
 [connection signal="body_entered" from="." to="." method="interact" unbinds=1]

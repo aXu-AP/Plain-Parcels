@@ -27,7 +27,7 @@ func _ready() -> void:
 
 func update_availability(delay: int = 0) -> void:
 	# The quest is completed, quest no longer available.
-	if quest.name in required_flags:
+	if quest.name in Globals.flags:
 		queue_free()
 	var is_available = check_availability()
 	if is_available and delay:

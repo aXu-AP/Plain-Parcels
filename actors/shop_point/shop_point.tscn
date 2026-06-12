@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://i7nq3pnw2s1c"]
+
+[ext_resource type="Script" uid="uid://cbjt70ui1h3uj" path="res://actors/shop_point/shop_point.gd" id="1_qhiv7"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_351lx"]
+size = Vector2(10, 10)
+
+[sub_resource type="Gradient" id="Gradient_1r5qw"]
+colors = PackedColorArray(0.68398577, 0.528167, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_er5hj"]
+resource_name = "quest_point"
+gradient = SubResource("Gradient_1r5qw")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8mle0"]
+blend_mode = 1
+depth_draw_mode = 2
+shading_mode = 0
+disable_fog = true
+albedo_texture = SubResource("GradientTexture2D_er5hj")
+billboard_mode = 1
+billboard_keep_scale = true
+proximity_fade_enabled = true
+proximity_fade_distance = 5.0
+distance_fade_mode = 1
+distance_fade_max_distance = 5.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mr8qj"]
+top_radius = 5.0
+bottom_radius = 5.0
+height = 1.0
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="Gradient" id="Gradient_u004n"]
+offsets = PackedFloat32Array(0, 0.46392617, 0.69714767)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0, 0.7890437, 0.55599433, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_youkd"]
+noise_type = 2
+frequency = 0.0149
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_iywyb"]
+resource_name = "quest_point"
+noise = SubResource("FastNoiseLite_youkd")
+color_ramp = SubResource("Gradient_u004n")
+seamless = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xk8wi"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("NoiseTexture2D_iywyb")
+uv1_scale = Vector3(1, 0.01, 1)
+distance_fade_mode = 1
+distance_fade_max_distance = 1.0
+
+[sub_resource type="GDScript" id="GDScript_5lott"]
+script/source = "extends MeshInstance3D
+
+func _process(delta: float) -> void:
+	var mat: StandardMaterial3D = get_active_material(0)
+	mat.uv1_offset.y += delta * .3
+"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_351lx"]
+radius = 5.0
+
+[node name="ShopPoint" type="Area3D" unique_id=2102423001]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_qhiv7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=549826887]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06731653, 0.032860756)
+mesh = SubResource("QuadMesh_351lx")
+surface_material_override/0 = SubResource("StandardMaterial3D_8mle0")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1311809233]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06731653, 0.032860756)
+mesh = SubResource("CylinderMesh_mr8qj")
+surface_material_override/0 = SubResource("StandardMaterial3D_xk8wi")
+script = SubResource("GDScript_5lott")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=373114221]
+shape = SubResource("SphereShape3D_351lx")
+
+[connection signal="body_entered" from="." to="." method="interact" unbinds=1]

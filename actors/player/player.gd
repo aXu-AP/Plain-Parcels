@@ -18,11 +18,11 @@ static var instance: Player
 @export var downwards_force: float = 30.0
 
 @export_group("Abilities")
-@export var max_health: int = 50
-@export var has_boost := true
-@export var has_brake := true
-@export var has_wing_retract := true
-@export var has_second_seat := true
+@export var max_health: int = 20
+@export var has_boost := false
+@export var has_brake := false
+@export var has_wing_retract := false
+@export var has_second_seat := false
 
 var current_max_height: float = 10.0
 var current_max_height_soft: float = 10.0
@@ -49,6 +49,9 @@ var _invincibility_timer: float = 1.0
 func _ready() -> void:
 	instance = self
 	tail = %Tail
+	Globals.flag_added.connect(update_ability)
+	for flag: StringName in Globals.flags:
+		update_ability(flag)
 
 
 func _physics_process(delta: float) -> void:
@@ -88,6 +91,17 @@ func _physics_process(delta: float) -> void:
 		die()
 
 
+func update_ability(flag: StringName) -> void:
+	match flag:
+		&"Boost": has_boost = true
+		&"Brake": has_brake = true
+		&"Wing Retract": has_wing_retract = true
+		&"Passenger Seat": has_second_seat = true
+		&"Max Health Upgrade":
+			max_health += 20
+			health = max_health
+
+
 func die() -> void:
 	%PlaneModel.visible = false
 	%Explosion.emitting = true
@@ -100,16 +114,20 @@ func die() -> void:
 func respawn() -> void:
 	global_position = _spawn_point
 	global_basis = _spawn_basis
-	health = max_health
 	_flight_velocity = Vector3.ZERO
 	_drift_velocity = Vector3.ZERO
 	_collision_velocity = Vector3.ZERO
 	_shake_intensity = 0
 	_invincibility_timer = 1.0
-	_wing_rhealth = 10
-	_wing_lhealth = 10
+	fix()
 	%PlaneModel.visible = true
 	respawned.emit()
+
+
+func fix() -> void:
+	health = max_health
+	_wing_rhealth = 10
+	_wing_lhealth = 10
 
 
 func process_flight_control(delta: float) -> void:
@@ -156,10 +174,14 @@ func process_collisions() -> void:
 		damage += 3
 		_collision_velocity = basis.z * 40
 	if damage > 0:
-		health -= damage
-		damaged.emit()
-		_invincibility_timer = .1
-		_shake_intensity = 1.0
+		do_damage(damage)
+
+
+func do_damage(amount: int = 3) -> void:
+	health -= amount
+	damaged.emit()
+	_invincibility_timer = .1
+	_shake_intensity = 1.0
 
 
 func process_wing_state(delta: float) -> void:

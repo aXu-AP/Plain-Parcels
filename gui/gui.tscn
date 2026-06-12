@@ -1,15 +1,17 @@
 [gd_scene format=3 uid="uid://c4odctxla17ro"]
 
 [ext_resource type="Script" uid="uid://decser6sc8hjm" path="res://gui/gui.gd" id="1_yw5qc"]
+[ext_resource type="Texture2D" uid="uid://bbrvdhw8ysono" path="res://gui/icons/coin.png" id="2_ioifv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_a4rkh"]
 font_size = 100
 
 [sub_resource type="Gradient" id="Gradient_yw5qc"]
-offsets = PackedFloat32Array(0, 0.97162575, 0.976227)
-colors = PackedColorArray(0.9411765, 0.8784314, 0, 1, 0.9411765, 0.8784314, 0, 1, 0.9411765, 0.8784314, 0, 0)
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.976227)
+colors = PackedColorArray(1, 0.8627451, 0, 1, 0.9411765, 0.8784314, 0, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ioifv"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yw5qc"]
 gradient = SubResource("Gradient_yw5qc")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
@@ -50,12 +52,28 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 
+[node name="JewelCounter" type="HBoxContainer" parent="VBoxContainer" unique_id=1384675486]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/JewelCounter" unique_id=1262789584]
+modulate = Color(0.8436904, 2.5027991e-06, 0.5018461, 1)
+layout_mode = 2
+texture = SubResource("GradientTexture2D_yw5qc")
+expand_mode = 3
+
+[node name="JewelLabel" type="Label" parent="VBoxContainer/JewelCounter" unique_id=1224898108]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00"
+
 [node name="CoinCounter" type="HBoxContainer" parent="VBoxContainer" unique_id=2133923937]
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/CoinCounter" unique_id=1214209214]
+modulate = Color(1, 0.8666667, 0, 1)
 layout_mode = 2
-texture = SubResource("GradientTexture2D_ioifv")
+texture = ExtResource("2_ioifv")
 expand_mode = 3
 
 [node name="CoinLabel" type="Label" parent="VBoxContainer/CoinCounter" unique_id=288046204]
@@ -68,9 +86,9 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/QuestCoinCounter" unique_id=67803249]
-modulate = Color(0.20127013, 0.5217651, 0.59091336, 1)
+modulate = Color(0.28801966, 0.542699, 0.28045934, 1)
 layout_mode = 2
-texture = SubResource("GradientTexture2D_ioifv")
+texture = ExtResource("2_ioifv")
 expand_mode = 3
 
 [node name="QuestCoinLabel" type="Label" parent="VBoxContainer/QuestCoinCounter" unique_id=492176782]

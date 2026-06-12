@@ -2,7 +2,17 @@ extends Control
 
 var _timer_tween: Tween
 
+
+func _ready() -> void:
+	Globals.shop_opened.connect(set.bind("visible", false).unbind(1))
+	Globals.shop_closed.connect(set.bind("visible", true))
+
+
 func _process(_delta: float) -> void:
+	visible = GameManager.in_game
+	if not visible:
+		return
+	
 	if is_instance_valid(Quest.active_quest) and is_instance_valid(Quest.active_quest.timer):
 		if not %TimerLabel.visible:
 			%TimerLabel.visible = true
@@ -17,8 +27,9 @@ func _process(_delta: float) -> void:
 		_timer_tween.tween_callback(%TimerLabel.set.bind("visible", false))
 	if is_instance_valid(Player.instance):
 		%HealthBar.max_value = Player.instance.max_health
-		%HealthBar.custom_minimum_size.x = Player.instance.max_health * 5
+		%HealthBar.custom_minimum_size.x = Player.instance.max_health * 3
 		%HealthBar.value = Player.instance.health
+	%JewelLabel.text = "%d" % Globals.jewels
 	%CoinLabel.text = "%03d" % Globals.coins
 	if Quest.active_quest is CoinQuest:
 		%QuestCoinCounter.visible = true
