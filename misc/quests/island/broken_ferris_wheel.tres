@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="ParcelQuest" format=3 uid="uid://r12wis1uhio4"]
+
+[ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_pgnhb"]
+[ext_resource type="Texture2D" uid="uid://cf7lqnahvtm7u" path="res://portraits/island/island_04.png" id="2_tutmr"]
+[ext_resource type="Script" uid="uid://dpiwy6dhp58g8" path="res://actors/person/character.gd" id="3_k4hsx"]
+[ext_resource type="Script" uid="uid://cwt46u8hoo78l" path="res://misc/quests/parcel_quest.gd" id="4_hpnp6"]
+[ext_resource type="Texture2D" uid="uid://db2si6ssoo5kb" path="res://portraits/cave/cave_02.png" id="5_ytok8"]
+
+[sub_resource type="Resource" id="Resource_kmlt3"]
+script = ExtResource("3_k4hsx")
+portrait = ExtResource("2_tutmr")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_1jjmd"]
+script = ExtResource("1_pgnhb")
+text = "Thank you very much for the explosives, now i can finally go on it, and the others as well!"
+character = SubResource("Resource_kmlt3")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_pgnhb"]
+script = ExtResource("3_k4hsx")
+portrait = ExtResource("5_ytok8")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_tutmr"]
+script = ExtResource("1_pgnhb")
+text = "Oh man, I  guess nobody can go on the ferris wheel now... Thanks for trying"
+character = SubResource("Resource_pgnhb")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_q3xxm"]
+script = ExtResource("3_k4hsx")
+portrait = ExtResource("5_ytok8")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_rrq7i"]
+script = ExtResource("1_pgnhb")
+text = "Hey! Could you bring these explosives to the guy at the ferris wheel?"
+character = SubResource("Resource_q3xxm")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[resource]
+script = ExtResource("4_hpnp6")
+name = &"Broken Ferris Wheel"
+goals = 3
+start_message = SubResource("Resource_rrq7i")
+end_messages = Dictionary[int, ExtResource("1_pgnhb")]({
+0: SubResource("Resource_1jjmd"),
+2: SubResource("Resource_tutmr")
+})
+metadata/_custom_type_script = "uid://cwt46u8hoo78l"

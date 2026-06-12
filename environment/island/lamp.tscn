@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://77nx4ykrrgl7"]
+
+[ext_resource type="PackedScene" uid="uid://bj5cg3vt8hexw" path="res://environment/island/lamp.glb" id="1_bekw5"]
+
+[node name="lamp" unique_id=343954654 instance=ExtResource("1_bekw5")]
+
+[node name="Cylinder" parent="." index="0" unique_id=588304472]
+transform = Transform3D(0.35894015, 0, 0, 0, 0.35894015, 0, 0, 0, 0.35894015, 0, 0, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1" unique_id=1616231522]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.2528534, 0)
+light_color = Color(0.8115792, 0.5428833, 0.25412944, 1)
+light_energy = 4.232
+omni_range = 27.848873

@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="ParcelQuest" format=3 uid="uid://cv57tovrxkllk"]
+
+[ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_vw1dx"]
+[ext_resource type="Texture2D" uid="uid://boh68m645aq8m" path="res://portraits/island/island_09.png" id="2_dednx"]
+[ext_resource type="Script" uid="uid://dpiwy6dhp58g8" path="res://actors/person/character.gd" id="3_s1k7j"]
+[ext_resource type="Script" uid="uid://cwt46u8hoo78l" path="res://misc/quests/parcel_quest.gd" id="4_8qllh"]
+
+[sub_resource type="Resource" id="Resource_1v7wl"]
+script = ExtResource("3_s1k7j")
+portrait = ExtResource("2_dednx")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_6sqxf"]
+script = ExtResource("1_vw1dx")
+text = "Oh thank you so much Pilot! I will never forget this, please take this! I think this will be of more use to you!"
+character = SubResource("Resource_1v7wl")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_ju4da"]
+script = ExtResource("3_s1k7j")
+portrait = ExtResource("2_dednx")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_73e47"]
+script = ExtResource("1_vw1dx")
+text = "NOOO!! gg"
+character = SubResource("Resource_ju4da")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_638ih"]
+script = ExtResource("3_s1k7j")
+portrait = ExtResource("2_dednx")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_ahhj7"]
+script = ExtResource("1_vw1dx")
+text = "Please dont give up…"
+character = SubResource("Resource_638ih")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_ntfvx"]
+script = ExtResource("3_s1k7j")
+portrait = ExtResource("2_dednx")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_o3ebs"]
+script = ExtResource("1_vw1dx")
+text = "Hey Pilot, could you bring these flowers to my family's old house at the ruined village?
+"
+character = SubResource("Resource_ntfvx")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[resource]
+script = ExtResource("4_8qllh")
+name = &"Lost Memories"
+start_message = SubResource("Resource_o3ebs")
+end_messages = Dictionary[int, ExtResource("1_vw1dx")]({
+0: SubResource("Resource_6sqxf"),
+2: SubResource("Resource_73e47"),
+3: SubResource("Resource_ahhj7")
+})
+metadata/_custom_type_script = "uid://cwt46u8hoo78l"

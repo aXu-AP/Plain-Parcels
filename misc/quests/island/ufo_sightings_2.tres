@@ -1,0 +1,65 @@
+[gd_resource type="Resource" script_class="ParcelQuest" format=3 uid="uid://dhpf24bj3s5id"]
+
+[ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_8gj2u"]
+[ext_resource type="Texture2D" uid="uid://c01dj2kvqxik7" path="res://portraits/island/island_07.png" id="2_tlipq"]
+[ext_resource type="Script" uid="uid://dpiwy6dhp58g8" path="res://actors/person/character.gd" id="3_uuqqe"]
+[ext_resource type="Script" uid="uid://cwt46u8hoo78l" path="res://misc/quests/parcel_quest.gd" id="4_se3yf"]
+
+[sub_resource type="Resource" id="Resource_wrt3j"]
+script = ExtResource("3_uuqqe")
+portrait = ExtResource("2_tlipq")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_u4ncy"]
+script = ExtResource("1_8gj2u")
+text = "Do you see Pilot! The smoke coming from the volcano! THIS WILL MAKE SURE THAT THE ALIENS CAN NO LONGER WATCH US!!! Youve done well Pilot, very well!
+
+"
+character = SubResource("Resource_wrt3j")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_73cqv"]
+script = ExtResource("3_uuqqe")
+portrait = ExtResource("2_tlipq")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_b3ctt"]
+script = ExtResource("1_8gj2u")
+text = "WHAT EVER, Guess this problem wont be solved today. WERE DONE FOR, ITS ALL YOUR FAULT!!!! "
+character = SubResource("Resource_73cqv")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_8egcg"]
+script = ExtResource("3_uuqqe")
+portrait = ExtResource("2_tlipq")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_lrjiy"]
+script = ExtResource("1_8gj2u")
+text = "YOU FOOL!! Why couldnt you go any faster?! Do you realise whats at stake?!"
+character = SubResource("Resource_8egcg")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_s2sn4"]
+script = ExtResource("3_uuqqe")
+portrait = ExtResource("2_tlipq")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_rfc5k"]
+script = ExtResource("1_8gj2u")
+text = "PILOT! Have you seen it?! My Rods, they have disappeared! It can only mean one thing, the Aliens are FIGHTING BACK! We must put up stronger defenses! Here take this to the volcano and throw it in! QUICKLY
+"
+character = SubResource("Resource_s2sn4")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[resource]
+script = ExtResource("4_se3yf")
+name = &"Ufo Sightings 2"
+time_limit = 40
+start_message = SubResource("Resource_rfc5k")
+end_messages = Dictionary[int, ExtResource("1_8gj2u")]({
+0: SubResource("Resource_u4ncy"),
+1: SubResource("Resource_lrjiy"),
+2: SubResource("Resource_b3ctt")
+})
+metadata/_custom_type_script = "uid://cwt46u8hoo78l"

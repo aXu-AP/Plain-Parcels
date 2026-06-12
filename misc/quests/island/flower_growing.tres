@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="ParcelQuest" format=3 uid="uid://ilgskvk8r8no"]
+
+[ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_620k1"]
+[ext_resource type="Texture2D" uid="uid://boh68m645aq8m" path="res://portraits/island/island_09.png" id="2_muuf3"]
+[ext_resource type="Script" uid="uid://dpiwy6dhp58g8" path="res://actors/person/character.gd" id="3_mlycf"]
+[ext_resource type="Script" uid="uid://cwt46u8hoo78l" path="res://misc/quests/parcel_quest.gd" id="4_3lfyn"]
+
+[sub_resource type="Resource" id="Resource_1v7wl"]
+script = ExtResource("3_mlycf")
+portrait = ExtResource("2_muuf3")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_6sqxf"]
+script = ExtResource("1_620k1")
+text = "Thank you so much Pilot, im sure everybody will appreciate them"
+character = SubResource("Resource_1v7wl")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_ju4da"]
+script = ExtResource("3_mlycf")
+portrait = ExtResource("2_muuf3")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_73e47"]
+script = ExtResource("1_620k1")
+text = "Oh Pilot are you okay? Dont worry about the flowers please just take care of yourself!"
+character = SubResource("Resource_ju4da")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_638ih"]
+script = ExtResource("3_mlycf")
+portrait = ExtResource("2_muuf3")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_ahhj7"]
+script = ExtResource("1_620k1")
+text = "Please dont give up…"
+character = SubResource("Resource_638ih")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_ntfvx"]
+script = ExtResource("3_mlycf")
+portrait = ExtResource("2_muuf3")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_o3ebs"]
+script = ExtResource("1_620k1")
+text = "Hey Pilot, I wanna plant flowers around the Island to remember the people who were lost in the disaster…
+Could you spread these seeds around the Island?"
+character = SubResource("Resource_ntfvx")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[resource]
+script = ExtResource("4_3lfyn")
+name = &"Flower Growing"
+goals = 7
+start_message = SubResource("Resource_o3ebs")
+end_messages = Dictionary[int, ExtResource("1_620k1")]({
+0: SubResource("Resource_6sqxf"),
+2: SubResource("Resource_73e47"),
+3: SubResource("Resource_ahhj7")
+})
+metadata/_custom_type_script = "uid://cwt46u8hoo78l"

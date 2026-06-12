@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="ParcelQuest" format=3 uid="uid://dxi0kltepudxi"]
+
+[ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_xmteq"]
+[ext_resource type="Texture2D" uid="uid://bht321osc1iqr" path="res://portraits/island/island_08.png" id="2_wfbel"]
+[ext_resource type="Script" uid="uid://dpiwy6dhp58g8" path="res://actors/person/character.gd" id="3_45qq0"]
+[ext_resource type="Script" uid="uid://cwt46u8hoo78l" path="res://misc/quests/parcel_quest.gd" id="3_wfbel"]
+[ext_resource type="Texture2D" uid="uid://bvaovuap1uvcr" path="res://portraits/island/island_05.png" id="4_dfqua"]
+
+[sub_resource type="Resource" id="Resource_1v7wl"]
+script = ExtResource("3_45qq0")
+portrait = ExtResource("2_wfbel")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_6sqxf"]
+script = ExtResource("1_xmteq")
+text = "...uh where did you find this? Oh the old woman, well thank you.."
+character = SubResource("Resource_1v7wl")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_ju4da"]
+script = ExtResource("3_45qq0")
+portrait = ExtResource("4_dfqua")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_73e47"]
+script = ExtResource("1_xmteq")
+text = "Well, lets hope thats not the fishermans only fishing rod…"
+character = SubResource("Resource_ju4da")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_638ih"]
+script = ExtResource("3_45qq0")
+portrait = ExtResource("4_dfqua")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_ahhj7"]
+script = ExtResource("1_xmteq")
+text = "Well, lets hope thats not the fishermans only fishing rod…"
+character = SubResource("Resource_638ih")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_ntfvx"]
+script = ExtResource("3_45qq0")
+portrait = ExtResource("4_dfqua")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_o3ebs"]
+script = ExtResource("1_xmteq")
+text = "Well hello there, have you by any chance seen a man my age roaming around anywhere? He just dissappeared one day when he went mining, please do tell me if you see him. But on the other hand, could you please take this fishing rod to the Fisher who lives alone, i think its his."
+character = SubResource("Resource_ntfvx")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[resource]
+script = ExtResource("3_wfbel")
+name = &"Weeping Widow"
+start_message = SubResource("Resource_o3ebs")
+end_messages = Dictionary[int, ExtResource("1_xmteq")]({
+0: SubResource("Resource_6sqxf"),
+2: SubResource("Resource_73e47"),
+3: SubResource("Resource_ahhj7")
+})
+metadata/_custom_type_script = "uid://cwt46u8hoo78l"

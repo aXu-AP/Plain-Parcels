@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cvsqqm5ypli24"]
+
+[ext_resource type="PackedScene" uid="uid://cfog6w0whcc8x" path="res://environment/island/windmill.glb" id="1_0jr3m"]
+
+[node name="windmill" unique_id=1788702957 instance=ExtResource("1_0jr3m")]
+
+[node name="Cylinder_001" parent="." index="1" unique_id=1177496814]
+transform = Transform3D(2.1642942e-08, -0.17493999, 2.268711e-08, -0.058259565, 8.183122e-09, 0.073808536, -0.073808536, -5.775702e-08, -0.058259565, 0.8120612, 1.9422296, 0)
+
+[node name="AnimationPlayer" parent="." index="2" unique_id=661999218]
+autoplay = &"spinnin"

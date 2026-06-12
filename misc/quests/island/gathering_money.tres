@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="CoinQuest" format=3 uid="uid://bihht7b7qw3cl"]
+
+[ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_e54w6"]
+[ext_resource type="Script" uid="uid://crcdacsuurjco" path="res://misc/quests/coin_quest.gd" id="2_v0qnl"]
+[ext_resource type="Texture2D" uid="uid://7q5x4jawg0mw" path="res://portraits/island/island_01.png" id="2_y48it"]
+[ext_resource type="Script" uid="uid://dpiwy6dhp58g8" path="res://actors/person/character.gd" id="3_blx3j"]
+
+[sub_resource type="Resource" id="Resource_e54w6"]
+script = ExtResource("3_blx3j")
+portrait = ExtResource("2_y48it")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_cnhge"]
+script = ExtResource("1_e54w6")
+text = "Hey! Thanks a lot man, you really saved me, i'll make it up to you sometime! She is really gonna like what i get her!
+"
+character = SubResource("Resource_e54w6")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_blx3j"]
+script = ExtResource("3_blx3j")
+portrait = ExtResource("2_y48it")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_utgfg"]
+script = ExtResource("1_e54w6")
+text = "Aw man, im so gonna be in trouble for not getting her an anniversary gift..
+"
+character = SubResource("Resource_blx3j")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_jjegd"]
+script = ExtResource("3_blx3j")
+portrait = ExtResource("2_y48it")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_cwf7n"]
+script = ExtResource("1_e54w6")
+text = "Hey there! I'm the guy in charge of the lighthouse! I actually have a Small problem, I cant really leave this Place and I wanna buy a gift for my girlfriend but I dont have enough money for it so could you be kind enough to go collect some and bring them back to me?
+"
+character = SubResource("Resource_jjegd")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[resource]
+script = ExtResource("2_v0qnl")
+coin_requirement = 25
+name = &"Gathering Money"
+time_limit = 120
+start_message = SubResource("Resource_cwf7n")
+end_messages = Dictionary[int, ExtResource("1_e54w6")]({
+0: SubResource("Resource_cnhge"),
+1: SubResource("Resource_utgfg")
+})
+metadata/_custom_type_script = "uid://cwt46u8hoo78l"

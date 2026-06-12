@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Character" format=3 uid="uid://jdypyryrdugg"]
 
-[ext_resource type="Texture2D" uid="uid://bcu8in2pngpah" path="res://portraits/city_02.png" id="1_gyo4t"]
+[ext_resource type="Texture2D" uid="uid://bcu8in2pngpah" path="res://portraits/city/city_02.png" id="1_gyo4t"]
 [ext_resource type="Script" uid="uid://dpiwy6dhp58g8" path="res://actors/person/character.gd" id="2_rl5bb"]
 
 [resource]
