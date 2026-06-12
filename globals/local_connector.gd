@@ -2,6 +2,7 @@ class_name LocalConnector
 extends Node
 
 var ignore_updates := false
+var save_file = "user://savegame.dat"
 
 func _ready() -> void:
 	Globals.flag_added.connect(update_save.unbind(1))
@@ -10,7 +11,7 @@ func _ready() -> void:
 
 func load_game() -> void:
 	Globals.reset_state()
-	SaveManager.load_game()
+	SaveManager.load_game(save_file)
 	var flags = SaveManager.permanent_data.get("flags", [])
 	ignore_updates = true
 	for flag in flags:
@@ -34,7 +35,7 @@ func update_save() -> void:
 	# Flags is by reference always up to date, other data needs to be manually updated.
 	SaveManager.permanent_data["jewels"] = Globals.jewels
 	SaveManager.permanent_data["coins"] = Globals.coins
-	SaveManager.save_game()
+	SaveManager.save_game(save_file)
 
 
 func quit() -> void:

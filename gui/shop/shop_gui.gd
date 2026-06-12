@@ -2,6 +2,7 @@ class_name ShopGui
 extends Control
 
 @export var inventory: ShopInventory
+var shop_name: String
 
 func _ready() -> void:
 	GameManager.prevent_pause = true

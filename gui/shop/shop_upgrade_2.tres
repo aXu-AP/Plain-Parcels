@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ShopItemData" format=3 uid="uid://246euxuwi73w"]
+
+[ext_resource type="Texture2D" uid="uid://bswnwlb8sgr0p" path="res://gui/icons/shop_upgrade.png" id="1_nqwy1"]
+[ext_resource type="Script" uid="uid://bkffasrhn2rcw" path="res://gui/shop/shop_item_data.gd" id="2_lcle4"]
+
+[resource]
+resource_name = "Shop Upgrade"
+script = ExtResource("2_lcle4")
+display_name = "Shop Upgrade"
+flag = &"Shop Upgrade 2"
+extra_flag = &"Shop Upgrade"
+price = 3
+item_icon = ExtResource("1_nqwy1")
+tier = 1
+jewel_currency = true
+metadata/_custom_type_script = "uid://bkffasrhn2rcw"

@@ -24,9 +24,16 @@ var STATUE_CLEANING := Location.new(1006, "Statue Cleaning")
 var CRANE_JEWEL := Location.new(2000, "Crane Jewel")
 var FOUNTAIN_JEWEL := Location.new(2001, "Fountain Jewel")
 var RICH_MAN_GATE_JEWEL := Location.new(2002, "Rich Man Gate Jewel")
+## Access example: shop[0][1][5] for "City Shop Moderate Item 6".
+var shops = []
 
+var shop_names = [
+	"City",
+	"Island",
+]
 var outgoing_locations: Array[int] = []
 var first_items := true
+var local_connector: LocalConnector
 
 
 static func create() -> APConnector:
@@ -35,11 +42,23 @@ static func create() -> APConnector:
 	return instance
 
 
+func _init() -> void:
+	for shop_id in 2:
+		shops.append([[], [], []])
+		for tier in 3:
+			for i in 10:
+				shops[shop_id][tier].append(Location.new(
+						3000 + shop_id * 100 + tier * 10 + i,
+						"%s Shop %s Item %d" % [shop_names[shop_id], ["Cheap", "Moderate", "Expensive"][tier], i + 1]
+					))
+
+
 func _ready() -> void:
 	Globals.reset_state()
 	Archipelago.connected.connect(_on_ap_connected)
 	Globals.flag_added.connect(send_location)
 	Globals.jewel_collected.connect(_on_jewel_collected)
+	Globals.shop_opened.connect(_on_shop_opened)
 	GameManager.game_ended.connect(queue_free)
 
 
@@ -56,11 +75,58 @@ func _on_ap_connected(conn: ConnectionInfo, _json: Dictionary) -> void:
 	for id: int in conn.slot_locations:
 		if conn.slot_locations[id]:
 			Globals.add_flag(Location.by_id[id].flag)
+	for shop_id in 2:
+		for tier in 3:
+			for i in Archipelago.conn.slot_data["shop_locations_per_tier"]:
+				Archipelago.conn.scout(shops[shop_id][tier][i].id, 0, func(_item): pass)
+	if not is_instance_valid(local_connector):
+		local_connector = LocalConnector.new()
+		GameManager.add_child(local_connector)
+		GameManager.game_ended.connect(local_connector.quit)
+		local_connector.save_file = "user://ap_%s" % conn.seed_name
+		if FileAccess.file_exists(local_connector.save_file):
+			local_connector.load_game()
+		else:
+			local_connector.start_new()
 
 
 func _on_jewel_collected(jewel: StringName) -> void:
 	if jewel != &"AP":
 		Globals.jewels -= 1 # Undo vanilla jewels.
+
+
+func _on_shop_opened(shop: ShopGui) -> void:
+	var shop_id = shop_names.find(shop.shop_name)
+	if shop_id < 0:
+		print("Unknown shop: %s" % shop.shop_name)
+		return
+	shop.inventory = ShopInventory.new()
+	var multiplier := int([.5, 1, 1.5][Archipelago.conn.slot_data["shop_prices"]])
+	for tier in 3:
+		for i in Archipelago.conn.slot_data["shop_locations_per_tier"]:
+			var loc: Location = shops[shop_id][tier][i]
+			var scout: NetworkItem = Archipelago.conn._scout_cache.get(loc.id)
+			var item := ShopItemData.new()
+			item.display_name = "%s\n(%s)" % [scout.get_name(), Archipelago.conn.get_player_name(scout.dest_player_id)]
+			item.flag = loc.name
+			item.tier = tier
+			item.price = (30 + i * 5 + tier * 100) * multiplier
+			var useful_progression = AP.ItemClassification.PROG | AP.ItemClassification.USEFUL
+			if scout.flags & useful_progression == useful_progression:
+				item.item_icon = load("uid://cj5e7hw18hqw")
+			elif scout.flags & AP.ItemClassification.PROG:
+				item.item_icon = load("uid://dye5ks3ret4db")
+			elif scout.flags & AP.ItemClassification.USEFUL:
+				item.item_icon = load("uid://nq6rjefw14nj")
+			elif scout.flags & AP.ItemClassification.TRAP:
+				item.item_icon = load("uid://cqq5pmned21x1")
+			else:
+				item.item_icon = load("uid://dwpmbebo1qon")
+			shop.inventory.items.append(item)
+	# Add shop upgrades.
+	shop.inventory.items.append(load("uid://brqhn5p7u5v0w"))
+	shop.inventory.items.append(load("uid://246euxuwi73w"))
+	shop.inventory.items.append(load("uid://bxcadxwyqh43k"))
 
 
 func send_location(flag: StringName) -> void:
@@ -78,29 +144,35 @@ func try_send_locations() -> void:
 
 
 func receive_item(ap_item: NetworkItem):
-	print("Status %s" % Archipelago.status)
 	var item: Item = Item.by_id.get(ap_item.id)
 	if not item:
 		return
-	if first_items and item.temporary:
+	if first_items:
 		return
 	var sender: String = Archipelago.conn.get_player_name(ap_item.src_player_id)
-	var msg := Message.new()
-	msg.text = "%s found your %s" % [sender, item.name]
-	DialogueBox.queue_message(msg)
+	var do_message := false
 	match item.flag:
 		JEWEL.flag:
 			Globals.collect_jewel(&"AP")
+			Globals.flag_added.emit(&"")
 		COIN_1.flag:
 			Globals.coins += 1
+			Globals.flag_added.emit(&"")
 		COIN_10.flag:
 			Globals.coins += 10
+			Globals.flag_added.emit(&"")
 		COIN_20.flag:
 			Globals.coins += 20
+			Globals.flag_added.emit(&"")
 		DAMAGE_TRAP.flag:
 			Player.instance.do_damage(10)
 		_:
 			Globals.add_flag(item.flag)
+			do_message = true
+	if do_message:
+		var msg := Message.new()
+		msg.text = "%s found your %s" % [sender, item.name]
+		DialogueBox.queue_message(msg)
 
 
 class Location:
@@ -120,6 +192,7 @@ class Location:
 			flag = StringName(_name)
 		by_id[id] = self
 		by_flag[flag] = self
+		print("%04d: %s" % [id, name])
 
 
 class Item:

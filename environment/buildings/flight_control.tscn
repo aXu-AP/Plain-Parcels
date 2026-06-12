@@ -1,7 +1,5 @@
 [gd_scene format=3 uid="uid://ysnhrkleqkym"]
 
-[ext_resource type="PackedScene" uid="uid://i7nq3pnw2s1c" path="res://actors/shop_point/shop_point.tscn" id="1_1r5qw"]
-
 [node name="FlightControl" type="Node3D" unique_id=509304927]
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=2134903091]
@@ -35,6 +33,3 @@ pixel_size = 0.01
 text = "SHOP"
 font_size = 256
 outline_size = 32
-
-[node name="ShopPoint" parent="." unique_id=2102423001 instance=ExtResource("1_1r5qw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 10)

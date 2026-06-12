@@ -10,13 +10,15 @@
 [ext_resource type="Texture2D" uid="uid://c22ye4m4vl2jg" path="res://gui/icons/carrier.png" id="4_pg7yb"]
 [ext_resource type="Texture2D" uid="uid://2uw5enoy8ow3" path="res://gui/icons/jewel.png" id="5_6m348"]
 [ext_resource type="Texture2D" uid="uid://61jcxrlmkrlv" path="res://gui/icons/boost.png" id="5_htsk2"]
-[ext_resource type="Texture2D" uid="uid://bswnwlb8sgr0p" path="res://gui/icons/shop_upgrade.png" id="6_3s2d5"]
 [ext_resource type="Texture2D" uid="uid://diay2ke3wh2p7" path="res://gui/icons/passenger.png" id="6_lo4cm"]
+[ext_resource type="Resource" uid="uid://brqhn5p7u5v0w" path="res://gui/shop/shop_upgrade_1.tres" id="6_wecce"]
 [ext_resource type="Texture2D" uid="uid://b0uspix4p1n32" path="res://gui/icons/health.png" id="8_3s2d5"]
+[ext_resource type="Resource" uid="uid://246euxuwi73w" path="res://gui/shop/shop_upgrade_2.tres" id="10_64ly3"]
 [ext_resource type="Texture2D" uid="uid://86fujiogt6cu" path="res://gui/icons/bucket.png" id="10_xi27e"]
 [ext_resource type="Texture2D" uid="uid://bfkc4t15eq617" path="res://gui/icons/retract_wings.png" id="11_6wsye"]
 [ext_resource type="Texture2D" uid="uid://tpkdrixwdayk" path="res://gui/icons/soar.png" id="11_lrlfv"]
 [ext_resource type="Texture2D" uid="uid://yide2nsoay2u" path="res://gui/icons/claw.png" id="11_p88yp"]
+[ext_resource type="Resource" uid="uid://bxcadxwyqh43k" path="res://gui/shop/shop_upgrade_3.tres" id="13_s6nae"]
 
 [sub_resource type="Resource" id="Resource_pg7yb"]
 resource_name = "Fix Plane"
@@ -42,17 +44,6 @@ script = ExtResource("2_trisq")
 display_name = "Brake"
 price = 10
 item_icon = ExtResource("4_lo4cm")
-metadata/_custom_type_script = "uid://bkffasrhn2rcw"
-
-[sub_resource type="Resource" id="Resource_6m348"]
-resource_name = "Shop Upgrade"
-script = ExtResource("2_trisq")
-display_name = "Shop Upgrade"
-flag = &"Shop Upgrade 1"
-extra_flag = &"Shop Upgrade"
-price = 2
-item_icon = ExtResource("6_3s2d5")
-jewel_currency = true
 metadata/_custom_type_script = "uid://bkffasrhn2rcw"
 
 [sub_resource type="Resource" id="Resource_xi27e"]
@@ -95,18 +86,6 @@ item_icon = ExtResource("6_lo4cm")
 tier = 1
 metadata/_custom_type_script = "uid://bkffasrhn2rcw"
 
-[sub_resource type="Resource" id="Resource_4opua"]
-resource_name = "Shop Upgrade"
-script = ExtResource("2_trisq")
-display_name = "Shop Upgrade"
-flag = &"Shop Upgrade 2"
-extra_flag = &"Shop Upgrade"
-price = 3
-item_icon = ExtResource("6_3s2d5")
-tier = 1
-jewel_currency = true
-metadata/_custom_type_script = "uid://bkffasrhn2rcw"
-
 [sub_resource type="Resource" id="Resource_lrlfv"]
 resource_name = "Carrier"
 script = ExtResource("2_trisq")
@@ -147,18 +126,6 @@ item_icon = ExtResource("8_3s2d5")
 tier = 2
 metadata/_custom_type_script = "uid://bkffasrhn2rcw"
 
-[sub_resource type="Resource" id="Resource_15wqk"]
-resource_name = "Shop Upgrade"
-script = ExtResource("2_trisq")
-display_name = "Shop Upgrade"
-flag = &"Shop Upgrade 3"
-extra_flag = &"Shop Upgrade"
-price = 4
-item_icon = ExtResource("6_3s2d5")
-tier = 2
-jewel_currency = true
-metadata/_custom_type_script = "uid://bkffasrhn2rcw"
-
 [sub_resource type="Resource" id="Resource_0v5xp"]
 resource_name = "Claw"
 script = ExtResource("2_trisq")
@@ -191,7 +158,7 @@ metadata/_custom_type_script = "uid://bkffasrhn2rcw"
 
 [sub_resource type="Resource" id="Resource_ixfve"]
 script = ExtResource("3_4opua")
-items = Array[ExtResource("2_trisq")]([SubResource("Resource_pg7yb"), SubResource("Resource_ep6jk"), SubResource("Resource_nd0a0"), SubResource("Resource_6m348"), SubResource("Resource_xi27e"), SubResource("Resource_trisq"), SubResource("Resource_3s2d5"), SubResource("Resource_htsk2"), SubResource("Resource_4opua"), SubResource("Resource_lrlfv"), SubResource("Resource_wecce"), SubResource("Resource_s6nae"), SubResource("Resource_p88yp"), SubResource("Resource_15wqk"), SubResource("Resource_0v5xp"), SubResource("Resource_64ly3"), SubResource("Resource_6wsye")])
+items = Array[ExtResource("2_trisq")]([SubResource("Resource_pg7yb"), SubResource("Resource_ep6jk"), SubResource("Resource_nd0a0"), ExtResource("6_wecce"), SubResource("Resource_xi27e"), SubResource("Resource_trisq"), SubResource("Resource_3s2d5"), SubResource("Resource_htsk2"), ExtResource("10_64ly3"), SubResource("Resource_lrlfv"), SubResource("Resource_wecce"), SubResource("Resource_s6nae"), SubResource("Resource_p88yp"), ExtResource("13_s6nae"), SubResource("Resource_0v5xp"), SubResource("Resource_64ly3"), SubResource("Resource_6wsye")])
 metadata/_custom_type_script = "uid://chj812iy8llfj"
 
 [sub_resource type="LabelSettings" id="LabelSettings_ufsgr"]

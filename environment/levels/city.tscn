@@ -55,6 +55,7 @@
 [ext_resource type="Resource" uid="uid://3tan4mamgwoj" path="res://actors/person/city/dad.tres" id="52_nmvc4"]
 [ext_resource type="Resource" uid="uid://6v4rec7wc8nl" path="res://actors/person/city/afro.tres" id="53_pp44n"]
 [ext_resource type="PackedScene" uid="uid://ysnhrkleqkym" path="res://environment/buildings/flight_control.tscn" id="55_6frpt"]
+[ext_resource type="PackedScene" uid="uid://i7nq3pnw2s1c" path="res://actors/shop_point/shop_point.tscn" id="56_xrsn8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_top_color = Color(0.20454744, 0.54231316, 1, 1)
@@ -1166,3 +1167,7 @@ quest = ExtResource("15_6frpt")
 
 [node name="FlightControl" parent="." unique_id=509304927 instance=ExtResource("55_6frpt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.70665, 7.6293945e-06, -112.05203)
+
+[node name="ShopPoint" parent="FlightControl" unique_id=2102423001 instance=ExtResource("56_xrsn8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 10)
+shop_name = "City"
