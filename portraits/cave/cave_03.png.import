@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c01dj2kvqxik7"
-path="res://.godot/imported/Saari_Vainoharhainen_Mies.png-f4104043b5dfe4f5825d2088b428b40f.ctex"
+uid="uid://dgp5wrxusc4uj"
+path="res://.godot/imported/cave_03.png-de5aaf48789fd665d223a5beeeaffe61.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://portraits/island/Saari_Vainoharhainen_Mies.png"
-dest_files=["res://.godot/imported/Saari_Vainoharhainen_Mies.png-f4104043b5dfe4f5825d2088b428b40f.ctex"]
+source_file="res://portraits/cave/cave_03.png"
+dest_files=["res://.godot/imported/cave_03.png-de5aaf48789fd665d223a5beeeaffe61.ctex"]
 
 [params]
 

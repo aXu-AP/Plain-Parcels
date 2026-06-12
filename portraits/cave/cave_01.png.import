@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cistgvxipnrsg"
-path="res://.godot/imported/Luola_Masentunut_mies.png-96fc92bc44f9a8e41c6c39058a001e4a.ctex"
+uid="uid://dkbnjolsullhb"
+path="res://.godot/imported/cave_01.png-573432839e117190e4b4777113c2e758.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://portraits/cave/Luola_Masentunut_mies.png"
-dest_files=["res://.godot/imported/Luola_Masentunut_mies.png-96fc92bc44f9a8e41c6c39058a001e4a.ctex"]
+source_file="res://portraits/cave/cave_01.png"
+dest_files=["res://.godot/imported/cave_01.png-573432839e117190e4b4777113c2e758.ctex"]
 
 [params]
 

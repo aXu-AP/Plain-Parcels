@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvaovuap1uvcr"
-path="res://.godot/imported/Saari_Sureva_Mummo.png-88dfc7c489f77f369d5e1f4f90880cc1.ctex"
+uid="uid://boh68m645aq8m"
+path="res://.godot/imported/island_09.png-90e92ff3818da9e4618d4fd8622a0c0a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://portraits/island/Saari_Sureva_Mummo.png"
-dest_files=["res://.godot/imported/Saari_Sureva_Mummo.png-88dfc7c489f77f369d5e1f4f90880cc1.ctex"]
+source_file="res://portraits/island/island_09.png"
+dest_files=["res://.godot/imported/island_09.png-90e92ff3818da9e4618d4fd8622a0c0a.ctex"]
 
 [params]
 

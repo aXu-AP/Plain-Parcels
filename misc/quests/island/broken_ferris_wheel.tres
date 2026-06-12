@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="ParcelQuest" format=3 uid="uid://r12wis1uhio4"]
 
 [ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_pgnhb"]
-[ext_resource type="Texture2D" uid="uid://cf7lqnahvtm7u" path="res://portraits/island/Saari_Lomalainen.png" id="2_tutmr"]
+[ext_resource type="Texture2D" uid="uid://cf7lqnahvtm7u" path="res://portraits/island/island_04.png" id="2_tutmr"]
 [ext_resource type="Script" uid="uid://dpiwy6dhp58g8" path="res://actors/person/character.gd" id="3_k4hsx"]
 [ext_resource type="Script" uid="uid://cwt46u8hoo78l" path="res://misc/quests/parcel_quest.gd" id="4_hpnp6"]
-[ext_resource type="Texture2D" uid="uid://db2si6ssoo5kb" path="res://portraits/cave/Luola_Arpi_Mies.png" id="5_ytok8"]
+[ext_resource type="Texture2D" uid="uid://db2si6ssoo5kb" path="res://portraits/cave/cave_02.png" id="5_ytok8"]
 
 [sub_resource type="Resource" id="Resource_kmlt3"]
 script = ExtResource("3_k4hsx")

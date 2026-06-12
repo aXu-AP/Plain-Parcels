@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b88hd5uhbqsxw"
-path="res://.godot/imported/Saari_Kylan_Johtaja.png-7302ead0572f991d74210091548588b2.ctex"
+uid="uid://bvaovuap1uvcr"
+path="res://.godot/imported/island_05.png-77401be3e3d41df253e8446ef2bae16f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://portraits/island/Saari_Kylan_Johtaja.png"
-dest_files=["res://.godot/imported/Saari_Kylan_Johtaja.png-7302ead0572f991d74210091548588b2.ctex"]
+source_file="res://portraits/island/island_05.png"
+dest_files=["res://.godot/imported/island_05.png-77401be3e3d41df253e8446ef2bae16f.ctex"]
 
 [params]
 

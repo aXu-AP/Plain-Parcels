@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ParcelQuest" format=3 uid="uid://cv57tovrxkllk"]
 
 [ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_vw1dx"]
-[ext_resource type="Texture2D" uid="uid://boh68m645aq8m" path="res://portraits/island/volcano_02.png" id="2_dednx"]
+[ext_resource type="Texture2D" uid="uid://boh68m645aq8m" path="res://portraits/island/island_09.png" id="2_dednx"]
 [ext_resource type="Script" uid="uid://dpiwy6dhp58g8" path="res://actors/person/character.gd" id="3_s1k7j"]
 [ext_resource type="Script" uid="uid://cwt46u8hoo78l" path="res://misc/quests/parcel_quest.gd" id="4_8qllh"]
 

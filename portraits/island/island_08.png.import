@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg31k27g37de7"
-path="res://.godot/imported/Saari_Turisti_Mies.png-cf4ae5722461949fdd2cf5b90e85c851.ctex"
+uid="uid://bht321osc1iqr"
+path="res://.godot/imported/island_08.png-0995c6fc7cc299dac390a623e0702444.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://portraits/island/Saari_Turisti_Mies.png"
-dest_files=["res://.godot/imported/Saari_Turisti_Mies.png-cf4ae5722461949fdd2cf5b90e85c851.ctex"]
+source_file="res://portraits/island/island_08.png"
+dest_files=["res://.godot/imported/island_08.png-0995c6fc7cc299dac390a623e0702444.ctex"]
 
 [params]
 

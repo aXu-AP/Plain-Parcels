@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="CoinQuest" format=3 uid="uid://bb7cc4vs1em8f"]
+
+[ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_7hsix"]
+[ext_resource type="Texture2D" uid="uid://tdisem2864oc" path="res://portraits/cave/cave_04.png" id="2_t2a21"]
+[ext_resource type="Script" uid="uid://dpiwy6dhp58g8" path="res://actors/person/character.gd" id="3_g0q67"]
+[ext_resource type="Script" uid="uid://crcdacsuurjco" path="res://misc/quests/coin_quest.gd" id="4_7hsix"]
+
+[sub_resource type="Resource" id="Resource_1v7wl"]
+script = ExtResource("3_g0q67")
+portrait = ExtResource("2_t2a21")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_6sqxf"]
+script = ExtResource("1_7hsix")
+text = " Thanks, with this I hope I can get a bit more done. The pickaxe just wasnt enough for this job I guess.
+"
+character = SubResource("Resource_1v7wl")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_hi6v8"]
+script = ExtResource("3_g0q67")
+portrait = ExtResource("2_t2a21")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_g0q67"]
+script = ExtResource("1_7hsix")
+text = "Well I guess I will have to do with what I got…"
+character = SubResource("Resource_hi6v8")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_ntfvx"]
+script = ExtResource("3_g0q67")
+portrait = ExtResource("2_t2a21")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_o3ebs"]
+script = ExtResource("1_7hsix")
+text = "Hey Pilot, im having trouble making any progress with only just a pickaxe, could you collect some coins so I can get a drill? You will probably have to go get it from town..
+"
+character = SubResource("Resource_ntfvx")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[resource]
+script = ExtResource("4_7hsix")
+coin_requirement = 50
+name = &"Drilling Business"
+time_limit = 120
+start_message = SubResource("Resource_o3ebs")
+end_messages = Dictionary[int, ExtResource("1_7hsix")]({
+0: SubResource("Resource_6sqxf"),
+1: SubResource("Resource_g0q67")
+})
+metadata/_custom_type_script = "uid://cwt46u8hoo78l"

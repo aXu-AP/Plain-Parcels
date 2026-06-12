@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://boh68m645aq8m"
-path="res://.godot/imported/volcano_02.png-5b308d74f75be693a5a28db7826ecf49.ctex"
+uid="uid://dg31k27g37de7"
+path="res://.godot/imported/island_06.png-5904a81d3f68ec2333242e702ebe7346.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://portraits/island/volcano_02.png"
-dest_files=["res://.godot/imported/volcano_02.png-5b308d74f75be693a5a28db7826ecf49.ctex"]
+source_file="res://portraits/island/island_06.png"
+dest_files=["res://.godot/imported/island_06.png-5904a81d3f68ec2333242e702ebe7346.ctex"]
 
 [params]
 

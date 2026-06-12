@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7q5x4jawg0mw"
-path="res://.godot/imported/Saari_Iloinen_Mies.png-4e8eab03574c62414d7da1f52327e6dc.ctex"
+uid="uid://64cd4f256to6"
+path="res://.godot/imported/cave_05.png-3a9301c3b82334df8e34d84c99b29287.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://portraits/island/Saari_Iloinen_Mies.png"
-dest_files=["res://.godot/imported/Saari_Iloinen_Mies.png-4e8eab03574c62414d7da1f52327e6dc.ctex"]
+source_file="res://portraits/cave/cave_05.png"
+dest_files=["res://.godot/imported/cave_05.png-3a9301c3b82334df8e34d84c99b29287.ctex"]
 
 [params]
 

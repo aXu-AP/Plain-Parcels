@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Quest" format=3 uid="uid://b61f2vgv2tnsm"]
 
 [ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_j0xqf"]
-[ext_resource type="Texture2D" uid="uid://cistgvxipnrsg" path="res://portraits/cave/Luola_Masentunut_mies.png" id="2_j0xqf"]
+[ext_resource type="Texture2D" uid="uid://cistgvxipnrsg" path="res://portraits/cave/cave_06.png" id="2_j0xqf"]
 [ext_resource type="Script" uid="uid://dpiwy6dhp58g8" path="res://actors/person/character.gd" id="3_wsh4a"]
 [ext_resource type="Script" uid="uid://b1fj4r4p7fhj5" path="res://misc/quests/quest.gd" id="5_jm82r"]
 

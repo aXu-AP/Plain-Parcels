@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_e54w6"]
 [ext_resource type="Script" uid="uid://crcdacsuurjco" path="res://misc/quests/coin_quest.gd" id="2_v0qnl"]
-[ext_resource type="Texture2D" uid="uid://7q5x4jawg0mw" path="res://portraits/island/Saari_Iloinen_Mies.png" id="2_y48it"]
+[ext_resource type="Texture2D" uid="uid://7q5x4jawg0mw" path="res://portraits/island/island_01.png" id="2_y48it"]
 [ext_resource type="Script" uid="uid://dpiwy6dhp58g8" path="res://actors/person/character.gd" id="3_blx3j"]
 
 [sub_resource type="Resource" id="Resource_e54w6"]

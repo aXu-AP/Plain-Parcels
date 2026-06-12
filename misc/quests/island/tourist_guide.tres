@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PassengerQuest" format=3 uid="uid://cqoa1rcpoxhg7"]
 
-[ext_resource type="Texture2D" uid="uid://dg31k27g37de7" path="res://portraits/island/Saari_Turisti_Mies.png" id="1_4mhio"]
+[ext_resource type="Texture2D" uid="uid://dg31k27g37de7" path="res://portraits/island/island_06.png" id="1_4mhio"]
 [ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_egm4m"]
 [ext_resource type="Script" uid="uid://dpiwy6dhp58g8" path="res://actors/person/character.gd" id="3_4gfq8"]
 [ext_resource type="Script" uid="uid://b00fa48eqrk5h" path="res://misc/quests/passenger_quest.gd" id="4_egm4m"]

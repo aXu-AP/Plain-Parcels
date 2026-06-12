@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://64cd4f256to6"
-path="res://.godot/imported/Luola_Luuranko.png-cf153d342661352de1f4cc19333bffed.ctex"
+uid="uid://p0vlwmv1epap"
+path="res://.godot/imported/island_02.png-82c082017600c1a6e4de36762bd6ee7d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://portraits/cave/Luola_Luuranko.png"
-dest_files=["res://.godot/imported/Luola_Luuranko.png-cf153d342661352de1f4cc19333bffed.ctex"]
+source_file="res://portraits/island/island_02.png"
+dest_files=["res://.godot/imported/island_02.png-82c082017600c1a6e4de36762bd6ee7d.ctex"]
 
 [params]
 

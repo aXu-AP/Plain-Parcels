@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CoinQuest" format=3 uid="uid://7vpe5n47wm7p"]
 
 [ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_s18kn"]
-[ext_resource type="Texture2D" uid="uid://p0vlwmv1epap" path="res://portraits/island/Saari_Johtajan_Tytto.png" id="2_3licc"]
+[ext_resource type="Texture2D" uid="uid://p0vlwmv1epap" path="res://portraits/island/island_02.png" id="2_3licc"]
 [ext_resource type="Script" uid="uid://dpiwy6dhp58g8" path="res://actors/person/character.gd" id="3_88btb"]
 [ext_resource type="Script" uid="uid://crcdacsuurjco" path="res://misc/quests/coin_quest.gd" id="4_52gmp"]
 

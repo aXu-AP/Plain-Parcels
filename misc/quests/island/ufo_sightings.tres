@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ParcelQuest" format=3 uid="uid://b75xe6pg7dcec"]
 
 [ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_qsion"]
-[ext_resource type="Texture2D" uid="uid://c01dj2kvqxik7" path="res://portraits/island/Saari_Vainoharhainen_Mies.png" id="2_oto08"]
+[ext_resource type="Texture2D" uid="uid://c01dj2kvqxik7" path="res://portraits/island/island_07.png" id="2_oto08"]
 [ext_resource type="Script" uid="uid://dpiwy6dhp58g8" path="res://actors/person/character.gd" id="3_xuy2o"]
 [ext_resource type="Script" uid="uid://cwt46u8hoo78l" path="res://misc/quests/parcel_quest.gd" id="5_ksj4q"]
 

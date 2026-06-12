@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkbnjolsullhb"
-path="res://.godot/imported/Luola_Aloitteleva_Mies.png-e78f7b488b76101699b6358dc9422105.ctex"
+uid="uid://cistgvxipnrsg"
+path="res://.godot/imported/cave_06.png-03fb06cd23caf920b7101b83f2a08626.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://portraits/cave/Luola_Aloitteleva_Mies.png"
-dest_files=["res://.godot/imported/Luola_Aloitteleva_Mies.png-e78f7b488b76101699b6358dc9422105.ctex"]
+source_file="res://portraits/cave/cave_06.png"
+dest_files=["res://.godot/imported/cave_06.png-03fb06cd23caf920b7101b83f2a08626.ctex"]
 
 [params]
 

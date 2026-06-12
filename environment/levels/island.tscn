@@ -20,44 +20,43 @@
 [ext_resource type="PackedScene" uid="uid://cl8hilweunnql" path="res://actors/coin/coin.tscn" id="18_l741m"]
 [ext_resource type="PackedScene" uid="uid://c200p7mbsy8pc" path="res://environment/island/lighthouse.glb" id="22_ay8ox"]
 [ext_resource type="PackedScene" uid="uid://cvsqqm5ypli24" path="res://environment/island/windmill.tscn" id="22_movix"]
-[ext_resource type="Texture2D" uid="uid://bvaovuap1uvcr" path="res://portraits/island/Saari_Sureva_Mummo.png" id="23_aqdnj"]
+[ext_resource type="Texture2D" uid="uid://bvaovuap1uvcr" path="res://portraits/island/island_05.png" id="23_aqdnj"]
 [ext_resource type="PackedScene" uid="uid://kxjnuco5kcko" path="res://actors/quest_point/quest_point.tscn" id="23_g6kre"]
 [ext_resource type="PackedScene" uid="uid://dcbie3outwee6" path="res://environment/island/ferriswheel.tscn" id="23_movix"]
 [ext_resource type="PackedScene" uid="uid://0ks4o4mvb6yu" path="res://actors/jewel/jewel.tscn" id="23_s25jc"]
 [ext_resource type="Resource" uid="uid://cqoa1rcpoxhg7" path="res://misc/quests/island/tourist_guide.tres" id="23_u4mjt"]
 [ext_resource type="Resource" uid="uid://dxi0kltepudxi" path="res://misc/quests/island/weeping_widow.tres" id="25_dyqhm"]
-[ext_resource type="Texture2D" uid="uid://bht321osc1iqr" path="res://portraits/island/volcano_01.png" id="26_tojfw"]
-[ext_resource type="Texture2D" uid="uid://c01dj2kvqxik7" path="res://portraits/island/Saari_Vainoharhainen_Mies.png" id="27_dyqhm"]
+[ext_resource type="Texture2D" uid="uid://bht321osc1iqr" path="res://portraits/island/island_08.png" id="26_tojfw"]
+[ext_resource type="Texture2D" uid="uid://c01dj2kvqxik7" path="res://portraits/island/island_07.png" id="27_dyqhm"]
 [ext_resource type="Resource" uid="uid://r12wis1uhio4" path="res://misc/quests/island/broken_ferris_wheel.tres" id="27_mbd2p"]
 [ext_resource type="Resource" uid="uid://b75xe6pg7dcec" path="res://misc/quests/island/ufo_sightings.tres" id="28_tojfw"]
 [ext_resource type="Resource" uid="uid://bpnvngj04mge1" path="res://misc/quests/island/crazy_medication.tres" id="28_yf81i"]
-[ext_resource type="Texture2D" uid="uid://b88hd5uhbqsxw" path="res://portraits/island/Saari_Kylan_Johtaja.png" id="29_gc22m"]
+[ext_resource type="Texture2D" uid="uid://b88hd5uhbqsxw" path="res://portraits/island/island_03.png" id="29_gc22m"]
 [ext_resource type="Resource" uid="uid://cv57tovrxkllk" path="res://misc/quests/island/lost_memories.tres" id="29_yo0to"]
-[ext_resource type="Texture2D" uid="uid://7q5x4jawg0mw" path="res://portraits/island/Saari_Iloinen_Mies.png" id="30_h2iro"]
+[ext_resource type="Texture2D" uid="uid://7q5x4jawg0mw" path="res://portraits/island/island_01.png" id="30_h2iro"]
 [ext_resource type="Script" uid="uid://pm8hpmyh6iqg" path="res://misc/coin_spawner.gd" id="30_l1ppf"]
-[ext_resource type="Texture2D" uid="uid://db2si6ssoo5kb" path="res://portraits/cave/Luola_Arpi_Mies.png" id="30_pphvp"]
+[ext_resource type="Texture2D" uid="uid://db2si6ssoo5kb" path="res://portraits/cave/cave_02.png" id="30_pphvp"]
 [ext_resource type="Resource" uid="uid://ilgskvk8r8no" path="res://misc/quests/island/flower_growing.tres" id="31_ap5sr"]
 [ext_resource type="Resource" uid="uid://bihht7b7qw3cl" path="res://misc/quests/island/gathering_money.tres" id="31_us427"]
 [ext_resource type="Resource" uid="uid://b61f2vgv2tnsm" path="res://misc/quests/island/lost_miners.tres" id="32_iif06"]
-[ext_resource type="Texture2D" uid="uid://p0vlwmv1epap" path="res://portraits/island/Saari_Johtajan_Tytto.png" id="32_us427"]
-[ext_resource type="Texture2D" uid="uid://64cd4f256to6" path="res://portraits/cave/Luola_Luuranko.png" id="33_eltrs"]
+[ext_resource type="Texture2D" uid="uid://p0vlwmv1epap" path="res://portraits/island/island_02.png" id="32_us427"]
+[ext_resource type="Texture2D" uid="uid://64cd4f256to6" path="res://portraits/cave/cave_05.png" id="33_eltrs"]
 [ext_resource type="Resource" uid="uid://7vpe5n47wm7p" path="res://misc/quests/island/gathering_money_2.tres" id="33_hb6kd"]
-[ext_resource type="Texture2D" uid="uid://dg31k27g37de7" path="res://portraits/island/Saari_Turisti_Mies.png" id="34_ddvix"]
-[ext_resource type="Texture2D" uid="uid://cistgvxipnrsg" path="res://portraits/cave/Luola_Masentunut_mies.png" id="35_eltrs"]
-[ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="35_n717y"]
-[ext_resource type="Texture2D" uid="uid://cf7lqnahvtm7u" path="res://portraits/island/Saari_Lomalainen.png" id="35_yorn4"]
-[ext_resource type="Texture2D" uid="uid://boh68m645aq8m" path="res://portraits/island/volcano_02.png" id="36_6amwd"]
-[ext_resource type="Script" uid="uid://b1fj4r4p7fhj5" path="res://misc/quests/quest.gd" id="36_l1ppf"]
+[ext_resource type="Texture2D" uid="uid://dg31k27g37de7" path="res://portraits/island/island_06.png" id="34_ddvix"]
+[ext_resource type="Texture2D" uid="uid://cistgvxipnrsg" path="res://portraits/cave/cave_06.png" id="35_eltrs"]
+[ext_resource type="Texture2D" uid="uid://cf7lqnahvtm7u" path="res://portraits/island/island_04.png" id="35_yorn4"]
+[ext_resource type="Texture2D" uid="uid://boh68m645aq8m" path="res://portraits/island/island_09.png" id="36_6amwd"]
 [ext_resource type="PackedScene" uid="uid://bnym427guq7sg" path="res://environment/island/sign.glb" id="42_drl47"]
 [ext_resource type="PackedScene" uid="uid://lhu5gbh4qtr7" path="res://environment/island/signarrow.glb" id="42_yhp42"]
 [ext_resource type="PackedScene" uid="uid://b2db7orsgasa4" path="res://environment/island/signgood.glb" id="43_yhp42"]
 [ext_resource type="PackedScene" uid="uid://77nx4ykrrgl7" path="res://environment/island/lamp.tscn" id="45_4ke2p"]
 [ext_resource type="PackedScene" uid="uid://c4mvbbf7xxxk4" path="res://environment/island/rocks/caverock.glb" id="46_ljt45"]
-[ext_resource type="Texture2D" uid="uid://tdisem2864oc" path="res://portraits/cave/Luola_Laiha_Mies.png" id="46_n8sdl"]
-[ext_resource type="Texture2D" uid="uid://dgp5wrxusc4uj" path="res://portraits/cave/Luola_Jumissa_ollut_Mies.png" id="46_o6bsl"]
+[ext_resource type="Texture2D" uid="uid://tdisem2864oc" path="res://portraits/cave/cave_04.png" id="46_n8sdl"]
+[ext_resource type="Texture2D" uid="uid://dgp5wrxusc4uj" path="res://portraits/cave/cave_03.png" id="46_o6bsl"]
 [ext_resource type="PackedScene" uid="uid://b0fb80wbjb8pv" path="res://environment/island/rocks/stalactite.glb" id="47_1ug4x"]
-[ext_resource type="Texture2D" uid="uid://dkbnjolsullhb" path="res://portraits/cave/Luola_Aloitteleva_Mies.png" id="48_nwtrs"]
+[ext_resource type="Texture2D" uid="uid://dkbnjolsullhb" path="res://portraits/cave/cave_01.png" id="48_nwtrs"]
 [ext_resource type="PackedScene" uid="uid://ba25c4nxx3s7i" path="res://actors/lava/lava.tscn" id="51_4yckt"]
+[ext_resource type="Resource" uid="uid://bb7cc4vs1em8f" path="res://misc/quests/island/drilling_business.tres" id="56_iif06"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5jwi3"]
 sky_top_color = Color(0.35776627, 0.5089649, 0.8987251, 1)
@@ -192,10 +191,6 @@ uv1_triplanar = true
 script = ExtResource("15_l741m")
 portrait = ExtResource("46_n8sdl")
 metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
-
-[sub_resource type="Resource" id="Resource_4yckt"]
-script = ExtResource("36_l1ppf")
-metadata/_custom_type_script = "uid://b1fj4r4p7fhj5"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ug4x"]
 albedo_color = Color(0.50844437, 0.5332042, 0.4661383, 1)
@@ -2706,13 +2701,20 @@ transform = Transform3D(-1.1175952, -0.0781509, -1.6919268, -0.039979503, 2.0277
 [node name="CaveCoins" type="Node3D" parent="." unique_id=1439329739]
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000005, 0, 0, 0, 0.9999997, 76.71121, -18.510939, -157.39749)
 script = ExtResource("30_l1ppf")
+quest = ExtResource("56_iif06")
 
 [node name="ThinMiner" parent="CaveCoins" unique_id=1888994824 instance=ExtResource("7_5jwi3")]
 character = SubResource("Resource_nwtrs")
 
-[node name="QuestPoint" parent="CaveCoins/ThinMiner" unique_id=2109985744 instance=ExtResource("23_g6kre")]
+[node name="Start" parent="CaveCoins/ThinMiner" unique_id=2109985744 instance=ExtResource("23_g6kre")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0206661, 0)
-quest = SubResource("Resource_4yckt")
+quest = ExtResource("56_iif06")
+
+[node name="End" parent="CaveCoins/ThinMiner" unique_id=1846767727 instance=ExtResource("23_g6kre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0206661, 0)
+action = 1
+availability_delay = 20
+quest = ExtResource("56_iif06")
 
 [node name="Coin" parent="CaveCoins" unique_id=165314335 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.51889, 9.441386, 0.2419281)

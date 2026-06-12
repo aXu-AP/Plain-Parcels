@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cf7lqnahvtm7u"
-path="res://.godot/imported/Saari_Lomalainen.png-20a02b6367ec73d1fa769334578571c7.ctex"
+uid="uid://7q5x4jawg0mw"
+path="res://.godot/imported/island_01.png-c514e974ef046cf45de2dfc30c3ca78a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://portraits/island/Saari_Lomalainen.png"
-dest_files=["res://.godot/imported/Saari_Lomalainen.png-20a02b6367ec73d1fa769334578571c7.ctex"]
+source_file="res://portraits/island/island_01.png"
+dest_files=["res://.godot/imported/island_01.png-c514e974ef046cf45de2dfc30c3ca78a.ctex"]
 
 [params]
 
