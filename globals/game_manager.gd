@@ -19,7 +19,7 @@ var transition: AnimationPlayer
 
 var in_game := false
 var prevent_pause := false
-
+var current_level: String
 
 func _enter_tree() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -96,7 +96,7 @@ func load_level(path : String):
 	
 	get_tree().change_scene_to_file(path)
 	await get_tree().process_frame
-	
+	current_level = path
 	level_changed.emit()
 	
 	if transition:

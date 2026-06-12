@@ -20,6 +20,7 @@ func load_game() -> void:
 	SaveManager.permanent_data["flags"] = Globals.flags
 	Globals.jewels = SaveManager.permanent_data.get("jewels", 0)
 	Globals.coins = SaveManager.permanent_data.get("coins", 0)
+	GameManager.game_path = SaveManager.permanent_data.get("level", "uid://7b2px7k842e6")
 
 
 func start_new() -> void:
@@ -35,6 +36,8 @@ func update_save() -> void:
 	# Flags is by reference always up to date, other data needs to be manually updated.
 	SaveManager.permanent_data["jewels"] = Globals.jewels
 	SaveManager.permanent_data["coins"] = Globals.coins
+	SaveManager.permanent_data["level"] = GameManager.current_level
+	print(GameManager.current_level)
 	SaveManager.save_game(save_file)
 
 

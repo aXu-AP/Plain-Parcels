@@ -9,5 +9,4 @@ func _ready() -> void:
 
 
 func enter() -> void:
-	var scene = load(level).instantiate()
-	get_tree().change_scene_to_node.call_deferred(scene)
+	GameManager.load_level(level)

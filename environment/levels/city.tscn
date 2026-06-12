@@ -56,6 +56,7 @@
 [ext_resource type="Resource" uid="uid://6v4rec7wc8nl" path="res://actors/person/city/afro.tres" id="53_pp44n"]
 [ext_resource type="PackedScene" uid="uid://ysnhrkleqkym" path="res://environment/buildings/flight_control.tscn" id="55_6frpt"]
 [ext_resource type="PackedScene" uid="uid://i7nq3pnw2s1c" path="res://actors/shop_point/shop_point.tscn" id="56_xrsn8"]
+[ext_resource type="PackedScene" uid="uid://1kob76an8nfd" path="res://environment/buildings/city_pier.glb" id="57_fxuss"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_top_color = Color(0.20454744, 0.54231316, 1, 1)
@@ -75,7 +76,7 @@ tonemap_mode = 2
 ssao_enabled = true
 fog_enabled = true
 fog_light_color = Color(0.34994134, 0.51470923, 0.598682, 1)
-fog_density = 0.001
+fog_density = 0.0003
 fog_sky_affect = 0.0
 
 [sub_resource type="Resource" id="Resource_qktwf"]
@@ -84,6 +85,16 @@ metadata/_custom_type_script = "uid://b1fj4r4p7fhj5"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wjb0r"]
 size = Vector3(48.63971, 27.845215, 33.561157)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ty1sn"]
+blend_mode = 1
+albedo_color = Color(0.8, 0.53333336, 0, 1)
+emission_enabled = true
+emission = Color(0.4253705, 0.30066705, 0.16579989, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fxuss"]
+height = 5.0
+radius = 2.0
 
 [node name="Node3D" type="Node3D" unique_id=1664355870]
 
@@ -96,7 +107,7 @@ shadow_enabled = true
 directional_shadow_max_distance = 500.0
 
 [node name="Player" parent="." unique_id=1603607484 instance=ExtResource("1_f3sb7")]
-transform = Transform3D(-0.12701252, 0, 0.99190104, 0, 1, 0, -0.99190104, 0, -0.12701252, -31.590752, 6.055277, 0.1559906)
+transform = Transform3D(0.918736, 0, -0.3948723, 0, 1, 0, 0.3948723, 0, 0.918736, -240.1718, 6.055277, 67.68586)
 max_height = 18.0
 max_health = 100
 
@@ -1170,3 +1181,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.70665, 7.6293945e-06, -11
 [node name="ShopPoint" parent="FlightControl" unique_id=2102423001 instance=ExtResource("56_xrsn8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 10)
 shop_name = "City"
+
+[node name="city_pier" parent="." unique_id=1297860961 instance=ExtResource("57_fxuss")]
+transform = Transform3D(0.9240398, 0, -0.3822964, 0, 1, 0, 0.3822964, 0, 0.9240398, -235.8896, 0.46240187, 57.08624)
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="city_pier" unique_id=1775869363]
+transform = Transform3D(0.99999946, 0, 0, 0, -4.371139e-08, -0.99999946, 0, 1, -4.3711363e-08, 0, 3, 20)
+material_override = SubResource("StandardMaterial3D_ty1sn")
+inner_radius = 1.721
+outer_radius = 2.365
+sides = 32
+
+[node name="CSGTorus3D2" type="CSGTorus3D" parent="city_pier" unique_id=1707657177]
+transform = Transform3D(0.99999946, 0, 0, 0, -4.371139e-08, -0.99999946, 0, 1, -4.3711363e-08, 0, 2.9999998, 23)
+material_override = SubResource("StandardMaterial3D_ty1sn")
+inner_radius = 1.721
+outer_radius = 2.365
+sides = 32
+
+[node name="CSGTorus3D3" type="CSGTorus3D" parent="city_pier" unique_id=194426902]
+transform = Transform3D(0.99999946, 0, 0, 0, -4.371139e-08, -0.99999946, 0, 1, -4.3711363e-08, 0, 2.9999995, 26)
+material_override = SubResource("StandardMaterial3D_ty1sn")
+inner_radius = 1.721
+outer_radius = 2.365
+sides = 32
+
+[node name="Area3D" type="Area3D" parent="city_pier" unique_id=853953480]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 23)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("23_il2jm")
+level = "uid://cdc0ifsyfwrwk"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="city_pier/Area3D" unique_id=557596833]
+transform = Transform3D(0.9999995, -2.0861626e-07, 1.7763568e-15, 0, -4.371139e-08, -1, 2.0861626e-07, 0.9999995, -4.371138e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_fxuss")

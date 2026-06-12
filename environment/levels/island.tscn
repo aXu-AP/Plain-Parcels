@@ -46,6 +46,7 @@
 [ext_resource type="Texture2D" uid="uid://cistgvxipnrsg" path="res://portraits/cave/cave_06.png" id="35_eltrs"]
 [ext_resource type="Texture2D" uid="uid://cf7lqnahvtm7u" path="res://portraits/island/island_04.png" id="35_yorn4"]
 [ext_resource type="Texture2D" uid="uid://boh68m645aq8m" path="res://portraits/island/island_09.png" id="36_6amwd"]
+[ext_resource type="Script" uid="uid://eb2d8rru8uw5" path="res://misc/exit_trigger.gd" id="39_eltrs"]
 [ext_resource type="PackedScene" uid="uid://bnym427guq7sg" path="res://environment/island/sign.glb" id="42_drl47"]
 [ext_resource type="PackedScene" uid="uid://lhu5gbh4qtr7" path="res://environment/island/signarrow.glb" id="42_yhp42"]
 [ext_resource type="PackedScene" uid="uid://b2db7orsgasa4" path="res://environment/island/signgood.glb" id="43_yhp42"]
@@ -145,6 +146,16 @@ metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
 script = ExtResource("15_l741m")
 portrait = ExtResource("35_eltrs")
 metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p4u5e"]
+blend_mode = 1
+albedo_color = Color(0.8, 0.53333336, 0, 1)
+emission_enabled = true
+emission = Color(0.4253705, 0.30066705, 0.16579989, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8pxfa"]
+height = 5.0
+radius = 2.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ay8ox"]
 albedo_texture = ExtResource("16_ugxfm")
@@ -397,7 +408,7 @@ directional_shadow_max_distance = 500.0
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." unique_id=1603607484 instance=ExtResource("1_qurb2")]
-transform = Transform3D(0.28701898, 0.07049539, 0.9553277, -0.0061857337, 0.9974039, -0.07174177, -0.9579047, 0.014681837, 0.28671035, 166.16513, 22.804237, -59.813633)
+transform = Transform3D(-0.19573861, 0.06914767, 0.9782157, -0.006185734, 0.9974039, -0.07174175, -0.98063654, -0.020093674, -0.1948027, 204.71635, 22.804237, -80.8166)
 max_height = 40.0
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1107739824 node_paths=PackedStringArray("target")]
@@ -1206,6 +1217,38 @@ transform = Transform3D(-11.981057, 0, 9.789283, 0, 15.471775, 0, -9.789283, 0, 
 
 [node name="pier" parent="Buildings" unique_id=533092586 instance=ExtResource("14_xtci7")]
 transform = Transform3D(-0.6982429, 0, 3.7571316, 0, 3.8214626, 0, -3.7571316, 0, -0.6982429, 186.3178, -31.267878, -173.84464)
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="Buildings/pier" unique_id=313884084]
+transform = Transform3D(0.9999992, -2.9802322e-08, 0, 0, -4.371139e-08, -0.99999946, 4.4703484e-08, 0.9999995, -4.3711363e-08, 7.310197, -2.6957216, 13.213131)
+material_override = SubResource("StandardMaterial3D_p4u5e")
+inner_radius = 1.721
+outer_radius = 2.365
+sides = 32
+
+[node name="CSGTorus3D2" type="CSGTorus3D" parent="Buildings/pier" unique_id=306029349]
+transform = Transform3D(0.9999992, -2.9802322e-08, 0, 0, -4.371139e-08, -0.99999946, 4.4703484e-08, 0.9999995, -4.3711363e-08, 7.3102007, -2.6957216, 16.213135)
+material_override = SubResource("StandardMaterial3D_p4u5e")
+inner_radius = 1.721
+outer_radius = 2.365
+sides = 32
+
+[node name="CSGTorus3D3" type="CSGTorus3D" parent="Buildings/pier" unique_id=771536974]
+transform = Transform3D(0.9999992, -2.9802322e-08, 0, 0, -4.371139e-08, -0.99999946, 4.4703484e-08, 0.9999995, -4.3711363e-08, 7.310196, -2.695722, 19.213158)
+material_override = SubResource("StandardMaterial3D_p4u5e")
+inner_radius = 1.721
+outer_radius = 2.365
+sides = 32
+
+[node name="Area3D" type="Area3D" parent="Buildings/pier" unique_id=983448397]
+transform = Transform3D(0.9999995, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 0.9999995, 7.3102007, -2.6957216, 16.213135)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("39_eltrs")
+level = "uid://7b2px7k842e6"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buildings/pier/Area3D" unique_id=1138328912]
+transform = Transform3D(0.9999995, -2.0861626e-07, 1.7763568e-15, 0, -4.371139e-08, -1, 2.0861626e-07, 0.9999995, -4.371138e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_8pxfa")
 
 [node name="lighthouse" parent="Buildings" unique_id=358542400 instance=ExtResource("22_ay8ox")]
 transform = Transform3D(-6.250182, 0, 1.8833514, 0, 6.5277705, 0, -1.8833514, 0, -6.250182, 94.45348, 21.008678, -298.97437)
