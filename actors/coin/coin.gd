@@ -23,7 +23,8 @@ func _on_area_entered(_area: Area3D) -> void:
 	$MeshInstance3D.visible = false
 	$CollectParticles.emitting = true
 	set_deferred("monitoring", false)
-	get_tree().create_timer(10, false).timeout.connect(appear)
+	if not is_quest_coin:
+		get_tree().create_timer(90, false).timeout.connect(appear)
 
 
 func appear() -> void:
