@@ -1,0 +1,68 @@
+[gd_resource type="Resource" format=3 uid="uid://barbwt2eixnxl"]
+
+[ext_resource type="Resource" uid="uid://d2dthcgj1ixv3" path="res://actors/person/city/angry.tres" id="1_8c156"]
+[ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="2_7ephu"]
+[ext_resource type="Resource" uid="uid://6v4rec7wc8nl" path="res://actors/person/city/afro.tres" id="3_csvop"]
+[ext_resource type="Script" uid="uid://ch1av2qxphrcf" path="res://misc/quests/pen_pals_quest.gd" id="4_uy5d2"]
+
+[sub_resource type="Resource" id="Resource_tgkqj"]
+script = ExtResource("2_7ephu")
+text = "Well thanks, guess i have to write those 5 pages all over again…"
+character = ExtResource("3_csvop")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_csvop"]
+script = ExtResource("2_7ephu")
+text = "Just great, now the letters will never stop thanks to you."
+character = ExtResource("1_8c156")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_en1x7"]
+script = ExtResource("2_7ephu")
+text = "Great, another one of these annoying letters!
+I keep trashing them but you know what, take this letter to the person who sent the letter to me."
+character = ExtResource("1_8c156")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_iou1h"]
+script = ExtResource("2_7ephu")
+text = "Oh hey there did you deliver the let- Whats this? Oh... Thanks then i guess.."
+character = ExtResource("3_csvop")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_8c156"]
+script = ExtResource("2_7ephu")
+text = "Huh, why you would return the letter to me?"
+character = ExtResource("3_csvop")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_vs3uv"]
+script = ExtResource("2_7ephu")
+text = "Ummm, i dont this is for me sorry..."
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_7ephu"]
+script = ExtResource("2_7ephu")
+text = "What a horrible letter to receive!"
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_ty1sn"]
+script = ExtResource("2_7ephu")
+text = "Hey, can you please bring this letter to my pen pal? I dont know where they live but you will figure it out!"
+character = ExtResource("3_csvop")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[resource]
+script = ExtResource("4_uy5d2")
+checkpoint_message = SubResource("Resource_en1x7")
+fail_1_message = SubResource("Resource_vs3uv")
+fail_2_message = SubResource("Resource_7ephu")
+broken_1_message = SubResource("Resource_tgkqj")
+broken_2_message = SubResource("Resource_csvop")
+name = &"Pen Pals"
+start_message = SubResource("Resource_ty1sn")
+end_messages = Dictionary[int, ExtResource("2_7ephu")]({
+0: SubResource("Resource_iou1h"),
+7: SubResource("Resource_8c156")
+})
+metadata/_custom_type_script = "uid://cwt46u8hoo78l"
