@@ -13,7 +13,8 @@ point_count = 3
 [sub_resource type="CurveTexture" id="CurveTexture_4gwqn"]
 curve = SubResource("Curve_c7ixa")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_plpsu"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wuwq7"]
+emission_shape_scale = Vector3(1, 2, 1)
 emission_shape = 1
 emission_sphere_radius = 0.7
 direction = Vector3(0, 0.1, 0)
@@ -21,8 +22,8 @@ spread = 0.0
 initial_velocity_min = 0.099999994
 initial_velocity_max = 0.099999994
 gravity = Vector3(0, 0, 0)
-scale_min = 0.5
-scale_max = 0.5
+scale_min = 0.17
+scale_max = 0.41
 scale_curve = SubResource("CurveTexture_4gwqn")
 
 [sub_resource type="Gradient" id="Gradient_1dafs"]
@@ -39,7 +40,6 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 shading_mode = 0
-albedo_color = Color(0.99999994, 0.7868538, 0.19238973, 1)
 albedo_texture = SubResource("GradientTexture2D_mmt1m")
 billboard_mode = 3
 billboard_keep_scale = true
@@ -47,7 +47,7 @@ particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="QuadMesh" id="QuadMesh_n3o0k"]
+[sub_resource type="QuadMesh" id="QuadMesh_mscsj"]
 material = SubResource("StandardMaterial3D_ycud3")
 
 [node name="Wrench" type="Area3D" unique_id=1384678923]
@@ -65,10 +65,10 @@ emitting = false
 lifetime = 0.3
 one_shot = true
 explosiveness = 0.4
-process_material = SubResource("ParticleProcessMaterial_plpsu")
-draw_pass_1 = SubResource("QuadMesh_n3o0k")
+process_material = SubResource("ParticleProcessMaterial_wuwq7")
+draw_pass_1 = SubResource("QuadMesh_mscsj")
 
-[node name="wrench" parent="." unique_id=1806098408 instance=ExtResource("2_wuwq7")]
-transform = Transform3D(2.532075, 0, 0, 0, 2.532075, 0, 0, 0, 2.532075, 0, 0, 0)
+[node name="wrench" parent="." unique_id=1226007847 instance=ExtResource("2_wuwq7")]
+transform = Transform3D(3.4377868, 0, 0, 0, 3.4377868, 0, 0, 0, 3.4377868, 0, 0, 0)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

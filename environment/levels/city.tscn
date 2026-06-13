@@ -56,6 +56,7 @@
 [ext_resource type="PackedScene" uid="uid://ysnhrkleqkym" path="res://environment/buildings/flight_control.tscn" id="55_6frpt"]
 [ext_resource type="PackedScene" uid="uid://i7nq3pnw2s1c" path="res://actors/shop_point/shop_point.tscn" id="56_xrsn8"]
 [ext_resource type="PackedScene" uid="uid://1kob76an8nfd" path="res://environment/buildings/city_pier.glb" id="57_fxuss"]
+[ext_resource type="PackedScene" uid="uid://xjs8mbaji8v6" path="res://actors/wrench/wrench.tscn" id="57_fxuss"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_top_color = Color(0.20454744, 0.54231316, 1, 1)
@@ -1292,3 +1293,11 @@ level = "uid://cdc0ifsyfwrwk"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="city_pier/Area3D" unique_id=557596833]
 transform = Transform3D(0.9999995, -2.0861626e-07, 1.7763568e-15, 0, -4.371139e-08, -1, 2.0861626e-07, 0.9999995, -4.371138e-08, 0, 0, 0)
 shape = SubResource("CylinderShape3D_fxuss")
+[node name="Wrench" parent="." unique_id=574318640 instance=ExtResource("57_fxuss")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0359955, 6.5636845, -40.977203)
+
+[node name="Wrench2" parent="." unique_id=1360805935 instance=ExtResource("57_fxuss")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.540216, 6.5636845, -40.977203)
+
+[node name="Wrench3" parent="." unique_id=929230866 instance=ExtResource("57_fxuss")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.034113, 6.5636845, -40.977203)
