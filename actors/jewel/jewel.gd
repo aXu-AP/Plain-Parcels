@@ -15,7 +15,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	rotation.y += PI * delta
+	$Model.rotation.y += PI * delta
 	if connected:
 		$Model.global_position = global_position.lerp(Player.instance.global_position, lerp_distance)
 
@@ -40,6 +40,10 @@ func player_damaged() -> void:
 	connected = false
 	if is_instance_valid(tween):
 		tween.kill()
+	tween = create_tween()
+	tween.tween_property($Model, "position", Vector3.ZERO, .3).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BOUNCE)
+	tween.parallel().tween_property($Model, "scale", Vector3.ONE * 0.5, .1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property($Model, "scale", Vector3.ONE * 1.0, .3).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 
 
 func collect() -> void:
