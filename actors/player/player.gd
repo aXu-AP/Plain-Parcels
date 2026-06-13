@@ -109,6 +109,7 @@ func die() -> void:
 	%PlaneModel.visible = false
 	%Explosion.emitting = true
 	%EngineAudio.stop()
+	%CrashAudio.play()
 	get_tree().create_timer(2, true, false).timeout.connect(respawn.call_deferred)
 	if is_instance_valid(Quest.active_quest):
 		Quest.active_quest.end_quest(Quest.EndState.CRASH)
@@ -183,7 +184,10 @@ func process_collisions() -> void:
 
 
 func do_damage(amount: int = 3) -> void:
-	%DamageLowAudio.play()
+	if amount < 3:
+		%DamageLowAudio.play()
+	else:
+		%DamageMediumAudio.play()
 	health -= amount
 	damaged.emit()
 	_invincibility_timer = .1

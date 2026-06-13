@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://chs7gu1re51xl" path="res://misc/rotate_billboard.gd" id="4_6p1w3"]
 [ext_resource type="AudioStream" uid="uid://fre557uygx47" path="res://actors/player/engine_loop.wav" id="5_6p1w3"]
 [ext_resource type="AudioStream" uid="uid://csqrj3dqscgin" path="res://actors/player/plane_damage_low.wav" id="6_15y17"]
+[ext_resource type="AudioStream" uid="uid://ddc8bihjfqt70" path="res://actors/player/plane_damage_medium.wav" id="7_a744p"]
+[ext_resource type="AudioStream" uid="uid://b5xkd8ddbnq5u" path="res://actors/player/plane_crash.wav" id="8_388e2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nvxhs"]
 radius = 0.2
@@ -68,6 +70,12 @@ random_pitch = 1.122462
 random_volume_offset_db = 2.0
 streams_count = 1
 stream_0/stream = ExtResource("6_15y17")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_lsln6"]
+random_pitch = 1.122462
+random_volume_offset_db = 2.0
+streams_count = 1
+stream_0/stream = ExtResource("7_a744p")
 
 [node name="Player" type="CharacterBody3D" unique_id=1603607484]
 collision_layer = 2
@@ -160,4 +168,14 @@ autoplay = true
 [node name="DamageLowAudio" type="AudioStreamPlayer3D" parent="." unique_id=62778627]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_bop6h")
+max_polyphony = 2
+
+[node name="DamageMediumAudio" type="AudioStreamPlayer3D" parent="." unique_id=497691544]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_lsln6")
+max_polyphony = 2
+
+[node name="CrashAudio" type="AudioStreamPlayer3D" parent="." unique_id=961936453]
+unique_name_in_owner = true
+stream = ExtResource("8_388e2")
 max_polyphony = 2
