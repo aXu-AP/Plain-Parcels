@@ -18,17 +18,6 @@ text = "Do you see Pilot! The smoke coming from the volcano! THIS WILL MAKE SURE
 character = SubResource("Resource_wrt3j")
 metadata/_custom_type_script = "uid://u31paso7yk1x"
 
-[sub_resource type="Resource" id="Resource_73cqv"]
-script = ExtResource("3_uuqqe")
-portrait = ExtResource("2_tlipq")
-metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
-
-[sub_resource type="Resource" id="Resource_b3ctt"]
-script = ExtResource("1_8gj2u")
-text = "WHAT EVER, Guess this problem wont be solved today. WERE DONE FOR, ITS ALL YOUR FAULT!!!! "
-character = SubResource("Resource_73cqv")
-metadata/_custom_type_script = "uid://u31paso7yk1x"
-
 [sub_resource type="Resource" id="Resource_8egcg"]
 script = ExtResource("3_uuqqe")
 portrait = ExtResource("2_tlipq")
@@ -38,6 +27,17 @@ metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
 script = ExtResource("1_8gj2u")
 text = "YOU FOOL!! Why couldnt you go any faster?! Do you realise whats at stake?!"
 character = SubResource("Resource_8egcg")
+metadata/_custom_type_script = "uid://u31paso7yk1x"
+
+[sub_resource type="Resource" id="Resource_73cqv"]
+script = ExtResource("3_uuqqe")
+portrait = ExtResource("2_tlipq")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
+[sub_resource type="Resource" id="Resource_b3ctt"]
+script = ExtResource("1_8gj2u")
+text = "WHAT EVER, Guess this problem wont be solved today. WERE DONE FOR, ITS ALL YOUR FAULT!!!! "
+character = SubResource("Resource_73cqv")
 metadata/_custom_type_script = "uid://u31paso7yk1x"
 
 [sub_resource type="Resource" id="Resource_s2sn4"]
