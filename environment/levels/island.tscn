@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b50bj3akoxoom" path="res://actors/arrow/arrow.tscn" id="3_gljqa"]
 [ext_resource type="PackedScene" uid="uid://d3hxxv1228qoh" path="res://environment/island/islandmodel.tscn" id="5_04hb4"]
 [ext_resource type="PackedScene" uid="uid://c0o43vgw2jfhd" path="res://actors/person/person.tscn" id="7_5jwi3"]
+[ext_resource type="Script" uid="uid://b7v8n4sghnyvq" path="res://misc/force_field.gd" id="7_8pxfa"]
 [ext_resource type="PackedScene" uid="uid://b5mg80rvhe4mc" path="res://environment/house/house.tscn" id="9_1y0xo"]
 [ext_resource type="PackedScene" uid="uid://d0cna0pnxqmny" path="res://environment/island/rocks/rock.tscn" id="9_c7iw8"]
 [ext_resource type="PackedScene" uid="uid://bsdkxsdlrq5w6" path="res://environment/island/rocks/groundrock.glb" id="11_e56wr"]
@@ -77,6 +78,9 @@ ssao_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_87rkt"]
 size = Vector3(26.861816, 22.344238, 32.86006)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8pxfa"]
+size = Vector3(1000, 100, 100)
 
 [sub_resource type="Resource" id="Resource_gc22m"]
 script = ExtResource("15_l741m")
@@ -432,7 +436,7 @@ metadata/_edit_lock_ = true
 [node name="Jewel" parent="." unique_id=1256657396 instance=ExtResource("23_s25jc")]
 transform = Transform3D(0.0030989647, 0, -1.3250892, 0, 1.3250929, 0, 1.3250892, 0, 0.0030989647, -137.84058, 13.672753, -153.06053)
 
-[node name="Area3D" type="Area3D" parent="." unique_id=293231854]
+[node name="HeightArea3D1" type="Area3D" parent="." unique_id=293231854]
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 90.509674, 54.79582, -101.35432)
 collision_layer = 8
 collision_mask = 0
@@ -440,12 +444,12 @@ script = ExtResource("12_it613")
 new_max_height = 65.0
 metadata/_edit_lock_ = true
 
-[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Area3D" unique_id=2123798609]
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="HeightArea3D1" unique_id=2123798609]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.44939804, 0)
 depth = 83.805
 polygon = PackedVector2Array(-29.380009, -126.14915, 9.639832, -111.07447, 30.017761, -83.40307, 56.769356, -58.15766, 61.122185, -30.133156, 52.942986, -31.539467, 29.152977, -56.660393, -10.011429, -46.059074, -32.137802, -21.936356, -62.748722, -30.42089, -71.63644, -2.2812805, -61.43797, 2.026291, -33.283318, 19.013672, -11.090401, 49.878727, 11.517212, 62.74169, -2.457283, 77.21529, -15.100891, 72.39076, -29.40812, 76.21711, -46.47024, 87.4833, -46.47024, 105.11779, -53.64109, 132.80618, -34.951984, 165.23169, -9.66478, 173.38348, 0.58695984, 152.49902, -1.0139008, 148.26265, 4.4760895, 140.7763, 14.457878, 137.44905, 22.94239, 123.64091, 18.851387, 106.08607, 14.193214, 95.1061, 40.494606, 92.17343, 68.586845, 97.188034, 89.317116, 97.52788, 91.49206, 142.5107, 82.433266, 165.8836, 83.62243, 180.02151, 71.6733, 183.57416, 57.831688, 176.3837, 44.888863, 177.55215, 36.440086, 166.76648, 27.721657, 168.56409, 15.894241, 193.55981, 1.2866058, 199.15526, -0.78616333, 211.35641, -14.891914, 220.45697, -13.326813, 242.89102, -17.291367, 244.52399, -32.354183, 248.48788, -45.15344, 244.69638, -55.928886, 226.66031, -83.92034, 237.9827, -103.10549, 237.9827, -109.67303, 232.94263, -115.33421, 224.34601, -133.56958, 220.18605, -147.19531, 233.11697, -163.45508, 230.69226, -173.15388, 222.13449, -184.27957, 221.66638, -193.40784, 216.9596, -202.67903, 207.24994, -220.93558, 199.26271, -228.3523, 185.99818, -234.5716, 167.11435, -242.88281, 145.50696, -252.29633, 133.0982, -257.92017, 110.61688, -266.67725, 90.0447, -281.82452, 67.28916, -287.93756, 30.618584, -297.13156, 3.1167603, -295.69687, -31.157188, -309.7827, -59.395866, -311.49426, -72.232506, -294.09348, -84.498634, -278.40427, -80.36239, -271.55804, -60.96479, -273.41223, -51.551247, -267.13654, -28.445305, -254.94351, -20.04406, -256.3698, -45.146812, -229.96524, -77.89362, -210.30698, -92.18705, -187.34364, -83.20141, -170.37076, -105.87946, -140.00497, -112.55375, -134.31055, -95.942635, -115.768715, -72.26617, -104.82242, -40.716194, -83.00174, -46.357445, -81.17174, -57.17109, -89.77003, -85.72277, -72.80093, -117.830956)
 
-[node name="Area3D2" type="Area3D" parent="." unique_id=1144287978]
+[node name="HeightArea3D2" type="Area3D" parent="." unique_id=1144287978]
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, -76.36499, 54.79582, 51.13456)
 collision_layer = 8
 collision_mask = 0
@@ -453,12 +457,12 @@ script = ExtResource("12_it613")
 new_max_height = 100.0
 metadata/_edit_lock_ = true
 
-[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Area3D2" unique_id=255903752]
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="HeightArea3D2" unique_id=255903752]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 28.185276, 0)
 depth = 38.845
 polygon = PackedVector2Array(-55.96499, 4.529312, -62.188377, 22.49593, -50.51027, 44.71448, -34.369026, 52.05141, -25.564705, 62.200825, -7.4555054, 67.26892, 8.958618, 60.305058, 37.5149, 53.302746, 72.7396, 61.64381, 96.52576, 56.26154, 123.089874, 67.894196, 137.67409, 66.67883, 144.0814, 48.969288, 134.35861, 31.433506, 110.34324, 19.928074, 88.812836, -18.442593, 82.9281, -87.70143, 105.42273, -109.19959, 93.974, -135.20181, 78.25623, -142.76962, 56.209972, -132.34047, -5.3643646, -153.87022, -14.8771515, -154.6316, -23.905693, -153.9371, -30.156227, -151.50633, -35.796112, -139.9671, -58.88311, -118.70279, -72.249245, -125.18335, -89.8119, -124.62445, -109.02848, -115.75734, -106.754295, -83.795364, -83.08233, -65.44978)
 
-[node name="Area3D3" type="Area3D" parent="." unique_id=1057053726]
+[node name="HeightArea3D3" type="Area3D" parent="." unique_id=1057053726]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.535793, 68.91829, -191.18106)
 collision_layer = 8
 collision_mask = 0
@@ -466,14 +470,65 @@ script = ExtResource("12_it613")
 new_max_height = 100.0
 metadata/_edit_lock_ = true
 
-[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Area3D3" unique_id=1046851156]
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="HeightArea3D3" unique_id=1046851156]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 14.709442, 0)
 depth = 35.17
 polygon = PackedVector2Array(4.7988777, -23.582458, 33.90198, -11.843399, 51.63287, 7.843994, 54.445354, 22.640121, 25.709095, 32.78952, -2.5152206, 48.4666, -26.604767, 37.583496, -36.195038, -0.42118835, -23.44825, -20.403137, -4.0054207, -23.33789)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D3" unique_id=785374085]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HeightArea3D3" unique_id=785374085]
 transform = Transform3D(0.7294463, 0, -0.68403804, 0, 1, 0, 0.68403804, 0, 0.7294463, -2.2559319, -10.672119, 21.414154)
 shape = SubResource("BoxShape3D_87rkt")
+
+[node name="OceanArea3D" type="Area3D" parent="." unique_id=74836436]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("7_8pxfa")
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="OceanArea3D" unique_id=420115172]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -4, 0)
+depth = 10.0
+polygon = PackedVector2Array(-129.36906, 93.40227, 2.7588196, 128.76982, 33.90007, 122.98645, 58.813065, 149.90138, 75.94078, 139.89171, 75.94078, 116.313324, 124.877, 62.038574, 171.14403, 77.38676, 173.81328, -3.8029392, 180.93126, -37.835873, 166.47285, -99.006195, 148.82466, -123.730865, 144.82076, -158.876, 90.323586, -214.26294, 61.184277, -225.8297, 19.588451, -216.48732, 4.0178022, -189.1275, 10.246043, -147.0868, -15.334249, -138.63419, -52.25887, -212.261, -77.839195, -205.58789, -96.07908, -180.23001, -120.54719, -191.35187, -161.92058, -145.97462, -160.36351, -117.05774, -193.06183, -69.67856, -151.46602, 42.652405, -525.50977, 65.27762, -515.86774, -359.5439, 413.7257, -358.5222, 410.16534, 333.37833, -551.622, 326.83563, -525.42474, 65.5417, -151.24908, 42.91156)
+
+[node name="BorderArea3D1" type="Area3D" parent="." unique_id=2104306119]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -369.7117)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("7_8pxfa")
+local_direction = Vector3(0, 0, 5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BorderArea3D1" unique_id=2020078617]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -49.765076)
+shape = SubResource("BoxShape3D_8pxfa")
+
+[node name="BorderArea3D2" type="Area3D" parent="." unique_id=1556597331]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 454, 0, -1.7117004)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("7_8pxfa")
+local_direction = Vector3(0, 0, 5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BorderArea3D2" unique_id=1026647528]
+shape = SubResource("BoxShape3D_8pxfa")
+
+[node name="BorderArea3D3" type="Area3D" parent="." unique_id=1638502372]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 1.9533011, 0, 373.94537)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("7_8pxfa")
+local_direction = Vector3(0, 0, 5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BorderArea3D3" unique_id=1569425365]
+shape = SubResource("BoxShape3D_8pxfa")
+
+[node name="BorderArea3D4" type="Area3D" parent="." unique_id=1924458167]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -437.5116, 0, 0.9843711)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("7_8pxfa")
+local_direction = Vector3(0, 0, 5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BorderArea3D4" unique_id=2138545409]
+shape = SubResource("BoxShape3D_8pxfa")
 
 [node name="Quests" type="Node3D" parent="." unique_id=155752923]
 

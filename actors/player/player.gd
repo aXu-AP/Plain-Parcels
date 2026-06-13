@@ -82,6 +82,7 @@ func _physics_process(delta: float) -> void:
 	_collision_velocity = _collision_velocity.move_toward(Vector3.ZERO, delta * 100)
 	velocity = _flight_velocity + _drift_velocity + _collision_velocity
 	process_max_height(delta)
+	process_max_force_fields(delta)
 	move_and_slide()
 	
 	%PlaneModel.propeller_speed = _speed * 1.5
@@ -211,13 +212,21 @@ func process_wing_state(delta: float) -> void:
 
 func process_max_height(delta: float) -> void:
 	var new_max_height = max_height
-	for b: HeightOverride in %Interaction.get_overlapping_areas():
-		new_max_height = max(new_max_height, b.new_max_height)
+	for a: Area3D in %Interaction.get_overlapping_areas():
+		if a is HeightOverride:
+			new_max_height = max(new_max_height, a.new_max_height)
 	current_max_height = max(current_max_height, new_max_height)
 	current_max_height = move_toward(current_max_height, new_max_height, delta * 5)
 	current_max_height_soft = current_max_height - 8
 	if global_position.y > current_max_height_soft:
 		velocity.y -= ease(remap(global_position.y, current_max_height_soft, current_max_height, 0, 1), 3) * downwards_force
+
+
+func process_max_force_fields(delta: float) -> void:
+	for a: Area3D in %Interaction.get_overlapping_areas():
+		if a is ForceField:
+			var distance = max(0.01, a.plane.distance_to(global_position))
+			velocity += 10 * a.global_direction / distance
 
 
 func set_passenger(character: Character) -> void:
