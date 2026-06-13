@@ -2,6 +2,7 @@ extends Area3D
 
 @export var quest_name: StringName
 var connected := false
+var collected := false
 var last_damaged: int
 var tween: Tween
 var lerp_distance: float
@@ -37,7 +38,12 @@ func _on_flag_added(flag: StringName) -> void:
 
 
 func player_damaged() -> void:
+	if collected:
+		return
 	last_damaged = Time.get_ticks_msec()
+	if connected:
+		%CollectAudio.stop()
+		%BreakAudio.play()
 	connected = false
 	if is_instance_valid(tween):
 		tween.kill()
@@ -45,10 +51,10 @@ func player_damaged() -> void:
 	tween.tween_property($Model, "position", Vector3.ZERO, .3).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BOUNCE)
 	tween.parallel().tween_property($Model, "scale", Vector3.ONE * 0.5, .1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property($Model, "scale", Vector3.ONE * 1.0, .3).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
-	%CollectAudio.stop()
 
 
 func collect() -> void:
+	collected = true
 	monitoring = false
 	Globals.collect_jewel(quest_name)
 	Globals.add_flag(quest_name)
