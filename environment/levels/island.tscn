@@ -58,6 +58,7 @@
 [ext_resource type="Texture2D" uid="uid://dkbnjolsullhb" path="res://portraits/cave/cave_01.png" id="48_nwtrs"]
 [ext_resource type="PackedScene" uid="uid://ba25c4nxx3s7i" path="res://actors/lava/lava.tscn" id="51_4yckt"]
 [ext_resource type="Resource" uid="uid://bb7cc4vs1em8f" path="res://misc/quests/island/drilling_business.tres" id="56_iif06"]
+[ext_resource type="PackedScene" uid="uid://d2e435382lnrh" path="res://environment/island/island_ocean.glb" id="59_p4u5e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5jwi3"]
 sky_top_color = Color(0.35776627, 0.5089649, 0.8987251, 1)
@@ -3036,3 +3037,5 @@ autoplay = &"new_animation_2"
 
 [node name="Lava" parent="." unique_id=626128903 instance=ExtResource("51_4yckt")]
 transform = Transform3D(0.12999806, 0, 0, 0, 0.12999806, 0, 0, 0, 0.12999806, -70.356476, -29.609509, -9.264885)
+
+[node name="island_ocean" parent="." unique_id=2146098849 instance=ExtResource("59_p4u5e")]

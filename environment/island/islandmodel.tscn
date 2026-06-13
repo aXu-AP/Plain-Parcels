@@ -5,5 +5,6 @@
 
 [node name="island" unique_id=413947288 instance=ExtResource("1_jjsx5")]
 
-[node name="Ocean" parent="." index="3" unique_id=79407532]
+[node name="Ocean" parent="." index="3" unique_id=1334859994]
+visible = false
 surface_material_override/0 = ExtResource("2_8i7qp")
