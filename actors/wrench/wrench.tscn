@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://xjs8mbaji8v6"]
+
+[ext_resource type="Script" uid="uid://c4mq86rm6fltc" path="res://actors/wrench/wrench.gd" id="1_wuwq7"]
+[ext_resource type="PackedScene" uid="uid://c8vnstye661id" path="res://actors/wrench/wrench.glb" id="2_wuwq7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cnmnb"]
+radius = 0.7
+
+[sub_resource type="Curve" id="Curve_c7ixa"]
+_data = [Vector2(0.0017605647, 0.9977455), 0.0, -0.03711586, 0, 0, Vector2(0.8503521, 0.8128847), -0.6544779, -0.6544779, 0, 0, Vector2(1, 0.014826894), -13.01835, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_4gwqn"]
+curve = SubResource("Curve_c7ixa")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_plpsu"]
+emission_shape = 1
+emission_sphere_radius = 0.7
+direction = Vector3(0, 0.1, 0)
+spread = 0.0
+initial_velocity_min = 0.099999994
+initial_velocity_max = 0.099999994
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_4gwqn")
+
+[sub_resource type="Gradient" id="Gradient_1dafs"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mmt1m"]
+gradient = SubResource("Gradient_1dafs")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ycud3"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_color = Color(0.99999994, 0.7868538, 0.19238973, 1)
+albedo_texture = SubResource("GradientTexture2D_mmt1m")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_n3o0k"]
+material = SubResource("StandardMaterial3D_ycud3")
+
+[node name="Wrench" type="Area3D" unique_id=1384678923]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_wuwq7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=743954163]
+shape = SubResource("SphereShape3D_cnmnb")
+
+[node name="CollectParticles" type="GPUParticles3D" parent="." unique_id=6960650]
+cast_shadow = 0
+emitting = false
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.4
+process_material = SubResource("ParticleProcessMaterial_plpsu")
+draw_pass_1 = SubResource("QuadMesh_n3o0k")
+
+[node name="wrench" parent="." unique_id=1806098408 instance=ExtResource("2_wuwq7")]
+transform = Transform3D(2.532075, 0, 0, 0, 2.532075, 0, 0, 0, 2.532075, 0, 0, 0)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

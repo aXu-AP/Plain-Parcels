@@ -48,6 +48,7 @@
 [ext_resource type="Texture2D" uid="uid://boh68m645aq8m" path="res://portraits/island/island_09.png" id="36_6amwd"]
 [ext_resource type="PackedScene" uid="uid://bnym427guq7sg" path="res://environment/island/sign.glb" id="42_drl47"]
 [ext_resource type="PackedScene" uid="uid://lhu5gbh4qtr7" path="res://environment/island/signarrow.glb" id="42_yhp42"]
+[ext_resource type="PackedScene" uid="uid://i7nq3pnw2s1c" path="res://actors/shop_point/shop_point.tscn" id="43_eltrs"]
 [ext_resource type="PackedScene" uid="uid://b2db7orsgasa4" path="res://environment/island/signgood.glb" id="43_yhp42"]
 [ext_resource type="PackedScene" uid="uid://77nx4ykrrgl7" path="res://environment/island/lamp.tscn" id="45_4ke2p"]
 [ext_resource type="PackedScene" uid="uid://c4mvbbf7xxxk4" path="res://environment/island/rocks/caverock.glb" id="46_ljt45"]
@@ -57,6 +58,7 @@
 [ext_resource type="Texture2D" uid="uid://dkbnjolsullhb" path="res://portraits/cave/cave_01.png" id="48_nwtrs"]
 [ext_resource type="PackedScene" uid="uid://ba25c4nxx3s7i" path="res://actors/lava/lava.tscn" id="51_4yckt"]
 [ext_resource type="Resource" uid="uid://bb7cc4vs1em8f" path="res://misc/quests/island/drilling_business.tres" id="56_iif06"]
+[ext_resource type="PackedScene" uid="uid://ysnhrkleqkym" path="res://environment/buildings/flight_control.tscn" id="58_p4u5e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5jwi3"]
 sky_top_color = Color(0.35776627, 0.5089649, 0.8987251, 1)
@@ -146,6 +148,11 @@ script = ExtResource("15_l741m")
 portrait = ExtResource("35_eltrs")
 metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
 
+[sub_resource type="Resource" id="Resource_nwtrs"]
+script = ExtResource("15_l741m")
+portrait = ExtResource("46_n8sdl")
+metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ay8ox"]
 albedo_texture = ExtResource("16_ugxfm")
 uv1_scale = Vector3(0.26, 0.26, 0.26)
@@ -186,11 +193,6 @@ albedo_color = Color(0.7460778, 0.5942558, 0.37091556, 1)
 albedo_texture = SubResource("NoiseTexture2D_1ug4x")
 uv1_scale = Vector3(0.048, 0.048, 0.048)
 uv1_triplanar = true
-
-[sub_resource type="Resource" id="Resource_nwtrs"]
-script = ExtResource("15_l741m")
-portrait = ExtResource("46_n8sdl")
-metadata/_custom_type_script = "uid://dpiwy6dhp58g8"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ug4x"]
 albedo_color = Color(0.50844437, 0.5332042, 0.4661383, 1)
@@ -399,6 +401,8 @@ metadata/_edit_lock_ = true
 [node name="Player" parent="." unique_id=1603607484 instance=ExtResource("1_qurb2")]
 transform = Transform3D(0.28701898, 0.07049539, 0.9553277, -0.0061857337, 0.9974039, -0.07174177, -0.9579047, 0.014681837, 0.28671035, 166.16513, 22.804237, -59.813633)
 max_height = 40.0
+has_boost = true
+has_brake = true
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1107739824 node_paths=PackedStringArray("target")]
 transform = Transform3D(0.9973094, 0, 0.0733078, 0, 1, 0, -0.0733078, 0, 0.9973094, 1.0441985, 8, 76.58017)
@@ -417,7 +421,7 @@ player = NodePath("../../Player")
 transform = Transform3D(-20.59651, 0, 80.25882, 0, 82.85948, 0, -80.25882, 0, -20.59651, -6.7252197, 1.4761124, -11.028114)
 metadata/_edit_lock_ = true
 
-[node name="Jewel" parent="." unique_id=1256657396 instance=ExtResource("23_s25jc")]
+[node name="ArrowCaveJewel" parent="." unique_id=1256657396 instance=ExtResource("23_s25jc")]
 transform = Transform3D(0.0030989647, 0, -1.3250892, 0, 1.3250929, 0, 1.3250892, 0, 0.0030989647, -137.84058, 13.672753, -153.06053)
 
 [node name="Area3D" type="Area3D" parent="." unique_id=293231854]
@@ -480,6 +484,7 @@ character = SubResource("Resource_yf81i")
 
 [node name="WeepingWidowStart" parent="Quests/SadGranny" unique_id=1895422752 instance=ExtResource("23_g6kre")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4383736, 0)
+required_flags = Array[StringName]([&"Wing Retract"])
 quest = ExtResource("25_dyqhm")
 
 [node name="ParanoidGuy" parent="Quests" unique_id=1149343458 instance=ExtResource("7_5jwi3")]
@@ -488,6 +493,7 @@ character = SubResource("Resource_tojfw")
 
 [node name="UfoSightings" parent="Quests/ParanoidGuy" unique_id=329739923 instance=ExtResource("23_g6kre")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7066612, 0)
+required_flags = Array[StringName]([&"Boost"])
 quest = ExtResource("28_tojfw")
 
 [node name="Rod" parent="Quests/ParanoidGuy" unique_id=1449687606 instance=ExtResource("23_g6kre")]
@@ -515,9 +521,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0630226, 0)
 action = 1
 quest = ExtResource("28_yf81i")
 
-[node name="UfoSightings2" parent="Quests/ParanoidGuy" unique_id=122610259 instance=ExtResource("23_g6kre")]
+[node name="Medication2" parent="Quests/ParanoidGuy" unique_id=122610259 instance=ExtResource("23_g6kre")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0630226, 0)
-required_flags = Array[StringName]([&"Crazy Medication", &"Fishing Problems"])
+required_flags = Array[StringName]([&"Crazy Medication"])
 quest = ExtResource("16_iqp84")
 
 [node name="Goal" parent="Quests/ParanoidGuy" unique_id=533557246 instance=ExtResource("23_g6kre")]
@@ -535,6 +541,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6351261, 0)
 required_flags = Array[StringName]([&"Ufo Sightings"])
 quest = ExtResource("28_yf81i")
 
+[node name="Medication2" parent="Quests/VillageChief" unique_id=1019131054 instance=ExtResource("23_g6kre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6351261, 0)
+required_flags = Array[StringName]([&"Ufo Sightings", &"Crazy Medication"])
+quest = ExtResource("16_iqp84")
+
 [node name="GatheringMoney" type="Node3D" parent="Quests" unique_id=1736142289]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.39063, 69.97365, -196.76642)
 script = ExtResource("30_l1ppf")
@@ -545,6 +556,7 @@ character = SubResource("Resource_hb6kd")
 
 [node name="Start" parent="Quests/GatheringMoney/HappyGuy" unique_id=252000739 instance=ExtResource("23_g6kre")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2904758, 0)
+required_flags = Array[StringName]([&"Wing Retract", &"Brake", &"Boost"])
 quest = ExtResource("31_us427")
 
 [node name="End" parent="Quests/GatheringMoney/HappyGuy" unique_id=1544016925 instance=ExtResource("23_g6kre")]
@@ -554,127 +566,96 @@ quest = ExtResource("31_us427")
 
 [node name="Coin" parent="Quests/GatheringMoney" unique_id=384550452 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75045013, 9.212669, -11.235794)
-is_quest_coin = true
 
 [node name="Coin2" parent="Quests/GatheringMoney" unique_id=508682359 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.340462, 10.38604, -15.442261)
-is_quest_coin = true
 
 [node name="Coin3" parent="Quests/GatheringMoney" unique_id=1413109888 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.50542, 10.38604, -8.484924)
-is_quest_coin = true
 
 [node name="Coin4" parent="Quests/GatheringMoney" unique_id=958255816 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.49865, 10.7982025, 5.871887)
-is_quest_coin = true
 
 [node name="Coin5" parent="Quests/GatheringMoney" unique_id=475774075 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.105167, 11.145515, 23.76535)
-is_quest_coin = true
 
 [node name="Coin6" parent="Quests/GatheringMoney" unique_id=1087250403 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.882275, 10.574562, 40.52333)
-is_quest_coin = true
 
 [node name="Coin12" parent="Quests/GatheringMoney" unique_id=2112885286 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.799118, 7.138649, 29.394379)
-is_quest_coin = true
 
 [node name="Coin13" parent="Quests/GatheringMoney" unique_id=1689630536 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.39307, -3.210472, 43.975723)
-is_quest_coin = true
 
 [node name="Coin14" parent="Quests/GatheringMoney" unique_id=1210036035 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.72152, -8.839546, 62.230835)
-is_quest_coin = true
 
 [node name="Coin15" parent="Quests/GatheringMoney" unique_id=343925902 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.64832, -16.872559, 82.99404)
-is_quest_coin = true
 
 [node name="Coin7" parent="Quests/GatheringMoney" unique_id=111033020 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.310921, 10.38604, 51.709335)
-is_quest_coin = true
 
 [node name="Coin8" parent="Quests/GatheringMoney" unique_id=1871560458 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.669937, 10.38604, 40.615295)
-is_quest_coin = true
 
 [node name="Coin9" parent="Quests/GatheringMoney" unique_id=1250067068 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.963882, 10.719437, 32.31288)
-is_quest_coin = true
 
 [node name="Coin10" parent="Quests/GatheringMoney" unique_id=2121533650 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.39177, 10.38604, 13.844742)
-is_quest_coin = true
 
 [node name="Coin11" parent="Quests/GatheringMoney" unique_id=267449853 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.913353, 10.38604, -5.3421783)
-is_quest_coin = true
 
 [node name="Coin16" parent="Quests/GatheringMoney" unique_id=1966029816 instance=ExtResource("18_l741m")]
 transform = Transform3D(0.20762153, -8.551777e-08, -0.97820926, 0, -1, 8.742278e-08, -0.97820926, -1.815085e-08, -0.20762153, -71.35019, -13.6380005, 92.2904)
-is_quest_coin = true
 
 [node name="Coin17" parent="Quests/GatheringMoney" unique_id=253948145 instance=ExtResource("18_l741m")]
 transform = Transform3D(0.4680995, -7.725339e-08, -0.88367575, 0, -1, 8.742278e-08, -0.88367575, -4.0922558e-08, -0.4680995, -55.564087, -16.608986, 96.92812)
-is_quest_coin = true
 
 [node name="Coin18" parent="Quests/GatheringMoney" unique_id=1591908725 instance=ExtResource("18_l741m")]
 transform = Transform3D(0.61278296, -6.908596e-08, -0.79025126, 0, -1, 8.742278e-08, -0.79025126, -5.357119e-08, -0.61278296, -42.22673, -13.924, 103.579926)
-is_quest_coin = true
 
 [node name="Coin19" parent="Quests/GatheringMoney" unique_id=1835246115 instance=ExtResource("18_l741m")]
 transform = Transform3D(0.74767065, -5.8054823e-08, -0.6640698, 0, -1, 8.742278e-08, -0.6640698, -6.536345e-08, -0.74767065, -31.026886, -16.608986, 111.11725)
-is_quest_coin = true
 
 [node name="Coin20" parent="Quests/GatheringMoney" unique_id=1702176254 instance=ExtResource("18_l741m")]
 transform = Transform3D(0.6339346, -6.761162e-08, -0.7733868, -2.1300456e-15, -1, 8.742278e-08, -0.7733868, -5.542033e-08, -0.6339346, -17.806408, -13.913971, 120.974365)
-is_quest_coin = true
 
 [node name="Coin21" parent="Quests/GatheringMoney" unique_id=1784843060 instance=ExtResource("18_l741m")]
 transform = Transform3D(0.7881612, -5.3806005e-08, -0.6154689, -2.1605142e-16, -1, 8.742277e-08, -0.6154689, -6.890325e-08, -0.7881612, -5.4167175, -16.608986, 132.18062)
-is_quest_coin = true
 
 [node name="Coin22" parent="Quests/GatheringMoney" unique_id=728221404 instance=ExtResource("18_l741m")]
 transform = Transform3D(0.7881611, -5.3806005e-08, -0.61546886, -9.097835e-15, -1, 8.742276e-08, -0.61546886, -6.890325e-08, -0.7881611, 4.439705, -16.608967, 144.79628)
-is_quest_coin = true
 
 [node name="Coin23" parent="Quests/GatheringMoney" unique_id=202111175 instance=ExtResource("18_l741m")]
 transform = Transform3D(0.7881611, -5.3806005e-08, -0.61546886, -1.4426906e-14, -1, 8.742276e-08, -0.61546886, -6.890325e-08, -0.7881611, 14.634102, -16.608944, 161.56174)
-is_quest_coin = true
 
 [node name="Coin24" parent="Quests/GatheringMoney" unique_id=394765758 instance=ExtResource("18_l741m")]
 transform = Transform3D(0.7881611, -5.3806005e-08, -0.61546886, -2.5085047e-14, -1, 8.742276e-08, -0.61546886, -6.890325e-08, -0.7881611, 27.251495, -16.608921, 179.50903)
-is_quest_coin = true
 
 [node name="Coin25" parent="Quests/GatheringMoney" unique_id=779169651 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.23046, -10.670914, 188.48257)
-is_quest_coin = true
 
 [node name="Coin26" parent="Quests/GatheringMoney" unique_id=792700935 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.39439, -16.669792, 191.6875)
-is_quest_coin = true
 
 [node name="Coin27" parent="Quests/GatheringMoney" unique_id=1747181419 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.35279, -10.77504, 191.6875)
-is_quest_coin = true
 
 [node name="Coin28" parent="Quests/GatheringMoney" unique_id=638970262 instance=ExtResource("18_l741m")]
 transform = Transform3D(0.9994315, 0, -0.0337134, 0, 1, 0, 0.0337134, 0, 0.9994315, 102.376884, -16.9338, 191.6875)
-is_quest_coin = true
 
 [node name="Coin29" parent="Quests/GatheringMoney" unique_id=1020645948 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.23046, -10.670914, 188.48257)
-is_quest_coin = true
 
 [node name="Coin30" parent="Quests/GatheringMoney" unique_id=537076551 instance=ExtResource("18_l741m")]
 transform = Transform3D(0.99855226, -0.053707622, -0.0029747486, 0.053722948, 0.99854165, 0.005336613, 0.002683878, -0.005488701, 0.9999813, 62.07061, -17.901085, 188.48257)
-is_quest_coin = true
 
 [node name="Coin31" parent="Quests/GatheringMoney" unique_id=705864459 instance=ExtResource("18_l741m")]
 transform = Transform3D(0.99855226, -0.053707622, -0.0029747486, 0.053722948, 0.9985417, 0.0053366134, 0.002683878, -0.005488701, 0.9999813, 40.018623, -16.878601, 189.7339)
-is_quest_coin = true
 
 [node name="GatheringMoney2" type="Node3D" parent="Quests" unique_id=2061334527]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.71356, 19.025637, -98.85224)
@@ -696,119 +677,90 @@ quest = ExtResource("33_hb6kd")
 
 [node name="Coin" parent="Quests/GatheringMoney2" unique_id=316621075 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5972595, 5.242834, -33.399925)
-is_quest_coin = true
 
 [node name="Coin3" parent="Quests/GatheringMoney2" unique_id=1680850513 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5972595, 7.7503185, -41.650078)
-is_quest_coin = true
 
 [node name="Coin4" parent="Quests/GatheringMoney2" unique_id=1842337064 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93455505, 7.516222, -49.683754)
-is_quest_coin = true
 
 [node name="Coin5" parent="Quests/GatheringMoney2" unique_id=1165313030 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8098755, 6.2701817, -55.920433)
-is_quest_coin = true
 
 [node name="Coin6" parent="Quests/GatheringMoney2" unique_id=1267599179 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4511108, 4.0998936, -62.813606)
-is_quest_coin = true
 
 [node name="Coin7" parent="Quests/GatheringMoney2" unique_id=678192599 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.265381, 1.9950409, -67.409065)
-is_quest_coin = true
 
 [node name="Coin8" parent="Quests/GatheringMoney2" unique_id=1116829930 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.626724, -0.71790314, -72.223335)
-is_quest_coin = true
 
 [node name="Coin9" parent="Quests/GatheringMoney2" unique_id=473744798 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.143188, -2.4242973, -76.36036)
-is_quest_coin = true
 
 [node name="Coin10" parent="Quests/GatheringMoney2" unique_id=1087430390 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.073349, -0.71790314, -80.42843)
-is_quest_coin = true
 
 [node name="Coin11" parent="Quests/GatheringMoney2" unique_id=449515117 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.348267, 1.1137829, -85.32389)
-is_quest_coin = true
 
 [node name="Coin13" parent="Quests/GatheringMoney2" unique_id=642018442 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.108215, -0.71790314, -90.47112)
-is_quest_coin = true
 
 [node name="Coin14" parent="Quests/GatheringMoney2" unique_id=970928917 instance=ExtResource("18_l741m")]
 transform = Transform3D(0.9999253, -0.0116520785, -0.0036875752, 0.011707844, 0.99981165, 0.015478795, 0.0035064959, -0.0155208185, 0.9998734, -31.829605, -3.121664, -98.010735)
-is_quest_coin = true
 
 [node name="Coin15" parent="Quests/GatheringMoney2" unique_id=1644768929 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.44397, -0.71790314, -106.13697)
-is_quest_coin = true
 
 [node name="Coin17" parent="Quests/GatheringMoney2" unique_id=1012384264 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.6933, -0.71790314, -112.209236)
-is_quest_coin = true
 
 [node name="Coin18" parent="Quests/GatheringMoney2" unique_id=494465022 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.936104, -0.71790314, -119.57426)
-is_quest_coin = true
 
 [node name="Coin19" parent="Quests/GatheringMoney2" unique_id=936001734 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.57641, -0.71790314, -124.72062)
-is_quest_coin = true
 
 [node name="Coin20" parent="Quests/GatheringMoney2" unique_id=1016311211 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.28188, -0.71790314, -129.67169)
-is_quest_coin = true
 
 [node name="Coin21" parent="Quests/GatheringMoney2" unique_id=1172102954 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.92218, -0.71790314, -134.61075)
-is_quest_coin = true
 
 [node name="Coin22" parent="Quests/GatheringMoney2" unique_id=1398382836 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -105.43111, -0.71790314, -132.49786)
-is_quest_coin = true
 
 [node name="Coin23" parent="Quests/GatheringMoney2" unique_id=1074373262 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -117.63412, -0.71790314, -130.06277)
-is_quest_coin = true
 
 [node name="Coin24" parent="Quests/GatheringMoney2" unique_id=965635296 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130.6337, -0.71790314, -127.91085)
-is_quest_coin = true
 
 [node name="Coin25" parent="Quests/GatheringMoney2" unique_id=985768803 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -141.92018, -5.651497, -125.59423)
-is_quest_coin = true
 
 [node name="Coin28" parent="Quests/GatheringMoney2" unique_id=66295729 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -158.26393, -8.514788, -110.284706)
-is_quest_coin = true
 
 [node name="Coin30" parent="Quests/GatheringMoney2" unique_id=416134705 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -166.69492, -2.6039162, -103.149345)
-is_quest_coin = true
 
 [node name="Coin31" parent="Quests/GatheringMoney2" unique_id=84938237 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -166.07335, 5.3942432, -91.50654)
-is_quest_coin = true
 
 [node name="Coin34" parent="Quests/GatheringMoney2" unique_id=2132604739 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160.06491, 14.266226, -77.0955)
-is_quest_coin = true
 
 [node name="Coin35" parent="Quests/GatheringMoney2" unique_id=532781309 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -164.44667, 5.0108223, -67.2869)
-is_quest_coin = true
 
 [node name="Coin37" parent="Quests/GatheringMoney2" unique_id=1224037889 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -167.91455, 1.9296875, -57.95443)
-is_quest_coin = true
 
 [node name="Coin38" parent="Quests/GatheringMoney2" unique_id=1330634067 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.27502, -11.564733, -44.67669)
-is_quest_coin = true
 
 [node name="Tourist" parent="Quests" unique_id=1129259128 instance=ExtResource("7_5jwi3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 69.74951, -74.07524)
@@ -816,6 +768,7 @@ character = SubResource("Resource_yorn4")
 
 [node name="TouristGuide" parent="Quests/Tourist" unique_id=218731772 instance=ExtResource("23_g6kre")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1833038, 0)
+required_flags = Array[StringName]([&"Wing Retract"])
 quest = ExtResource("23_u4mjt")
 
 [node name="TouristSpot" parent="Quests/Tourist" unique_id=382792156 instance=ExtResource("23_g6kre")]
@@ -839,11 +792,12 @@ character = SubResource("Resource_7pw48")
 
 [node name="Start" parent="Quests/SadGirl" unique_id=246052254 instance=ExtResource("23_g6kre")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0207977, 0)
+required_flags = Array[StringName]([&"Carrier 1"])
 quest = ExtResource("29_yo0to")
 
 [node name="FlowerStart" parent="Quests/SadGirl" unique_id=1705994204 instance=ExtResource("23_g6kre")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0207977, 0)
-required_flags = Array[StringName]([&"Lost Memories"])
+required_flags = Array[StringName]([&"Lost Memories", &"Carrier 3"])
 availability_delay = 15
 quest = ExtResource("31_ap5sr")
 
@@ -912,6 +866,7 @@ character = SubResource("Resource_iqp84")
 
 [node name="Start" parent="Quests/Miner" unique_id=1297283027 instance=ExtResource("23_g6kre")]
 transform = Transform3D(0.9986085, -5.186491e-05, 0.052736137, 6.587985e-05, 0.99999994, -0.00026402235, -0.052736122, 0.0002671292, 0.99860847, 0.15112305, 2.9115639, 0.10266113)
+required_flags = Array[StringName]([&"Carrier 3", &"Boost"])
 quest = ExtResource("27_mbd2p")
 
 [node name="LostMinersGoal" parent="Quests/Miner" unique_id=162927211 instance=ExtResource("23_g6kre")]
@@ -947,7 +902,210 @@ character = SubResource("Resource_p4u5e")
 
 [node name="LostMinerStart" parent="Quests/DepressedMiner" unique_id=1374109396 instance=ExtResource("23_g6kre")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6685867, 0)
+required_flags = Array[StringName]([&"Brake"])
 quest = ExtResource("32_iif06")
+
+[node name="CaveCoins" type="Node3D" parent="Quests" unique_id=1439329739]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000005, 0, 0, 0, 0.9999997, 76.71121, -18.510939, -157.39749)
+script = ExtResource("30_l1ppf")
+quest = ExtResource("56_iif06")
+
+[node name="ThinMiner" parent="Quests/CaveCoins" unique_id=1888994824 instance=ExtResource("7_5jwi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7703476, 0.5797386, 6.2996216)
+character = SubResource("Resource_nwtrs")
+
+[node name="Start" parent="Quests/CaveCoins/ThinMiner" unique_id=2109985744 instance=ExtResource("23_g6kre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0206661, 0)
+quest = ExtResource("56_iif06")
+
+[node name="End" parent="Quests/CaveCoins/ThinMiner" unique_id=1846767727 instance=ExtResource("23_g6kre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0206661, 0)
+action = 1
+availability_delay = 20
+quest = ExtResource("56_iif06")
+
+[node name="Coin" parent="Quests/CaveCoins" unique_id=165314335 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.51889, 9.441386, 0.2419281)
+
+[node name="Coin2" parent="Quests/CaveCoins" unique_id=1491558828 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.32883, 13.504898, -9.979202)
+
+[node name="Coin3" parent="Quests/CaveCoins" unique_id=69337397 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.052406, 6.630001, -14.44519)
+
+[node name="Coin4" parent="Quests/CaveCoins" unique_id=257428967 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.344, -1.4728527, -18.559952)
+
+[node name="Coin5" parent="Quests/CaveCoins" unique_id=1884972173 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.98224, -11.432905, -15.066467)
+
+[node name="Coin6" parent="Quests/CaveCoins" unique_id=1825052355 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104.38852, -7.318611, -22.655273)
+
+[node name="Coin7" parent="Quests/CaveCoins" unique_id=602237656 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120.410126, -0.42414474, -22.754562)
+
+[node name="Coin8" parent="Quests/CaveCoins" unique_id=1110345686 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.54683, 6.251836, -22.092041)
+
+[node name="Coin9" parent="Quests/CaveCoins" unique_id=1662170009 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -136.98099, 13.039101, -21.41565)
+
+[node name="Coin10" parent="Quests/CaveCoins" unique_id=23878873 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -148.50903, 14.930632, -21.06659)
+
+[node name="Coin11" parent="Quests/CaveCoins" unique_id=1751256928 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -157.55931, 13.677892, -14.804581)
+
+[node name="Coin12" parent="Quests/CaveCoins" unique_id=1654261132 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -167.10164, 12.863788, -9.644455)
+
+[node name="Coin13" parent="Quests/CaveCoins" unique_id=275764146 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -184.19542, 10.867851, -4.9663086)
+
+[node name="Coin14" parent="Quests/CaveCoins" unique_id=1374527139 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200.08798, 8.15677, 7.060669)
+
+[node name="Coin15" parent="Quests/CaveCoins" unique_id=1219442759 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -220.647, 9.837801, 17.209915)
+
+[node name="Coin16" parent="Quests/CaveCoins" unique_id=449361880 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -225.43497, 3.6517525, 28.245667)
+
+[node name="Coin17" parent="Quests/CaveCoins" unique_id=1653876537 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -228.78662, 1.616579, 40.09951)
+
+[node name="Coin18" parent="Quests/CaveCoins" unique_id=1059316125 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -236.17218, -0.66407394, 50.115814)
+
+[node name="Coin19" parent="Quests/CaveCoins" unique_id=471593705 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -242.13638, 5.1583996, 60.291832)
+
+[node name="Coin20" parent="Quests/CaveCoins" unique_id=133971915 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -248.31363, 9.476454, 71.86102)
+
+[node name="Coin21" parent="Quests/CaveCoins" unique_id=303340895 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -255.54343, 10.742596, 80.49994)
+
+[node name="Coin22" parent="Quests/CaveCoins" unique_id=493942571 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -261.8626, 11.780697, 95.11328)
+
+[node name="Coin23" parent="Quests/CaveCoins" unique_id=2113951123 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -253.98795, 13.577954, 105.201416)
+
+[node name="Coin24" parent="Quests/CaveCoins" unique_id=261149639 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -237.32956, 12.085579, 106.38646)
+
+[node name="Coin25" parent="Quests/CaveCoins" unique_id=1164723626 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -217.86111, 17.624378, 105.36296)
+
+[node name="Coin26" parent="Quests/CaveCoins" unique_id=867758286 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200.01526, 24.74671, 104.91943)
+
+[node name="Coin27" parent="Quests/CaveCoins" unique_id=668622521 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -177.86853, 20.841118, 107.53647)
+
+[node name="Coin28" parent="Quests/CaveCoins" unique_id=1783364841 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -155.92935, 17.284243, 110.05983)
+
+[node name="Coin29" parent="Quests/CaveCoins" unique_id=589449113 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -133.98773, 13.866854, 112.552475)
+
+[node name="Coin30" parent="Quests/CaveCoins" unique_id=1715069840 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -111.48699, 14.893757, 115.29826)
+
+[node name="Coin31" parent="Quests/CaveCoins" unique_id=2087583054 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.39247, 19.37324, 116.715515)
+
+[node name="Coin32" parent="Quests/CaveCoins" unique_id=942175917 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.758835, 26.464634, 106.60193)
+
+[node name="Coin33" parent="Quests/CaveCoins" unique_id=1991670399 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.654434, 35.965736, 98.75523)
+
+[node name="Coin34" parent="Quests/CaveCoins" unique_id=1141870403 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.09619, 36.746758, 109.59534)
+
+[node name="Coin35" parent="Quests/CaveCoins" unique_id=73405590 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.75311, 40.08388, 125.31221)
+
+[node name="Coin36" parent="Quests/CaveCoins" unique_id=1666779278 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.24013, 40.555378, 139.19044)
+
+[node name="Coin37" parent="Quests/CaveCoins" unique_id=1228168046 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.375195, 40.43183, 152.52927)
+
+[node name="Coin38" parent="Quests/CaveCoins" unique_id=788840851 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.63656, 42.16358, 163.3725)
+
+[node name="Coin39" parent="Quests/CaveCoins" unique_id=308944033 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.288063, 41.74707, 176.77615)
+
+[node name="Coin40" parent="Quests/CaveCoins" unique_id=2116742980 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.296173, 37.68689, 179.78056)
+
+[node name="Coin41" parent="Quests/CaveCoins" unique_id=680354281 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6025543, 29.156815, 174.58856)
+
+[node name="Coin42" parent="Quests/CaveCoins" unique_id=2062022181 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.076492, 24.102253, 172.4017)
+
+[node name="Coin43" parent="Quests/CaveCoins" unique_id=368647350 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.71122, 24.405876, 167.91187)
+
+[node name="Coin44" parent="Quests/CaveCoins" unique_id=987770761 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.08657, 24.137543, 166.0279)
+
+[node name="Coin45" parent="Quests/CaveCoins" unique_id=1229804243 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.21554, 22.385334, 160.44847)
+
+[node name="Coin46" parent="Quests/CaveCoins" unique_id=1700120050 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.62772, 20.91802, 155.32083)
+
+[node name="Coin47" parent="Quests/CaveCoins" unique_id=1429838396 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.27259, 22.298775, 138.90132)
+
+[node name="Coin48" parent="Quests/CaveCoins" unique_id=1539314378 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.6305, 24.808628, 131.07784)
+
+[node name="Coin49" parent="Quests/CaveCoins" unique_id=1513378199 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.74598, 25.069155, 116.846695)
+
+[node name="Coin50" parent="Quests/CaveCoins" unique_id=1286914934 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.2358, 25.13978, 103.68227)
+
+[node name="Coin51" parent="Quests/CaveCoins" unique_id=435319151 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.785255, 23.981142, 96.83641)
+
+[node name="Coin52" parent="Quests/CaveCoins" unique_id=821627387 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.11765, 23.700302, 92.29947)
+
+[node name="Coin53" parent="Quests/CaveCoins" unique_id=1711183408 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.13497, 23.286018, 85.0969)
+
+[node name="Coin54" parent="Quests/CaveCoins" unique_id=908018590 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.648506, 20.820808, 74.901146)
+
+[node name="Coin55" parent="Quests/CaveCoins" unique_id=407327777 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.42977, 16.820927, 64.00424)
+
+[node name="Coin56" parent="Quests/CaveCoins" unique_id=1828080503 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.788, 13.000376, 47.26597)
+
+[node name="Coin57" parent="Quests/CaveCoins" unique_id=1426351441 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.756386, 11.808981, 37.250633)
+
+[node name="Coin58" parent="Quests/CaveCoins" unique_id=394823478 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.906364, 15.669426, 26.998611)
+
+[node name="Coin59" parent="Quests/CaveCoins" unique_id=1212897889 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.998634, 22.083942, 23.482819)
+
+[node name="Coin60" parent="Quests/CaveCoins" unique_id=982925836 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.566109, 19.820074, 17.693604)
+
+[node name="Coin61" parent="Quests/CaveCoins" unique_id=1075029732 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.702484, 15.037247, 10.244873)
 
 [node name="Coins" type="Node3D" parent="." unique_id=1949612988]
 transform = Transform3D(0.6846248, 0, -0.89934963, 0, 1.1302835, 0, 0.89934963, 0, 0.6846248, 92.2685, 16.477835, -66.55263)
@@ -1078,6 +1236,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -149.46869, 28.184711, 168.07
 [node name="Coin9" parent="Coins" unique_id=1604555483 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.395664, 11.201272, -29.189636)
 
+[node name="Coin90" parent="Coins" unique_id=1530050453 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.996002, 33.135693, 54.910793)
+
+[node name="Coin91" parent="Coins" unique_id=1752772452 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.15241, 33.123062, 55.144104)
+
+[node name="Coin92" parent="Coins" unique_id=1755409029 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.84099, 33.214832, 55.26384)
+
+[node name="Coin93" parent="Coins" unique_id=1029203224 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.9642, 33.343605, 54.937496)
+
+[node name="Coin94" parent="Coins" unique_id=1291664290 instance=ExtResource("18_l741m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.234447, 33.633762, 54.67019)
+
 [node name="Coin38" parent="Coins" unique_id=1328055848 instance=ExtResource("18_l741m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.68921, 53.44683, 161.87715)
 
@@ -1150,6 +1323,36 @@ transform = Transform3D(0.9995849, 0, -0.028811365, 0, 1, 0, 0.028811365, 0, 0.9
 [node name="Coin32" parent="Coins" unique_id=880607278 instance=ExtResource("18_l741m")]
 transform = Transform3D(0.9995849, 0, -0.028811365, 0, 1, 0, 0.028811365, 0, 0.9995849, 126.17311, 2.635642, -7.3829117)
 
+[node name="Coin95" parent="Coins" unique_id=1967753384 instance=ExtResource("18_l741m")]
+transform = Transform3D(0.9995849, 0, -0.028811365, 0, 1, 0, 0.028811365, 0, 0.9995849, 103.61313, -12.371019, 19.942322)
+
+[node name="Coin96" parent="Coins" unique_id=823029133 instance=ExtResource("18_l741m")]
+transform = Transform3D(0.9995849, 0, -0.028811365, 0, 1, 0, 0.028811365, 0, 0.9995849, 97.677734, -10.622276, 31.41658)
+
+[node name="Coin97" parent="Coins" unique_id=1123889054 instance=ExtResource("18_l741m")]
+transform = Transform3D(0.9995849, 0, -0.028811365, 0, 1, 0, 0.028811365, 0, 0.9995849, 94.55577, -9.705156, 40.259922)
+
+[node name="Coin98" parent="Coins" unique_id=389315057 instance=ExtResource("18_l741m")]
+transform = Transform3D(0.9995849, 0, -0.028811365, 0, 1, 0, 0.028811365, 0, 0.9995849, 94.91879, -8.051569, 49.511036)
+
+[node name="Coin99" parent="Coins" unique_id=1606225309 instance=ExtResource("18_l741m")]
+transform = Transform3D(0.9995849, 0, -0.028811365, 0, 1, 0, 0.028811365, 0, 0.9995849, 95.14842, -5.5908957, 54.984444)
+
+[node name="Coin100" parent="Coins" unique_id=1179162047 instance=ExtResource("18_l741m")]
+transform = Transform3D(0.9995849, 0, -0.028811365, 0, 1, 0, 0.028811365, 0, 0.9995849, 97.7863, -3.4881039, 63.349636)
+
+[node name="Coin101" parent="Coins" unique_id=774764161 instance=ExtResource("18_l741m")]
+transform = Transform3D(0.9995849, 0, -0.028811365, 0, 1, 0, 0.028811365, 0, 0.9995849, 101.387634, -1.6896248, 74.65155)
+
+[node name="Coin102" parent="Coins" unique_id=857028965 instance=ExtResource("18_l741m")]
+transform = Transform3D(0.9995849, 0, -0.028811365, 0, 1, 0, 0.028811365, 0, 0.9995849, 103.19328, -0.28280926, 83.96507)
+
+[node name="Coin103" parent="Coins" unique_id=892473322 instance=ExtResource("18_l741m")]
+transform = Transform3D(0.9995849, 0, -0.028811365, 0, 1, 0, 0.028811365, 0, 0.9995849, 103.59442, 0.8837805, 92.9612)
+
+[node name="Coin104" parent="Coins" unique_id=566045429 instance=ExtResource("18_l741m")]
+transform = Transform3D(0.9995849, 0, -0.028811365, 0, 1, 0, 0.028811365, 0, 0.9995849, 101.63364, 2.2218027, 104.5759)
+
 [node name="Coin13" parent="Coins" unique_id=1354166898 instance=ExtResource("18_l741m")]
 transform = Transform3D(0.87594974, -0.010485397, -0.48228872, 0.015743978, 0.9998525, 0.0068570566, 0.48214546, -0.013599573, 0.8759858, 87.827835, 8.390485, 2.090561)
 
@@ -1210,7 +1413,7 @@ transform = Transform3D(-0.6982429, 0, 3.7571316, 0, 3.8214626, 0, -3.7571316, 0
 [node name="lighthouse" parent="Buildings" unique_id=358542400 instance=ExtResource("22_ay8ox")]
 transform = Transform3D(-6.250182, 0, 1.8833514, 0, 6.5277705, 0, -1.8833514, 0, -6.250182, 94.45348, 21.008678, -298.97437)
 
-[node name="Jewel" parent="Buildings/lighthouse" unique_id=1397172199 instance=ExtResource("23_s25jc")]
+[node name="LightHouseJewel" parent="Buildings/lighthouse" unique_id=1397172199 instance=ExtResource("23_s25jc")]
 transform = Transform3D(0.34815055, 0, 2.2351742e-08, 0, 0.3481507, 0, -2.2351742e-08, 0, 0.34815055, 0, 7.8917665, 0)
 
 [node name="LightHouseWall" type="CSGCombiner3D" parent="Buildings/lighthouse" unique_id=1880662094]
@@ -2698,268 +2901,6 @@ transform = Transform3D(-2.0195355, -0.05770958, 0.18943757, 0.062677, -2.027624
 [node name="stalactite16" parent="Natural/Stalactites" unique_id=777467757 instance=ExtResource("47_1ug4x")]
 transform = Transform3D(-1.1175952, -0.0781509, -1.6919268, -0.039979503, 2.0277126, -0.06725272, 1.6932585, -0.003705211, -1.1183041, -184.08719, -9.728643, 13.742447)
 
-[node name="CaveCoins" type="Node3D" parent="." unique_id=1439329739]
-transform = Transform3D(1.0000001, 0, 0, 0, 1.0000005, 0, 0, 0, 0.9999997, 76.71121, -18.510939, -157.39749)
-script = ExtResource("30_l1ppf")
-quest = ExtResource("56_iif06")
-
-[node name="ThinMiner" parent="CaveCoins" unique_id=1888994824 instance=ExtResource("7_5jwi3")]
-character = SubResource("Resource_nwtrs")
-
-[node name="Start" parent="CaveCoins/ThinMiner" unique_id=2109985744 instance=ExtResource("23_g6kre")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0206661, 0)
-quest = ExtResource("56_iif06")
-
-[node name="End" parent="CaveCoins/ThinMiner" unique_id=1846767727 instance=ExtResource("23_g6kre")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0206661, 0)
-action = 1
-availability_delay = 20
-quest = ExtResource("56_iif06")
-
-[node name="Coin" parent="CaveCoins" unique_id=165314335 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.51889, 9.441386, 0.2419281)
-is_quest_coin = true
-
-[node name="Coin2" parent="CaveCoins" unique_id=1491558828 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.32883, 13.504898, -9.979202)
-is_quest_coin = true
-
-[node name="Coin3" parent="CaveCoins" unique_id=69337397 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.052406, 6.630001, -14.44519)
-is_quest_coin = true
-
-[node name="Coin4" parent="CaveCoins" unique_id=257428967 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.344, -1.4728527, -18.559952)
-is_quest_coin = true
-
-[node name="Coin5" parent="CaveCoins" unique_id=1884972173 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.98224, -11.432905, -15.066467)
-is_quest_coin = true
-
-[node name="Coin6" parent="CaveCoins" unique_id=1825052355 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104.38852, -7.318611, -22.655273)
-is_quest_coin = true
-
-[node name="Coin7" parent="CaveCoins" unique_id=602237656 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120.410126, -0.42414474, -22.754562)
-is_quest_coin = true
-
-[node name="Coin8" parent="CaveCoins" unique_id=1110345686 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.54683, 6.251836, -22.092041)
-is_quest_coin = true
-
-[node name="Coin9" parent="CaveCoins" unique_id=1662170009 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -136.98099, 13.039101, -21.41565)
-is_quest_coin = true
-
-[node name="Coin10" parent="CaveCoins" unique_id=23878873 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -148.50903, 14.930632, -21.06659)
-is_quest_coin = true
-
-[node name="Coin11" parent="CaveCoins" unique_id=1751256928 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -157.55931, 13.677892, -14.804581)
-is_quest_coin = true
-
-[node name="Coin12" parent="CaveCoins" unique_id=1654261132 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -167.10164, 12.863788, -9.644455)
-is_quest_coin = true
-
-[node name="Coin13" parent="CaveCoins" unique_id=275764146 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -184.19542, 10.867851, -4.9663086)
-is_quest_coin = true
-
-[node name="Coin14" parent="CaveCoins" unique_id=1374527139 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200.08798, 8.15677, 7.060669)
-is_quest_coin = true
-
-[node name="Coin15" parent="CaveCoins" unique_id=1219442759 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -220.647, 9.837801, 17.209915)
-is_quest_coin = true
-
-[node name="Coin16" parent="CaveCoins" unique_id=449361880 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -225.43497, 3.6517525, 28.245667)
-is_quest_coin = true
-
-[node name="Coin17" parent="CaveCoins" unique_id=1653876537 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -228.78662, 1.616579, 40.09951)
-is_quest_coin = true
-
-[node name="Coin18" parent="CaveCoins" unique_id=1059316125 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -236.17218, -0.66407394, 50.115814)
-is_quest_coin = true
-
-[node name="Coin19" parent="CaveCoins" unique_id=471593705 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -242.13638, 5.1583996, 60.291832)
-is_quest_coin = true
-
-[node name="Coin20" parent="CaveCoins" unique_id=133971915 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -248.31363, 9.476454, 71.86102)
-is_quest_coin = true
-
-[node name="Coin21" parent="CaveCoins" unique_id=303340895 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -255.54343, 10.742596, 80.49994)
-is_quest_coin = true
-
-[node name="Coin22" parent="CaveCoins" unique_id=493942571 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -261.8626, 11.780697, 95.11328)
-is_quest_coin = true
-
-[node name="Coin23" parent="CaveCoins" unique_id=2113951123 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -253.98795, 13.577954, 105.201416)
-is_quest_coin = true
-
-[node name="Coin24" parent="CaveCoins" unique_id=261149639 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -237.32956, 12.085579, 106.38646)
-is_quest_coin = true
-
-[node name="Coin25" parent="CaveCoins" unique_id=1164723626 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -217.86111, 17.624378, 105.36296)
-is_quest_coin = true
-
-[node name="Coin26" parent="CaveCoins" unique_id=867758286 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200.01526, 24.74671, 104.91943)
-is_quest_coin = true
-
-[node name="Coin27" parent="CaveCoins" unique_id=668622521 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -177.86853, 20.841118, 107.53647)
-is_quest_coin = true
-
-[node name="Coin28" parent="CaveCoins" unique_id=1783364841 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -155.92935, 17.284243, 110.05983)
-is_quest_coin = true
-
-[node name="Coin29" parent="CaveCoins" unique_id=589449113 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -133.98773, 13.866854, 112.552475)
-is_quest_coin = true
-
-[node name="Coin30" parent="CaveCoins" unique_id=1715069840 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -111.48699, 14.893757, 115.29826)
-is_quest_coin = true
-
-[node name="Coin31" parent="CaveCoins" unique_id=2087583054 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.39247, 19.37324, 116.715515)
-is_quest_coin = true
-
-[node name="Coin32" parent="CaveCoins" unique_id=942175917 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.758835, 26.464634, 106.60193)
-is_quest_coin = true
-
-[node name="Coin33" parent="CaveCoins" unique_id=1991670399 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.654434, 35.965736, 98.75523)
-is_quest_coin = true
-
-[node name="Coin34" parent="CaveCoins" unique_id=1141870403 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.09619, 36.746758, 109.59534)
-is_quest_coin = true
-
-[node name="Coin35" parent="CaveCoins" unique_id=73405590 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.75311, 40.08388, 125.31221)
-is_quest_coin = true
-
-[node name="Coin36" parent="CaveCoins" unique_id=1666779278 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.24013, 40.555378, 139.19044)
-is_quest_coin = true
-
-[node name="Coin37" parent="CaveCoins" unique_id=1228168046 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.375195, 40.43183, 152.52927)
-is_quest_coin = true
-
-[node name="Coin38" parent="CaveCoins" unique_id=788840851 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.63656, 42.16358, 163.3725)
-is_quest_coin = true
-
-[node name="Coin39" parent="CaveCoins" unique_id=308944033 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.288063, 41.74707, 176.77615)
-is_quest_coin = true
-
-[node name="Coin40" parent="CaveCoins" unique_id=2116742980 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.296173, 37.68689, 179.78056)
-is_quest_coin = true
-
-[node name="Coin41" parent="CaveCoins" unique_id=680354281 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6025543, 29.156815, 174.58856)
-is_quest_coin = true
-
-[node name="Coin42" parent="CaveCoins" unique_id=2062022181 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.076492, 24.102253, 172.4017)
-is_quest_coin = true
-
-[node name="Coin43" parent="CaveCoins" unique_id=368647350 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.71122, 24.405876, 167.91187)
-is_quest_coin = true
-
-[node name="Coin44" parent="CaveCoins" unique_id=987770761 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.08657, 24.137543, 166.0279)
-is_quest_coin = true
-
-[node name="Coin45" parent="CaveCoins" unique_id=1229804243 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.21554, 22.385334, 160.44847)
-is_quest_coin = true
-
-[node name="Coin46" parent="CaveCoins" unique_id=1700120050 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.62772, 20.91802, 155.32083)
-is_quest_coin = true
-
-[node name="Coin47" parent="CaveCoins" unique_id=1429838396 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.27259, 22.298775, 138.90132)
-is_quest_coin = true
-
-[node name="Coin48" parent="CaveCoins" unique_id=1539314378 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.6305, 24.808628, 131.07784)
-is_quest_coin = true
-
-[node name="Coin49" parent="CaveCoins" unique_id=1513378199 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.74598, 25.069155, 116.846695)
-is_quest_coin = true
-
-[node name="Coin50" parent="CaveCoins" unique_id=1286914934 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.2358, 25.13978, 103.68227)
-is_quest_coin = true
-
-[node name="Coin51" parent="CaveCoins" unique_id=435319151 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.785255, 23.981142, 96.83641)
-is_quest_coin = true
-
-[node name="Coin52" parent="CaveCoins" unique_id=821627387 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.11765, 23.700302, 92.29947)
-is_quest_coin = true
-
-[node name="Coin53" parent="CaveCoins" unique_id=1711183408 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.13497, 23.286018, 85.0969)
-is_quest_coin = true
-
-[node name="Coin54" parent="CaveCoins" unique_id=908018590 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.648506, 20.820808, 74.901146)
-is_quest_coin = true
-
-[node name="Coin55" parent="CaveCoins" unique_id=407327777 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.42977, 16.820927, 64.00424)
-is_quest_coin = true
-
-[node name="Coin56" parent="CaveCoins" unique_id=1828080503 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.788, 13.000376, 47.26597)
-is_quest_coin = true
-
-[node name="Coin57" parent="CaveCoins" unique_id=1426351441 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.756386, 11.808981, 37.250633)
-is_quest_coin = true
-
-[node name="Coin58" parent="CaveCoins" unique_id=394823478 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.906364, 15.669426, 26.998611)
-is_quest_coin = true
-
-[node name="Coin59" parent="CaveCoins" unique_id=1212897889 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.998634, 22.083942, 23.482819)
-is_quest_coin = true
-
-[node name="Coin60" parent="CaveCoins" unique_id=982925836 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.566109, 19.820074, 17.693604)
-is_quest_coin = true
-
-[node name="Coin61" parent="CaveCoins" unique_id=1075029732 instance=ExtResource("18_l741m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.702484, 15.037247, 10.244873)
-is_quest_coin = true
-
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1978255836]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.92648, -2.583226, -172.29086)
 material_override = SubResource("StandardMaterial3D_1ug4x")
@@ -2993,3 +2934,10 @@ autoplay = &"new_animation_2"
 
 [node name="Lava" parent="." unique_id=626128903 instance=ExtResource("51_4yckt")]
 transform = Transform3D(0.12999806, 0, 0, 0, 0.12999806, 0, 0, 0, 0.12999806, -70.356476, -29.609509, -9.264885)
+
+[node name="FlightControl" parent="." unique_id=509304927 instance=ExtResource("58_p4u5e")]
+transform = Transform3D(0.9382004, 0, 0.30268693, 0, 0.9858196, 0, -0.30268693, 0, 0.9382004, 80.317825, 18.981823, -118.50677)
+
+[node name="ShopPoint" parent="FlightControl" unique_id=2102423001 instance=ExtResource("43_eltrs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 10)
+shop_name = "City"
