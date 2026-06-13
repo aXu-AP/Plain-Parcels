@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://kxjnuco5kcko"]
 
 [ext_resource type="Script" uid="uid://ctt3yhvq6vaj8" path="res://actors/quest_point/quest_point.gd" id="1_lsniv"]
+[ext_resource type="AudioStream" uid="uid://cxph3nj0jjvnw" path="res://misc/quests/audio/quest_complete.wav" id="2_465nb"]
+[ext_resource type="AudioStream" uid="uid://cldpdt10bdgyq" path="res://misc/quests/audio/quest_check.wav" id="3_lkqcl"]
+[ext_resource type="AudioStream" uid="uid://cmhac0g5k52po" path="res://misc/quests/audio/quest_fail.wav" id="4_fpaky"]
+[ext_resource type="AudioStream" uid="uid://bftbcom1trg6m" path="res://misc/quests/audio/quest_start.wav" id="5_jh61i"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qptmr"]
 radius = 5.0
@@ -96,5 +100,21 @@ billboard = 2
 text = "!"
 font_size = 256
 outline_size = 32
+
+[node name="CompleteAudio" type="AudioStreamPlayer3D" parent="." unique_id=1053597959]
+stream = ExtResource("2_465nb")
+attenuation_model = 3
+
+[node name="CheckAudio" type="AudioStreamPlayer3D" parent="." unique_id=1182195532]
+stream = ExtResource("3_lkqcl")
+attenuation_model = 3
+
+[node name="FailAudio" type="AudioStreamPlayer3D" parent="." unique_id=1723724162]
+stream = ExtResource("4_fpaky")
+attenuation_model = 3
+
+[node name="StartAudio" type="AudioStreamPlayer3D" parent="." unique_id=338947229]
+stream = ExtResource("5_jh61i")
+attenuation_model = 3
 
 [connection signal="body_entered" from="." to="." method="interact" unbinds=1]

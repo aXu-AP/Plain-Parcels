@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bo8ve6ccxni75"]
+
+[ext_resource type="Script" uid="uid://dwij008rhscoo" path="res://misc/quests/audio/quest_audio.gd" id="1_1ci68"]
+[ext_resource type="AudioStream" uid="uid://cxph3nj0jjvnw" path="res://misc/quests/audio/quest_complete.wav" id="1_cnqpt"]
+[ext_resource type="AudioStream" uid="uid://cmhac0g5k52po" path="res://misc/quests/audio/quest_fail.wav" id="2_1ci68"]
+[ext_resource type="AudioStream" uid="uid://cldpdt10bdgyq" path="res://misc/quests/audio/quest_check.wav" id="3_m43ht"]
+[ext_resource type="AudioStream" uid="uid://bftbcom1trg6m" path="res://misc/quests/audio/quest_start.wav" id="4_jcy2d"]
+
+[node name="QuestAudio" type="Node" unique_id=764920640]
+script = ExtResource("1_1ci68")
+
+[node name="CompleteAudio" type="AudioStreamPlayer" parent="." unique_id=1741307893]
+stream = ExtResource("1_cnqpt")
+
+[node name="FailAudio" type="AudioStreamPlayer" parent="." unique_id=1835745994]
+stream = ExtResource("2_1ci68")
+
+[node name="CheckAudio" type="AudioStreamPlayer" parent="." unique_id=2138273723]
+stream = ExtResource("3_m43ht")
+
+[node name="StartAudio" type="AudioStreamPlayer" parent="." unique_id=1267302679]
+stream = ExtResource("4_jcy2d")

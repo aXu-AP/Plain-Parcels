@@ -28,6 +28,7 @@ func _on_area_entered(_area: Area3D) -> void:
 	tween = create_tween()
 	tween.tween_property(self, "lerp_distance", 1, 2).set_ease(Tween.EASE_OUT_IN).set_trans(Tween.TRANS_QUINT)
 	tween.tween_callback(collect)
+	%CollectAudio.play()
 
 
 func _on_flag_added(flag: StringName) -> void:
@@ -44,9 +45,11 @@ func player_damaged() -> void:
 	tween.tween_property($Model, "position", Vector3.ZERO, .3).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BOUNCE)
 	tween.parallel().tween_property($Model, "scale", Vector3.ONE * 0.5, .1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property($Model, "scale", Vector3.ONE * 1.0, .3).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+	%CollectAudio.stop()
 
 
 func collect() -> void:
+	monitoring = false
 	Globals.collect_jewel(quest_name)
 	Globals.add_flag(quest_name)
 	get_parent().remove_child(self)

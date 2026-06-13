@@ -33,6 +33,8 @@ static func collect(target_pos: Vector3) -> void:
 		tween.tween_property(box, "scale", Vector3.ONE * 0.001, time).set_ease(Tween.EASE_IN)
 		tween.set_parallel(false)
 		tween.tween_callback(box.queue_free)
+		
+		box.get_node("%CollectedAudio").play()
 	if box_queue.size() > 0:
 		box_queue.front().target = Player.instance.tail
 
@@ -77,6 +79,7 @@ func damage() -> void:
 	$BoxCrumbled1.visible = crumble_state == 1
 	$BoxCrumbled2.visible = crumble_state == 2
 	$BoxCrumbled3.visible = crumble_state >= 3
+	%DamageAudio.play()
 	if crumble_state > 3:
 		die()
 		quest.end_quest(Quest.EndState.BROKEN)
@@ -103,3 +106,6 @@ func die() -> void:
 	tween.tween_property(self, "rotation:y", time * TAU * 2, time).set_trans(Tween.TRANS_LINEAR)
 	tween.set_parallel(false)
 	tween.tween_callback(queue_free)
+	%CollectedAudio.pitch_scale = .9
+	%CollectedAudio.play()
+	invincible = true

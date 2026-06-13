@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dqlj2hxtiwfyg" path="res://actors/player/plane.tscn" id="2_ilk7j"]
 [ext_resource type="Texture2D" uid="uid://gqjf8skva0fx" path="res://portraits/pilot.png" id="3_lsqbn"]
 [ext_resource type="Script" uid="uid://chs7gu1re51xl" path="res://misc/rotate_billboard.gd" id="4_6p1w3"]
+[ext_resource type="AudioStream" uid="uid://fre557uygx47" path="res://actors/player/engine_loop.wav" id="5_6p1w3"]
+[ext_resource type="AudioStream" uid="uid://csqrj3dqscgin" path="res://actors/player/plane_damage_low.wav" id="6_15y17"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nvxhs"]
 radius = 0.2
@@ -60,6 +62,12 @@ material = SubResource("StandardMaterial3D_15y17")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_nvxhs"]
 radius = 2.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bop6h"]
+random_pitch = 1.122462
+random_volume_offset_db = 2.0
+streams_count = 1
+stream_0/stream = ExtResource("6_15y17")
 
 [node name="Player" type="CharacterBody3D" unique_id=1603607484]
 collision_layer = 2
@@ -143,3 +151,13 @@ shape = SubResource("SphereShape3D_nvxhs")
 [node name="Tail" type="Node3D" parent="." unique_id=516643983]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
+
+[node name="EngineAudio" type="AudioStreamPlayer3D" parent="." unique_id=2106441604]
+unique_name_in_owner = true
+stream = ExtResource("5_6p1w3")
+autoplay = true
+
+[node name="DamageLowAudio" type="AudioStreamPlayer3D" parent="." unique_id=62778627]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_bop6h")
+max_polyphony = 2

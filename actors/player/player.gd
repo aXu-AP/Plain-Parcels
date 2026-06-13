@@ -85,6 +85,8 @@ func _physics_process(delta: float) -> void:
 	process_max_force_fields(delta)
 	move_and_slide()
 	
+	%EngineAudio.pitch_scale = 1 + (_speed - forward_speed) * 0.05 + velocity.y * .01
+	
 	%PlaneModel.propeller_speed = _speed * 1.5
 	%PlaneModel.wings_retracted = is_retracted
 	%PlaneModel.second_seat = has_second_seat
@@ -106,6 +108,7 @@ func update_ability(flag: StringName) -> void:
 func die() -> void:
 	%PlaneModel.visible = false
 	%Explosion.emitting = true
+	%EngineAudio.stop()
 	get_tree().create_timer(2, true, false).timeout.connect(respawn.call_deferred)
 	if is_instance_valid(Quest.active_quest):
 		Quest.active_quest.end_quest(Quest.EndState.CRASH)
@@ -122,6 +125,7 @@ func respawn() -> void:
 	_invincibility_timer = 1.0
 	fix()
 	%PlaneModel.visible = true
+	%EngineAudio.play()
 	respawned.emit()
 
 
@@ -179,6 +183,7 @@ func process_collisions() -> void:
 
 
 func do_damage(amount: int = 3) -> void:
+	%DamageLowAudio.play()
 	health -= amount
 	damaged.emit()
 	_invincibility_timer = .1
@@ -222,7 +227,7 @@ func process_max_height(delta: float) -> void:
 		velocity.y -= ease(remap(global_position.y, current_max_height_soft, current_max_height, 0, 1), 3) * downwards_force
 
 
-func process_max_force_fields(delta: float) -> void:
+func process_max_force_fields(_delta: float) -> void:
 	for a: Area3D in %Interaction.get_overlapping_areas():
 		if a is ForceField:
 			var distance = max(0.01, a.plane.distance_to(global_position))

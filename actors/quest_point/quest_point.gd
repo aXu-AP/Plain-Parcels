@@ -14,6 +14,11 @@ signal quest_ended(end_state: Quest.EndState)
 ## Quest that the action gets sent on interact.
 @export var quest: Quest
 
+@onready var complete_audio: AudioStreamPlayer3D = $CompleteAudio
+@onready var check_audio: AudioStreamPlayer3D = $CheckAudio
+@onready var fail_audio: AudioStreamPlayer3D = $FailAudio
+@onready var start_audio: AudioStreamPlayer3D = $StartAudio
+
 
 func _ready() -> void:
 	update_availability()

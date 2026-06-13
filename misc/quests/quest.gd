@@ -73,6 +73,7 @@ func try_goal(_source: Node3D) -> EndState:
 	goals_left -= 1
 	if goals_left <= 0:
 		return EndState.COMPLETE
+	QuestAudio.check_audio.play()
 	var msg_id = goals - goals_left - 1
 	if mid_goal_messages.size() > msg_id and mid_goal_messages[msg_id]:
 		DialogueBox.queue_message(mid_goal_messages[msg_id], true)
@@ -98,6 +99,7 @@ func start_quest(_source: Node3D) -> bool:
 	started.emit()
 	active_quest = self
 	Globals.quest_started.emit(self)
+	QuestAudio.start_audio.play()
 	return true
 
 
@@ -111,8 +113,10 @@ func end_quest(state: EndState) -> bool:
 	if state == EndState.COMPLETE:
 		status = Status.COMPLETED
 		Globals.add_flag(name)
+		QuestAudio.complete_audio.play()
 	else:
 		status = Status.AVAILABLE
+		QuestAudio.fail_audio.play()
 	var message: Message = end_messages.get(state)
 	if message:
 		DialogueBox.queue_message(message, true)
