@@ -57,6 +57,7 @@
 [ext_resource type="Texture2D" uid="uid://dgp5wrxusc4uj" path="res://portraits/cave/cave_03.png" id="46_o6bsl"]
 [ext_resource type="PackedScene" uid="uid://b0fb80wbjb8pv" path="res://environment/island/rocks/stalactite.glb" id="47_1ug4x"]
 [ext_resource type="Texture2D" uid="uid://dkbnjolsullhb" path="res://portraits/cave/cave_01.png" id="48_nwtrs"]
+[ext_resource type="PackedScene" uid="uid://c154eqihtrknw" path="res://environment/island/text_sign.tscn" id="49_bcnbh"]
 [ext_resource type="PackedScene" uid="uid://ba25c4nxx3s7i" path="res://actors/lava/lava.tscn" id="51_4yckt"]
 [ext_resource type="Resource" uid="uid://bb7cc4vs1em8f" path="res://misc/quests/island/drilling_business.tres" id="56_iif06"]
 [ext_resource type="PackedScene" uid="uid://d2e435382lnrh" path="res://environment/island/island_ocean.glb" id="59_p4u5e"]
@@ -1927,6 +1928,18 @@ transform = Transform3D(0.16012238, 0, -0.98709714, 0, 1, 0, 0.98709714, 0, 0.16
 
 [node name="sign3" parent="Buildings/Signs" unique_id=866859699 instance=ExtResource("42_drl47")]
 transform = Transform3D(0.5496791, 0, -0.8353759, 0, 1, 0, 0.8353759, 0, 0.5496791, 123.13175, -39.412537, -194.83548)
+
+[node name="TextSignA" parent="Buildings" unique_id=326118341 instance=ExtResource("49_bcnbh")]
+transform = Transform3D(0.4098804, 0.8624295, 1.7573314, 1.4901163e-08, 1.7954404, -0.881132, -1.957549, 0.18057936, 0.3679579, -168.72198, -41.842236, -171.97614)
+text = "A"
+
+[node name="TextSignB" parent="Buildings" unique_id=2033304221 instance=ExtResource("49_bcnbh")]
+transform = Transform3D(1.9287398, 0.013848506, -0.52893305, -0.30524826, 1.6621866, -1.0695603, 0.43218696, 1.1121798, 1.6050768, -59.90917, -27.692165, -218.89088)
+text = "B"
+
+[node name="TextSignC" parent="Buildings" unique_id=1213163799 instance=ExtResource("49_bcnbh")]
+transform = Transform3D(1.0196815, -0.8269004, -1.5088027, 0.07134601, 1.7726864, -0.92330515, 1.7190574, 0.41691506, 0.9332861, -5.26737, -24.438833, -170.73415)
+text = "C"
 
 [node name="CSGCombiner3D2" type="CSGCombiner3D" parent="Buildings" unique_id=1438372280]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123.88973, -53.546883, -244.22578)

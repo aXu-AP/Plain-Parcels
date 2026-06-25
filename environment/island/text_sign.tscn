@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c154eqihtrknw"]
+
+[ext_resource type="PackedScene" uid="uid://bnym427guq7sg" path="res://environment/island/sign.glb" id="1_nx8m8"]
+[ext_resource type="Script" uid="uid://5u5oqhe54o1j" path="res://text_sign.gd" id="2_b6iq7"]
+
+[node name="TextSign" unique_id=326118341 instance=ExtResource("1_nx8m8")]
+script = ExtResource("2_b6iq7")
+
+[node name="Cube" parent="." index="0" unique_id=767156765]
+transform = Transform3D(-8.746456e-09, 0, 1.3189785, 0, 1, 0, -0.2000956, 0, -5.7654383e-08, 0, 0, 0)
+
+[node name="Label3D" type="Label3D" parent="." index="1" unique_id=1286246718]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.12901485)
+pixel_size = 0.01
+shaded = true
+double_sided = false
+alpha_cut = 1
+modulate = Color(0.9479415, 0.9514622, 0.9421602, 1)
+text = "TXT"
+font_size = 128
+outline_size = 0
+line_spacing = -90.0
