@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://7b2px7k842e6"]
 
 [ext_resource type="PackedScene" uid="uid://c863v0os4j2pm" path="res://actors/player/player.tscn" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://eb4k6xujdxx1" path="res://environment/city.glb" id="1_fxuss"]
 [ext_resource type="Script" uid="uid://sqxm2w3xub73" path="res://actors/player/player_camera.gd" id="2_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://b50bj3akoxoom" path="res://actors/arrow/arrow.tscn" id="3_dwbse"]
 [ext_resource type="PackedScene" uid="uid://kxjnuco5kcko" path="res://actors/quest_point/quest_point.tscn" id="3_tlwt5"]
@@ -16,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://di3v1ch8fq7j1" path="res://environment/buildings/halfarc_col.glb" id="10_k3n1d"]
 [ext_resource type="Material" uid="uid://dojdg8yber5oq" path="res://materials/walls.material" id="10_xx4tx"]
 [ext_resource type="PackedScene" uid="uid://do3akernwtx10" path="res://environment/buildings/octacon_col.glb" id="11_2o6r5"]
+[ext_resource type="Script" uid="uid://dcu2lrpxxcdaf" path="res://misc/height_override.gd" id="11_tgkqj"]
 [ext_resource type="PackedScene" uid="uid://bi3wjucbqxnds" path="res://environment/house/house.glb" id="11_wplpn"]
 [ext_resource type="PackedScene" uid="uid://cabed1rpt4083" path="res://environment/buildings/crane.tscn" id="13_2o6r5"]
 [ext_resource type="Resource" uid="uid://d381wtj2vlcwy" path="res://misc/quests/city/cookie_delivery.tres" id="13_k4q6i"]
@@ -35,7 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://0ks4o4mvb6yu" path="res://actors/jewel/jewel.tscn" id="21_bc84e"]
 [ext_resource type="Resource" uid="uid://dvvsn5n4bp0jv" path="res://misc/quests/city/bird_feeding_1.tres" id="22_tqocu"]
 [ext_resource type="Script" uid="uid://eb2d8rru8uw5" path="res://misc/exit_trigger.gd" id="23_il2jm"]
-[ext_resource type="Script" uid="uid://pm8hpmyh6iqg" path="res://misc/coin_spawner.gd" id="24_mc2jv"]
+[ext_resource type="Script" path="res://misc/coin_spawner.gd" id="24_mc2jv"]
 [ext_resource type="Resource" uid="uid://dee0v6tjaudxb" path="res://actors/person/city/granny.tres" id="25_xrsn8"]
 [ext_resource type="Resource" uid="uid://ceouj67bs2hjm" path="res://actors/person/city/kid.tres" id="27_fxuss"]
 [ext_resource type="PackedScene" uid="uid://cyya17uhqc7b5" path="res://environment/buildings/fountain.glb" id="27_o3ebs"]
@@ -78,8 +80,23 @@ fog_light_color = Color(0.34994134, 0.51470923, 0.598682, 1)
 fog_density = 0.0003
 fog_sky_affect = 0.0
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_wjb0r"]
-size = Vector3(48.63971, 27.845215, 33.561157)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vs3uv"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fxuss"]
+albedo_color = Color(0.31431612, 0.31431612, 0.3143161, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tgkqj"]
+albedo_color = Color(0.28118682, 0.28118688, 0.28118682, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xrsn8"]
+albedo_color = Color(0.29586658, 0.2958665, 0.29586646, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2b3xb"]
+albedo_color = Color(0.4390491, 0.43904912, 0.43904912, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxuss"]
+size = Vector3(10.712219, 14.745972, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ty1sn"]
 blend_mode = 1
@@ -90,6 +107,9 @@ emission = Color(0.4253705, 0.30066705, 0.16579989, 1)
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_fxuss"]
 height = 5.0
 radius = 2.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wjb0r"]
+size = Vector3(48.63971, 27.845215, 33.561157)
 
 [node name="Node3D" type="Node3D" unique_id=1664355870]
 
@@ -102,9 +122,8 @@ shadow_enabled = true
 directional_shadow_max_distance = 500.0
 
 [node name="Player" parent="." unique_id=1603607484 instance=ExtResource("1_f3sb7")]
-transform = Transform3D(0.918736, 0, -0.3948723, 0, 1, 0, 0.3948723, 0, 0.918736, -240.1718, 6.055277, 67.68586)
+transform = Transform3D(0.918736, 0, -0.3948723, 0, 1, 0, 0.3948723, 0, 0.918736, 18.407043, 3.2893162, -9.360741)
 max_height = 18.0
-max_health = 100
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1020584864 node_paths=PackedStringArray("target")]
 transform = Transform3D(0.9973094, 0, 0.07330779, 0, 0.99999994, 0, -0.0733078, 0, 0.9973093, 1.0441985, 8, 76.58017)
@@ -118,6 +137,8 @@ max_height = 20.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.722046e-06, 2.7869673, -5.040502)
 player = NodePath("../../Player")
 
+[node name="city" parent="." unique_id=1193696281 instance=ExtResource("1_fxuss")]
+
 [node name="Ground" type="CSGCombiner3D" parent="." unique_id=1272723086]
 use_collision = true
 
@@ -127,11 +148,59 @@ polygon = PackedVector2Array(-193.64032, 104.12356, -102.65683, 118.67651, -25.9
 depth = 5.0
 material = ExtResource("4_k4q6i")
 
-[node name="Beach" type="CSGPolygon3D" parent="Ground" unique_id=1864786571]
-transform = Transform3D(0.9982707, -0.05135016, 0.028614093, 0.025164694, -0.06660716, -0.99746186, 0.053125758, 0.99645716, -0.065199785, 0, 10.755627, 0)
+[node name="CSGBox3D" type="CSGBox3D" parent="Ground/Base" unique_id=1540318563]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8811798, 46.490936, -6.2652426)
 operation = 2
-polygon = PackedVector2Array(-321.1871, 25.40429, -284.26465, 21.224386, -262.6685, 29.584192, -244.5556, 45.25882, -229.22928, 48.39375, -214.59961, 53.61861, -197.18338, 65.46168, -182.90204, 75.56311, -154.33942, 79.04635, -144.23795, 77.30474, -118.11359, 79.39469, -103.832275, 85.3162, -93.730804, 93.67602, -75.96625, 100.990845, -63.426575, 101.339165, -51.235107, 106.215706, -34.167236, 118.7554, -24.414124, 129.90181, -12.571106, 137.56496, 10.418396, 140.00325, 27.486328, 142.4415, 42.115967, 149.75633, 52.217407, 154.63289, 67.89203, 157.76782, 82.869995, 160.55443, 106.55615, 174.83575, 119.095825, 181.45393, 144.5235, 183.8922, 162.9848, 193.64531, 180.74933, 208.27495, 218.02014, 228.4778, 199.5589, 246.24239, -230.62259, 156.37451, -334.7718, 64.4167)
-depth = 5.46
+size = Vector3(12.141083, 61.204834, 3.2338562)
+material = SubResource("StandardMaterial3D_vs3uv")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Ground/Base" unique_id=853135177]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 19.142422, 77.53233, -7.4937606)
+operation = 2
+size = Vector3(48.742058, 5.540039, 10.827507)
+material = SubResource("StandardMaterial3D_vs3uv")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Ground/Base" unique_id=1612068340]
+transform = Transform3D(0.8006478, -7.856711e-08, -0.5991354, -0.5991354, -1.756949e-08, -0.8006478, 5.2378084e-08, 1, -6.113932e-08, -6.4950705, 79.110016, -7.426134)
+operation = 2
+size = Vector3(11.180099, 5.9907227, 9.672054)
+material = SubResource("StandardMaterial3D_vs3uv")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Ground/Base" unique_id=254445403]
+transform = Transform3D(0.9999902, -5.8134253e-10, -0.004433088, -0.004433088, -4.371008e-08, -0.9999902, 3.8755832e-10, 1, -4.371224e-08, -19.915627, 82.33047, -7.6706333)
+operation = 2
+size = Vector3(23.94921, 6.4016876, 8.029098)
+material = SubResource("StandardMaterial3D_vs3uv")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Ground/Base" unique_id=1849898524]
+transform = Transform3D(0.9999902, -5.8134253e-10, -0.004433088, -0.004433088, -4.371008e-08, -0.9999902, 3.8755832e-10, 1, -4.371224e-08, -25.158741, 82.353714, -7.6706333)
+operation = 2
+size = Vector3(34.435543, 6.4016876, 8.029098)
+material = SubResource("StandardMaterial3D_vs3uv")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Ground/Base" unique_id=1997839423]
+transform = Transform3D(0.511578, 1.1267528e-07, 0.8592369, 0.8592369, 2.0337415e-08, -0.511578, -7.511686e-08, 1, -8.6410594e-08, -14.965532, 8.615465, -7.6706305)
+operation = 2
+size = Vector3(16.937134, 6.4016876, 8.029098)
+material = SubResource("StandardMaterial3D_vs3uv")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Ground/Base" unique_id=1982599704]
+transform = Transform3D(0.86627835, 6.5509575e-08, 0.49956173, 0.49956173, -2.6175904e-08, -0.86627835, -4.3673055e-08, 1, -5.5401713e-08, -5.264857, 18.133108, -7.6706305)
+operation = 2
+size = Vector3(16.937134, 6.4016876, 8.029098)
+material = SubResource("StandardMaterial3D_vs3uv")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Ground/Base" unique_id=605692281]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -33.46864, 105.89999, -7.6706333)
+operation = 2
+size = Vector3(46.08911, 6.4016876, 17.826391)
+material = SubResource("StandardMaterial3D_vs3uv")
+
+[node name="Beach" type="CSGPolygon3D" parent="Ground" unique_id=1864786571]
+transform = Transform3D(0.9980661, -0.050618593, 0.03607973, 0.031723015, -0.08437937, -0.9959286, 0.05345691, 0.9951473, -0.08261044, -2.724968, 10.755627, 13.463432)
+operation = 2
+polygon = PackedVector2Array(-321.1871, 25.40429, -284.26465, 21.224386, -262.6685, 29.584192, -244.5556, 45.25882, -229.22928, 48.39375, -214.59961, 53.61861, -197.18338, 65.46168, -182.90204, 75.56311, -154.33942, 79.04635, -144.23795, 77.30474, -118.11359, 79.39469, -103.832275, 85.3162, -93.730804, 93.67602, -75.96625, 100.990845, -63.426575, 101.339165, -51.235107, 106.215706, -34.167236, 118.7554, -24.414124, 129.90181, -12.571106, 137.56496, 10.418396, 140.00325, 27.486328, 142.4415, 42.115967, 149.75633, 52.217407, 154.63289, 67.89203, 157.76782, 82.869995, 160.55443, 106.55615, 174.83575, 119.095825, 181.45393, 144.5235, 183.8922, 162.9848, 193.64531, 180.74933, 208.27495, 218.02014, 228.4778, 199.5589, 246.24239, -269.9139, 140.31631, -334.7718, 64.4167)
+depth = 8.53
 material = ExtResource("4_2hkdo")
 
 [node name="ParkBase" type="CSGPolygon3D" parent="Ground" unique_id=54823652]
@@ -180,6 +249,7 @@ material = ExtResource("6_nvayt")
 
 [node name="Walls" type="CSGPolygon3D" parent="Ground" unique_id=841632268]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+visible = false
 polygon = PackedVector2Array(-285.1547, 29.894066, -257.15, 41.410027, -226.00458, 9.741165, -225.74284, -24.283226, -210.03929, -50.194107, -198.26161, -85.78885, -189.1012, -110.3911, -166.0693, -128.45021, -139.11153, -142.3217, -97.23535, -148.86484, -57.191273, -141.01305, -3.0139647, -140.48961, 32.58076, -141.01305, 77.59764, -135.25508, 118.95039, -127.66502, 147.21678, -96.519615, 166.06108, -49.670647, 187.78432, -27.42393, 189.87813, 17.854664, 186.4757, 73.864044, 195.11269, 110.5057, 185.77278, 139.60606, 170.85439, 156.87999, 140.49416, 172.84529, 124.7906, 187.76367, 122.173355, 208.1783, 142.84969, 223.0967, 206.1874, 230.94847, 213.92393, -218.95131, -224.05145, -209.7483)
 depth = 25.09
 smooth_faces = true
@@ -198,6 +268,619 @@ polygon = PackedVector2Array(0.064971924, -0.017880201, 0.8085022, 0.4553547, 2.
 depth = 4.0
 smooth_faces = true
 material = ExtResource("8_6sqxf")
+
+[node name="Construction" type="CSGPolygon3D" parent="Ground" unique_id=1885623169]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 107.24968, 0, 41.20746)
+polygon = PackedVector2Array(96.665115, -16.944473, 50.84459, -21.720428, 16.935417, -16.3526, -14.348022, -2.093155, -22.084839, 34.31864, -24.033783, 65.973785, -23.205093, 97.0499, -4.973755, 117.35297, 35.263245, 148.69806, 80.03993, 150.19061, 98.448135, 89.99083, 105.413376, 45.71167)
+
+[node name="Moat" type="CSGBox3D" parent="Ground" unique_id=1714857311]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.2566, 2.346489, -87.0535)
+operation = 2
+size = Vector3(12.256577, 10.86702, 195.50995)
+material = SubResource("StandardMaterial3D_fxuss")
+
+[node name="Moat2" type="CSGBox3D" parent="Ground" unique_id=1968949310]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 126.299736, 3.9292183, 5.850239)
+operation = 2
+size = Vector3(156.90067, 10.24305, 13.532433)
+material = SubResource("StandardMaterial3D_tgkqj")
+
+[node name="Hill" type="CSGCombiner3D" parent="." unique_id=1353533368]
+material_override = SubResource("StandardMaterial3D_xrsn8")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Hill" unique_id=474157279]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.20372, 9.34385, -73.33913)
+size = Vector3(140.3713, 22.0977, 144.12155)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Hill/CSGBox3D" unique_id=36367969]
+transform = Transform3D(0.51714593, 0.8558972, 0, -0.8558972, 0.51714593, 0, 0, 0, 1, -59.490578, 12.456527, 43.773308)
+operation = 2
+size = Vector3(25.268555, 49.68639, 15.126526)
+
+[node name="Area3D" type="Area3D" parent="Hill" unique_id=205126811]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("11_tgkqj")
+new_max_height = 38.0
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Hill/Area3D" unique_id=1792327412]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 27.419336, 0)
+depth = 59.065
+polygon = PackedVector2Array(170.63086, -3.8378925, 58.54191, -4.644289, 58.00431, -120.7652, 119.82794, -119.9588, 146.7078, -67.54311, 170.63086, -30.44893)
+
+[node name="Nature" type="Node3D" parent="." unique_id=1635315947]
+
+[node name="ParkTrees" type="Node3D" parent="Nature" unique_id=1350425910]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -149.02005, 0, 1.7971344)
+
+[node name="Spruce" parent="Nature/ParkTrees" unique_id=1175311855 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.16484, 2.0000002, -11.274685)
+
+[node name="Spruce3" parent="Nature/ParkTrees" unique_id=917894971 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.574234, 2.0000002, -46.56853)
+
+[node name="Spruce4" parent="Nature/ParkTrees" unique_id=692938262 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.481598, 2.0000002, -34.831703)
+
+[node name="Spruce5" parent="Nature/ParkTrees" unique_id=1817894808 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.654633, 3.0000002, -10.453853)
+
+[node name="Spruce6" parent="Nature/ParkTrees" unique_id=801013646 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0330353, 3.0000002, -9.085804)
+
+[node name="Spruce7" parent="Nature/ParkTrees" unique_id=1897134781 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.426941, 3.0000002, -1.9719658)
+
+[node name="Spruce8" parent="Nature/ParkTrees" unique_id=1493103277 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.30275, 2.0000002, 10.61405)
+
+[node name="Spruce9" parent="Nature/ParkTrees" unique_id=740665694 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.580261, 2.0000002, 20.919996)
+
+[node name="Spruce10" parent="Nature/ParkTrees" unique_id=958903160 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.377029, 3.0000002, 26.848192)
+
+[node name="Spruce11" parent="Nature/ParkTrees" unique_id=1956259466 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.464996, 2.0000002, 14.535791)
+
+[node name="Spruce12" parent="Nature/ParkTrees" unique_id=1001864413 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.067184, 2.0000002, 6.236314)
+
+[node name="Spruce13" parent="Nature/ParkTrees" unique_id=1360933246 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.121475, 2.0000002, 2.7705994)
+
+[node name="Spruce14" parent="Nature/ParkTrees" unique_id=96584284 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.28772, 2.0000002, -2.0631647)
+
+[node name="Spruce15" parent="Nature/ParkTrees" unique_id=410723227 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.84465, 2.0000002, -6.3497114)
+
+[node name="Spruce16" parent="Nature/ParkTrees" unique_id=1552940925 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.64627, 2.0000002, -77.971725)
+
+[node name="Spruce17" parent="Nature/ParkTrees" unique_id=752741652 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.71176, 2.0000002, -74.23268)
+
+[node name="Spruce27" parent="Nature/ParkTrees" unique_id=399637264 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.053909, 2.0000002, -68.05774)
+
+[node name="Spruce28" parent="Nature/ParkTrees" unique_id=651731677 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5850067, 2.0000002, -57.461525)
+
+[node name="Spruce29" parent="Nature/ParkTrees" unique_id=690255558 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.732117, 2.0000002, -92.506355)
+
+[node name="Spruce30" parent="Nature/ParkTrees" unique_id=899204094 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.69658, 2.0000002, -70.829056)
+
+[node name="Spruce31" parent="Nature/ParkTrees" unique_id=900762184 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.29602, 2.0000002, -82.58797)
+
+[node name="Spruce32" parent="Nature/ParkTrees" unique_id=66607408 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.802826, 2.0000002, -133.26146)
+
+[node name="Spruce33" parent="Nature/ParkTrees" unique_id=1639495541 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.666122, 2.0000002, -140.31842)
+
+[node name="Spruce34" parent="Nature/ParkTrees" unique_id=209792609 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.43892, 2.0000002, -127.48328)
+
+[node name="Spruce35" parent="Nature/ParkTrees" unique_id=856180809 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.25908, 2.0000002, -122.93651)
+
+[node name="Spruce18" parent="Nature/ParkTrees" unique_id=1739666333 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.987366, 2.0000002, -65.1869)
+
+[node name="Spruce19" parent="Nature/ParkTrees" unique_id=150953785 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.850647, 2.0000002, -33.61942)
+
+[node name="Spruce20" parent="Nature/ParkTrees" unique_id=2071204902 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.60196, 2.0000002, -20.784948)
+
+[node name="Spruce21" parent="Nature/ParkTrees" unique_id=1685610189 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.921387, 3.9999983, 25.932539)
+
+[node name="Spruce22" parent="Nature/ParkTrees" unique_id=1186112021 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.38681, 2.0000002, 31.043533)
+
+[node name="Spruce23" parent="Nature/ParkTrees" unique_id=1789797895 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.18756, 2.0000002, 1.22015)
+
+[node name="Spruce24" parent="Nature/ParkTrees" unique_id=1570046060 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.93335, 2.0000002, 8.060371)
+
+[node name="Spruce25" parent="Nature/ParkTrees" unique_id=1671807690 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.366745, 2.0000002, 11.161269)
+
+[node name="Spruce26" parent="Nature/ParkTrees" unique_id=1528919375 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.7348, 2.0000002, 18.457516)
+
+[node name="Spruce2" parent="Nature/ParkTrees" unique_id=1827228761 instance=ExtResource("16_k4q6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.197037, 2.0000002, -19.151016)
+
+[node name="BeachTrees" type="Node3D" parent="Nature" unique_id=6075956]
+transform = Transform3D(0.4111167, 0, -0.9115827, 0, 1, 0, 0.9115827, 0, 0.4111167, -225.91261, 0.23300552, 55.363216)
+
+[node name="palm" parent="Nature/BeachTrees" unique_id=1015749988 instance=ExtResource("15_6sqxf")]
+
+[node name="palm2" parent="Nature/BeachTrees" unique_id=1610837011 instance=ExtResource("15_6sqxf")]
+transform = Transform3D(0.9841399, 0, -0.17739391, 0, 1, 0, 0.17739391, 0, 0.9841399, -3.974594, 0, 13.907928)
+
+[node name="palm3" parent="Nature/BeachTrees" unique_id=199061316 instance=ExtResource("15_6sqxf")]
+transform = Transform3D(0.35815614, 0, -0.9336617, 0, 1, 0, 0.9336617, 0, 0.35815614, 12.565289, 0, -7.2470703)
+
+[node name="palm4" parent="Nature/BeachTrees" unique_id=1772906090 instance=ExtResource("15_6sqxf")]
+transform = Transform3D(0.69208014, 0, -0.7218206, 0, 1, 0, 0.7218206, 0, 0.69208014, 35.196682, 0, -30.543518)
+
+[node name="palm5" parent="Nature/BeachTrees" unique_id=1776347981 instance=ExtResource("15_6sqxf")]
+transform = Transform3D(0.69208014, 0, -0.7218206, 0, 1, 0, 0.7218206, 0, 0.69208014, 35.196667, -0.33897322, -30.543533)
+
+[node name="palm6" parent="Nature/BeachTrees" unique_id=1656186998 instance=ExtResource("15_6sqxf")]
+transform = Transform3D(0.69208014, 0, -0.7218206, 0, 1, 0, 0.7218206, 0, 0.69208014, 58.40086, -0.33897322, -49.57347)
+
+[node name="palm7" parent="Nature/BeachTrees" unique_id=1083702763 instance=ExtResource("15_6sqxf")]
+transform = Transform3D(0.40753362, 0, -0.91319, 0, 1, 0, 0.91319, 0, 0.40753362, 78.85437, -0.33897322, -73.16255)
+
+[node name="palm8" parent="Nature/BeachTrees" unique_id=1544181085 instance=ExtResource("15_6sqxf")]
+transform = Transform3D(0.40753365, 0, -0.91319, 0, 1, 0, 0.91319, 0, 0.40753365, 102.24036, -0.78081435, -88.03734)
+
+[node name="palm9" parent="Nature/BeachTrees" unique_id=395888599 instance=ExtResource("15_6sqxf")]
+transform = Transform3D(0.1710521, 0, -0.9852617, 0, 1, 0, 0.9852617, 0, 0.1710521, 113.38394, -0.78081435, -101.92442)
+
+[node name="palm10" parent="Nature/BeachTrees" unique_id=1746402799 instance=ExtResource("15_6sqxf")]
+transform = Transform3D(0.22102085, 0, -0.97526884, 0, 1, 0, 0.97526884, 0, 0.22102085, 128.64021, -0.78081435, -113.55948)
+
+[node name="palm11" parent="Nature/BeachTrees" unique_id=227367582 instance=ExtResource("15_6sqxf")]
+transform = Transform3D(0.22102088, 0, -0.97526884, 0, 1, 0, 0.97526884, 0, 0.22102088, 142.11942, -0.78081435, -126.29286)
+
+[node name="palm12" parent="Nature/BeachTrees" unique_id=1376838307 instance=ExtResource("15_6sqxf")]
+transform = Transform3D(0.45245016, 0, -0.89178944, 0, 1, 0, 0.89178944, 0, 0.45245016, 156.38081, -0.78081435, -138.73755)
+
+[node name="palm13" parent="Nature/BeachTrees" unique_id=1386894506 instance=ExtResource("15_6sqxf")]
+transform = Transform3D(0.45245016, 0, -0.89178944, 0, 1, 0, 0.89178944, 0, 0.45245016, 169.51433, -0.78081435, -150.00795)
+
+[node name="palm14" parent="Nature/BeachTrees" unique_id=70567486 instance=ExtResource("15_6sqxf")]
+transform = Transform3D(0.45245016, 0, -0.89178944, 0, 1, 0, 0.89178944, 0, 0.45245016, 181.34604, -0.64520377, -162.4189)
+
+[node name="palm15" parent="Nature/BeachTrees" unique_id=767249197 instance=ExtResource("15_6sqxf")]
+transform = Transform3D(0.6683778, 0, -0.7438216, 0, 1, 0, 0.7438216, 0, 0.6683778, 200.08694, -0.64520377, -170.96732)
+
+[node name="palm16" parent="Nature/BeachTrees" unique_id=699885755 instance=ExtResource("15_6sqxf")]
+transform = Transform3D(0.3796013, 0, -0.9251498, 0, 1, 0, 0.9251498, 0, 0.3796013, 199.50496, -0.6452076, -183.54758)
+
+[node name="palm17" parent="Nature/BeachTrees" unique_id=1615904528 instance=ExtResource("15_6sqxf")]
+transform = Transform3D(0.3796013, 0, -0.92514974, 0, 1, 0, 0.92514974, 0, 0.3796013, 224.49101, -0.6452076, -194.82532)
+
+[node name="palm18" parent="Nature/BeachTrees" unique_id=1665060973 instance=ExtResource("15_6sqxf")]
+transform = Transform3D(0.3796013, 0, -0.92514974, 0, 1, 0, 0.92514974, 0, 0.3796013, 234.95828, -0.6452076, -227.4079)
+
+[node name="palm19" parent="Nature/BeachTrees" unique_id=1974998751 instance=ExtResource("15_6sqxf")]
+transform = Transform3D(0.3796013, 0, -0.92514974, 0, 1, 0, 0.92514974, 0, 0.3796013, 240.82661, -0.6452076, -250.62259)
+
+[node name="palm20" parent="Nature/BeachTrees" unique_id=365368508 instance=ExtResource("15_6sqxf")]
+transform = Transform3D(0.3796013, 0, -0.92514974, 0, 1, 0, 0.92514974, 0, 0.3796013, 258.8208, -0.6452076, -247.38385)
+
+[node name="palm21" parent="Nature/BeachTrees" unique_id=1038888269 instance=ExtResource("15_6sqxf")]
+transform = Transform3D(0.3796013, 0, -0.92514974, 0, 1, 0, 0.92514974, 0, 0.3796013, 253.86337, -0.6452076, -222.88498)
+
+[node name="Coins" type="Node3D" parent="." unique_id=1911167328]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.441293, 3.031218, 61.758102)
+
+[node name="Coin" parent="Coins" unique_id=1555685369 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Coin2" parent="Coins" unique_id=1050796054 instance=ExtResource("19_26xuy")]
+
+[node name="Coin3" parent="Coins" unique_id=1632388706 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="Coin4" parent="Coins" unique_id=1622041930 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+
+[node name="Coin5" parent="Coins" unique_id=2003584268 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.174762, 0, -17.66269)
+
+[node name="Coin6" parent="Coins" unique_id=695989172 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.174762, 0, -20.66269)
+
+[node name="Coin7" parent="Coins" unique_id=344362303 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.174762, 0, -23.66269)
+
+[node name="Coin8" parent="Coins" unique_id=1461484566 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.174762, 0, -27.66269)
+
+[node name="ParkCoins" type="Node3D" parent="Coins" unique_id=703097759]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -147.67146, -3.031218, -72.84669)
+
+[node name="Coin" parent="Coins/ParkCoins" unique_id=1389587431 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.11929, 3.7999992, 34.275333)
+
+[node name="Coin2" parent="Coins/ParkCoins" unique_id=2005500169 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.23201, 3.7999992, 33.10956)
+
+[node name="Coin3" parent="Coins/ParkCoins" unique_id=70601821 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.851486, 3.7999992, 34.00631)
+
+[node name="Coin4" parent="Coins/ParkCoins" unique_id=1652997030 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.11229, 3.7999992, 37.144936)
+
+[node name="Coin5" parent="Coins/ParkCoins" unique_id=1207989676 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.969543, 3.7999992, 38.22104)
+
+[node name="Coin6" parent="Coins/ParkCoins" unique_id=1302470619 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.095825, 3.7999992, 38.62458)
+
+[node name="Coin7" parent="Coins/ParkCoins" unique_id=726234467 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.863403, 3.7999992, 37.817505)
+
+[node name="Coin8" parent="Coins/ParkCoins" unique_id=577864811 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.124207, 3.7999992, 36.15852)
+
+[node name="Coin9" parent="Coins/ParkCoins" unique_id=1411605707 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.057571, 3.7999992, 32.795704)
+
+[node name="Coin10" parent="Coins/ParkCoins" unique_id=1846250774 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.663498, 3.7999992, 28.401628)
+
+[node name="Coin11" parent="Coins/ParkCoins" unique_id=439761268 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.062927, 3.7999992, 22.976288)
+
+[node name="Coin12" parent="Coins/ParkCoins" unique_id=2067536440 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.982712, 3.7999992, 19.344448)
+
+[node name="Coin13" parent="Coins/ParkCoins" unique_id=1575905282 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.095428, 3.7999992, 17.192245)
+
+[node name="Coin14" parent="Coins/ParkCoins" unique_id=1281461884 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.315506, 3.7999992, 12.708494)
+
+[node name="Coin15" parent="Coins/ParkCoins" unique_id=3184149 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7774506, 3.7999992, 2.2613525)
+
+[node name="Coin16" parent="Coins/ParkCoins" unique_id=95564300 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.701355, 3.7999992, -3.074314)
+
+[node name="Coin17" parent="Coins/ParkCoins" unique_id=972665659 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9349976, 3.7999992, -8.185791)
+
+[node name="Coin18" parent="Coins/ParkCoins" unique_id=1601512099 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.266159, 3.7999992, -10.56218)
+
+[node name="Coin19" parent="Coins/ParkCoins" unique_id=631386751 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.184708, 3.7999992, -11.100229)
+
+[node name="Coin20" parent="Coins/ParkCoins" unique_id=1630864770 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.475525, 3.7999992, -8.992865)
+
+[node name="Coin21" parent="Coins/ParkCoins" unique_id=1050855529 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.093796, 3.7999992, -5.4058647)
+
+[node name="Coin22" parent="Coins/ParkCoins" unique_id=1916163770 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.622375, 3.7999992, -2.8501263)
+
+[node name="Coin23" parent="Coins/ParkCoins" unique_id=475237034 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.182228, 3.7999992, -2.8501263)
+
+[node name="Coin24" parent="Coins/ParkCoins" unique_id=750032688 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.33854, 3.7999992, -4.7333)
+
+[node name="Coin25" parent="Coins/ParkCoins" unique_id=746836120 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.746193, 3.7999992, -9.306728)
+
+[node name="Coin26" parent="Coins/ParkCoins" unique_id=2006694129 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.988068, 3.7999992, -14.418205)
+
+[node name="Coin27" parent="Coins/ParkCoins" unique_id=1813928347 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.198677, 3.7999992, -20.112572)
+
+[node name="Coin28" parent="Coins/ParkCoins" unique_id=2017499099 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.005745, 3.7999992, -25.851776)
+
+[node name="Coin29" parent="Coins/ParkCoins" unique_id=405386672 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.14025, 3.7999992, -31.72549)
+
+[node name="Coin30" parent="Coins/ParkCoins" unique_id=839622074 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.243507, 3.7999992, -37.01632)
+
+[node name="Coin31" parent="Coins/ParkCoins" unique_id=136488542 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.0913, 3.7999992, -42.351982)
+
+[node name="Coin32" parent="Coins/ParkCoins" unique_id=1921457779 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.638817, 3.7999992, -46.432198)
+
+[node name="Coin33" parent="Coins/ParkCoins" unique_id=117600768 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.020554, 3.7999992, -50.153713)
+
+[node name="Coin34" parent="Coins/ParkCoins" unique_id=1481475104 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.913185, 3.7999992, -55.22036)
+
+[node name="BeachCoins" type="Node3D" parent="Coins" unique_id=1419342177]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.419022, -3.0312104, 88.51134)
+script = ExtResource("24_mc2jv")
+quest = ExtResource("32_6sqxf")
+
+[node name="HomelessPerson" parent="Coins/BeachCoins" unique_id=1045618670 instance=ExtResource("15_hiqwa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.02863, 1.0082533, 29.625885)
+character = ExtResource("42_vs3uv")
+metadata/_edit_group_ = true
+
+[node name="BeachCoinsQuestPoint" parent="Coins/BeachCoins/HomelessPerson" unique_id=1508452915 instance=ExtResource("3_tlwt5")]
+required_flags = Array[StringName]([&"Boost"])
+quest = ExtResource("32_6sqxf")
+
+[node name="ShadyQuestPoint" parent="Coins/BeachCoins/HomelessPerson" unique_id=525935166 instance=ExtResource("3_tlwt5")]
+action = 1
+quest = ExtResource("17_cpdoo")
+
+[node name="FriendQuestPoint" parent="Coins/BeachCoins/HomelessPerson" unique_id=1480226990 instance=ExtResource("3_tlwt5")]
+action = 3
+quest = ExtResource("15_6frpt")
+
+[node name="PenPals1QuestPoint" parent="Coins/BeachCoins/HomelessPerson" unique_id=887872562 instance=ExtResource("3_tlwt5")]
+action = 2
+quest = ExtResource("16_xrsn8")
+
+[node name="BeachCoinsQuestPoint2" parent="Coins/BeachCoins" unique_id=676503088 instance=ExtResource("3_tlwt5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -169.34738, -3.8146973e-06, -71.71955)
+action = 1
+quest = ExtResource("32_6sqxf")
+
+[node name="Coin01" parent="Coins/BeachCoins" unique_id=1513854474 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.59318, 3.031218, 28.340378)
+is_quest_coin = true
+
+[node name="Coin02" parent="Coins/BeachCoins" unique_id=1900735735 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.26825, 3.031218, 31.313751)
+is_quest_coin = true
+
+[node name="Coin03" parent="Coins/BeachCoins" unique_id=2059985834 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.99726, 3.031218, 33.47621)
+is_quest_coin = true
+
+[node name="Coin04" parent="Coins/BeachCoins" unique_id=722726458 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.18565, 3.031218, 33.881683)
+is_quest_coin = true
+
+[node name="Coin05" parent="Coins/BeachCoins" unique_id=960399157 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.455284, 3.031218, 31.584076)
+is_quest_coin = true
+
+[node name="Coin06" parent="Coins/BeachCoins" unique_id=1099848600 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.563133, 3.031218, 26.177933)
+is_quest_coin = true
+
+[node name="Coin07" parent="Coins/BeachCoins" unique_id=1734372459 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.547424, 3.031218, 17.865982)
+is_quest_coin = true
+
+[node name="Coin08" parent="Coins/BeachCoins" unique_id=1330212966 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.77678, 3.031218, 16.244125)
+is_quest_coin = true
+
+[node name="Coin09" parent="Coins/BeachCoins" unique_id=2068495755 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.208855, 3.031218, 14.284393)
+is_quest_coin = true
+
+[node name="Coin10" parent="Coins/BeachCoins" unique_id=1722039190 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.505787, 3.031218, 12.121933)
+is_quest_coin = true
+
+[node name="Coin11" parent="Coins/BeachCoins" unique_id=885884867 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.32006, 3.031218, 2.2649841)
+is_quest_coin = true
+
+[node name="Coin12" parent="Coins/BeachCoins" unique_id=1839304568 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4888115, 3.031218, 1.7185974)
+is_quest_coin = true
+
+[node name="Coin13" parent="Coins/BeachCoins" unique_id=1097779584 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.905926, 3.031218, 0.9238739)
+is_quest_coin = true
+
+[node name="Coin14" parent="Coins/BeachCoins" unique_id=727275049 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.07468, 3.031218, 0.2284851)
+is_quest_coin = true
+
+[node name="Coin15" parent="Coins/BeachCoins" unique_id=274615750 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.491787, 3.031218, -0.715271)
+is_quest_coin = true
+
+[node name="Coin16" parent="Coins/BeachCoins" unique_id=809065714 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31313705, 3.031218, -3.4968567)
+is_quest_coin = true
+
+[node name="Coin17" parent="Coins/BeachCoins" unique_id=491131860 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8463554, 3.031218, -4.639282)
+is_quest_coin = true
+
+[node name="Coin18" parent="Coins/BeachCoins" unique_id=1334808388 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2802353, 3.031218, -5.8810577)
+is_quest_coin = true
+
+[node name="Coin19" parent="Coins/BeachCoins" unique_id=245643043 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7637863, 3.031218, -7.0234985)
+is_quest_coin = true
+
+[node name="Coin20" parent="Coins/BeachCoins" unique_id=1958580980 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.09832, 3.031218, -8.265259)
+is_quest_coin = true
+
+[node name="Coin21" parent="Coins/BeachCoins" unique_id=1994047348 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.562119, 3.031218, -10.997162)
+is_quest_coin = true
+
+[node name="Coin22" parent="Coins/BeachCoins" unique_id=1816878201 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.542381, 3.031218, -12.08992)
+is_quest_coin = true
+
+[node name="Coin23" parent="Coins/BeachCoins" unique_id=1143848405 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.621979, 3.031218, -13.182678)
+is_quest_coin = true
+
+[node name="Coin24" parent="Coins/BeachCoins" unique_id=1196570204 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.651917, 3.031218, -14.225769)
+is_quest_coin = true
+
+[node name="Coin25" parent="Coins/BeachCoins" unique_id=8867499 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.38382, 3.031218, -15.517212)
+is_quest_coin = true
+
+[node name="Coin26" parent="Coins/BeachCoins" unique_id=968869731 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.149483, 14.393917, -26.280388)
+is_quest_coin = true
+
+[node name="Coin27" parent="Coins/BeachCoins" unique_id=1814171639 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.938484, 14.393917, -21.664734)
+is_quest_coin = true
+
+[node name="Coin28" parent="Coins/BeachCoins" unique_id=1466677756 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.23854, 14.393917, -22.434006)
+is_quest_coin = true
+
+[node name="Coin29" parent="Coins/BeachCoins" unique_id=846246545 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.46927, 14.393917, -27.029945)
+is_quest_coin = true
+
+[node name="Coin30" parent="Coins/BeachCoins" unique_id=1585317826 instance=ExtResource("19_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.049065, 14.393917, -24.248718)
+is_quest_coin = true
+
+[node name="Coin31" parent="Coins/BeachCoins" unique_id=1193867105 instance=ExtResource("19_26xuy")]
+transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -62.787285, 14.393917, -30.48993)
+is_quest_coin = true
+
+[node name="Coin32" parent="Coins/BeachCoins" unique_id=1582693707 instance=ExtResource("19_26xuy")]
+transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -67.308334, 14.393917, -31.709335)
+is_quest_coin = true
+
+[node name="Coin33" parent="Coins/BeachCoins" unique_id=1404353305 instance=ExtResource("19_26xuy")]
+transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -66.138245, 14.393917, -35.91803)
+is_quest_coin = true
+
+[node name="Coin34" parent="Coins/BeachCoins" unique_id=881418483 instance=ExtResource("19_26xuy")]
+transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -61.63497, 14.393917, -34.720123)
+is_quest_coin = true
+
+[node name="Coin35" parent="Coins/BeachCoins" unique_id=1824243266 instance=ExtResource("19_26xuy")]
+transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -64.53739, 14.393917, -33.567665)
+is_quest_coin = true
+
+[node name="Coin36" parent="Coins/BeachCoins" unique_id=16747724 instance=ExtResource("19_26xuy")]
+transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -86.9667, 3.301, -45.879593)
+is_quest_coin = true
+
+[node name="Coin37" parent="Coins/BeachCoins" unique_id=1532577293 instance=ExtResource("19_26xuy")]
+transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -90.53485, 3.301, -45.853996)
+is_quest_coin = true
+
+[node name="Coin38" parent="Coins/BeachCoins" unique_id=688422607 instance=ExtResource("19_26xuy")]
+transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -94.28932, 3.301, -44.82962)
+is_quest_coin = true
+
+[node name="Coin39" parent="Coins/BeachCoins" unique_id=1829916317 instance=ExtResource("19_26xuy")]
+transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -97.90904, 3.301, -43.253975)
+is_quest_coin = true
+
+[node name="Coin40" parent="Coins/BeachCoins" unique_id=321167744 instance=ExtResource("19_26xuy")]
+transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -101.060326, 3.301, -40.99697)
+is_quest_coin = true
+
+[node name="Coin41" parent="Coins/BeachCoins" unique_id=646766612 instance=ExtResource("19_26xuy")]
+transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -105.148476, 3.301, -40.52854)
+is_quest_coin = true
+
+[node name="Coin42" parent="Coins/BeachCoins" unique_id=1713326064 instance=ExtResource("19_26xuy")]
+transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -108.25718, 3.301, -43.466904)
+is_quest_coin = true
+
+[node name="Coin43" parent="Coins/BeachCoins" unique_id=773274906 instance=ExtResource("19_26xuy")]
+transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -109.492134, 3.301, -47.89573)
+is_quest_coin = true
+
+[node name="Coin44" parent="Coins/BeachCoins" unique_id=406822716 instance=ExtResource("19_26xuy")]
+transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -109.108864, 4.301, -52.58007)
+is_quest_coin = true
+
+[node name="Coin45" parent="Coins/BeachCoins" unique_id=1958206331 instance=ExtResource("19_26xuy")]
+transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -106.81107, 5.301, -55.554108)
+is_quest_coin = true
+
+[node name="Coin46" parent="Coins/BeachCoins" unique_id=242614176 instance=ExtResource("19_26xuy")]
+transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -103.35491, 6.301, -56.43972)
+is_quest_coin = true
+
+[node name="Coin47" parent="Coins/BeachCoins" unique_id=130375327 instance=ExtResource("19_26xuy")]
+transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -100.602394, 7.301001, -53.910316)
+is_quest_coin = true
+
+[node name="Coin48" parent="Coins/BeachCoins" unique_id=668656424 instance=ExtResource("19_26xuy")]
+transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -101.78181, 8.301001, -50.330803)
+is_quest_coin = true
+
+[node name="Coin49" parent="Coins/BeachCoins" unique_id=725759535 instance=ExtResource("19_26xuy")]
+transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -104.53297, 9.301002, -48.714447)
+is_quest_coin = true
+
+[node name="Coin50" parent="Coins/BeachCoins" unique_id=1793076524 instance=ExtResource("19_26xuy")]
+transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -108.182625, 10.301002, -49.224327)
+is_quest_coin = true
+
+[node name="Coin51" parent="Coins/BeachCoins" unique_id=1983275408 instance=ExtResource("19_26xuy")]
+transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -111.72405, 10.301002, -50.356125)
+is_quest_coin = true
+
+[node name="Coin52" parent="Coins/BeachCoins" unique_id=1152483555 instance=ExtResource("19_26xuy")]
+transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -115.08294, 10.301002, -51.816513)
+is_quest_coin = true
+
+[node name="Coin53" parent="Coins/BeachCoins" unique_id=1953757682 instance=ExtResource("19_26xuy")]
+transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -118.47834, 9.301002, -53.349922)
+is_quest_coin = true
+
+[node name="Coin54" parent="Coins/BeachCoins" unique_id=1878066928 instance=ExtResource("19_26xuy")]
+transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -122.25753, 8.301002, -54.21039)
+is_quest_coin = true
+
+[node name="Coin55" parent="Coins/BeachCoins" unique_id=137198830 instance=ExtResource("19_26xuy")]
+transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -126.24891, 7.3010006, -55.012543)
+is_quest_coin = true
+
+[node name="Coin56" parent="Coins/BeachCoins" unique_id=2116669653 instance=ExtResource("19_26xuy")]
+transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -129.88977, 6.3010006, -54.28309)
+is_quest_coin = true
+
+[node name="Coin57" parent="Coins/BeachCoins" unique_id=1205858546 instance=ExtResource("19_26xuy")]
+transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -133.21725, 5.3010006, -53.93271)
+is_quest_coin = true
+
+[node name="Coin58" parent="Coins/BeachCoins" unique_id=282985074 instance=ExtResource("19_26xuy")]
+transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -136.6857, 4.3010006, -55.10102)
+is_quest_coin = true
+
+[node name="Coin59" parent="Coins/BeachCoins" unique_id=1512716308 instance=ExtResource("19_26xuy")]
+transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -140.85046, 3.3010006, -56.781677)
+is_quest_coin = true
 
 [node name="Buildings" type="Node3D" parent="." unique_id=1285848351]
 
@@ -253,6 +936,864 @@ quest = ExtResource("15_6frpt")
 [node name="PenPals1QuestPoint" parent="Buildings/ResidentialBlock/YoungPerson" unique_id=1365664487 instance=ExtResource("3_tlwt5")]
 action = 2
 quest = ExtResource("16_xrsn8")
+
+[node name="corner_col2" parent="Buildings" unique_id=1044108480 instance=ExtResource("9_ic0uy")]
+transform = Transform3D(-0.8410486, 0, -0.54095984, 0, 1, 0, 0.54095984, 0, -0.8410486, -143.71999, 0.49998856, 63.287407)
+
+[node name="corner_col3" parent="Buildings" unique_id=23690873 instance=ExtResource("9_ic0uy")]
+transform = Transform3D(-0.7777278, 0, -0.6286012, 0, 1, 0, 0.6286012, 0, -0.7777278, -118.129105, 0.49998474, 78.75764)
+
+[node name="corner_col4" parent="Buildings" unique_id=728267545 instance=ExtResource("9_ic0uy")]
+transform = Transform3D(-0.7071068, 0, -0.7071068, 0, 1, 0, 0.7071068, 0, -0.7071068, -89.6961, 0.49998474, 67.344574)
+
+[node name="corner_col5" parent="Buildings" unique_id=778474459 instance=ExtResource("9_ic0uy")]
+transform = Transform3D(0.75950986, 0, 0.65049595, 0, 1, 0, -0.65049595, 0, 0.75950986, -115.87608, 0.49998474, 53.458214)
+
+[node name="halfarc_col2" parent="Buildings" unique_id=1965399226 instance=ExtResource("10_k3n1d")]
+transform = Transform3D(0.4143917, 0.00011820848, 0.9100988, -9.4382754e-05, 1, -8.691046e-05, -0.9100988, -4.988267e-05, 0.4143917, 145.16357, 0.82528496, 74.28146)
+
+[node name="octacon_col2" parent="Buildings" unique_id=588387575 instance=ExtResource("11_2o6r5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.82917, 0.50001144, -76.880714)
+
+[node name="crane" parent="Buildings" unique_id=1313281722 instance=ExtResource("13_2o6r5")]
+transform = Transform3D(-0.9634857, -1.0921557e-08, -0.26775962, -1.0151547e-08, 1, -4.2601265e-09, 0.26775962, -1.3863943e-09, -0.9634857, 167.58646, 0.75, 120.204575)
+
+[node name="Garage" parent="Buildings" unique_id=583676994 instance=ExtResource("19_cbp6q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0773926, 1.3279433, 109.59863)
+
+[node name="fountain" parent="Buildings" unique_id=786101512 instance=ExtResource("27_o3ebs")]
+transform = Transform3D(-0.86602545, 0, 0.4999999, 0, 1, 0, -0.4999999, 0, -0.86602545, 0.7661619, 1.6972882, -0.95320696)
+
+[node name="FountainJewel" parent="Buildings/fountain" unique_id=938082553 instance=ExtResource("21_bc84e")]
+transform = Transform3D(-1, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -1, 0.94033545, 12.532245, 0.42767704)
+quest_name = &"Fountain Jewel"
+
+[node name="Fence" type="Node3D" parent="Buildings" unique_id=163079214]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.26932, 0, 63.535614)
+
+[node name="Fences" type="CSGCombiner3D" parent="Buildings/Fence" unique_id=1358668912]
+transform = Transform3D(0.9986298, -2.2876787e-09, -0.05233597, 2.2876763e-09, 1, -5.99048e-11, 0.05233597, -5.99048e-11, 0.9986298, 5.153038, -0.10421753, 3.836052)
+material_override = SubResource("StandardMaterial3D_2b3xb")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Buildings/Fence/Fences" unique_id=1865573693]
+transform = Transform3D(0.9949931, -1.5265567e-16, -0.099944934, -5.551115e-17, 1, 0, 0.099944934, 0, 0.9949931, -0.01486969, 8.40345, -4.679783)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Buildings/Fence/Fences" unique_id=12623540]
+transform = Transform3D(0.9949931, -1.5265567e-16, -0.099944934, -5.551115e-17, 1, 0, 0.099944934, 0, 0.9949931, -1.5709763, 8.40345, 11.031494)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Buildings/Fence/Fences" unique_id=1117480151]
+transform = Transform3D(0.99505556, -0.09931974, 4.341405e-09, 8.6042284e-16, -4.371139e-08, -1, 0.09931974, 0.99505556, -4.349526e-08, -0.79361725, 15.954723, 3.2423096)
+size = Vector3(2, 16.098967, 1.267334)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Buildings/Fence/Fences" unique_id=89031847]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.21024323, 7.5650635, -2.4168167)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Buildings/Fence/Fences" unique_id=1877856378]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.43225098, 7.5650635, -0.19600296)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Buildings/Fence/Fences" unique_id=819679377]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.79169464, 7.5650635, 2.1258698)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Buildings/Fence/Fences" unique_id=1849759269]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.9007187, 7.5650635, 4.342701)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Buildings/Fence/Fences" unique_id=1970350333]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -1.1114883, 7.5650635, 6.636429)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="Buildings/Fence/Fences" unique_id=1778616803]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -1.2382355, 7.5650635, 8.849052)
+radius = 0.638
+height = 17.130127
+
+[node name="Fences9" type="CSGCombiner3D" parent="Buildings/Fence" unique_id=698289222]
+transform = Transform3D(0.9999983, 9.00219e-11, 0.002059482, -9.002479e-11, 1, -9.133666e-14, -0.002059482, -9.1308905e-14, 0.9999983, 2.8294907, -0.10421753, 20.68174)
+material_override = SubResource("StandardMaterial3D_2b3xb")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Buildings/Fence/Fences9" unique_id=260377928]
+transform = Transform3D(0.9949931, -1.5265567e-16, -0.099944934, -5.551115e-17, 1, 0, 0.099944934, 0, 0.9949931, -0.01486969, 8.40345, -4.679783)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Buildings/Fence/Fences9" unique_id=1561517114]
+transform = Transform3D(0.9949931, -1.5265567e-16, -0.099944934, -5.551115e-17, 1, 0, 0.099944934, 0, 0.9949931, -1.5709763, 8.40345, 11.031494)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Buildings/Fence/Fences9" unique_id=106287165]
+transform = Transform3D(0.99505556, -0.09931974, 4.341405e-09, 8.6042284e-16, -4.371139e-08, -1, 0.09931974, 0.99505556, -4.349526e-08, -0.79361725, 15.954723, 3.2423096)
+size = Vector3(2, 16.098967, 1.267334)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Buildings/Fence/Fences9" unique_id=1639144188]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.21024323, 7.5650635, -2.4168167)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Buildings/Fence/Fences9" unique_id=1114313626]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.43225098, 7.5650635, -0.19600296)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Buildings/Fence/Fences9" unique_id=2123125248]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.79169464, 7.5650635, 2.1258698)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Buildings/Fence/Fences9" unique_id=1963461268]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.9007187, 7.5650635, 4.342701)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Buildings/Fence/Fences9" unique_id=1960194079]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -1.1114883, 7.5650635, 6.636429)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="Buildings/Fence/Fences9" unique_id=86163107]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -1.2382355, 7.5650635, 8.849052)
+radius = 0.638
+height = 17.130127
+
+[node name="Fences10" type="CSGCombiner3D" parent="Buildings/Fence" unique_id=533410581]
+transform = Transform3D(0.9999983, 9.00219e-11, 0.002059482, -9.002479e-11, 1, -9.133666e-14, -0.002059482, -9.1308905e-14, 0.9999983, 2.8294907, -0.10421753, 20.68174)
+material_override = SubResource("StandardMaterial3D_2b3xb")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Buildings/Fence/Fences10" unique_id=337816495]
+transform = Transform3D(0.9949931, -1.5265567e-16, -0.099944934, -5.551115e-17, 1, 0, 0.099944934, 0, 0.9949931, -0.01486969, 8.40345, -4.679783)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Buildings/Fence/Fences10" unique_id=91254017]
+transform = Transform3D(0.9949931, -1.5265567e-16, -0.099944934, -5.551115e-17, 1, 0, 0.099944934, 0, 0.9949931, -1.5709763, 8.40345, 11.031494)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Buildings/Fence/Fences10" unique_id=684598861]
+transform = Transform3D(0.99505556, -0.09931974, 4.341405e-09, 8.6042284e-16, -4.371139e-08, -1, 0.09931974, 0.99505556, -4.349526e-08, -0.79361725, 15.954723, 3.2423096)
+size = Vector3(2, 16.098967, 1.267334)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Buildings/Fence/Fences10" unique_id=1583840416]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.21024323, 7.5650635, -2.4168167)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Buildings/Fence/Fences10" unique_id=68095799]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.43225098, 7.5650635, -0.19600296)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Buildings/Fence/Fences10" unique_id=874489406]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.79169464, 7.5650635, 2.1258698)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Buildings/Fence/Fences10" unique_id=1900965716]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.9007187, 7.5650635, 4.342701)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Buildings/Fence/Fences10" unique_id=2017082384]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -1.1114883, 7.5650635, 6.636429)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="Buildings/Fence/Fences10" unique_id=1506256995]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -1.2382355, 7.5650635, 8.849052)
+radius = 0.638
+height = 17.130127
+
+[node name="Fences11" type="CSGCombiner3D" parent="Buildings/Fence" unique_id=1464269247]
+transform = Transform3D(0.98555636, 7.4025004e-09, 0.16934955, -7.402506e-09, 1, -6.313642e-10, -0.16934955, -6.3136374e-10, 0.98555636, 2.1033936, -0.10421753, 37.817886)
+material_override = SubResource("StandardMaterial3D_2b3xb")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Buildings/Fence/Fences11" unique_id=575196764]
+transform = Transform3D(0.9949931, -1.5265567e-16, -0.099944934, -5.551115e-17, 1, 0, 0.099944934, 0, 0.9949931, -0.01486969, 8.40345, -4.679783)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Buildings/Fence/Fences11" unique_id=2138699833]
+transform = Transform3D(0.9949931, -1.5265567e-16, -0.099944934, -5.551115e-17, 1, 0, 0.099944934, 0, 0.9949931, -1.5709763, 8.40345, 11.031494)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Buildings/Fence/Fences11" unique_id=44142765]
+transform = Transform3D(0.99505556, -0.09931974, 4.341405e-09, 8.6042284e-16, -4.371139e-08, -1, 0.09931974, 0.99505556, -4.349526e-08, -0.79361725, 15.954723, 3.2423096)
+size = Vector3(2, 16.098967, 1.267334)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Buildings/Fence/Fences11" unique_id=660026677]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.21024323, 7.5650635, -2.4168167)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Buildings/Fence/Fences11" unique_id=83842774]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.43225098, 7.5650635, -0.19600296)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Buildings/Fence/Fences11" unique_id=1073561658]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.79169464, 7.5650635, 2.1258698)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Buildings/Fence/Fences11" unique_id=1132489351]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.9007187, 7.5650635, 4.342701)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Buildings/Fence/Fences11" unique_id=890039786]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -1.1114883, 7.5650635, 6.636429)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="Buildings/Fence/Fences11" unique_id=1338556460]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -1.2382355, 7.5650635, 8.849052)
+radius = 0.638
+height = 17.130127
+
+[node name="Fences12" type="CSGCombiner3D" parent="Buildings/Fence" unique_id=1496645315]
+transform = Transform3D(0.98555636, 7.4025004e-09, 0.16934955, -7.402506e-09, 1, -6.313642e-10, -0.16934955, -6.3136374e-10, 0.98555636, 3.5556183, -0.10421753, 54.808807)
+material_override = SubResource("StandardMaterial3D_2b3xb")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Buildings/Fence/Fences12" unique_id=702174320]
+transform = Transform3D(0.9949931, -1.5265567e-16, -0.099944934, -5.551115e-17, 1, 0, 0.099944934, 0, 0.9949931, -0.01486969, 8.40345, -4.679783)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Buildings/Fence/Fences12" unique_id=544086611]
+transform = Transform3D(0.9949931, -1.5265567e-16, -0.099944934, -5.551115e-17, 1, 0, 0.099944934, 0, 0.9949931, -1.5709763, 8.40345, 11.031494)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Buildings/Fence/Fences12" unique_id=1697085896]
+transform = Transform3D(0.99505556, -0.09931974, 4.341405e-09, 8.6042284e-16, -4.371139e-08, -1, 0.09931974, 0.99505556, -4.349526e-08, -0.79361725, 15.954723, 3.2423096)
+size = Vector3(2, 16.098967, 1.267334)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Buildings/Fence/Fences12" unique_id=619341732]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.21024323, 7.5650635, -2.4168167)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Buildings/Fence/Fences12" unique_id=3512163]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.43225098, 7.5650635, -0.19600296)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Buildings/Fence/Fences12" unique_id=1134758675]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.79169464, 7.5650635, 2.1258698)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Buildings/Fence/Fences12" unique_id=122254524]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.9007187, 7.5650635, 4.342701)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Buildings/Fence/Fences12" unique_id=291408244]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -1.1114883, 7.5650635, 6.636429)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="Buildings/Fence/Fences12" unique_id=904565736]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -1.2382355, 7.5650635, 8.849052)
+radius = 0.638
+height = 17.130127
+
+[node name="Fences13" type="CSGCombiner3D" parent="Buildings/Fence" unique_id=970711892]
+transform = Transform3D(0.8842717, 2.0412045e-08, 0.46697336, -2.0412056e-08, 1, -5.0586557e-09, -0.46697336, -5.0586535e-09, 0.8842717, 6.3148193, -0.10421753, 71.50929)
+material_override = SubResource("StandardMaterial3D_2b3xb")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Buildings/Fence/Fences13" unique_id=954610195]
+transform = Transform3D(0.9949931, -1.5265567e-16, -0.099944934, -5.551115e-17, 1, 0, 0.099944934, 0, 0.9949931, -0.01486969, 8.40345, -4.679783)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Buildings/Fence/Fences13" unique_id=1943940057]
+transform = Transform3D(0.9949931, -1.5265567e-16, -0.099944934, -5.551115e-17, 1, 0, 0.099944934, 0, 0.9949931, -1.5709763, 8.40345, 11.031494)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Buildings/Fence/Fences13" unique_id=520273065]
+transform = Transform3D(0.99505556, -0.09931974, 4.341405e-09, 8.6042284e-16, -4.371139e-08, -1, 0.09931974, 0.99505556, -4.349526e-08, -0.79361725, 15.954723, 3.2423096)
+size = Vector3(2, 16.098967, 1.267334)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Buildings/Fence/Fences13" unique_id=2106074403]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.21024323, 7.5650635, -2.4168167)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Buildings/Fence/Fences13" unique_id=1446342542]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.43225098, 7.5650635, -0.19600296)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Buildings/Fence/Fences13" unique_id=627152818]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.79169464, 7.5650635, 2.1258698)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Buildings/Fence/Fences13" unique_id=2113880221]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.9007187, 7.5650635, 4.342701)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Buildings/Fence/Fences13" unique_id=1111999720]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -1.1114883, 7.5650635, 6.636429)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="Buildings/Fence/Fences13" unique_id=797072184]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -1.2382355, 7.5650635, 8.849052)
+radius = 0.638
+height = 17.130127
+
+[node name="Fences14" type="CSGCombiner3D" parent="Buildings/Fence" unique_id=1767994328]
+transform = Transform3D(0.6048495, 3.4809126e-08, 0.7963402, -3.4809137e-08, 1, -1.727259e-08, -0.7963402, -1.7272583e-08, 0.6048495, 14.737663, -0.10421753, 86.612335)
+material_override = SubResource("StandardMaterial3D_2b3xb")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Buildings/Fence/Fences14" unique_id=1592636659]
+transform = Transform3D(0.9949931, -1.5265567e-16, -0.099944934, -5.551115e-17, 1, 0, 0.099944934, 0, 0.9949931, -0.01486969, 8.40345, -4.679783)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Buildings/Fence/Fences14" unique_id=76257944]
+transform = Transform3D(0.9949931, -1.5265567e-16, -0.099944934, -5.551115e-17, 1, 0, 0.099944934, 0, 0.9949931, -1.5709763, 8.40345, 11.031494)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Buildings/Fence/Fences14" unique_id=1992365447]
+transform = Transform3D(0.99505556, -0.09931974, 4.341405e-09, 8.6042284e-16, -4.371139e-08, -1, 0.09931974, 0.99505556, -4.349526e-08, -0.79361725, 15.954723, 3.2423096)
+size = Vector3(2, 16.098967, 1.267334)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Buildings/Fence/Fences14" unique_id=1885519702]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.21024323, 7.5650635, -2.4168167)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Buildings/Fence/Fences14" unique_id=1176454087]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.43225098, 7.5650635, -0.19600296)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Buildings/Fence/Fences14" unique_id=1663881880]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.79169464, 7.5650635, 2.1258698)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Buildings/Fence/Fences14" unique_id=84181342]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.9007187, 7.5650635, 4.342701)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Buildings/Fence/Fences14" unique_id=510318627]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -1.1114883, 7.5650635, 6.636429)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="Buildings/Fence/Fences14" unique_id=1179858544]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -1.2382355, 7.5650635, 8.849052)
+radius = 0.638
+height = 17.130127
+
+[node name="Fences15" type="CSGCombiner3D" parent="Buildings/Fence" unique_id=2127924581]
+transform = Transform3D(0.6048495, 3.4809126e-08, 0.7963402, -3.4809137e-08, 1, -1.727259e-08, -0.7963402, -1.7272583e-08, 0.6048495, 27.226707, -0.10421753, 98.23007)
+material_override = SubResource("StandardMaterial3D_2b3xb")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Buildings/Fence/Fences15" unique_id=716951079]
+transform = Transform3D(0.9949931, -1.5265567e-16, -0.099944934, -5.551115e-17, 1, 0, 0.099944934, 0, 0.9949931, -0.01486969, 8.40345, -4.679783)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Buildings/Fence/Fences15" unique_id=1398351293]
+transform = Transform3D(0.9949931, -1.5265567e-16, -0.099944934, -5.551115e-17, 1, 0, 0.099944934, 0, 0.9949931, -1.5709763, 8.40345, 11.031494)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Buildings/Fence/Fences15" unique_id=412211219]
+transform = Transform3D(0.99505556, -0.09931974, 4.341405e-09, 8.6042284e-16, -4.371139e-08, -1, 0.09931974, 0.99505556, -4.349526e-08, -0.79361725, 15.954723, 3.2423096)
+size = Vector3(2, 16.098967, 1.267334)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Buildings/Fence/Fences15" unique_id=2110677800]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.21024323, 7.5650635, -2.4168167)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Buildings/Fence/Fences15" unique_id=2046694876]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.43225098, 7.5650635, -0.19600296)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Buildings/Fence/Fences15" unique_id=2005378864]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.79169464, 7.5650635, 2.1258698)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Buildings/Fence/Fences15" unique_id=1234667281]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.9007187, 7.5650635, 4.342701)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Buildings/Fence/Fences15" unique_id=581986215]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -1.1114883, 7.5650635, 6.636429)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="Buildings/Fence/Fences15" unique_id=748429912]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -1.2382355, 7.5650635, 8.849052)
+radius = 0.638
+height = 17.130127
+
+[node name="Fences16" type="CSGCombiner3D" parent="Buildings/Fence" unique_id=1489514622]
+transform = Transform3D(0.6048495, 3.4809126e-08, 0.7963402, -3.4809137e-08, 1, -1.727259e-08, -0.7963402, -1.7272583e-08, 0.6048495, 38.84443, -0.10421753, 108.83125)
+material_override = SubResource("StandardMaterial3D_2b3xb")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Buildings/Fence/Fences16" unique_id=12389126]
+transform = Transform3D(0.9949931, -1.5265567e-16, -0.099944934, -5.551115e-17, 1, 0, 0.099944934, 0, 0.9949931, -0.01486969, 8.40345, -4.679783)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Buildings/Fence/Fences16" unique_id=1377238189]
+transform = Transform3D(0.9949931, -1.5265567e-16, -0.099944934, -5.551115e-17, 1, 0, 0.099944934, 0, 0.9949931, -1.5709763, 8.40345, 11.031494)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Buildings/Fence/Fences16" unique_id=1539637385]
+transform = Transform3D(0.99505556, -0.09931974, 4.341405e-09, 8.6042284e-16, -4.371139e-08, -1, 0.09931974, 0.99505556, -4.349526e-08, -0.79361725, 15.954723, 3.2423096)
+size = Vector3(2, 16.098967, 1.267334)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Buildings/Fence/Fences16" unique_id=623298970]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.21024323, 7.5650635, -2.4168167)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Buildings/Fence/Fences16" unique_id=1413089270]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.43225098, 7.5650635, -0.19600296)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Buildings/Fence/Fences16" unique_id=360613969]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.79169464, 7.5650635, 2.1258698)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Buildings/Fence/Fences16" unique_id=1781195857]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -0.9007187, 7.5650635, 4.342701)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Buildings/Fence/Fences16" unique_id=190162535]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -1.1114883, 7.5650635, 6.636429)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="Buildings/Fence/Fences16" unique_id=624719686]
+transform = Transform3D(0.9963065, -3.753457e-09, -0.085869074, 3.7534544e-09, 1, -1.614513e-10, 0.085869074, -1.6145141e-10, 0.9963065, -1.2382355, 7.5650635, 8.849052)
+radius = 0.638
+height = 17.130127
+
+[node name="Fences2" type="CSGCombiner3D" parent="Buildings/Fence" unique_id=408188201]
+transform = Transform3D(0.9869768, -7.0315527e-09, -0.16086316, 7.0315513e-09, 1, -5.692665e-10, 0.16086316, -5.692666e-10, 0.9869768, 13.192993, -0.10421753, -28.078758)
+material_override = SubResource("StandardMaterial3D_2b3xb")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Buildings/Fence/Fences2" unique_id=981639553]
+transform = Transform3D(0.994993, 0, -0.09994494, 0, 1, 0, 0.09994494, 0, 0.994993, -1.7004318, 8.40345, 10.852093)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Buildings/Fence/Fences2" unique_id=1746509455]
+transform = Transform3D(0.994993, 0, -0.09994494, 0, 1, 0, 0.09994494, 0, 0.994993, -3.2565308, 8.40345, 26.563374)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Buildings/Fence/Fences2" unique_id=826645929]
+transform = Transform3D(0.99505556, -0.09931975, 4.341404e-09, 0, -4.371139e-08, -1, 0.09931975, 0.99505556, -4.349526e-08, -2.4791718, 15.954723, 18.774181)
+size = Vector3(2, 16.098967, 1.267334)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Buildings/Fence/Fences2" unique_id=1477743875]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -1.8957901, 7.5650635, 13.115063)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Buildings/Fence/Fences2" unique_id=144574892]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.117813, 7.5650635, 15.335873)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Buildings/Fence/Fences2" unique_id=1028875981]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.4772568, 7.5650635, 17.65775)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Buildings/Fence/Fences2" unique_id=2023211785]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.5862808, 7.5650635, 19.874577)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Buildings/Fence/Fences2" unique_id=1603216384]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.7970428, 7.5650635, 22.168308)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="Buildings/Fence/Fences2" unique_id=1118059209]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.92379, 7.5650635, 24.380924)
+radius = 0.638
+height = 17.130127
+
+[node name="Fences3" type="CSGCombiner3D" parent="Buildings/Fence" unique_id=971119608]
+transform = Transform3D(0.5743198, -3.5783508e-08, -0.8186313, 3.5783508e-08, 1, -1.8607084e-08, 0.8186313, -1.8607084e-08, 0.5743198, 33.687477, -0.10421753, -31.281021)
+material_override = SubResource("StandardMaterial3D_2b3xb")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Buildings/Fence/Fences3" unique_id=1630096305]
+transform = Transform3D(0.994993, 0, -0.09994494, 0, 1, 0, 0.09994494, 0, 0.994993, -1.7004318, 8.40345, 10.852093)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Buildings/Fence/Fences3" unique_id=260055077]
+transform = Transform3D(0.994993, 0, -0.09994494, 0, 1, 0, 0.09994494, 0, 0.994993, -3.2565308, 8.40345, 26.563374)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Buildings/Fence/Fences3" unique_id=947288762]
+transform = Transform3D(0.99505556, -0.09931975, 4.341404e-09, 0, -4.371139e-08, -1, 0.09931975, 0.99505556, -4.349526e-08, -2.4791718, 15.954723, 18.774181)
+size = Vector3(2, 16.098967, 1.267334)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Buildings/Fence/Fences3" unique_id=811816961]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -1.8957901, 7.5650635, 13.115063)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Buildings/Fence/Fences3" unique_id=1108586167]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.117813, 7.5650635, 15.335873)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Buildings/Fence/Fences3" unique_id=2073199508]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.4772568, 7.5650635, 17.65775)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Buildings/Fence/Fences3" unique_id=185959425]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.5862808, 7.5650635, 19.874577)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Buildings/Fence/Fences3" unique_id=1184845200]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.7970428, 7.5650635, 22.168308)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="Buildings/Fence/Fences3" unique_id=1027344119]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.92379, 7.5650635, 24.380924)
+radius = 0.638
+height = 17.130127
+
+[node name="Fences4" type="CSGCombiner3D" parent="Buildings/Fence" unique_id=1786050636]
+transform = Transform3D(0.37685493, -4.048865e-08, -0.9262724, 4.0488658e-08, 1, -2.7238542e-08, 0.9262724, -2.7238535e-08, 0.37685493, 51.08647, -0.10421753, -33.949577)
+material_override = SubResource("StandardMaterial3D_2b3xb")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Buildings/Fence/Fences4" unique_id=525100567]
+transform = Transform3D(0.994993, 0, -0.09994494, 0, 1, 0, 0.09994494, 0, 0.994993, -1.7004318, 8.40345, 10.852093)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Buildings/Fence/Fences4" unique_id=1395018646]
+transform = Transform3D(0.994993, 0, -0.09994494, 0, 1, 0, 0.09994494, 0, 0.994993, -3.2565308, 8.40345, 26.563374)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Buildings/Fence/Fences4" unique_id=788835990]
+transform = Transform3D(0.99505556, -0.09931975, 4.341404e-09, 0, -4.371139e-08, -1, 0.09931975, 0.99505556, -4.349526e-08, -2.4791718, 15.954723, 18.774181)
+size = Vector3(2, 16.098967, 1.267334)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Buildings/Fence/Fences4" unique_id=1440009456]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -1.8957901, 7.5650635, 13.115063)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Buildings/Fence/Fences4" unique_id=1713742159]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.117813, 7.5650635, 15.335873)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Buildings/Fence/Fences4" unique_id=669183802]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.4772568, 7.5650635, 17.65775)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Buildings/Fence/Fences4" unique_id=1582496910]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.5862808, 7.5650635, 19.874577)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Buildings/Fence/Fences4" unique_id=1169420393]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.7970428, 7.5650635, 22.168308)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="Buildings/Fence/Fences4" unique_id=1402171825]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.92379, 7.5650635, 24.380924)
+radius = 0.638
+height = 17.130127
+
+[node name="Fences5" type="CSGCombiner3D" parent="Buildings/Fence" unique_id=2137464987]
+transform = Transform3D(0.26656562, -4.212977e-08, -0.96381676, 4.212978e-08, 1, -3.2059443e-08, 0.96381676, -3.2059432e-08, 0.26656562, 68.59219, -0.10421753, -35.764194)
+material_override = SubResource("StandardMaterial3D_2b3xb")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Buildings/Fence/Fences5" unique_id=1476346271]
+transform = Transform3D(0.994993, 0, -0.09994494, 0, 1, 0, 0.09994494, 0, 0.994993, -1.7004318, 8.40345, 10.852093)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Buildings/Fence/Fences5" unique_id=761392130]
+transform = Transform3D(0.994993, 0, -0.09994494, 0, 1, 0, 0.09994494, 0, 0.994993, -3.2565308, 8.40345, 26.563374)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Buildings/Fence/Fences5" unique_id=1987962725]
+transform = Transform3D(0.99505556, -0.09931975, 4.341404e-09, 0, -4.371139e-08, -1, 0.09931975, 0.99505556, -4.349526e-08, -2.4791718, 15.954723, 18.774181)
+size = Vector3(2, 16.098967, 1.267334)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Buildings/Fence/Fences5" unique_id=1286078048]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -1.8957901, 7.5650635, 13.115063)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Buildings/Fence/Fences5" unique_id=605410162]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.117813, 7.5650635, 15.335873)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Buildings/Fence/Fences5" unique_id=613951787]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.4772568, 7.5650635, 17.65775)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Buildings/Fence/Fences5" unique_id=1120432206]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.5862808, 7.5650635, 19.874577)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Buildings/Fence/Fences5" unique_id=176394359]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.7970428, 7.5650635, 22.168308)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="Buildings/Fence/Fences5" unique_id=1862177380]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.92379, 7.5650635, 24.380924)
+radius = 0.638
+height = 17.130127
+
+[node name="Fences6" type="CSGCombiner3D" parent="Buildings/Fence" unique_id=148575601]
+transform = Transform3D(0.12495237, -4.3368814e-08, -0.99216276, 4.3368814e-08, 1, -3.824956e-08, 0.99216276, -3.824955e-08, 0.12495237, 85.742645, -0.10421753, -34.71029)
+material_override = SubResource("StandardMaterial3D_2b3xb")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Buildings/Fence/Fences6" unique_id=2041737009]
+transform = Transform3D(0.994993, 0, -0.09994494, 0, 1, 0, 0.09994494, 0, 0.994993, -1.7004318, 8.40345, 10.852093)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Buildings/Fence/Fences6" unique_id=605073155]
+transform = Transform3D(0.994993, 0, -0.09994494, 0, 1, 0, 0.09994494, 0, 0.994993, -3.2565308, 8.40345, 26.563374)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Buildings/Fence/Fences6" unique_id=2042735897]
+transform = Transform3D(0.99505556, -0.09931975, 4.341404e-09, 0, -4.371139e-08, -1, 0.09931975, 0.99505556, -4.349526e-08, -2.4791718, 15.954723, 18.774181)
+size = Vector3(2, 16.098967, 1.267334)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Buildings/Fence/Fences6" unique_id=1695610661]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -1.8957901, 7.5650635, 13.115063)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Buildings/Fence/Fences6" unique_id=2049929973]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.117813, 7.5650635, 15.335873)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Buildings/Fence/Fences6" unique_id=388020942]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.4772568, 7.5650635, 17.65775)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Buildings/Fence/Fences6" unique_id=412193314]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.5862808, 7.5650635, 19.874577)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Buildings/Fence/Fences6" unique_id=1134425484]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.7970428, 7.5650635, 22.168308)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="Buildings/Fence/Fences6" unique_id=1169584106]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.92379, 7.5650635, 24.380924)
+radius = 0.638
+height = 17.130127
+
+[node name="Fences7" type="CSGCombiner3D" parent="Buildings/Fence" unique_id=1210645167]
+transform = Transform3D(-0.11259618, -4.343342e-08, -0.9936409, 4.3433424e-08, 1, -4.8633137e-08, 0.9936409, -4.8633126e-08, -0.11259618, 101.88406, -0.10421753, -28.72675)
+material_override = SubResource("StandardMaterial3D_2b3xb")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Buildings/Fence/Fences7" unique_id=511060798]
+transform = Transform3D(0.994993, 0, -0.09994494, 0, 1, 0, 0.09994494, 0, 0.994993, -1.7004318, 8.40345, 10.852093)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Buildings/Fence/Fences7" unique_id=107783642]
+transform = Transform3D(0.994993, 0, -0.09994494, 0, 1, 0, 0.09994494, 0, 0.994993, -3.2565308, 8.40345, 26.563374)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Buildings/Fence/Fences7" unique_id=329859966]
+transform = Transform3D(0.99505556, -0.09931975, 4.341404e-09, 0, -4.371139e-08, -1, 0.09931975, 0.99505556, -4.349526e-08, -2.4791718, 15.954723, 18.774181)
+size = Vector3(2, 16.098967, 1.267334)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Buildings/Fence/Fences7" unique_id=1584431643]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -1.8957901, 7.5650635, 13.115063)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Buildings/Fence/Fences7" unique_id=827130421]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.117813, 7.5650635, 15.335873)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Buildings/Fence/Fences7" unique_id=1875847226]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.4772568, 7.5650635, 17.65775)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Buildings/Fence/Fences7" unique_id=2016480485]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.5862808, 7.5650635, 19.874577)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Buildings/Fence/Fences7" unique_id=1465254086]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.7970428, 7.5650635, 22.168308)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="Buildings/Fence/Fences7" unique_id=839631804]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.92379, 7.5650635, 24.380924)
+radius = 0.638
+height = 17.130127
+
+[node name="Fences8" type="CSGCombiner3D" parent="Buildings/Fence" unique_id=594975219]
+transform = Transform3D(-0.22105482, -4.263003e-08, -0.9752614, 4.263004e-08, 1, -5.337402e-08, 0.9752614, -5.337401e-08, -0.22105482, 118.28288, -0.10421753, -22.091965)
+material_override = SubResource("StandardMaterial3D_2b3xb")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Buildings/Fence/Fences8" unique_id=1162557708]
+transform = Transform3D(0.994993, 0, -0.09994494, 0, 1, 0, 0.09994494, 0, 0.994993, -1.7004318, 8.40345, 10.852093)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Buildings/Fence/Fences8" unique_id=1881517635]
+transform = Transform3D(0.994993, 0, -0.09994494, 0, 1, 0, 0.09994494, 0, 0.994993, -3.2565308, 8.40345, 26.563374)
+size = Vector3(2, 17.807, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Buildings/Fence/Fences8" unique_id=2017149703]
+transform = Transform3D(0.99505556, -0.09931975, 4.341404e-09, 0, -4.371139e-08, -1, 0.09931975, 0.99505556, -4.349526e-08, -2.4791718, 15.954723, 18.774181)
+size = Vector3(2, 16.098967, 1.267334)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Buildings/Fence/Fences8" unique_id=930596063]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -1.8957901, 7.5650635, 13.115063)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Buildings/Fence/Fences8" unique_id=1637402875]
+transform = Transform3D(0.9963064, -3.7534527e-09, -0.085869044, 3.753456e-09, 1, -1.6144597e-10, 0.085869044, -1.6147705e-10, 0.9963064, -2.117813, 9.808533, 15.335861)
+radius = 0.638
+height = 12.643188
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Buildings/Fence/Fences8" unique_id=1763572132]
+transform = Transform3D(0.9963064, -3.7534527e-09, -0.085869044, 3.753456e-09, 1, -1.6144597e-10, 0.085869044, -1.6147705e-10, 0.9963064, -2.4772568, 10.386169, 17.657745)
+radius = 0.638
+height = 11.487915
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Buildings/Fence/Fences8" unique_id=1961054828]
+transform = Transform3D(0.9963064, -3.7534527e-09, -0.085869044, 3.753456e-09, 1, -1.6144597e-10, 0.085869044, -1.6147705e-10, 0.9963064, -2.5862808, 10.01767, 19.874573)
+radius = 0.638
+height = 12.224915
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Buildings/Fence/Fences8" unique_id=791408230]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.7970428, 7.5650635, 22.168308)
+radius = 0.638
+height = 17.130127
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="Buildings/Fence/Fences8" unique_id=1103860749]
+transform = Transform3D(0.9963064, -3.753455e-09, -0.08586904, 3.753455e-09, 1, -1.6145153e-10, 0.08586904, -1.6145153e-10, 0.9963064, -2.92379, 7.5650635, 24.380924)
+radius = 0.638
+height = 17.130127
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Buildings/Fence" unique_id=1967436241]
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Buildings/Fence/StaticBody3D" unique_id=880355342]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+depth = -35.84
+polygon = PackedVector2Array(93.17938, -30.352577, 74.52992, -34.515488, 58.723785, -34.15059, 26.043991, -26.772217, 10.715195, -17.997871, 6.109329, -0.4344864, 3.450325, 16.27156, 1.6376343, 31.89824, 2.906662, 47.761635, 4.567505, 66.36328, 10.962753, 82.467865, 29.398636, 99.75151, 38.983017, 109.38934, 58.711945, 113.577515, 58.896057, 114.96112, 38.53804, 110.823166, 28.220764, 100.80072, 10.122742, 83.44299, 3.2325592, 66.412735, 1.744812, 47.439674, 0.59934235, 32.145454, 2.4007034, 16.238762, 4.7051926, -0.3535347, 9.706207, -18.670528, 25.87738, -27.882122, 58.16925, -35.15127, 74.395386, -35.928078, 93.60719, -31.540035)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buildings/Fence/StaticBody3D" unique_id=1335755610]
+transform = Transform3D(-0.023623353, -0.961872, -0.2724781, 0.9994799, -0.016735911, -0.027573844, 0.021962339, -0.2729877, 0.961767, 100.816864, 10.023419, -28.9543)
+shape = SubResource("BoxShape3D_fxuss")
+
+[node name="city_pier" parent="Buildings" unique_id=1297860961 instance=ExtResource("57_fxuss")]
+transform = Transform3D(0.9240398, 0, -0.3822964, 0, 1, 0, 0.3822964, 0, 0.9240398, -235.8896, 0.46240187, 57.08624)
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="Buildings/city_pier" unique_id=1775869363]
+transform = Transform3D(0.99999946, 0, 0, 0, -4.371139e-08, -0.99999946, 0, 1, -4.3711363e-08, 0, 3, 20)
+material_override = SubResource("StandardMaterial3D_ty1sn")
+inner_radius = 1.721
+outer_radius = 2.365
+sides = 32
+
+[node name="CSGTorus3D2" type="CSGTorus3D" parent="Buildings/city_pier" unique_id=1707657177]
+transform = Transform3D(0.99999946, 0, 0, 0, -4.371139e-08, -0.99999946, 0, 1, -4.3711363e-08, 0, 2.9999998, 23)
+material_override = SubResource("StandardMaterial3D_ty1sn")
+inner_radius = 1.721
+outer_radius = 2.365
+sides = 32
+
+[node name="CSGTorus3D3" type="CSGTorus3D" parent="Buildings/city_pier" unique_id=194426902]
+transform = Transform3D(0.99999946, 0, 0, 0, -4.371139e-08, -0.99999946, 0, 1, -4.3711363e-08, 0, 2.9999995, 26)
+material_override = SubResource("StandardMaterial3D_ty1sn")
+inner_radius = 1.721
+outer_radius = 2.365
+sides = 32
+
+[node name="Area3D" type="Area3D" parent="Buildings/city_pier" unique_id=853953480]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 23)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("23_il2jm")
+level = "uid://cdc0ifsyfwrwk"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buildings/city_pier/Area3D" unique_id=557596833]
+transform = Transform3D(0.9999995, -2.0861626e-07, 1.7763568e-15, 0, -4.371139e-08, -1, 2.0861626e-07, 0.9999995, -4.371138e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_fxuss")
+
+[node name="house1" parent="Buildings" unique_id=1067733595 instance=ExtResource("28_k83mh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.749762, 0.69761693, 43.77847)
+
+[node name="house3" parent="Buildings" unique_id=2133187762 instance=ExtResource("28_k83mh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.01621, 18.716297, -82.30069)
+
+[node name="house4" parent="Buildings" unique_id=535368072 instance=ExtResource("28_k83mh")]
+transform = Transform3D(-0.014415892, 0, -0.9998961, 0, 1, 0, 0.9998961, 0, -0.014415892, 125.14587, 18.716297, -15.859554)
+
+[node name="house2" parent="Buildings" unique_id=1474717904 instance=ExtResource("28_k83mh")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -20.987143, 0.69761693, 51.750637)
+
+[node name="statue" parent="Buildings" unique_id=18066987 instance=ExtResource("37_eep5w")]
+transform = Transform3D(-0.8950044, 0, -0.44605717, 0, 1, 0, 0.44605717, 0, -0.8950044, -126.89417, 2.0974398, -24.371624)
+
+[node name="FlightControl" parent="Buildings" unique_id=509304927 instance=ExtResource("55_6frpt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.70665, 7.6293945e-06, -112.05203)
+
+[node name="ShopPoint" parent="Buildings/FlightControl" unique_id=2102423001 instance=ExtResource("56_xrsn8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 10)
+shop_name = "City"
+
+[node name="ShopJewel" parent="Buildings/FlightControl" unique_id=812669647 instance=ExtResource("21_bc84e")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -0.44766617, 7.700001, 2.4459)
+quest_name = &"Shop Jewel"
 
 [node name="RichManHouse" parent="." unique_id=1090992063 instance=ExtResource("10_cy8hy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -142.27084, 2.0000048, -99.3867)
@@ -393,854 +1934,218 @@ is_quest_coin = true
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 10, 10, -12.999985)
 is_quest_coin = true
 
-[node name="ParkTrees" type="Node3D" parent="." unique_id=1350425910]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -149.02005, 0, 1.7971344)
+[node name="Quests" type="Node3D" parent="." unique_id=859291131]
 
-[node name="Spruce" parent="ParkTrees" unique_id=1175311855 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.16484, 2.0000002, -11.274685)
-
-[node name="Spruce3" parent="ParkTrees" unique_id=917894971 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.574234, 2.0000002, -46.56853)
-
-[node name="Spruce4" parent="ParkTrees" unique_id=692938262 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.481598, 2.0000002, -34.831703)
-
-[node name="Spruce5" parent="ParkTrees" unique_id=1817894808 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.654633, 3.0000002, -10.453853)
-
-[node name="Spruce6" parent="ParkTrees" unique_id=801013646 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0330353, 3.0000002, -9.085804)
-
-[node name="Spruce7" parent="ParkTrees" unique_id=1897134781 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.426941, 3.0000002, -1.9719658)
-
-[node name="Spruce8" parent="ParkTrees" unique_id=1493103277 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.30275, 2.0000002, 10.61405)
-
-[node name="Spruce9" parent="ParkTrees" unique_id=740665694 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.580261, 2.0000002, 20.919996)
-
-[node name="Spruce10" parent="ParkTrees" unique_id=958903160 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.377029, 3.0000002, 26.848192)
-
-[node name="Spruce11" parent="ParkTrees" unique_id=1956259466 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.464996, 2.0000002, 14.535791)
-
-[node name="Spruce12" parent="ParkTrees" unique_id=1001864413 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.067184, 2.0000002, 6.236314)
-
-[node name="Spruce13" parent="ParkTrees" unique_id=1360933246 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.121475, 2.0000002, 2.7705994)
-
-[node name="Spruce14" parent="ParkTrees" unique_id=96584284 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.28772, 2.0000002, -2.0631647)
-
-[node name="Spruce15" parent="ParkTrees" unique_id=410723227 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.84465, 2.0000002, -6.3497114)
-
-[node name="Spruce16" parent="ParkTrees" unique_id=1552940925 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.64627, 2.0000002, -77.971725)
-
-[node name="Spruce17" parent="ParkTrees" unique_id=752741652 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.71176, 2.0000002, -74.23268)
-
-[node name="Spruce27" parent="ParkTrees" unique_id=399637264 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.053909, 2.0000002, -68.05774)
-
-[node name="Spruce28" parent="ParkTrees" unique_id=651731677 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5850067, 2.0000002, -57.461525)
-
-[node name="Spruce29" parent="ParkTrees" unique_id=690255558 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.732117, 2.0000002, -92.506355)
-
-[node name="Spruce30" parent="ParkTrees" unique_id=899204094 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.69658, 2.0000002, -70.829056)
-
-[node name="Spruce31" parent="ParkTrees" unique_id=900762184 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.29602, 2.0000002, -82.58797)
-
-[node name="Spruce32" parent="ParkTrees" unique_id=66607408 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.802826, 2.0000002, -133.26146)
-
-[node name="Spruce33" parent="ParkTrees" unique_id=1639495541 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.666122, 2.0000002, -140.31842)
-
-[node name="Spruce34" parent="ParkTrees" unique_id=209792609 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.43892, 2.0000002, -127.48328)
-
-[node name="Spruce35" parent="ParkTrees" unique_id=856180809 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.25908, 2.0000002, -122.93651)
-
-[node name="Spruce18" parent="ParkTrees" unique_id=1739666333 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.987366, 2.0000002, -65.1869)
-
-[node name="Spruce19" parent="ParkTrees" unique_id=150953785 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.850647, 2.0000002, -33.61942)
-
-[node name="Spruce20" parent="ParkTrees" unique_id=2071204902 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.60196, 2.0000002, -20.784948)
-
-[node name="Spruce21" parent="ParkTrees" unique_id=1685610189 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.921387, 3.9999983, 25.932539)
-
-[node name="Spruce22" parent="ParkTrees" unique_id=1186112021 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.38681, 2.0000002, 31.043533)
-
-[node name="Spruce23" parent="ParkTrees" unique_id=1789797895 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.18756, 2.0000002, 1.22015)
-
-[node name="Spruce24" parent="ParkTrees" unique_id=1570046060 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.93335, 2.0000002, 8.060371)
-
-[node name="Spruce25" parent="ParkTrees" unique_id=1671807690 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.366745, 2.0000002, 11.161269)
-
-[node name="Spruce26" parent="ParkTrees" unique_id=1528919375 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.7348, 2.0000002, 18.457516)
-
-[node name="Spruce2" parent="ParkTrees" unique_id=1827228761 instance=ExtResource("16_k4q6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.197037, 2.0000002, -19.151016)
-
-[node name="ParkCoins" type="Node3D" parent="." unique_id=703097759]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -152.11276, 0, -11.088585)
-
-[node name="Coin" parent="ParkCoins" unique_id=1389587431 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.11929, 3.7999992, 34.275333)
-
-[node name="Coin2" parent="ParkCoins" unique_id=2005500169 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.23201, 3.7999992, 33.10956)
-
-[node name="Coin3" parent="ParkCoins" unique_id=70601821 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.851486, 3.7999992, 34.00631)
-
-[node name="Coin4" parent="ParkCoins" unique_id=1652997030 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.11229, 3.7999992, 37.144936)
-
-[node name="Coin5" parent="ParkCoins" unique_id=1207989676 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.969543, 3.7999992, 38.22104)
-
-[node name="Coin6" parent="ParkCoins" unique_id=1302470619 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.095825, 3.7999992, 38.62458)
-
-[node name="Coin7" parent="ParkCoins" unique_id=726234467 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.863403, 3.7999992, 37.817505)
-
-[node name="Coin8" parent="ParkCoins" unique_id=577864811 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.124207, 3.7999992, 36.15852)
-
-[node name="Coin9" parent="ParkCoins" unique_id=1411605707 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.057571, 3.7999992, 32.795704)
-
-[node name="Coin10" parent="ParkCoins" unique_id=1846250774 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.663498, 3.7999992, 28.401628)
-
-[node name="Coin11" parent="ParkCoins" unique_id=439761268 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.062927, 3.7999992, 22.976288)
-
-[node name="Coin12" parent="ParkCoins" unique_id=2067536440 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.982712, 3.7999992, 19.344448)
-
-[node name="Coin13" parent="ParkCoins" unique_id=1575905282 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.095428, 3.7999992, 17.192245)
-
-[node name="Coin14" parent="ParkCoins" unique_id=1281461884 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.315506, 3.7999992, 12.708494)
-
-[node name="Coin15" parent="ParkCoins" unique_id=3184149 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7774506, 3.7999992, 2.2613525)
-
-[node name="Coin16" parent="ParkCoins" unique_id=95564300 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.701355, 3.7999992, -3.074314)
-
-[node name="Coin17" parent="ParkCoins" unique_id=972665659 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9349976, 3.7999992, -8.185791)
-
-[node name="Coin18" parent="ParkCoins" unique_id=1601512099 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.266159, 3.7999992, -10.56218)
-
-[node name="Coin19" parent="ParkCoins" unique_id=631386751 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.184708, 3.7999992, -11.100229)
-
-[node name="Coin20" parent="ParkCoins" unique_id=1630864770 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.475525, 3.7999992, -8.992865)
-
-[node name="Coin21" parent="ParkCoins" unique_id=1050855529 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.093796, 3.7999992, -5.4058647)
-
-[node name="Coin22" parent="ParkCoins" unique_id=1916163770 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.622375, 3.7999992, -2.8501263)
-
-[node name="Coin23" parent="ParkCoins" unique_id=475237034 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.182228, 3.7999992, -2.8501263)
-
-[node name="Coin24" parent="ParkCoins" unique_id=750032688 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.33854, 3.7999992, -4.7333)
-
-[node name="Coin25" parent="ParkCoins" unique_id=746836120 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.746193, 3.7999992, -9.306728)
-
-[node name="Coin26" parent="ParkCoins" unique_id=2006694129 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.988068, 3.7999992, -14.418205)
-
-[node name="Coin27" parent="ParkCoins" unique_id=1813928347 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.198677, 3.7999992, -20.112572)
-
-[node name="Coin28" parent="ParkCoins" unique_id=2017499099 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.005745, 3.7999992, -25.851776)
-
-[node name="Coin29" parent="ParkCoins" unique_id=405386672 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.14025, 3.7999992, -31.72549)
-
-[node name="Coin30" parent="ParkCoins" unique_id=839622074 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.243507, 3.7999992, -37.01632)
-
-[node name="Coin31" parent="ParkCoins" unique_id=136488542 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.0913, 3.7999992, -42.351982)
-
-[node name="Coin32" parent="ParkCoins" unique_id=1921457779 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.638817, 3.7999992, -46.432198)
-
-[node name="Coin33" parent="ParkCoins" unique_id=117600768 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.020554, 3.7999992, -50.153713)
-
-[node name="Coin34" parent="ParkCoins" unique_id=1481475104 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.913185, 3.7999992, -55.22036)
-
-[node name="BeachTrees" type="Node3D" parent="." unique_id=6075956]
-transform = Transform3D(0.4111167, 0, -0.9115827, 0, 1, 0, 0.9115827, 0, 0.4111167, -225.91261, 0.23300552, 55.363216)
-
-[node name="palm" parent="BeachTrees" unique_id=1015749988 instance=ExtResource("15_6sqxf")]
-
-[node name="palm2" parent="BeachTrees" unique_id=1610837011 instance=ExtResource("15_6sqxf")]
-transform = Transform3D(0.9841399, 0, -0.17739391, 0, 1, 0, 0.17739391, 0, 0.9841399, -3.974594, 0, 13.907928)
-
-[node name="palm3" parent="BeachTrees" unique_id=199061316 instance=ExtResource("15_6sqxf")]
-transform = Transform3D(0.35815614, 0, -0.9336617, 0, 1, 0, 0.9336617, 0, 0.35815614, 12.565289, 0, -7.2470703)
-
-[node name="palm4" parent="BeachTrees" unique_id=1772906090 instance=ExtResource("15_6sqxf")]
-transform = Transform3D(0.69208014, 0, -0.7218206, 0, 1, 0, 0.7218206, 0, 0.69208014, 35.196682, 0, -30.543518)
-
-[node name="palm5" parent="BeachTrees" unique_id=1776347981 instance=ExtResource("15_6sqxf")]
-transform = Transform3D(0.69208014, 0, -0.7218206, 0, 1, 0, 0.7218206, 0, 0.69208014, 35.196667, -0.33897322, -30.543533)
-
-[node name="palm6" parent="BeachTrees" unique_id=1656186998 instance=ExtResource("15_6sqxf")]
-transform = Transform3D(0.69208014, 0, -0.7218206, 0, 1, 0, 0.7218206, 0, 0.69208014, 58.40086, -0.33897322, -49.57347)
-
-[node name="palm7" parent="BeachTrees" unique_id=1083702763 instance=ExtResource("15_6sqxf")]
-transform = Transform3D(0.40753362, 0, -0.91319, 0, 1, 0, 0.91319, 0, 0.40753362, 78.85437, -0.33897322, -73.16255)
-
-[node name="palm8" parent="BeachTrees" unique_id=1544181085 instance=ExtResource("15_6sqxf")]
-transform = Transform3D(0.40753365, 0, -0.91319, 0, 1, 0, 0.91319, 0, 0.40753365, 102.24036, -0.78081435, -88.03734)
-
-[node name="palm9" parent="BeachTrees" unique_id=395888599 instance=ExtResource("15_6sqxf")]
-transform = Transform3D(0.1710521, 0, -0.9852617, 0, 1, 0, 0.9852617, 0, 0.1710521, 113.38394, -0.78081435, -101.92442)
-
-[node name="palm10" parent="BeachTrees" unique_id=1746402799 instance=ExtResource("15_6sqxf")]
-transform = Transform3D(0.22102085, 0, -0.97526884, 0, 1, 0, 0.97526884, 0, 0.22102085, 128.64021, -0.78081435, -113.55948)
-
-[node name="palm11" parent="BeachTrees" unique_id=227367582 instance=ExtResource("15_6sqxf")]
-transform = Transform3D(0.22102088, 0, -0.97526884, 0, 1, 0, 0.97526884, 0, 0.22102088, 142.11942, -0.78081435, -126.29286)
-
-[node name="palm12" parent="BeachTrees" unique_id=1376838307 instance=ExtResource("15_6sqxf")]
-transform = Transform3D(0.45245016, 0, -0.89178944, 0, 1, 0, 0.89178944, 0, 0.45245016, 156.38081, -0.78081435, -138.73755)
-
-[node name="palm13" parent="BeachTrees" unique_id=1386894506 instance=ExtResource("15_6sqxf")]
-transform = Transform3D(0.45245016, 0, -0.89178944, 0, 1, 0, 0.89178944, 0, 0.45245016, 169.51433, -0.78081435, -150.00795)
-
-[node name="palm14" parent="BeachTrees" unique_id=70567486 instance=ExtResource("15_6sqxf")]
-transform = Transform3D(0.45245016, 0, -0.89178944, 0, 1, 0, 0.89178944, 0, 0.45245016, 181.34604, -0.64520377, -162.4189)
-
-[node name="palm15" parent="BeachTrees" unique_id=767249197 instance=ExtResource("15_6sqxf")]
-transform = Transform3D(0.6683778, 0, -0.7438216, 0, 1, 0, 0.7438216, 0, 0.6683778, 200.08694, -0.64520377, -170.96732)
-
-[node name="palm16" parent="BeachTrees" unique_id=699885755 instance=ExtResource("15_6sqxf")]
-transform = Transform3D(0.3796013, 0, -0.9251498, 0, 1, 0, 0.9251498, 0, 0.3796013, 199.50496, -0.6452076, -183.54758)
-
-[node name="palm17" parent="BeachTrees" unique_id=1615904528 instance=ExtResource("15_6sqxf")]
-transform = Transform3D(0.3796013, 0, -0.92514974, 0, 1, 0, 0.92514974, 0, 0.3796013, 224.49101, -0.6452076, -194.82532)
-
-[node name="palm18" parent="BeachTrees" unique_id=1665060973 instance=ExtResource("15_6sqxf")]
-transform = Transform3D(0.3796013, 0, -0.92514974, 0, 1, 0, 0.92514974, 0, 0.3796013, 234.95828, -0.6452076, -227.4079)
-
-[node name="palm19" parent="BeachTrees" unique_id=1974998751 instance=ExtResource("15_6sqxf")]
-transform = Transform3D(0.3796013, 0, -0.92514974, 0, 1, 0, 0.92514974, 0, 0.3796013, 240.82661, -0.6452076, -250.62259)
-
-[node name="palm20" parent="BeachTrees" unique_id=365368508 instance=ExtResource("15_6sqxf")]
-transform = Transform3D(0.3796013, 0, -0.92514974, 0, 1, 0, 0.92514974, 0, 0.3796013, 258.8208, -0.6452076, -247.38385)
-
-[node name="palm21" parent="BeachTrees" unique_id=1038888269 instance=ExtResource("15_6sqxf")]
-transform = Transform3D(0.3796013, 0, -0.92514974, 0, 1, 0, 0.92514974, 0, 0.3796013, 253.86337, -0.6452076, -222.88498)
-
-[node name="CookieDelivery" type="Node3D" parent="." unique_id=1811909915]
+[node name="CookieDelivery" type="Node3D" parent="Quests" unique_id=1811909915]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.547874, 4.347208, -50.435894)
 
-[node name="GrannyPerson" parent="CookieDelivery" unique_id=1497924675 instance=ExtResource("15_hiqwa")]
+[node name="GrannyPerson" parent="Quests/CookieDelivery" unique_id=1497924675 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.05751, -2.9218616, 110.10599)
 character = ExtResource("25_xrsn8")
 metadata/_edit_group_ = true
 
-[node name="CookieQuestPoint" parent="CookieDelivery/GrannyPerson" unique_id=1388076005 instance=ExtResource("3_tlwt5")]
+[node name="CookieQuestPoint" parent="Quests/CookieDelivery/GrannyPerson" unique_id=1388076005 instance=ExtResource("3_tlwt5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63999987, 0)
 required_flags = Array[StringName]([&"Carrier 1", &"Boost"])
 quest = ExtResource("13_k4q6i")
 
-[node name="ShadyQuestPoint" parent="CookieDelivery/GrannyPerson" unique_id=424688341 instance=ExtResource("3_tlwt5")]
+[node name="ShadyQuestPoint" parent="Quests/CookieDelivery/GrannyPerson" unique_id=424688341 instance=ExtResource("3_tlwt5")]
 action = 1
 quest = ExtResource("17_cpdoo")
 
-[node name="FriendQuestPoint" parent="CookieDelivery/GrannyPerson" unique_id=1822294787 instance=ExtResource("3_tlwt5")]
+[node name="FriendQuestPoint" parent="Quests/CookieDelivery/GrannyPerson" unique_id=1822294787 instance=ExtResource("3_tlwt5")]
 action = 3
 quest = ExtResource("15_6frpt")
 
-[node name="PenPals1QuestPoint" parent="CookieDelivery/GrannyPerson" unique_id=222154208 instance=ExtResource("3_tlwt5")]
+[node name="PenPals1QuestPoint" parent="Quests/CookieDelivery/GrannyPerson" unique_id=222154208 instance=ExtResource("3_tlwt5")]
 action = 2
 quest = ExtResource("16_xrsn8")
 
-[node name="KidPerson" parent="CookieDelivery" unique_id=17138524 instance=ExtResource("15_hiqwa")]
+[node name="KidPerson" parent="Quests/CookieDelivery" unique_id=17138524 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 character = ExtResource("27_fxuss")
 metadata/_edit_group_ = true
 
-[node name="CookieQuestPoint" parent="CookieDelivery/KidPerson" unique_id=890679865 instance=ExtResource("3_tlwt5")]
+[node name="CookieQuestPoint" parent="Quests/CookieDelivery/KidPerson" unique_id=890679865 instance=ExtResource("3_tlwt5")]
 action = 1
 quest = ExtResource("13_k4q6i")
 
-[node name="ShadyQuestPoint" parent="CookieDelivery/KidPerson" unique_id=1959416840 instance=ExtResource("3_tlwt5")]
+[node name="ShadyQuestPoint" parent="Quests/CookieDelivery/KidPerson" unique_id=1959416840 instance=ExtResource("3_tlwt5")]
 action = 1
 quest = ExtResource("17_cpdoo")
 
-[node name="FriendQuestPoint" parent="CookieDelivery/KidPerson" unique_id=1255180196 instance=ExtResource("3_tlwt5")]
+[node name="FriendQuestPoint" parent="Quests/CookieDelivery/KidPerson" unique_id=1255180196 instance=ExtResource("3_tlwt5")]
 action = 1
 quest = ExtResource("15_6frpt")
 
-[node name="PenPals1QuestPoint" parent="CookieDelivery/KidPerson" unique_id=1180861413 instance=ExtResource("3_tlwt5")]
+[node name="PenPals1QuestPoint" parent="Quests/CookieDelivery/KidPerson" unique_id=1180861413 instance=ExtResource("3_tlwt5")]
 action = 2
 quest = ExtResource("16_xrsn8")
 
-[node name="BirdFeeding" type="Node3D" parent="." unique_id=969311564]
+[node name="BirdFeeding" type="Node3D" parent="Quests" unique_id=969311564]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.09892, 4.600795, -8.475807)
 
-[node name="BirdPerson" parent="BirdFeeding" unique_id=1311201184 instance=ExtResource("15_hiqwa")]
+[node name="BirdPerson" parent="Quests/BirdFeeding" unique_id=1311201184 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.77678, -1.509377, 5.125)
 character = ExtResource("30_tgkqj")
 metadata/_edit_group_ = true
 
-[node name="ShadyQuestPoint" parent="BirdFeeding/BirdPerson" unique_id=91283606 instance=ExtResource("3_tlwt5")]
+[node name="ShadyQuestPoint" parent="Quests/BirdFeeding/BirdPerson" unique_id=91283606 instance=ExtResource("3_tlwt5")]
 action = 1
 quest = ExtResource("17_cpdoo")
 
-[node name="FriendQuestPoint" parent="BirdFeeding/BirdPerson" unique_id=1791133010 instance=ExtResource("3_tlwt5")]
+[node name="FriendQuestPoint" parent="Quests/BirdFeeding/BirdPerson" unique_id=1791133010 instance=ExtResource("3_tlwt5")]
 action = 3
 quest = ExtResource("15_6frpt")
 
-[node name="BirdFeeding1QuestPoint" parent="BirdFeeding/BirdPerson" unique_id=994692261 instance=ExtResource("3_tlwt5")]
+[node name="BirdFeeding1QuestPoint" parent="Quests/BirdFeeding/BirdPerson" unique_id=994692261 instance=ExtResource("3_tlwt5")]
 required_flags = Array[StringName]([&"Carrier 2"])
 quest = ExtResource("22_tqocu")
 
-[node name="BirdFeeding2QuestPoint" parent="BirdFeeding/BirdPerson" unique_id=654482931 instance=ExtResource("3_tlwt5")]
+[node name="BirdFeeding2QuestPoint" parent="Quests/BirdFeeding/BirdPerson" unique_id=654482931 instance=ExtResource("3_tlwt5")]
 required_flags = Array[StringName]([&"Statue Cleaning", &"Carrier 3"])
 quest = ExtResource("32_fxuss")
 
-[node name="PenPals1QuestPoint" parent="BirdFeeding/BirdPerson" unique_id=1740174655 instance=ExtResource("3_tlwt5")]
+[node name="PenPals1QuestPoint" parent="Quests/BirdFeeding/BirdPerson" unique_id=1740174655 instance=ExtResource("3_tlwt5")]
 action = 2
 quest = ExtResource("16_xrsn8")
 
-[node name="BirdFeeding1QuestPoint" parent="BirdFeeding" unique_id=1060353130 instance=ExtResource("3_tlwt5")]
+[node name="BirdFeeding1QuestPoint" parent="Quests/BirdFeeding" unique_id=1060353130 instance=ExtResource("3_tlwt5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.81256, 0, -29.544777)
 action = 1
 quest = ExtResource("22_tqocu")
 
-[node name="BirdFeeding1QuestPoint2" parent="BirdFeeding" unique_id=295714635 instance=ExtResource("3_tlwt5")]
+[node name="BirdFeeding1QuestPoint2" parent="Quests/BirdFeeding" unique_id=295714635 instance=ExtResource("3_tlwt5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5307617, 0, 18.05309)
 action = 1
 quest = ExtResource("22_tqocu")
 
-[node name="BirdFeeding2QuestPoint1" parent="BirdFeeding" unique_id=42907753 instance=ExtResource("3_tlwt5")]
+[node name="BirdFeeding2QuestPoint1" parent="Quests/BirdFeeding" unique_id=42907753 instance=ExtResource("3_tlwt5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106.66504, 1.3992023, 23.71519)
 action = 1
 quest = ExtResource("32_fxuss")
 
-[node name="BirdFeeding2QuestPoint2" parent="BirdFeeding" unique_id=1885191297 instance=ExtResource("3_tlwt5")]
+[node name="BirdFeeding2QuestPoint2" parent="Quests/BirdFeeding" unique_id=1885191297 instance=ExtResource("3_tlwt5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.78807, 1.3991985, -60.589317)
 action = 1
 quest = ExtResource("32_fxuss")
 
-[node name="BirdFeeding2QuestPoint3" parent="BirdFeeding" unique_id=772511927 instance=ExtResource("3_tlwt5")]
+[node name="BirdFeeding2QuestPoint3" parent="Quests/BirdFeeding" unique_id=772511927 instance=ExtResource("3_tlwt5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.14984, 10.5520115, -15.899544)
 action = 1
 quest = ExtResource("32_fxuss")
 
-[node name="SeriesQuest" type="Node3D" parent="." unique_id=489741480]
+[node name="SeriesQuest" type="Node3D" parent="Quests" unique_id=489741480]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.362701, 2.0653539, -16.538788)
 
-[node name="ConstructionPerson" parent="SeriesQuest" unique_id=1574174071 instance=ExtResource("15_hiqwa")]
+[node name="ConstructionPerson" parent="Quests/SeriesQuest" unique_id=1574174071 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.240234, -0.6430807, 129.29121)
 character = ExtResource("33_2b3xb")
 metadata/_edit_group_ = true
 
-[node name="ShadyQuestPoint" parent="SeriesQuest/ConstructionPerson" unique_id=1445306530 instance=ExtResource("3_tlwt5")]
+[node name="ShadyQuestPoint" parent="Quests/SeriesQuest/ConstructionPerson" unique_id=1445306530 instance=ExtResource("3_tlwt5")]
 action = 1
 quest = ExtResource("17_cpdoo")
 
-[node name="FriendQuestPoint" parent="SeriesQuest/ConstructionPerson" unique_id=248410829 instance=ExtResource("3_tlwt5")]
+[node name="FriendQuestPoint" parent="Quests/SeriesQuest/ConstructionPerson" unique_id=248410829 instance=ExtResource("3_tlwt5")]
 action = 3
 quest = ExtResource("15_6frpt")
 
-[node name="PenPals1QuestPoint" parent="SeriesQuest/ConstructionPerson" unique_id=246635142 instance=ExtResource("3_tlwt5")]
+[node name="PenPals1QuestPoint" parent="Quests/SeriesQuest/ConstructionPerson" unique_id=246635142 instance=ExtResource("3_tlwt5")]
 action = 2
 quest = ExtResource("16_xrsn8")
 
-[node name="Ocean" parent="." unique_id=125061546 instance=ExtResource("6_dwbse")]
-script = null
-metadata/_edit_lock_ = true
-
-[node name="corner_col2" parent="." unique_id=1044108480 instance=ExtResource("9_ic0uy")]
-transform = Transform3D(-0.8410486, 0, -0.54095984, 0, 1, 0, 0.54095984, 0, -0.8410486, -143.71999, 0.49998856, 63.287407)
-
-[node name="corner_col3" parent="." unique_id=23690873 instance=ExtResource("9_ic0uy")]
-transform = Transform3D(-0.7777278, 0, -0.6286012, 0, 1, 0, 0.6286012, 0, -0.7777278, -118.129105, 0.49998474, 78.75764)
-
-[node name="corner_col4" parent="." unique_id=728267545 instance=ExtResource("9_ic0uy")]
-transform = Transform3D(-0.7071068, 0, -0.7071068, 0, 1, 0, 0.7071068, 0, -0.7071068, -89.6961, 0.49998474, 67.344574)
-
-[node name="corner_col5" parent="." unique_id=778474459 instance=ExtResource("9_ic0uy")]
-transform = Transform3D(0.75950986, 0, 0.65049595, 0, 1, 0, -0.65049595, 0, 0.75950986, -115.87608, 0.49998474, 53.458214)
-
-[node name="halfarc_col2" parent="." unique_id=1965399226 instance=ExtResource("10_k3n1d")]
-transform = Transform3D(-0.58673996, 0, -0.8097754, 0, 1, 0, 0.8097754, 0, -0.58673996, 67.63193, 0.5000038, -68.270294)
-
-[node name="octacon_col2" parent="." unique_id=588387575 instance=ExtResource("11_2o6r5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.82917, 0.50001144, -76.880714)
-
-[node name="crane" parent="." unique_id=1313281722 instance=ExtResource("13_2o6r5")]
-transform = Transform3D(-0.8660254, 0, -0.49999988, 0, 1, 0, 0.49999988, 0, -0.8660254, 167.44238, 0.75, 121.45867)
-
-[node name="Node3D" parent="." unique_id=583676994 instance=ExtResource("19_cbp6q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0773926, 1.3279433, 109.59863)
-
-[node name="Coin" parent="." unique_id=1555685369 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.441293, 3.031218, 64.7581)
-
-[node name="Coin2" parent="." unique_id=1050796054 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.441293, 3.031218, 61.758102)
-
-[node name="Coin3" parent="." unique_id=1632388706 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.441293, 3.031218, 58.758102)
-
-[node name="Coin4" parent="." unique_id=1622041930 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.441293, 3.031218, 54.758102)
-
-[node name="Coin5" parent="." unique_id=2003584268 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.733469, 3.031218, 44.095413)
-
-[node name="Coin6" parent="." unique_id=695989172 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.733469, 3.031218, 41.095413)
-
-[node name="Coin7" parent="." unique_id=344362303 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.733469, 3.031218, 38.095413)
-
-[node name="Coin8" parent="." unique_id=1461484566 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.733469, 3.031218, 34.095413)
-
-[node name="BeachCoins" type="Node3D" parent="." unique_id=1419342177]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.860313, 7.6293945e-06, 150.26944)
-script = ExtResource("24_mc2jv")
-quest = ExtResource("32_6sqxf")
-
-[node name="HomelessPerson" parent="BeachCoins" unique_id=1045618670 instance=ExtResource("15_hiqwa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.02863, 1.0082533, 29.625885)
-character = ExtResource("42_vs3uv")
-metadata/_edit_group_ = true
-
-[node name="BeachCoinsQuestPoint" parent="BeachCoins/HomelessPerson" unique_id=1508452915 instance=ExtResource("3_tlwt5")]
-required_flags = Array[StringName]([&"Boost"])
-quest = ExtResource("32_6sqxf")
-
-[node name="ShadyQuestPoint" parent="BeachCoins/HomelessPerson" unique_id=525935166 instance=ExtResource("3_tlwt5")]
-action = 1
-quest = ExtResource("17_cpdoo")
-
-[node name="FriendQuestPoint" parent="BeachCoins/HomelessPerson" unique_id=1480226990 instance=ExtResource("3_tlwt5")]
-action = 3
-quest = ExtResource("15_6frpt")
-
-[node name="PenPals1QuestPoint" parent="BeachCoins/HomelessPerson" unique_id=887872562 instance=ExtResource("3_tlwt5")]
-action = 2
-quest = ExtResource("16_xrsn8")
-
-[node name="BeachCoinsQuestPoint2" parent="BeachCoins" unique_id=676503088 instance=ExtResource("3_tlwt5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -169.34738, -3.8146973e-06, -71.71955)
-action = 1
-quest = ExtResource("32_6sqxf")
-
-[node name="Coin01" parent="BeachCoins" unique_id=1513854474 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.59318, 3.031218, 28.340378)
-is_quest_coin = true
-
-[node name="Coin02" parent="BeachCoins" unique_id=1900735735 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.26825, 3.031218, 31.313751)
-is_quest_coin = true
-
-[node name="Coin03" parent="BeachCoins" unique_id=2059985834 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.99726, 3.031218, 33.47621)
-is_quest_coin = true
-
-[node name="Coin04" parent="BeachCoins" unique_id=722726458 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.18565, 3.031218, 33.881683)
-is_quest_coin = true
-
-[node name="Coin05" parent="BeachCoins" unique_id=960399157 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.455284, 3.031218, 31.584076)
-is_quest_coin = true
-
-[node name="Coin06" parent="BeachCoins" unique_id=1099848600 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.563133, 3.031218, 26.177933)
-is_quest_coin = true
-
-[node name="Coin07" parent="BeachCoins" unique_id=1734372459 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.547424, 3.031218, 17.865982)
-is_quest_coin = true
-
-[node name="Coin08" parent="BeachCoins" unique_id=1330212966 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.77678, 3.031218, 16.244125)
-is_quest_coin = true
-
-[node name="Coin09" parent="BeachCoins" unique_id=2068495755 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.208855, 3.031218, 14.284393)
-is_quest_coin = true
-
-[node name="Coin10" parent="BeachCoins" unique_id=1722039190 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.505787, 3.031218, 12.121933)
-is_quest_coin = true
-
-[node name="Coin11" parent="BeachCoins" unique_id=885884867 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.32006, 3.031218, 2.2649841)
-is_quest_coin = true
-
-[node name="Coin12" parent="BeachCoins" unique_id=1839304568 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4888115, 3.031218, 1.7185974)
-is_quest_coin = true
-
-[node name="Coin13" parent="BeachCoins" unique_id=1097779584 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.905926, 3.031218, 0.9238739)
-is_quest_coin = true
-
-[node name="Coin14" parent="BeachCoins" unique_id=727275049 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.07468, 3.031218, 0.2284851)
-is_quest_coin = true
-
-[node name="Coin15" parent="BeachCoins" unique_id=274615750 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.491787, 3.031218, -0.715271)
-is_quest_coin = true
-
-[node name="Coin16" parent="BeachCoins" unique_id=809065714 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31313705, 3.031218, -3.4968567)
-is_quest_coin = true
-
-[node name="Coin17" parent="BeachCoins" unique_id=491131860 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8463554, 3.031218, -4.639282)
-is_quest_coin = true
-
-[node name="Coin18" parent="BeachCoins" unique_id=1334808388 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2802353, 3.031218, -5.8810577)
-is_quest_coin = true
-
-[node name="Coin19" parent="BeachCoins" unique_id=245643043 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7637863, 3.031218, -7.0234985)
-is_quest_coin = true
-
-[node name="Coin20" parent="BeachCoins" unique_id=1958580980 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.09832, 3.031218, -8.265259)
-is_quest_coin = true
-
-[node name="Coin21" parent="BeachCoins" unique_id=1994047348 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.562119, 3.031218, -10.997162)
-is_quest_coin = true
-
-[node name="Coin22" parent="BeachCoins" unique_id=1816878201 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.542381, 3.031218, -12.08992)
-is_quest_coin = true
-
-[node name="Coin23" parent="BeachCoins" unique_id=1143848405 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.621979, 3.031218, -13.182678)
-is_quest_coin = true
-
-[node name="Coin24" parent="BeachCoins" unique_id=1196570204 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.651917, 3.031218, -14.225769)
-is_quest_coin = true
-
-[node name="Coin25" parent="BeachCoins" unique_id=8867499 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.38382, 3.031218, -15.517212)
-is_quest_coin = true
-
-[node name="Coin26" parent="BeachCoins" unique_id=968869731 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.149483, 14.393917, -26.280388)
-is_quest_coin = true
-
-[node name="Coin27" parent="BeachCoins" unique_id=1814171639 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.938484, 14.393917, -21.664734)
-is_quest_coin = true
-
-[node name="Coin28" parent="BeachCoins" unique_id=1466677756 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.23854, 14.393917, -22.434006)
-is_quest_coin = true
-
-[node name="Coin29" parent="BeachCoins" unique_id=846246545 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.46927, 14.393917, -27.029945)
-is_quest_coin = true
-
-[node name="Coin30" parent="BeachCoins" unique_id=1585317826 instance=ExtResource("19_26xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.049065, 14.393917, -24.248718)
-is_quest_coin = true
-
-[node name="Coin31" parent="BeachCoins" unique_id=1193867105 instance=ExtResource("19_26xuy")]
-transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -62.787285, 14.393917, -30.48993)
-is_quest_coin = true
-
-[node name="Coin32" parent="BeachCoins" unique_id=1582693707 instance=ExtResource("19_26xuy")]
-transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -67.308334, 14.393917, -31.709335)
-is_quest_coin = true
-
-[node name="Coin33" parent="BeachCoins" unique_id=1404353305 instance=ExtResource("19_26xuy")]
-transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -66.138245, 14.393917, -35.91803)
-is_quest_coin = true
-
-[node name="Coin34" parent="BeachCoins" unique_id=881418483 instance=ExtResource("19_26xuy")]
-transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -61.63497, 14.393917, -34.720123)
-is_quest_coin = true
-
-[node name="Coin35" parent="BeachCoins" unique_id=1824243266 instance=ExtResource("19_26xuy")]
-transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -64.53739, 14.393917, -33.567665)
-is_quest_coin = true
-
-[node name="Coin36" parent="BeachCoins" unique_id=16747724 instance=ExtResource("19_26xuy")]
-transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -86.9667, 3.301, -45.879593)
-is_quest_coin = true
-
-[node name="Coin37" parent="BeachCoins" unique_id=1532577293 instance=ExtResource("19_26xuy")]
-transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -90.53485, 3.301, -45.853996)
-is_quest_coin = true
-
-[node name="Coin38" parent="BeachCoins" unique_id=688422607 instance=ExtResource("19_26xuy")]
-transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -94.28932, 3.301, -44.82962)
-is_quest_coin = true
-
-[node name="Coin39" parent="BeachCoins" unique_id=1829916317 instance=ExtResource("19_26xuy")]
-transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -97.90904, 3.301, -43.253975)
-is_quest_coin = true
-
-[node name="Coin40" parent="BeachCoins" unique_id=321167744 instance=ExtResource("19_26xuy")]
-transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -101.060326, 3.301, -40.99697)
-is_quest_coin = true
-
-[node name="Coin41" parent="BeachCoins" unique_id=646766612 instance=ExtResource("19_26xuy")]
-transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -105.148476, 3.301, -40.52854)
-is_quest_coin = true
-
-[node name="Coin42" parent="BeachCoins" unique_id=1713326064 instance=ExtResource("19_26xuy")]
-transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -108.25718, 3.301, -43.466904)
-is_quest_coin = true
-
-[node name="Coin43" parent="BeachCoins" unique_id=773274906 instance=ExtResource("19_26xuy")]
-transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -109.492134, 3.301, -47.89573)
-is_quest_coin = true
-
-[node name="Coin44" parent="BeachCoins" unique_id=406822716 instance=ExtResource("19_26xuy")]
-transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -109.108864, 4.301, -52.58007)
-is_quest_coin = true
-
-[node name="Coin45" parent="BeachCoins" unique_id=1958206331 instance=ExtResource("19_26xuy")]
-transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -106.81107, 5.301, -55.554108)
-is_quest_coin = true
-
-[node name="Coin46" parent="BeachCoins" unique_id=242614176 instance=ExtResource("19_26xuy")]
-transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -103.35491, 6.301, -56.43972)
-is_quest_coin = true
-
-[node name="Coin47" parent="BeachCoins" unique_id=130375327 instance=ExtResource("19_26xuy")]
-transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -100.602394, 7.301001, -53.910316)
-is_quest_coin = true
-
-[node name="Coin48" parent="BeachCoins" unique_id=668656424 instance=ExtResource("19_26xuy")]
-transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -101.78181, 8.301001, -50.330803)
-is_quest_coin = true
-
-[node name="Coin49" parent="BeachCoins" unique_id=725759535 instance=ExtResource("19_26xuy")]
-transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -104.53297, 9.301002, -48.714447)
-is_quest_coin = true
-
-[node name="Coin50" parent="BeachCoins" unique_id=1793076524 instance=ExtResource("19_26xuy")]
-transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -108.182625, 10.301002, -49.224327)
-is_quest_coin = true
-
-[node name="Coin51" parent="BeachCoins" unique_id=1983275408 instance=ExtResource("19_26xuy")]
-transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -111.72405, 10.301002, -50.356125)
-is_quest_coin = true
-
-[node name="Coin52" parent="BeachCoins" unique_id=1152483555 instance=ExtResource("19_26xuy")]
-transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -115.08294, 10.301002, -51.816513)
-is_quest_coin = true
-
-[node name="Coin53" parent="BeachCoins" unique_id=1953757682 instance=ExtResource("19_26xuy")]
-transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -118.47834, 9.301002, -53.349922)
-is_quest_coin = true
-
-[node name="Coin54" parent="BeachCoins" unique_id=1878066928 instance=ExtResource("19_26xuy")]
-transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -122.25753, 8.301002, -54.21039)
-is_quest_coin = true
-
-[node name="Coin55" parent="BeachCoins" unique_id=137198830 instance=ExtResource("19_26xuy")]
-transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -126.24891, 7.3010006, -55.012543)
-is_quest_coin = true
-
-[node name="Coin56" parent="BeachCoins" unique_id=2116669653 instance=ExtResource("19_26xuy")]
-transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -129.88977, 6.3010006, -54.28309)
-is_quest_coin = true
-
-[node name="Coin57" parent="BeachCoins" unique_id=1205858546 instance=ExtResource("19_26xuy")]
-transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -133.21725, 5.3010006, -53.93271)
-is_quest_coin = true
-
-[node name="Coin58" parent="BeachCoins" unique_id=282985074 instance=ExtResource("19_26xuy")]
-transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -136.6857, 4.3010006, -55.10102)
-is_quest_coin = true
-
-[node name="Coin59" parent="BeachCoins" unique_id=1512716308 instance=ExtResource("19_26xuy")]
-transform = Transform3D(-0.09400408, 0, -0.99557185, 0, 1, 0, 0.99557185, 0, -0.09400408, -140.85046, 3.3010006, -56.781677)
-is_quest_coin = true
-
-[node name="CanyonExit" type="Area3D" parent="." unique_id=1952640041]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -164.32509)
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("23_il2jm")
-level = "uid://cyaorxmndg0ly"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CanyonExit" unique_id=1172961125]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7796936, 13.422607, -8.996033)
-shape = SubResource("BoxShape3D_wjb0r")
-
-[node name="CanyonEntrance" type="Marker3D" parent="." unique_id=835338886]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 17.565632, -149.95107)
-
-[node name="fountain" parent="." unique_id=786101512 instance=ExtResource("27_o3ebs")]
-transform = Transform3D(-0.86602545, 0, 0.4999999, 0, 1, 0, -0.4999999, 0, -0.86602545, 0.7661619, 1.6972882, -0.95320696)
-
-[node name="FountainJewel" parent="fountain" unique_id=938082553 instance=ExtResource("21_bc84e")]
-transform = Transform3D(-1, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -1, 0.94033545, 12.532245, 0.42767704)
-quest_name = &"Fountain Jewel"
-
-[node name="house1" parent="." unique_id=1067733595 instance=ExtResource("28_k83mh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.749762, 0.69761693, 43.77847)
-
-[node name="house2" parent="." unique_id=1474717904 instance=ExtResource("28_k83mh")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -20.987143, 0.69761693, 47.016125)
-
-[node name="statue" parent="." unique_id=18066987 instance=ExtResource("37_eep5w")]
-transform = Transform3D(-0.8950044, 0, -0.44605717, 0, 1, 0, 0.44605717, 0, -0.8950044, -126.89417, 2.0974398, -24.371624)
-
-[node name="VanityPerson" parent="." unique_id=715962078 instance=ExtResource("15_hiqwa")]
+[node name="VanityPerson" parent="Quests" unique_id=715962078 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.23692, 1, 0)
 character = ExtResource("47_ty1sn")
 metadata/_edit_group_ = true
 
-[node name="FriendQuestPoint" parent="VanityPerson" unique_id=763376972 instance=ExtResource("3_tlwt5")]
+[node name="FriendQuestPoint" parent="Quests/VanityPerson" unique_id=763376972 instance=ExtResource("3_tlwt5")]
 action = 3
 quest = ExtResource("15_6frpt")
 
-[node name="PenPals1QuestPoint" parent="VanityPerson" unique_id=1815245656 instance=ExtResource("3_tlwt5")]
+[node name="PenPals1QuestPoint" parent="Quests/VanityPerson" unique_id=1815245656 instance=ExtResource("3_tlwt5")]
 action = 2
 quest = ExtResource("16_xrsn8")
 
-[node name="AlienPerson" parent="." unique_id=1275784419 instance=ExtResource("15_hiqwa")]
+[node name="AlienPerson" parent="Quests" unique_id=1275784419 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.23692, 1, 0)
 character = ExtResource("48_jp2sm")
 metadata/_edit_group_ = true
 
-[node name="FriendQuestPoint" parent="AlienPerson" unique_id=1780616342 instance=ExtResource("3_tlwt5")]
+[node name="FriendQuestPoint" parent="Quests/AlienPerson" unique_id=1780616342 instance=ExtResource("3_tlwt5")]
 action = 2
 quest = ExtResource("15_6frpt")
 
-[node name="SeriousOldPerson" parent="." unique_id=1540844805 instance=ExtResource("15_hiqwa")]
+[node name="SeriousOldPerson" parent="Quests" unique_id=1540844805 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.23692, 1, 0)
 character = ExtResource("49_7x1jl")
 metadata/_edit_group_ = true
 
-[node name="FriendQuestPoint" parent="SeriousOldPerson" unique_id=198483175 instance=ExtResource("3_tlwt5")]
+[node name="FriendQuestPoint" parent="Quests/SeriousOldPerson" unique_id=198483175 instance=ExtResource("3_tlwt5")]
 action = 3
 quest = ExtResource("15_6frpt")
 
-[node name="PenPals1QuestPoint" parent="SeriousOldPerson" unique_id=1194660839 instance=ExtResource("3_tlwt5")]
+[node name="PenPals1QuestPoint" parent="Quests/SeriousOldPerson" unique_id=1194660839 instance=ExtResource("3_tlwt5")]
 action = 2
 quest = ExtResource("16_xrsn8")
 
-[node name="PainfulPerson" parent="." unique_id=1711070339 instance=ExtResource("15_hiqwa")]
+[node name="PainfulPerson" parent="Quests" unique_id=1711070339 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.23692, 1, 0)
 character = ExtResource("50_36xij")
 metadata/_edit_group_ = true
 
-[node name="FriendQuestPoint" parent="PainfulPerson" unique_id=1969971291 instance=ExtResource("3_tlwt5")]
+[node name="FriendQuestPoint" parent="Quests/PainfulPerson" unique_id=1969971291 instance=ExtResource("3_tlwt5")]
 action = 3
 quest = ExtResource("15_6frpt")
 
-[node name="PenPals1QuestPoint" parent="PainfulPerson" unique_id=822892783 instance=ExtResource("3_tlwt5")]
+[node name="PenPals1QuestPoint" parent="Quests/PainfulPerson" unique_id=822892783 instance=ExtResource("3_tlwt5")]
 action = 2
 quest = ExtResource("16_xrsn8")
 
-[node name="ShyPerson" parent="." unique_id=1602629499 instance=ExtResource("15_hiqwa")]
+[node name="ShyPerson" parent="Quests" unique_id=1602629499 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.23692, 1, 0)
 character = ExtResource("51_fje51")
 metadata/_edit_group_ = true
 
-[node name="FriendQuestPoint" parent="ShyPerson" unique_id=1326494533 instance=ExtResource("3_tlwt5")]
+[node name="FriendQuestPoint" parent="Quests/ShyPerson" unique_id=1326494533 instance=ExtResource("3_tlwt5")]
 action = 3
 quest = ExtResource("15_6frpt")
 
-[node name="PenPals1QuestPoint" parent="ShyPerson" unique_id=930370885 instance=ExtResource("3_tlwt5")]
+[node name="PenPals1QuestPoint" parent="Quests/ShyPerson" unique_id=930370885 instance=ExtResource("3_tlwt5")]
 action = 2
 quest = ExtResource("16_xrsn8")
 
-[node name="ShyDadPerson" parent="." unique_id=1600690858 instance=ExtResource("15_hiqwa")]
+[node name="ShyDadPerson" parent="Quests" unique_id=1600690858 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.23692, 1, 0)
 character = ExtResource("52_nmvc4")
 metadata/_edit_group_ = true
 
-[node name="FriendQuestPoint" parent="ShyDadPerson" unique_id=1182319498 instance=ExtResource("3_tlwt5")]
+[node name="FriendQuestPoint" parent="Quests/ShyDadPerson" unique_id=1182319498 instance=ExtResource("3_tlwt5")]
 action = 3
 quest = ExtResource("15_6frpt")
 
-[node name="PenPals1QuestPoint" parent="ShyDadPerson" unique_id=135029221 instance=ExtResource("3_tlwt5")]
+[node name="PenPals1QuestPoint" parent="Quests/ShyDadPerson" unique_id=135029221 instance=ExtResource("3_tlwt5")]
 action = 2
 quest = ExtResource("16_xrsn8")
 
-[node name="AfroPerson" parent="." unique_id=314659469 instance=ExtResource("15_hiqwa")]
+[node name="AfroPerson" parent="Quests" unique_id=314659469 instance=ExtResource("15_hiqwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.23692, 1, -20.203564)
 character = ExtResource("53_pp44n")
 metadata/_edit_group_ = true
 
-[node name="FriendQuestPoint" parent="AfroPerson" unique_id=908915525 instance=ExtResource("3_tlwt5")]
+[node name="FriendQuestPoint" parent="Quests/AfroPerson" unique_id=908915525 instance=ExtResource("3_tlwt5")]
 action = 3
 quest = ExtResource("15_6frpt")
 
-[node name="PenPalsQuestPoint" parent="AfroPerson" unique_id=1703498135 instance=ExtResource("3_tlwt5")]
+[node name="PenPalsQuestPoint" parent="Quests/AfroPerson" unique_id=1703498135 instance=ExtResource("3_tlwt5")]
 quest = ExtResource("16_xrsn8")
 
-[node name="PenPalsQuestPoint2" parent="AfroPerson" unique_id=912693302 instance=ExtResource("3_tlwt5")]
+[node name="PenPalsQuestPoint2" parent="Quests/AfroPerson" unique_id=912693302 instance=ExtResource("3_tlwt5")]
 action = 3
 required_flags = Array[StringName]([&"Carrier 1"])
 availability_delay = 3
 quest = ExtResource("16_xrsn8")
-
-[node name="FlightControl" parent="." unique_id=509304927 instance=ExtResource("55_6frpt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.70665, 7.6293945e-06, -112.05203)
-
-[node name="ShopPoint" parent="FlightControl" unique_id=2102423001 instance=ExtResource("56_xrsn8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 10)
-shop_name = "City"
-
-[node name="ShopJewel" parent="FlightControl" unique_id=812669647 instance=ExtResource("21_bc84e")]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -0.44766617, 7.700001, 2.4459)
-quest_name = &"Shop Jewel"
 
 [node name="RandomJewel" parent="." unique_id=944599350 instance=ExtResource("21_bc84e")]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -63.364296, 12.238269, -76.49991)
@@ -1258,37 +2163,21 @@ quest_name = &"Tall Building Jewel"
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 116.385544, 3.5888624, 206.26453)
 quest_name = &"Beach Jewel"
 
-[node name="city_pier" parent="." unique_id=1297860961 instance=ExtResource("57_fxuss")]
-transform = Transform3D(0.9240398, 0, -0.3822964, 0, 1, 0, 0.3822964, 0, 0.9240398, -235.8896, 0.46240187, 57.08624)
-
-[node name="CSGTorus3D" type="CSGTorus3D" parent="city_pier" unique_id=1775869363]
-transform = Transform3D(0.99999946, 0, 0, 0, -4.371139e-08, -0.99999946, 0, 1, -4.3711363e-08, 0, 3, 20)
-material_override = SubResource("StandardMaterial3D_ty1sn")
-inner_radius = 1.721
-outer_radius = 2.365
-sides = 32
-
-[node name="CSGTorus3D2" type="CSGTorus3D" parent="city_pier" unique_id=1707657177]
-transform = Transform3D(0.99999946, 0, 0, 0, -4.371139e-08, -0.99999946, 0, 1, -4.3711363e-08, 0, 2.9999998, 23)
-material_override = SubResource("StandardMaterial3D_ty1sn")
-inner_radius = 1.721
-outer_radius = 2.365
-sides = 32
-
-[node name="CSGTorus3D3" type="CSGTorus3D" parent="city_pier" unique_id=194426902]
-transform = Transform3D(0.99999946, 0, 0, 0, -4.371139e-08, -0.99999946, 0, 1, -4.3711363e-08, 0, 2.9999995, 26)
-material_override = SubResource("StandardMaterial3D_ty1sn")
-inner_radius = 1.721
-outer_radius = 2.365
-sides = 32
-
-[node name="Area3D" type="Area3D" parent="city_pier" unique_id=853953480]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 23)
+[node name="CanyonExit" type="Area3D" parent="." unique_id=1952640041]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -164.32509)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("23_il2jm")
-level = "uid://cdc0ifsyfwrwk"
+level = "uid://cyaorxmndg0ly"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="city_pier/Area3D" unique_id=557596833]
-transform = Transform3D(0.9999995, -2.0861626e-07, 1.7763568e-15, 0, -4.371139e-08, -1, 2.0861626e-07, 0.9999995, -4.371138e-08, 0, 0, 0)
-shape = SubResource("CylinderShape3D_fxuss")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CanyonExit" unique_id=1172961125]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7796936, 13.422607, -8.996033)
+shape = SubResource("BoxShape3D_wjb0r")
+
+[node name="CanyonEntrance" type="Marker3D" parent="." unique_id=835338886]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 17.565632, -149.95107)
+
+[node name="Ocean" parent="." unique_id=125061546 instance=ExtResource("6_dwbse")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.783333, 0)
+script = null
+metadata/_edit_lock_ = true

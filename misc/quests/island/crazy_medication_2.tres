@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://u31paso7yk1x" path="res://gui/dialogue_box/message.gd" id="1_dxle5"]
 [ext_resource type="Texture2D" uid="uid://b88hd5uhbqsxw" path="res://portraits/island/island_03.png" id="2_3er24"]
-[ext_resource type="Script" uid="uid://dpiwy6dhp58g8" path="res://actors/person/character.gd" id="3_25yf5"]
+[ext_resource type="Script" path="res://actors/person/character.gd" id="3_25yf5"]
 [ext_resource type="Texture2D" uid="uid://c01dj2kvqxik7" path="res://portraits/island/island_07.png" id="4_b0jhw"]
 [ext_resource type="Script" uid="uid://cwt46u8hoo78l" path="res://misc/quests/parcel_quest.gd" id="5_oegia"]
 
