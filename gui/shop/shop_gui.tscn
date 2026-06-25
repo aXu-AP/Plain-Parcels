@@ -109,7 +109,7 @@ metadata/_custom_type_script = "uid://bkffasrhn2rcw"
 [sub_resource type="Resource" id="Resource_s6nae"]
 resource_name = "Retract Wings"
 script = ExtResource("2_trisq")
-display_name = "Retract Wings"
+display_name = "Wing Retract"
 price = 50
 item_icon = ExtResource("11_6wsye")
 tier = 2
