@@ -5,12 +5,13 @@
 
 [node name="ferriswheel" unique_id=1008389699 instance=ExtResource("1_nqyik")]
 
-[node name="Jewel" parent="Empty-col/Circle_003" parent_id_path=PackedInt32Array(1262352694) index="1" unique_id=1384678923 instance=ExtResource("2_wfk7c")]
+[node name="Jewel" parent="Empty-col/Circle_003" parent_id_path=PackedInt32Array(1565670734) index="1" unique_id=1384678923 instance=ExtResource("2_wfk7c")]
 transform = Transform3D(0.4995599, 0, 0, 0, 0.49955997, 0, 0, 0, 0.4995599, 0, 1.3000219, 0)
+quest_name = &"Ferris Wheel Jewel"
 
-[node name="spinner" parent="Empty-col" parent_id_path=PackedInt32Array(211780191) index="9" unique_id=2112442829]
+[node name="spinner" parent="Empty-col" parent_id_path=PackedInt32Array(1954300080) index="9" unique_id=2114057844]
 transform = Transform3D(-1.2920748e-06, -0.6989254, -1.5237738e-06, 6.298159, -1.8217322e-07, 2.6092281, -2.6092281, -9.36262e-08, 6.298159, 0.018971594, 0.01958942, 0.03821721)
 
-[node name="AnimationPlayer" parent="." index="1" unique_id=1331571544]
+[node name="AnimationPlayer" parent="." index="1" unique_id=120712254]
 autoplay = &"Animation"
 speed_scale = 0.1

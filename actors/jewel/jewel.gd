@@ -1,6 +1,7 @@
 extends Area3D
 
 @export var quest_name: StringName
+@export var grab_instantly := false
 var connected := false
 var collected := false
 var last_damaged: int
@@ -22,6 +23,11 @@ func _process(delta: float) -> void:
 
 
 func _on_area_entered(_area: Area3D) -> void:
+	if grab_instantly:
+		%CollectAudio.play(2)
+		connected = true
+		collect.call_deferred()
+		return
 	if Time.get_ticks_msec() - last_damaged < 200:
 		return
 	connected = true

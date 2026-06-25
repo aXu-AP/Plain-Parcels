@@ -436,6 +436,8 @@ metadata/_edit_lock_ = true
 
 [node name="Jewel" parent="." unique_id=1256657396 instance=ExtResource("23_s25jc")]
 transform = Transform3D(0.0030989647, 0, -1.3250892, 0, 1.3250929, 0, 1.3250892, 0, 0.0030989647, -137.84058, 13.672753, -153.06053)
+quest_name = &"Volcano Labyrinth Jewel"
+grab_instantly = true
 
 [node name="HeightArea3D1" type="Area3D" parent="." unique_id=293231854]
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 90.509674, 54.79582, -101.35432)
@@ -1312,6 +1314,7 @@ transform = Transform3D(-6.250182, 0, 1.8833514, 0, 6.5277705, 0, -1.8833514, 0,
 
 [node name="Jewel" parent="Buildings/lighthouse" unique_id=1397172199 instance=ExtResource("23_s25jc")]
 transform = Transform3D(0.34815055, 0, 2.2351742e-08, 0, 0.3481507, 0, -2.2351742e-08, 0, 0.34815055, 0, 7.8917665, 0)
+quest_name = &"Lighthouse Jewel"
 
 [node name="LightHouseWall" type="CSGCombiner3D" parent="Buildings/lighthouse" unique_id=1880662094]
 transform = Transform3D(-0.14667729, 0, -0.044197895, 0, 0.15319166, 0, 0.044197895, 0, -0.14667729, 7.5862246, 0.23428154, -0.9548397)
