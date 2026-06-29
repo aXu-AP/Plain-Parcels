@@ -164,18 +164,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
 unique_name_in_owner = true
 stream = ExtResource("5_6p1w3")
 autoplay = true
+bus = &"Sfx"
 
 [node name="DamageLowAudio" type="AudioStreamPlayer3D" parent="." unique_id=62778627]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_bop6h")
 max_polyphony = 2
+bus = &"Sfx"
 
 [node name="DamageMediumAudio" type="AudioStreamPlayer3D" parent="." unique_id=497691544]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_lsln6")
 max_polyphony = 2
+bus = &"Sfx"
 
 [node name="CrashAudio" type="AudioStreamPlayer3D" parent="." unique_id=961936453]
 unique_name_in_owner = true
 stream = ExtResource("8_388e2")
 max_polyphony = 2
+bus = &"Sfx"

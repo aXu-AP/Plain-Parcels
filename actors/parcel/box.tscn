@@ -37,9 +37,11 @@ shape = SubResource("BoxShape3D_m04ax")
 [node name="CollectedAudio" type="AudioStreamPlayer3D" parent="." index="5" unique_id=1397706476]
 unique_name_in_owner = true
 stream = ExtResource("3_usy1m")
+bus = &"Sfx"
 
 [node name="DamageAudio" type="AudioStreamPlayer3D" parent="." index="6" unique_id=1404554447]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_elnj0")
+bus = &"Sfx"
 
 [connection signal="body_entered" from="Area3D" to="." method="damage" unbinds=1]

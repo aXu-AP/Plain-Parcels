@@ -75,9 +75,11 @@ draw_pass_1 = SubResource("QuadMesh_n3o0k")
 [node name="CollectAudio" type="AudioStreamPlayer3D" parent="Model" unique_id=25803589]
 unique_name_in_owner = true
 stream = ExtResource("3_1bpjt")
+bus = &"Stinger"
 
 [node name="BreakAudio" type="AudioStreamPlayer3D" parent="Model" unique_id=1838100546]
 unique_name_in_owner = true
 stream = ExtResource("4_i6p1d")
+bus = &"Stinger"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

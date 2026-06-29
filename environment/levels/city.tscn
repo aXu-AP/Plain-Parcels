@@ -16,15 +16,20 @@
 [ext_resource type="PackedScene" uid="uid://fyulu1v868oa" path="res://environment/buildings/rich_man_house.tscn" id="10_cy8hy"]
 [ext_resource type="PackedScene" uid="uid://di3v1ch8fq7j1" path="res://environment/buildings/halfarc_col.glb" id="10_k3n1d"]
 [ext_resource type="Material" uid="uid://dojdg8yber5oq" path="res://materials/walls.material" id="10_xx4tx"]
+[ext_resource type="AudioStream" uid="uid://ch7vv4ew14it7" path="res://environment/ambience/park.mp3" id="11_2b3xb"]
 [ext_resource type="PackedScene" uid="uid://do3akernwtx10" path="res://environment/buildings/octacon_col.glb" id="11_2o6r5"]
 [ext_resource type="Script" uid="uid://dcu2lrpxxcdaf" path="res://misc/height_override.gd" id="11_tgkqj"]
 [ext_resource type="PackedScene" uid="uid://bi3wjucbqxnds" path="res://environment/house/house.glb" id="11_wplpn"]
+[ext_resource type="Script" uid="uid://bksa01bxcxp4u" path="res://misc/sound_area_3d.gd" id="12_jp2sm"]
+[ext_resource type="AudioStream" uid="uid://5l71m7mu46pk" path="res://environment/ambience/construction.mp3" id="12_ty1sn"]
 [ext_resource type="PackedScene" uid="uid://cabed1rpt4083" path="res://environment/buildings/crane.tscn" id="13_2o6r5"]
+[ext_resource type="AudioStream" uid="uid://dbxcgj0cy8pwd" path="res://environment/ambience/beach.mp3" id="13_jp2sm"]
 [ext_resource type="Resource" uid="uid://d381wtj2vlcwy" path="res://misc/quests/city/cookie_delivery.tres" id="13_k4q6i"]
 [ext_resource type="Resource" uid="uid://blpw0u2l6t3v3" path="res://actors/person/city/young.tres" id="13_tt5cd"]
 [ext_resource type="Resource" uid="uid://bstr6yhe735uv" path="res://misc/quests/city/statue_cleaning.tres" id="14_tqocu"]
 [ext_resource type="Resource" uid="uid://cyf81y5p4wtfc" path="res://misc/quests/city/making_friends.tres" id="15_6frpt"]
 [ext_resource type="PackedScene" uid="uid://d3k4ruwtp0cjt" path="res://environment/plants/palm.glb" id="15_6sqxf"]
+[ext_resource type="AudioStream" uid="uid://bmpsqdfpl7m1s" path="res://environment/ambience/market.mp3" id="15_7x1jl"]
 [ext_resource type="Resource" uid="uid://4r52b7bvxufl" path="res://actors/person/city/rich.tres" id="15_gbexd"]
 [ext_resource type="PackedScene" uid="uid://c0o43vgw2jfhd" path="res://actors/person/person.tscn" id="15_hiqwa"]
 [ext_resource type="PackedScene" uid="uid://ddnhgbek2il4r" path="res://environment/plants/spruce.tscn" id="16_k4q6i"]
@@ -37,7 +42,7 @@
 [ext_resource type="PackedScene" uid="uid://0ks4o4mvb6yu" path="res://actors/jewel/jewel.tscn" id="21_bc84e"]
 [ext_resource type="Resource" uid="uid://dvvsn5n4bp0jv" path="res://misc/quests/city/bird_feeding_1.tres" id="22_tqocu"]
 [ext_resource type="Script" uid="uid://eb2d8rru8uw5" path="res://misc/exit_trigger.gd" id="23_il2jm"]
-[ext_resource type="Script" path="res://misc/coin_spawner.gd" id="24_mc2jv"]
+[ext_resource type="Script" uid="uid://pm8hpmyh6iqg" path="res://misc/coin_spawner.gd" id="24_mc2jv"]
 [ext_resource type="Resource" uid="uid://dee0v6tjaudxb" path="res://actors/person/city/granny.tres" id="25_xrsn8"]
 [ext_resource type="Resource" uid="uid://ceouj67bs2hjm" path="res://actors/person/city/kid.tres" id="27_fxuss"]
 [ext_resource type="PackedScene" uid="uid://cyya17uhqc7b5" path="res://environment/buildings/fountain.glb" id="27_o3ebs"]
@@ -284,6 +289,76 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 126.
 operation = 2
 size = Vector3(156.90067, 10.24305, 13.532433)
 material = SubResource("StandardMaterial3D_tgkqj")
+
+[node name="SoundAreas" type="Area3D" parent="." unique_id=178726671]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.917, 0, -36.603)
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="SoundAreas" unique_id=1329350086]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+depth = 15.0
+polygon = PackedVector2Array(-93.9913, 72.065414, -55.28691, -81.19508, 68.61163, -109.222404, 57.93457, -12.016544, 90.18823, 29.35712, 81.06821, 66.28199, 15.226257, 84.07713)
+
+[node name="ParkAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SoundAreas/CollisionPolygon3D" unique_id=603561691]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+stream = ExtResource("11_2b3xb")
+unit_size = 30.0
+max_db = 0.0
+autoplay = true
+max_distance = 150.0
+panning_strength = 0.5
+bus = &"Ambience"
+script = ExtResource("12_jp2sm")
+
+[node name="CollisionPolygon3D2" type="CollisionPolygon3D" parent="SoundAreas" unique_id=132695567]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 296.00983, 3.0517578e-05, 143.16846)
+depth = 15.0
+polygon = PackedVector2Array(56.106735, -63.837814, -6.7214203, -69.15926, -39.664543, -47.62775, -38.421783, 27.71119, 10.117966, 72.9282, 58.382492, 47.740257)
+
+[node name="ConstructionAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SoundAreas/CollisionPolygon3D2" unique_id=885010204]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+stream = ExtResource("12_ty1sn")
+unit_size = 30.0
+max_db = 0.0
+autoplay = true
+max_distance = 150.0
+panning_strength = 0.5
+bus = &"Ambience"
+script = ExtResource("12_jp2sm")
+
+[node name="CollisionPolygon3D3" type="CollisionPolygon3D" parent="SoundAreas" unique_id=1386771073]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 36.53418, 3.0517578e-05, 229.738)
+depth = 15.0
+polygon = PackedVector2Array(-189.31395, -138.02788, -58.518753, -65.9546, 76.726944, -44.320175, 281.37708, 49.67688, 285.5807, 190.95395, -279.80225, 9.463959)
+
+[node name="BeachAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SoundAreas/CollisionPolygon3D3" unique_id=1102918464]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+stream = ExtResource("13_jp2sm")
+unit_size = 40.0
+max_db = 0.0
+autoplay = true
+max_distance = 250.0
+panning_strength = 0.5
+bus = &"Ambience"
+script = ExtResource("12_jp2sm")
+
+[node name="CollisionPolygon3D4" type="CollisionPolygon3D" parent="SoundAreas" unique_id=1852295331]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 157.99916, 3.0517578e-05, -71.93427)
+depth = 15.0
+polygon = PackedVector2Array(41.615524, -27.869064, -68.553444, -34.357742, -65.233055, 65.545135, 43.607334, 64.49501)
+
+[node name="MarketAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SoundAreas/CollisionPolygon3D4" unique_id=743277052]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+stream = ExtResource("15_7x1jl")
+volume_db = -1.0
+unit_size = 30.0
+max_db = 0.0
+autoplay = true
+max_distance = 150.0
+panning_strength = 0.5
+bus = &"Ambience"
+script = ExtResource("12_jp2sm")
 
 [node name="Hill" type="CSGCombiner3D" parent="." unique_id=1353533368]
 material_override = SubResource("StandardMaterial3D_xrsn8")
